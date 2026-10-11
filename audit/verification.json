@@ -84,13 +84,36 @@
       "result": "all 30 canonical pages and metadata passed at repository subpath",
       "log": "metadata-final.log",
       "logSha256": "ce95585b533ed5c6863fdd02dd856458063065a8db546b553d6c4c0200885be3"
+    },
+    {
+      "command": "npm --prefix apps/web run build:demo",
+      "result": "passed after the two-column phone-tab correction",
+      "log": "phone-track-build.log",
+      "logSha256": "1977aab5dc45aa169caa628b7eb321b611a8d7795a6f6d4b47db778c2faad3dc"
+    },
+    {
+      "command": "npm --prefix apps/web run format:check",
+      "result": "passed",
+      "log": "phone-track-format.log",
+      "logSha256": "4cacd3f7647323a7af544cefc2ba9ded2c34025424e29d651aaa2fab0c8e8c74"
+    },
+    {
+      "command": "npm run test:demo -- curriculum-tracks.spec.ts",
+      "result": "1 passed; original 320px overflow assertion retained and extended to all four tracks",
+      "log": "phone-track-browser.log",
+      "logSha256": "01be6f27153937a94d44987579058de80d1ef12fc8feb9b7fe6dd2ffd5fcc9f5"
     }
   ],
   "browserHistory": {
     "fullAttempt": "97 passed, 1 failed, 4 did not run; the aggregate search text was truncated",
     "focused": "All seven infrastructure tests passed; stale source quotation/version expectations and missing new-note author metadata were subsequently fixed",
     "finalCoverage": "Root suite passes all 32 selected tests including infrastructure, search, presets, EMT, five dynamics studies and security. Subpath metadata passes all 30 pages. A complete single-run 102-test result is still required from commit-specific CI before merge.",
-    "assertions": "600000 decoded-byte, 60 KiB search-text, numerical tolerances and legacy contracts were retained; source version checks now bind to build identity"
+    "assertions": "600000 decoded-byte, 60 KiB search-text, numerical tolerances and legacy contracts were retained; source version checks now bind to build identity",
+    "firstPrCI": {
+      "run": "https://github.com/mohammadrezwankhan/datacenter-twin-lab/actions/runs/38183455785",
+      "head": "210d3d8d6a43561c3ee713eff76d290a00877f15",
+      "result": "All four verify jobs passed; 101 browser tests passed and the 320px curriculum overflow check failed on both attempts. Fixed the phone grid, retained the original check and extended it to all four tracks. New exact-head CI remains required."
+    }
   },
   "visual": {
     "targetWidths": [
