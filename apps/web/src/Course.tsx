@@ -10,6 +10,8 @@ import { courseThemes } from './course-themes';
 import { LessonScene } from './LessonScene';
 import { lessonValue, type LessonValue } from './lesson-results';
 import './course-experience.css';
+import { courseTotal, lessonNavigation, navigateLesson, relatedInfrastructure } from './curriculum';
+import { useVisitReviews } from './visit-reviews';
 
 const equations: Record<string, { formula: string; note: string }> = {
   'power-energy': {
@@ -100,7 +102,7 @@ export function Course() {
   } | null>(null);
   const [worksheetBusy, setWorksheetBusy] = useState(false);
   const [worksheetError, setWorksheetError] = useState('');
-  const [reviewedIds, setReviewedIds] = useState<string[]>([]);
+  const { reviewedIds, setReviewedIds } = useVisitReviews();
   const [intervalIndex, setIntervalIndex] = useState(0);
   const [motion, setMotion] = useState(
     () => !window.matchMedia('(prefers-reduced-motion: reduce)').matches,
@@ -111,9 +113,23 @@ export function Course() {
 
   function chooseLesson(nextId: string) {
     if (nextId === id) return;
+    if (lessonNavigation(nextId)?.renderer === 'infrastructure') {
+      navigateLesson(nextId);
+      return;
+    }
     navigationPending.current = true;
+    navigateLesson(nextId);
     setId(nextId);
   }
+
+  useEffect(() => {
+    const update = () => {
+      const nextId = new URLSearchParams(window.location.search).get('lesson');
+      if (nextId && lessons.some((item) => item.id === nextId)) setId(nextId);
+    };
+    window.addEventListener('popstate', update);
+    return () => window.removeEventListener('popstate', update);
+  }, []);
 
   async function calculate(input: string, submittedPrediction = '') {
     active.current?.abort();
@@ -235,7 +251,7 @@ export function Course() {
           <span>LESSON</span>
           <b>
             {position + 1}
-            <small> / 12</small>
+            <small> / {courseTotal}</small>
           </b>
         </div>
       </section>
@@ -461,10 +477,10 @@ export function Course() {
         </div>
         <div className="lesson-next">
           <span className="eyebrow">YOUR COURSE JOURNEY</span>
-          <h3>{position === 11 ? 'Keep your next question.' : 'Carry the idea forward.'}</h3>
+          <h3>Carry the idea forward.</h3>
           <p>
-            {position === 11
-              ? 'You have reached lesson 12. Revisit an assumption, compare another value, or export a result for discussion.'
+            {position === lessons.length - 1
+              ? `Next: ${lessonNavigation('evidence-load-ledger')!.title}`
               : `Next: ${lessons[position + 1].title.replace(/^\d+\. /, '')}`}
           </p>
           <button
@@ -488,12 +504,32 @@ export function Course() {
               Previous lesson
             </button>
             <button
-              disabled={position === lessons.length - 1}
-              onClick={() => chooseLesson(lessons[position + 1].id)}
+              onClick={() =>
+                position === lessons.length - 1
+                  ? navigateLesson('evidence-load-ledger')
+                  : chooseLesson(lessons[position + 1].id)
+              }
             >
               Next lesson <span aria-hidden="true">→</span>
             </button>
           </div>
+          {position === lessons.length - 1 && (
+            <p>
+              <a href="?lesson=evidence-load-ledger">Continue into Infrastructure Engineering</a> ·{' '}
+              <a href="?mode=emt">Explore EMT &amp; dynamics</a>
+            </p>
+          )}
+          {relatedInfrastructure(id).length > 0 && (
+            <nav aria-label="Related infrastructure lessons">
+              {relatedInfrastructure(id).map((item) => (
+                <p key={item.id}>
+                  <a href={`?lesson=${item.id}`}>
+                    {item.number} · {item.title}
+                  </a>
+                </p>
+              ))}
+            </nav>
+          )}
         </div>
       </section>
       {completed && (

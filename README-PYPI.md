@@ -35,7 +35,7 @@ output path; replacement requires the explicit `--force` flag.
 
 ## Browser and optional studies
 
-The [free static website](https://khanlab.co.technology/) provides twelve power
+The [free static website](https://khanlab.co.technology/) provides twelve Infrastructure Engineering lessons in addition to twelve power
 continuity lessons, a DC-link RLC lesson, and a power-dynamics research studio.
 The PyPI wheel contains the Python core and resources; it does not bundle the
 website or a shared simulation service.

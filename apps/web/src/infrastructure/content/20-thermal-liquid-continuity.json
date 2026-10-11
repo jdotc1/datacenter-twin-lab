@@ -1,0 +1,116 @@
+{
+  "id": "thermal-liquid-continuity",
+  "number": 20,
+  "chapter": 8,
+  "title": "Coordinate liquid cooling and thermal ride-through",
+  "trackId": "infrastructure",
+  "contentVersion": "2.0.0",
+  "estimatedMinutes": 25,
+  "route": "?lesson=thermal-liquid-continuity",
+  "readingRoute": "learn/infrastructure/thermal-liquid-continuity/",
+  "source": {
+    "id": "DCIE-R1",
+    "pdfPages": [38, 41],
+    "chapter": 8,
+    "evidenceStatus": "manuscript-derived; not independent source verification"
+  },
+  "prerequisites": ["ride-through", "ai-outage", "recovery-deadline"],
+  "lead": "Battery minutes do not create cooling minutes. Start with the manuscript’s mixed-cooling rack, then move to a separately labelled facility thermal model. The visual goal is to make both heat paths and their shared rejection boundary visible, so that the learner never mistakes a liquid-cooled label for complete removal of room heat.",
+  "objectives": [
+    "Calculate liquid capture and residual air-cooling demand.",
+    "Use a sensible heat balance with declared fluid properties.",
+    "Compare a lumped thermal interval with electrical storage and restoration time."
+  ],
+  "sections": [
+    {
+      "title": "Keep heat and electrical input separate",
+      "body": "Cooling electricity is not thermal-removal capacity. For a sensible single-phase balance, heat rate = mass flow × specific heat × temperature rise, or density × volumetric flow × specific heat × rise. The illustrative 20 MW room balance requires about 1,381.98 m³/s air at density 1.2 kg/m³, specific heat 1,005 J/(kg K) and a 12 K rise. This aggregate balance does not specify a complete plant.",
+      "evidenceLabel": "editorial-derivation"
+    },
+    {
+      "title": "Expose the heat that liquid cooling leaves behind",
+      "body": "At a 100 kW rack and an illustrative 80% liquid capture, the liquid path removes 80 kW and the air path still handles 20 kW. With water specific heat 4,180 J/(kg K) and a 10 K rise, liquid flow is about 1.914 kg/s. Under the stated air assumptions, residual airflow is about 1.382 m³/s. Direct-to-chip, rear-door and immersion arrangements have different interfaces and auxiliary dependencies; do not merge them into one universal loop.",
+      "evidenceLabel": "illustrative-assumption"
+    },
+    {
+      "title": "Start the thermal clock",
+      "body": "In a lumped loss-of-cooling model, temperature-rise rate is net heat input divided by effective thermal capacitance. With 150 MJ/K capacitance, 20 MW heat input, zero heat removal and a 5 K permissible rise, the interval is 37.5 s. Only thermally coupled mass on this time scale belongs in that capacitance, and local hot spots may reach limits sooner. A ten-minute UPS therefore does not establish ten minutes of thermal continuity.",
+      "evidenceLabel": "illustrative-assumption"
+    }
+  ],
+  "experiment": {
+    "model": "thermalScreen",
+    "defaultInputs": {
+      "heatMW": 20,
+      "removedMW": 0,
+      "capacitanceMJK": 150,
+      "deltaK": 5,
+      "rackKW": 100,
+      "captureFraction": 0.8,
+      "waterDeltaK": 10,
+      "waterCp": 4180,
+      "airDensity": 1.2,
+      "airCp": 1005,
+      "airDeltaK": 12
+    },
+    "challenge": {
+      "changes": {
+        "rackKW": 120,
+        "captureFraction": 0.75
+      },
+      "question": "How much room heat remains at the new rack boundary?",
+      "answer": "30 kW remains. This rack change does not silently change the separately declared 20 MW facility transient or its 37.5 s limit."
+    },
+    "predictionRequired": false,
+    "explicitRunRequired": true,
+    "instructions": [
+      "Read the declared boundary and units. Predict the selected result before calculating.",
+      "Run the starting case and inspect the ledger, assumptions and model limits.",
+      "Apply the challenge, run again, and explain the difference. Export only the last completed inputs and results."
+    ]
+  },
+  "scene": {
+    "id": "dcie-08",
+    "title": "Two heat paths, two continuity clocks",
+    "storyboard": [
+      "Reveal a rack cutaway, cold plates, residual air path and CDU.",
+      "Split the 100 kW heat balance into labelled 80 kW liquid and 20 kW air.",
+      "Move to the separately labelled 20 MW facility model and interrupt heat removal.",
+      "Run a physical-time cursor against the 37.5 s thermal limit and a separately stated 600 s electrical interval."
+    ],
+    "interaction": "Control capture fraction, rack power and restore time separately. Pause/scrub the labelled transient; show instantaneous full restoration only as an added preview assumption.",
+    "staticAlternative": "Heat-path table, flow calculations and temperature-rise-versus-time table with explicit assumptions.",
+    "projection": "orthographic axonometric SVG with upright HTML labels",
+    "loopPolicy": "user-started; pauseable; stop on hidden/offscreen",
+    "timelineSemantics": "Narrative steps unless an explicitly labelled physical-time model is active.",
+    "reducedMotion": "Same states and values; no particles, parallax, camera travel or tweening."
+  },
+  "assessments": [
+    {
+      "id": "8.1",
+      "question": "Find water mass flow for 500 kW with an 8 K rise and specific heat 4,180 J/(kg K).",
+      "answer": "14.95 kg/s.",
+      "rubric": "Convert kW to W.",
+      "source": "DCIE-R1 Appendix A, PDF pp.59-61"
+    },
+    {
+      "id": "8.2",
+      "question": "Derive the lumped thermal interval and identify a non-conservative case.",
+      "answer": "Integrate constant net heat input: t = C_eff ΔT / Q. Local concentration, poor mixing or overestimated coupled mass can shorten the true interval.",
+      "rubric": "State constant load, lost heat removal and spatial averaging.",
+      "source": "DCIE-R1 Appendix A, PDF pp.59-61"
+    },
+    {
+      "id": "8.3",
+      "question": "Find residual room heat at 120 kW and 75% liquid capture.",
+      "answer": "30 kW.",
+      "rubric": "Do not remove the residual air path from the diagram.",
+      "source": "DCIE-R1 Appendix A, PDF pp.59-61"
+    }
+  ],
+  "limits": [
+    "Not CFD, local junction-temperature prediction, heat-exchanger design or selected-equipment qualification.",
+    "Fluid properties and thermal capacitance are illustrative, not site measurements."
+  ],
+  "publicUseStatus": "Original lesson adaptation; owner confirmed rights and approved educational publication and attribution on 12 October 2026 (Europe/Paris). Engineering HOLD remains; see docs/releases/v2.0.0-publication-decision.md."
+}

@@ -22,3 +22,11 @@ network is attributed separately; third-party reference data is not relicensed
 by the project. NumPy and SciPy retain their own notices inside the distributed
 scientific runtime wheels. No original upload archive or compiled bytecode is
 included in the public tree.
+
+The twelve Infrastructure Engineering lessons are original educational
+adaptations of Data Centre Infrastructure Engineering, reference manuscript
+revision 1 (DCIE-R1), 11 October 2026. The accountable owner confirmed rights
+and approved educational publication and attribution; see
+docs/releases/v2.0.0-publication-decision.md. The manuscript's engineering HOLD
+remains. No private manuscript PDF, source archive, paid standards, third-party
+figures or font files are redistributed with these adaptations.

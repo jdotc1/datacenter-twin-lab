@@ -1,0 +1,112 @@
+{
+  "id": "commissioning-evidence-loop",
+  "number": 23,
+  "chapter": 11,
+  "title": "Build an integrated commissioning evidence loop",
+  "trackId": "infrastructure",
+  "contentVersion": "2.0.0",
+  "estimatedMinutes": 25,
+  "route": "?lesson=commissioning-evidence-loop",
+  "readingRoute": "learn/infrastructure/commissioning-evidence-loop/",
+  "source": {
+    "id": "DCIE-R1",
+    "pdfPages": [50, 53],
+    "chapter": 11,
+    "evidenceStatus": "manuscript-derived; not independent source verification"
+  },
+  "prerequisites": ["recovery-deadline", "pue", "thermal-liquid-continuity"],
+  "lead": "A completed component test answers a component question. Integrated continuity requires an initial state, expected sequence, instruments, acceptance criteria, stop conditions and recovery boundary that span the service chain. Compare two clocks, then examine the measurement boundary behind an apparently precise efficiency number.",
+  "objectives": [
+    "Build observable cause-and-effect and acceptance records.",
+    "Compare restoration time with electrical and thermal intervals.",
+    "Compute interval energy and first-order PUE standard uncertainty."
+  ],
+  "sections": [
+    {
+      "title": "Write an observable test before a verdict",
+      "body": "Record the initiating event, propagation path, affected service, detection, mitigation and required evidence. Utility loss can affect generator start, recharge inhibition, cooling controls, load restoration and network observability. A relay injection does not prove every primary CT connection; a load-bank test does not establish facility transfer; a battery test does not prove every trip contact. Numerical risk scores can organize discussion but do not become physical probabilities simply by multiplying ordinal rankings.",
+      "evidenceLabel": "editorial-derivation"
+    },
+    {
+      "title": "Find the tighter clock",
+      "body": "The manuscript’s illustrative sequence uses 2 s detection, 12 s start/acceleration, 3 s qualification and 8 s staged restoration: 25 s total. Against 600 s electrical storage and a 37.5 s thermal interval, the nominal thermal margin is 12.5 s. The timing values and lumped thermal limit are assumptions, not measured facility evidence. Record voltage, frequency, breaker state, load, DC voltage, flow, temperatures and service response at adequate timing resolution.",
+      "evidenceLabel": "illustrative-assumption"
+    },
+    {
+      "title": "Keep precision separate from the boundary",
+      "body": "At constant 20 MW IT and 27 MW facility demand over 8,760 h, the annualized energies are 175,200 and 236,520 MWh. For PUE 1.35 and independent relative standard uncertainties of 1% each, first-order standard uncertainty is about 0.0191. It is not an absolute bound or declared confidence interval. A meter outside the correct boundary is a model error, not merely an instrument-precision problem. Lower PUE also does not alone establish lower operational emissions.",
+      "evidenceLabel": "editorial-derivation"
+    }
+  ],
+  "experiment": {
+    "model": "commissioningScreen",
+    "defaultInputs": {
+      "stageSeconds": [2, 12, 3, 8],
+      "electricalSeconds": 600,
+      "thermalSeconds": 37.5,
+      "itMW": 20,
+      "hours": 8760,
+      "pue": 1.35,
+      "facilityRelativeUncertainty": 0.01,
+      "itRelativeUncertainty": 0.01
+    },
+    "challenge": {
+      "changes": {
+        "stageSeconds": [2, 12, 3, 23]
+      },
+      "question": "Which teaching constraint fails when staged restoration takes 23 s?",
+      "answer": "Total restoration becomes 40 s: a −2.5 s thermal margin even though electrical margin remains 560 s."
+    },
+    "predictionRequired": false,
+    "explicitRunRequired": true,
+    "instructions": [
+      "Read the declared boundary and units. Predict the selected result before calculating.",
+      "Run the starting case and inspect the ledger, assumptions and model limits.",
+      "Apply the challenge, run again, and explain the difference. Export only the last completed inputs and results."
+    ]
+  },
+  "scene": {
+    "id": "dcie-11",
+    "title": "A synchronized commissioning evidence wall",
+    "storyboard": [
+      "Reveal requirement → state → event → expected response.",
+      "Run a labelled restoration timeline alongside electrical and thermal limits.",
+      "Attach instrument records to each acceptance criterion rather than using decoration as evidence.",
+      "Route discrepancies back through correction and retest before baseline acceptance."
+    ],
+    "interaction": "Change one stage duration; inspect event timestamps and compare required versus observed values using clearly synthetic records.",
+    "staticAlternative": "Cause-and-effect matrix, timed event ledger and acceptance table with unresolved fields.",
+    "projection": "orthographic axonometric SVG with upright HTML labels",
+    "loopPolicy": "user-started; pauseable; stop on hidden/offscreen",
+    "timelineSemantics": "Narrative steps unless an explicitly labelled physical-time model is active.",
+    "reducedMotion": "Same states and values; no particles, parallax, camera travel or tweening."
+  },
+  "assessments": [
+    {
+      "id": "11.1",
+      "question": "Find annual IT energy for a constant 6 MW over 8,760 h.",
+      "answer": "52,560 MWh.",
+      "rubric": "Preserve power versus energy units.",
+      "source": "DCIE-R1 Appendix A, PDF pp.59-61"
+    },
+    {
+      "id": "11.2",
+      "question": "At PUE 1.4, find standard uncertainty for independent relative uncertainties of 0.5% and 1%.",
+      "answer": "About 0.01565.",
+      "rubric": "Use root-sum-square for the stated independent first-order model.",
+      "source": "DCIE-R1 Appendix A, PDF pp.59-61"
+    },
+    {
+      "id": "11.3",
+      "question": "Why does buying a more precise meter not fix the wrong measurement boundary?",
+      "answer": "The omitted or wrongly included load remains a measurement-system/model error.",
+      "rubric": "Separate precision from completeness of the boundary.",
+      "source": "DCIE-R1 Appendix A, PDF pp.59-61"
+    }
+  ],
+  "limits": [
+    "Synthetic teaching test records, not energization procedures or real commissioning authorization.",
+    "The default uncertainty model assumes independence; covariance must be explicit in any extension."
+  ],
+  "publicUseStatus": "Original lesson adaptation; owner confirmed rights and approved educational publication and attribution on 12 October 2026 (Europe/Paris). Engineering HOLD remains; see docs/releases/v2.0.0-publication-decision.md."
+}

@@ -4,7 +4,7 @@ _A reproducible synthetic continuity laboratory for datacenter power systems._
 
 ## Start with one battery question
 
-[Read the twelve course lessons](https://khanlab.co.technology/learn/) · [Reference results and sources](https://khanlab.co.technology/evidence/) · [About the author](https://khanlab.co.technology/about/)
+[Read the 24 course lessons](https://khanlab.co.technology/learn/) · [Reference results and sources](https://khanlab.co.technology/evidence/) · [About the author](https://khanlab.co.technology/about/)
 
 **How long can a 1 MW IT load ride through a utility outage on 100 kWh of stored battery energy?**
 
@@ -16,9 +16,9 @@ Halving the opening reserve to **50 kWh** gives **42.75 kWh** delivered to IT: *
 
 > This is a teaching and research tool for datacenter engineers learning electrical continuity. It is a narrow, synthetic, uncalibrated model—not a production reliability analysis. Detailed model boundaries and validation status are below.
 
-[![v1.0.0](https://img.shields.io/badge/release-v1.0.0-blue)](https://github.com/mohammadrezwankhan/datacenter-twin-lab/releases) [![CI on main](https://github.com/mohammadrezwankhan/datacenter-twin-lab/actions/workflows/tests.yml/badge.svg?branch=main)](https://github.com/mohammadrezwankhan/datacenter-twin-lab/actions/workflows/tests.yml) [![Support me on Ko-fi](https://img.shields.io/badge/Support%20me%20on%20Ko--fi-72a4f2?logo=ko-fi&logoColor=white)](https://ko-fi.com/N7V826XG89)
+[![v2.0.0](https://img.shields.io/badge/release-v2.0.0-blue)](https://github.com/mohammadrezwankhan/datacenter-twin-lab/releases) [![CI on main](https://github.com/mohammadrezwankhan/datacenter-twin-lab/actions/workflows/tests.yml/badge.svg?branch=main)](https://github.com/mohammadrezwankhan/datacenter-twin-lab/actions/workflows/tests.yml) [![Support me on Ko-fi](https://img.shields.io/badge/Support%20me%20on%20Ko--fi-72a4f2?logo=ko-fi&logoColor=white)](https://ko-fi.com/N7V826XG89)
 
-**v1.0.0 packages the complete teaching workflow:** guide, twelve lessons, eighteen presets, reports and reproducibility evidence. The CI badge follows `main`; check the exact released commit's results before relying on them. See [release readiness](docs/engineering/release-readiness.md).
+**v2.0.0 — Infrastructure Engineering** adds twelve manuscript-derived lessons, 36 assessments, separate educational models and twelve original SVG scenes to the existing guide, twelve continuity lessons, eighteen presets, reports, EMT and five dynamics studies. [Publication decision and attribution](docs/releases/v2.0.0-publication-decision.md); engineering HOLD remains. The CI badge follows `main`; check the exact released commit's results before relying on them. See [release readiness](docs/engineering/release-readiness.md).
 
 ## The three steps
 
@@ -42,11 +42,11 @@ The pictures below are screenshots of the actual guided interface. Their numbere
 
 - [Open the advanced energy workspace](https://khanlab.co.technology/?mode=advanced) to inspect the full topology, replay events, change bounded assumptions, and export runs.
 - [Open the existing 50 MW outage case](https://khanlab.co.technology/?preset=ai_cluster_utility_loss). It is a synthetic aggregate electrical case, not a GPU-throughput or grid-adequacy model.
-- [Start the 12-lesson course](https://khanlab.co.technology/?lesson=power-energy), or read its [course notes](docs/tutorials/power-systems-course.md).
+- [Start the 24-lesson course](https://khanlab.co.technology/?lesson=power-energy), or read its [course notes](docs/tutorials/power-systems-course.md).
 - Visit the [evidence hub](https://khanlab.co.technology/?mode=evidence) for source records and reproducibility material.
 - Browse the [tutorials](docs/tutorials/index.md), [scenario catalog](docs/scenarios/index.md), [unit-aware glossary](docs/scenarios/glossary.md), and [contribution ideas](docs/scenarios/contribution-ideas.md).
 
-The current source includes 18 named scenarios, four illustrative facility profiles, the twelve lessons, and on-demand reports and sensitivity tools. Ratings, demand, event timing, rates, and efficiencies are explicit synthetic inputs. [The roadmap](ROADMAP.md) separates capabilities in the release from work still planned or conditional.
+The current source includes 18 named scenarios, four illustrative facility profiles, 24 lessons, and on-demand reports and sensitivity tools. Ratings, demand, event timing, rates, and efficiencies are explicit synthetic inputs. [The roadmap](ROADMAP.md) separates capabilities in the release from work still planned or conditional.
 
 ## Explore faster electrical dynamics
 
@@ -62,17 +62,17 @@ The guide follows lesson 3's exact scenario recipe: it starts from the reference
 
 ### Reproduce the release evidence packet
 
-The tracked [release evidence index](data/evidence/index-v1.0.0.json) links the canonical scenario/run JSON, reports, manifest, and receipt. To regenerate and verify the packet from the tagged release source:
+The tracked [release evidence index](data/evidence/index-v2.0.0.json) links the canonical scenario/run JSON, reports, manifest, and receipt. To regenerate and verify the packet from the tagged release source:
 
 ```sh
 git clone https://github.com/mohammadrezwankhan/datacenter-twin-lab.git
 cd datacenter-twin-lab
-git checkout v1.0.0
-python scripts/build_evidence.py --output outputs/evidence
+git checkout v2.0.0
+python scripts/build_evidence.py --output outputs/evidence --revision "$(git rev-parse HEAD)"
 python scripts/build_evidence.py --verify outputs/evidence
 ```
 
-The script requires a fresh output directory under `outputs/` and prints the manifest digest. For an inspectable checked-in result, use the [tracked evidence index](data/evidence/index-v1.0.0.json) and [receipt](data/evidence/v1.0.0/receipt.md).
+The script requires a fresh output directory under `outputs/` and prints the manifest digest. For an inspectable checked-in result, use the [tracked evidence index](data/evidence/index-v2.0.0.json) and [receipt](data/evidence/v2.0.0/receipt.md). The checked-in packet has no self-referential commit hash; the release's external evidence manifest records the exact build revision. The [v1.0.0 packet](data/evidence/index-v1.0.0.json) remains historical and unchanged.
 
 ### Also run the original CLI preset
 
@@ -134,4 +134,4 @@ The public source tree excludes private manuals, planning references, and privat
 
 Original code and synthetic fixtures use [Apache-2.0](LICENSE). See [NOTICE](NOTICE), [synthetic provenance](data/provenance/manifest.json), and [browser runtime licenses](docs/third-party/README.md). [SOURCE-MANIFEST.json](SOURCE-MANIFEST.json) identifies the original v0.2.0a0 snapshot, not later versions. [Citation metadata](CITATION.cff) accompanies the project; cite the exact release or commit used.
 
-Earlier alpha and candidate assets remain historical and unchanged. Version 1.0.0 identifies the teaching-software release. Independent external reproduction remains outstanding; no facility validation, award or outside endorsement is claimed.
+Earlier alpha and candidate assets remain historical and unchanged. Version 2.0.0 is the owner-selected product milestone; planning schema 1, electrical schema 2 and historical releases are preserved. Independent external reproduction remains outstanding; no facility validation, award or outside endorsement is claimed.

@@ -3,6 +3,7 @@ import { lessons } from './course-lessons';
 import { courseChapters, courseThemes } from './course-themes';
 import { CurriculumTracks, trackForLesson } from './CurriculumTracks';
 import './course-map.css';
+import { courseCatalog, courseTotal } from './curriculum';
 
 type CourseMapProps = {
   selectedId: string;
@@ -23,7 +24,7 @@ export function CourseMap({ selectedId, reviewedIds, onSelect }: CourseMapProps)
   const selectedIndex = lessons.indexOf(selectedLesson);
   const selectedTheme = courseThemes[selectedLesson.id];
   const reviewed = new Set(reviewedIds);
-  const reviewedCount = lessons.filter((lesson) => reviewed.has(lesson.id)).length;
+  const reviewedCount = courseCatalog.filter((lesson) => reviewed.has(lesson.id)).length;
   const chapterIndex = courseChapters.findIndex((chapter) =>
     chapter.lessonIds.some((id: string) => id === selectedLesson.id),
   );
@@ -39,10 +40,11 @@ export function CourseMap({ selectedId, reviewedIds, onSelect }: CourseMapProps)
           <span className="course-map-kicker">Datacenter Twin Lab · course atlas</span>
           <div className="course-map-current-meta">
             <span>
-              Chapter {String(chapterIndex + 1).padStart(2, '0')} / {courseChapters.length}
+              Continuity chapter {String(chapterIndex + 1).padStart(2, '0')} /{' '}
+              {courseChapters.length}
             </span>
             <span>
-              Lesson {String(selectedIndex + 1).padStart(2, '0')} / {lessons.length}
+              Lesson {String(selectedIndex + 1).padStart(2, '0')} / {courseTotal}
             </span>
           </div>
         </div>
@@ -50,9 +52,9 @@ export function CourseMap({ selectedId, reviewedIds, onSelect }: CourseMapProps)
           <label className="course-map-select-label">
             Choose a lesson
             <select value={selectedLesson.id} onChange={(event) => choose(event.target.value)}>
-              {lessons.map((lesson) => (
+              {courseCatalog.map((lesson) => (
                 <option value={lesson.id} key={lesson.id}>
-                  {lesson.title}
+                  {lesson.number}. {lesson.title}
                 </option>
               ))}
             </select>
@@ -62,7 +64,7 @@ export function CourseMap({ selectedId, reviewedIds, onSelect }: CourseMapProps)
             aria-label={`${reviewedCount} lessons self-marked as reviewed in this visit`}
           >
             <span className="course-map-reviewed-count">
-              {reviewedCount} / {lessons.length}
+              {reviewedCount} / {courseTotal}
             </span>
             <span>
               Reviewed in this visit
@@ -74,8 +76,10 @@ export function CourseMap({ selectedId, reviewedIds, onSelect }: CourseMapProps)
 
       <details className="course-map-disclosure" ref={atlas}>
         <summary>
-          <span>Explore all 12 lessons</span>
-          <span className="course-map-summary-note">4 chapters · choose any lesson</span>
+          <span>Explore all {courseTotal} lessons</span>
+          <span className="course-map-summary-note">
+            Continuity and infrastructure · choose any lesson
+          </span>
         </summary>
         <div className="course-map-chapters">
           {courseChapters.map((chapter, index) => {
@@ -104,6 +108,7 @@ export function CourseMap({ selectedId, reviewedIds, onSelect }: CourseMapProps)
                     return (
                       <button
                         className={`course-map-card${isSelected ? ' is-current' : ''}${isReviewed ? ' is-reviewed' : ''}`}
+                        data-renderer="legacy"
                         type="button"
                         key={lesson.id}
                         style={lessonStyle(theme.accent, theme.softAccent)}
@@ -133,6 +138,24 @@ export function CourseMap({ selectedId, reviewedIds, onSelect }: CourseMapProps)
               </section>
             );
           })}
+          <section className="course-map-chapter" aria-label="Infrastructure Engineering">
+            <h3>Infrastructure Engineering</h3>
+            <div className="course-map-grid">
+              {courseCatalog
+                .filter((item) => item.renderer === 'infrastructure')
+                .map((item) => (
+                  <button
+                    className="course-map-card"
+                    key={item.id}
+                    onClick={() => choose(item.id)}
+                    aria-label={`Open lesson ${item.number}: ${item.title}`}
+                  >
+                    <span>{item.number}</span>
+                    <strong>{item.title}</strong>
+                  </button>
+                ))}
+            </div>
+          </section>
         </div>
         <p className="course-map-note">
           Reviewed marks are self-marked for this visit and are kept in session memory; they are not

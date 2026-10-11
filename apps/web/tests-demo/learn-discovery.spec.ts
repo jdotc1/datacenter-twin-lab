@@ -4,6 +4,7 @@ import { readFile } from 'node:fs/promises';
 import { resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { gzipSync } from 'node:zlib';
+import { infrastructureLessons } from '../seo-infrastructure';
 import { lessons } from '../src/course-lessons';
 import { emtIntroduction } from '../seo-emt';
 import { researchStudies } from '../seo-research';
@@ -17,21 +18,26 @@ test('search pages discovery manifest and cards preserve the 12/1/5 records in s
   const response = await request.get('./learn/manifest.json');
   expect(response.status()).toBe(200);
   const manifest = await response.json();
-  const expectedIds = [...lessons.map(({ id }) => id), 'emt', ...researchStudies.map(([id]) => id)];
+  const expectedIds = [
+    ...lessons.map(({ id }) => id),
+    'emt',
+    ...researchStudies.map(([id]) => id),
+    ...infrastructureLessons.map(({ id }) => id),
+  ];
 
-  expect(manifest.counts).toEqual({ continuity: 12, emt: 1, dynamics: 5 });
-  expect(manifest.items).toHaveLength(18);
+  expect(manifest.counts).toEqual({ continuity: 12, infrastructure: 12, emt: 1, dynamics: 5 });
+  expect(manifest.items).toHaveLength(30);
   expect(manifest.items.map((item: { id: string }) => item.id)).toEqual(expectedIds);
   expect(manifest.sourceTextNormalization).toBe('UTF-8, CRLF normalized to LF');
 
   await page.goto('./learn/');
-  await expect(page.locator('.learning-card')).toHaveCount(18);
+  await expect(page.locator('.learning-card')).toHaveCount(30);
   const cardIds = await page
     .locator('.learning-card')
     .evaluateAll((cards) => cards.map((card) => card.getAttribute('data-learning-id')));
   expect(cardIds).toEqual(expectedIds);
   await expect(page.locator('#learning-library .section-heading > p')).toContainText(
-    '12 continuity lessons · 1 EMT study · 5 advanced studies.',
+    '12 continuity lessons · 12 infrastructure lessons · 1 EMT study · 5 advanced studies.',
   );
 
   for (const item of manifest.items) {
@@ -82,7 +88,7 @@ test('search pages discovery cards remain readable and linked with JavaScript di
   const page = await context.newPage();
   try {
     await page.goto('./learn/');
-    await expect(page.locator('.learning-card')).toHaveCount(18);
+    await expect(page.locator('.learning-card')).toHaveCount(30);
     await expect(page.locator('.learn-search')).toBeHidden();
     for (const lesson of lessons) {
       const card = page.locator(`.learning-card[data-learning-id="${lesson.id}"]`);
@@ -147,15 +153,15 @@ test('search pages discovery filters, clear, malformed queries and history resto
 
   await search.fill('no-such-subject-xyz');
   await expect(page.locator('.learn-empty')).toBeVisible();
-  await expect(page.locator('#learning-count')).toHaveText('0 of 18 learning items shown');
+  await expect(page.locator('#learning-count')).toHaveText('0 of 30 learning items shown');
   await page.getByRole('button', { name: 'Clear filters' }).click();
-  await expect(page.locator('.learning-card:visible')).toHaveCount(18);
+  await expect(page.locator('.learning-card:visible')).toHaveCount(30);
   expect(new URL(page.url()).searchParams.has('q')).toBe(false);
   expect(new URL(page.url()).searchParams.has('path')).toBe(false);
   await page.goBack();
   await expect(page.locator('.learn-empty')).toBeVisible();
   await page.goForward();
-  await expect(page.locator('.learning-card:visible')).toHaveCount(18);
+  await expect(page.locator('.learning-card:visible')).toHaveCount(30);
 
   const hostileQuery = '<img src=x onerror=alert(1)>';
   await page.goto(`./learn/?path=invalid&q=${encodeURIComponent(hostileQuery)}`);

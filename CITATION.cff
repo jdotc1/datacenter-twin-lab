@@ -5,13 +5,14 @@ title: "Datacenter Twin Lab"
 authors:
   - family-names: Khan
     given-names: Mohammad Rezwan
-version: 1.0.0
-date-released: 2026-09-27
+version: 2.0.0
+date-released: 2026-10-12
 repository-code: "https://github.com/mohammadrezwankhan/datacenter-twin-lab"
 license: Apache-2.0
 abstract: >-
   Synthetic electrical-continuity and energy-planning research software with
-  a deterministic Python engine, local API, and dashboard. Not calibrated to
+  a deterministic Python engine, local API, dashboard and bounded educational
+  Infrastructure Engineering screens. Not calibrated to
   a real facility. Third-party references retain their separate rights notices.
 keywords:
   - data center

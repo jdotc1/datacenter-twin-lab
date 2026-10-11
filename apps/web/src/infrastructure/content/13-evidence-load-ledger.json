@@ -1,0 +1,112 @@
+{
+  "id": "evidence-load-ledger",
+  "number": 13,
+  "chapter": 1,
+  "title": "Build an evidence-controlled load ledger",
+  "trackId": "infrastructure",
+  "contentVersion": "2.0.0",
+  "estimatedMinutes": 25,
+  "route": "?lesson=evidence-load-ledger",
+  "readingRoute": "learn/infrastructure/evidence-load-ledger/",
+  "source": {
+    "id": "DCIE-R1",
+    "pdfPages": [10, 13],
+    "chapter": 1,
+    "evidenceStatus": "manuscript-derived; not independent source verification"
+  },
+  "prerequisites": ["power-energy", "distribution-loss", "pue"],
+  "lead": "Begin where the original course leaves off: not with a bigger battery, but with a more disciplined definition of demand. A facility total is meaningful only when every term belongs to the same boundary and operating condition. In this lesson, a 20 MW IT allocation becomes a traceable facility ledger, while a second example demonstrates why conflicting source values must remain visible.",
+  "objectives": [
+    "Separate connected ratings, coincident demand and future reservation.",
+    "Reconcile IT, cooling electricity, other loads and losses without duplication.",
+    "Distinguish an assumed design-point ratio from an interval energy PUE."
+  ],
+  "sections": [
+    {
+      "title": "Define the boundary before the total",
+      "body": "Give every load an identity, quantity, operating power, coincidence basis, growth treatment, supply path and evidence source. The planning relation is IT power = (1 + growth) × sum of quantity × operating power × demand factor. A second diversity allowance applied to an already diversified measurement can understate demand; a second growth allowance can overstate it. Unverified factors should remain assumptions rather than quietly becoming project facts.",
+      "evidenceLabel": "editorial-derivation"
+    },
+    {
+      "title": "Reconcile the twenty-megawatt example",
+      "body": "The manuscript reports 2,500 racks at 8 kW and a source design ratio of 1.35. The resulting design point is 20 MW IT and 27 MW facility power. Cooling electricity is 6.2 MW, leaving 0.8 MW for losses and other services together. Do not add cooling to 27 MW again, and do not call the entire 0.8 MW UPS loss. At power factor 0.9, the facility boundary is 30 MVA.",
+      "evidenceLabel": "source-statement"
+    },
+    {
+      "title": "Keep a conflict visible",
+      "body": "The separate 60 MW example lists 15 MW cooling and 2.4 MW other demand, giving 77.4 MW total and a ratio of 1.29, not its stated 1.25. The supplied sheet does not establish which item should change. Display both the stated claim and the reconciled arithmetic. An annual PUE requires energy at matched measurement boundaries and intervals; it is not automatically a peak-load multiplier.",
+      "evidenceLabel": "unresolved"
+    }
+  ],
+  "experiment": {
+    "model": "loadLedger",
+    "defaultInputs": {
+      "racks": 2500,
+      "rackKW": 8,
+      "demandFactor": 1,
+      "growth": 0,
+      "designRatio": 1.35,
+      "coolingKW": 6200,
+      "pf": 0.9,
+      "voltageKV": 13.8
+    },
+    "challenge": {
+      "changes": {
+        "designRatio": 1.25
+      },
+      "question": "Keeping 6.2 MW cooling unchanged, can the revised design ratio accommodate the ledger?",
+      "answer": "Facility demand becomes 25 MW and the residual becomes −1.2 MW. This is an inconsistent set of assumptions, not negative physical losses."
+    },
+    "predictionRequired": false,
+    "explicitRunRequired": true,
+    "instructions": [
+      "Read the declared boundary and units. Predict the selected result before calculating.",
+      "Run the starting case and inspect the ledger, assumptions and model limits.",
+      "Apply the challenge, run again, and explain the difference. Export only the last completed inputs and results."
+    ]
+  },
+  "scene": {
+    "id": "dcie-01",
+    "title": "The transparent facility ledger",
+    "storyboard": [
+      "Reveal the rack field and its IT boundary.",
+      "Lift four separately labelled ledger slabs: IT, cooling electricity, conversion loss, other.",
+      "Join the slabs into one facility total; a second cooling slab is flagged as duplication.",
+      "Switch to a matched-interval energy view without relabelling power as energy."
+    ],
+    "interaction": "Keyboard-select each ledger term; change the design ratio and expose a negative residual.",
+    "staticAlternative": "An accessible table of load terms, units, evidence labels and inclusion rules.",
+    "projection": "orthographic axonometric SVG with upright HTML labels",
+    "loopPolicy": "user-started; pauseable; stop on hidden/offscreen",
+    "timelineSemantics": "Narrative steps unless an explicitly labelled physical-time model is active.",
+    "reducedMotion": "Same states and values; no particles, parallax, camera travel or tweening."
+  },
+  "assessments": [
+    {
+      "id": "1.1",
+      "question": "A facility has 12 MW IT, 3 MW mechanical and 0.6 MW other demand. Find the design-point ratio.",
+      "answer": "1.30; it is not automatically annual PUE.",
+      "rubric": "Correct numerator and distinction between instantaneous power and interval energy.",
+      "source": "DCIE-R1 Appendix A, PDF pp.59-61"
+    },
+    {
+      "id": "1.2",
+      "question": "Derive the balanced three-phase current relationship.",
+      "answer": "P = 3 V_LN I pf and V_LL = √3 V_LN give S = √3 V_LL I.",
+      "rubric": "State balance and waveform assumptions; retain total three-phase units.",
+      "source": "DCIE-R1 Appendix A, PDF pp.59-61"
+    },
+    {
+      "id": "1.3",
+      "question": "What evidence is required before using a 30% diversity claim?",
+      "answer": "Define load population, observation or statistical basis, interval, growth treatment, contractual limits and exceedance consequences.",
+      "rubric": "Reject an unsupported universal demand factor.",
+      "source": "DCIE-R1 Appendix A, PDF pp.59-61"
+    }
+  ],
+  "limits": [
+    "The 1.35 multiplier is the manuscript’s source-specific design convention, not a general sizing rule.",
+    "Residual allocation and the 60 MW conflict remain open project questions."
+  ],
+  "publicUseStatus": "Original lesson adaptation; owner confirmed rights and approved educational publication and attribution on 12 October 2026 (Europe/Paris). Engineering HOLD remains; see docs/releases/v2.0.0-publication-decision.md."
+}

@@ -1,0 +1,111 @@
+{
+  "id": "facilities-phased-development",
+  "number": 22,
+  "chapter": 10,
+  "title": "Review spatial capacity and phased development",
+  "trackId": "infrastructure",
+  "contentVersion": "2.0.0",
+  "estimatedMinutes": 25,
+  "route": "?lesson=facilities-phased-development",
+  "readingRoute": "learn/infrastructure/facilities-phased-development/",
+  "source": {
+    "id": "DCIE-R1",
+    "pdfPages": [46, 49],
+    "chapter": 10,
+    "evidenceStatus": "manuscript-derived; not independent source verification"
+  },
+  "prerequisites": ["n-plus-one", "single-point", "ai-outage"],
+  "lead": "A rack count is not a facility plan. Equipment requires service space, replacement routes, structural capacity and coordinated boundaries through every construction phase. Use the manuscript’s historical operating account to practise reporting what was actually stated without turning different area descriptions into one misleading density metric.",
+  "objectives": [
+    "Keep gross, tenant, raised-floor, pod and occupied-rack boundaries separate.",
+    "Distinguish average pressure from concentrated structural loading.",
+    "Assess initial, expansion, tie-in and final service states."
+  ],
+  "sections": [
+    {
+      "title": "Treat access as part of capacity",
+      "body": "A workable plan includes equipment footprint, service clearances, replacement and lifting routes, cable and pipe paths, and coordinated fire/security boundaries. A final campus drawing can conceal first-phase dependencies on temporary supplies or routes that later work will disturb. A live migration also adds dual-running demand and configuration risk. Review each phase as an operating state instead of assuming final-state redundancy already exists.",
+      "evidenceLabel": "source-statement"
+    },
+    {
+      "title": "Use the structural screen for what it measures",
+      "body": "Average gravity pressure equals mass × gravitational acceleration / area. A 1,000 kg assembly uniformly distributed over 1 m² gives 9.81 kPa using 9.81 m/s². Actual rack feet, wheels, transport loads, raised-floor panels, supporting structure and restraint are not captured by that average. Similarly, installed cooling nameplates are not automatically firm post-failure capacity at actual ambient and fluid conditions.",
+      "evidenceLabel": "illustrative-assumption"
+    },
+    {
+      "title": "Preserve the historical account",
+      "body": "The manuscript reports a 2019 Metro Data Center account with different site, tenant and raised-floor areas, rack provision and pod descriptions. These refer to different boundaries, not interchangeable denominators. Seven 30-ton air handlers yield approximately 738.54 kW thermal nameplate sum. Do not transfer an N+1 statement about some glycol components to every air handler. Preserve “Dublink 100GB” as a historical label; the supplied account does not resolve it into a verified bit rate.",
+      "evidenceLabel": "source-statement"
+    }
+  ],
+  "experiment": {
+    "model": "facilityScreen",
+    "defaultInputs": {
+      "massKG": 1000,
+      "areaM2": 1,
+      "gravityMS2": 9.81,
+      "coolingUnits": 7,
+      "tonsPerUnit": 30,
+      "kwPerTon": 3.51685
+    },
+    "challenge": {
+      "changes": {
+        "massKG": 1500,
+        "areaM2": 1.2
+      },
+      "question": "What average pressure does the new rack screen produce?",
+      "answer": "12.2625 kPa. The result still does not resolve individual foot or wheel reactions."
+    },
+    "predictionRequired": false,
+    "explicitRunRequired": true,
+    "instructions": [
+      "Read the declared boundary and units. Predict the selected result before calculating.",
+      "Run the starting case and inspect the ledger, assumptions and model limits.",
+      "Apply the challenge, run again, and explain the difference. Export only the last completed inputs and results."
+    ]
+  },
+  "scene": {
+    "id": "dcie-10",
+    "title": "A phase-aware building cutaway",
+    "storyboard": [
+      "Reveal gross building, tenant, technical and access boundaries as distinct layers.",
+      "Show a maintained replacement route beside a rack field.",
+      "Move through initial occupancy, expansion works, tie-in and final configuration.",
+      "Select a historical datum and show its reported date, boundary and limitation."
+    ],
+    "interaction": "Switch phases, inspect temporary dependencies and compare distributed versus point-load descriptions.",
+    "staticAlternative": "Phase-state matrix, boundary glossary and historical-data table without a current-operation claim.",
+    "projection": "orthographic axonometric SVG with upright HTML labels",
+    "loopPolicy": "user-started; pauseable; stop on hidden/offscreen",
+    "timelineSemantics": "Narrative steps unless an explicitly labelled physical-time model is active.",
+    "reducedMotion": "Same states and values; no particles, parallax, camera travel or tweening."
+  },
+  "assessments": [
+    {
+      "id": "10.1",
+      "question": "Find average pressure for 1,500 kg over 1.2 m².",
+      "answer": "12.2625 kPa; point reactions need separate assessment.",
+      "rubric": "Use the declared gravity and convert Pa to kPa.",
+      "source": "DCIE-R1 Appendix A, PDF pp.59-61"
+    },
+    {
+      "id": "10.2",
+      "question": "Convert five 40-ton cooling units using 3.51685 kW/TR.",
+      "answer": "703.37 kW thermal nameplate sum.",
+      "rubric": "Do not relabel installed nameplate as firm capacity.",
+      "source": "DCIE-R1 Appendix A, PDF pp.59-61"
+    },
+    {
+      "id": "10.3",
+      "question": "What prevents a historical test frequency from becoming current compliance evidence?",
+      "answer": "Check adopted requirements, actual test scope and loading, current configuration, records and acceptance authority.",
+      "rubric": "Distinguish historical observation from present-day requirement.",
+      "source": "DCIE-R1 Appendix A, PDF pp.59-61"
+    }
+  ],
+  "limits": [
+    "Historical facility account only; no present operating status or certification verified.",
+    "No structural design, fire strategy, egress dimensions or construction approval."
+  ],
+  "publicUseStatus": "Original lesson adaptation; owner confirmed rights and approved educational publication and attribution on 12 October 2026 (Europe/Paris). Engineering HOLD remains; see docs/releases/v2.0.0-publication-decision.md."
+}

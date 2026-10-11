@@ -17,9 +17,9 @@ test('manifest preserves the existing prose, categories and verified destination
   assert.equal(manifest.schemaVersion, 1);
   assert.equal(manifest.sourceRevision, null);
   assert.equal(manifest.sourceTextNormalization, 'UTF-8, CRLF normalized to LF');
-  assert.deepEqual(manifest.counts, { continuity: 12, emt: 1, dynamics: 5 });
-  assert.equal(manifest.items.length, 18);
-  assert.equal(new Set(manifest.items.map(({ id }) => id)).size, 18);
+  assert.deepEqual(manifest.counts, { continuity: 12, infrastructure: 12, emt: 1, dynamics: 5 });
+  assert.equal(manifest.items.length, 30);
+  assert.equal(new Set(manifest.items.map(({ id }) => id)).size, 30);
 
   for (const [index, lesson] of lessons.entries()) {
     const item = manifest.items[index];
@@ -89,6 +89,12 @@ test('only the five power-dynamics records share a canonical overview', () => {
 
 test('source and display hashes are reproducible from their declared inputs', () => {
   const { items } = buildLearningManifest(null);
+  assert.ok(
+    items
+      .find(({ id }) => id === 'generator-bank-fuel')!
+      .sourceFiles.some(({ path }) => path === 'apps/web/src/infrastructure/fuel.ts'),
+    'The separate generator fuel defaults must be covered by source provenance',
+  );
   for (const item of items) {
     for (const source of item.sourceFiles) {
       assert.match(source.sha256, /^[a-f0-9]{64}$/);

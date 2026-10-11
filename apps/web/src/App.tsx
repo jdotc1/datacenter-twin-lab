@@ -18,6 +18,7 @@ import {
 } from './EnergyWorkspace';
 import { facilityProfiles } from './facility-profiles';
 import { ENGINE_VERSION } from './js-engine/version';
+import { courseTotal } from './curriculum';
 import './energy-workspace.css';
 
 const browserDemo = import.meta.env.MODE === 'demo';
@@ -25,7 +26,9 @@ const ResearchStudio = lazy(() =>
   import('./research/Studio').then((module) => ({ default: module.ResearchStudio })),
 );
 const EmtStudy = lazy(() => import('./emt/Study').then((module) => ({ default: module.EmtStudy })));
-const Course = lazy(() => import('./Course').then((module) => ({ default: module.Course })));
+const Course = lazy(() =>
+  import('./CourseRouter').then((module) => ({ default: module.CourseRouter })),
+);
 const CurriculumTracks = lazy(() =>
   import('./CurriculumTracks').then((module) => ({ default: module.CurriculumTracks })),
 );
@@ -52,8 +55,8 @@ function initialPage(): Page {
   const query = new URLSearchParams(window.location.search);
   if (browserDemo && query.has('study')) return 'studies';
   if (query.get('mode') === 'emt') return 'emt';
-  if (!browserDemo) return 'overview';
   if (query.has('lesson')) return 'learn';
+  if (!browserDemo) return 'overview';
   if (query.get('mode') === 'evidence') return 'assurance';
   return query.has('preset') || query.get('mode') === 'advanced' ? 'overview' : 'start';
 }
@@ -417,6 +420,7 @@ function Compare({ baseline, run }: { baseline: Run; run: Run }) {
 
 export function App() {
   const [page, setPage] = useState<Page>(initialPage);
+  const routeSearch = useRef(window.location.search);
   const needsWorkspace = !['start', 'learn', 'assurance', 'emt', 'studies'].includes(page);
   const [draft, setDraft] = useState<SiteScenario | null>(null),
     [run, setRun] = useState<Run | null>(null);
@@ -437,9 +441,18 @@ export function App() {
   );
   const active = useRef<AbortController | null>(null);
   const dirty = !!draft && !!run && JSON.stringify(draft) !== JSON.stringify(run.scenario);
+  useEffect(() => {
+    const update = () => {
+      if (window.location.search === routeSearch.current) return;
+      routeSearch.current = window.location.search;
+      setPage(initialPage());
+    };
+    window.addEventListener('popstate', update);
+    return () => window.removeEventListener('popstate', update);
+  }, []);
   function navigate(next: typeof page) {
     setPage(next);
-    if (browserDemo || next === 'emt' || page === 'emt') {
+    if (browserDemo || next === 'emt' || page === 'emt' || next === 'learn' || page === 'learn') {
       const url = new URL(window.location.href);
       if (next !== 'studies') url.searchParams.delete('study');
       else {
@@ -458,6 +471,7 @@ export function App() {
       if (next === 'learn' && !url.searchParams.has('lesson'))
         url.searchParams.set('lesson', 'power-energy');
       window.history.replaceState(null, '', url);
+      routeSearch.current = window.location.search;
     }
     window.requestAnimationFrame(() => document.getElementById('workspace-main')?.focus());
   }
@@ -600,7 +614,7 @@ export function App() {
           {(
             [
               ...(browserDemo ? [['start', '◉', 'Start here'] as const] : []),
-              ...(browserDemo ? [['learn', '▹', '12 browser lessons'] as const] : []),
+              ...(browserDemo ? [['learn', '▹', `${courseTotal} browser lessons`] as const] : []),
               ['emt', '∿', 'EMT study'],
               ...(browserDemo ? [['studies', '◌', 'Power dynamics studies'] as const] : []),
               ['overview', '◫', browserDemo ? 'Advanced workspace' : 'Overview'],
@@ -632,7 +646,7 @@ export function App() {
             <br />
             Understand.
           </strong>
-          <p>Twelve interactive lessons, from kW to continuity.</p>
+          <p>{courseTotal} interactive lessons, from kW to infrastructure evidence.</p>
           {browserDemo ? (
             <button onClick={() => navigate('learn')}>
               Open the course <span aria-hidden="true">↗</span>
@@ -707,7 +721,7 @@ export function App() {
                     : page === 'assurance'
                       ? 'Equations, inputs and outputs, together in one research assurance packet.'
                       : page === 'learn'
-                        ? 'Twelve interactive lessons for datacenter engineers. Predict, experiment and explain.'
+                        ? `${courseTotal} interactive lessons for datacenter engineers. Predict, experiment and explain.`
                         : page === 'evidence'
                           ? 'Trace the inputs and options behind each calculation.'
                           : page === 'energy'

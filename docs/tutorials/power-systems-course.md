@@ -1,10 +1,10 @@
 # Power systems continuity course
 
-[Read all twelve searchable lesson notes](https://khanlab.co.technology/learn/) with worked answers, configuration tables and source links, even with JavaScript disabled.
+[Read all 24 searchable lesson notes](https://khanlab.co.technology/learn/) with worked answers, configuration tables and source links, even with JavaScript disabled.
 
-**Twelve short browser lessons for datacenter engineers learning how power, energy, storage, and continuity events fit together.**
+**24 browser lessons for datacenter engineers: twelve continuity lessons followed by twelve Infrastructure Engineering lessons.**
 
-Start with the [power and energy lesson](https://khanlab.co.technology/?lesson=power-energy), then use the lesson selector or **Next lesson**. Each lesson has one input, a challenge value, a worked answer, and a result you can inspect in the browser.
+Start with the [power and energy lesson](https://khanlab.co.technology/?lesson=power-energy), then use the lesson selector or **Next lesson**. The continuity lessons each have one input, a challenge value, a worked answer, and a result you can inspect in the browser. Infrastructure lessons use separate educational screens, explicit Run controls and three assessments per lesson.
 
 After power/energy and ride-through, try [same 375 kWh, different outage outcomes](demand-timing.md): compare three demand schedules with identical total energy, peak power and storage, then explain the effect of outage overlap.
 
@@ -14,7 +14,7 @@ After power/energy and ride-through, try [same 375 kWh, different outage outcome
 
 For a different timescale after the twelve continuity lessons, try [Inside a voltage sag](../studies/emt.md) and the [Power dynamics study studio](../studies/power-dynamics.md). These separate advanced studies include their own equations, solver settings and numerical checks.
 
-Open **Explore all 12 lessons** to see four chapters: energy and reserve, continuity systems, shared risks and reserve, and planning at scale. Each lesson has its own accent color and scene. Numbers, titles, units and asset-state labels carry the meaning as well as color.
+Open **Explore all 24 lessons** to see the Infrastructure Engineering track and the original four continuity chapters: energy and reserve, continuity systems, shared risks and reserve, and planning at scale. Each lesson has its own accent color and scene. Numbers, titles, units and asset-state labels carry the meaning as well as color.
 
 1. **Configure:** use the slider or numeric field, or choose the starting or challenge input. A changed input stays a draft until you select **Run lesson**.
 2. **Predict:** optionally enter the expected result in the displayed units. Run the lesson to compare your prediction and the starting result with the completed calculation.
@@ -26,7 +26,7 @@ Objects are original vector illustrations of the returned values. **Pause motion
 
 ## Print a lesson worksheet
 
-In any lesson, enter an optional prediction, select **Run lesson**, then select **Download lesson worksheet** under **Reproduce this lesson**. Open the downloaded HTML in a browser to read it offline or use **Print / Save as PDF**. Choose A4 or US Letter, 100% scale, with browser headers and footers off; check print preview before sharing.
+In any of the twelve continuity lessons, enter an optional prediction, select **Run lesson**, then select **Download lesson worksheet** under **Reproduce this lesson**. Open the downloaded HTML in a browser to read it offline or use **Print / Save as PDF**. Choose A4 or US Letter, 100% scale, with browser headers and footers off; check print preview before sharing.
 
 The three sections start on separate printed pages:
 
@@ -117,3 +117,9 @@ The 1 MW reference fixture uses 1,000 kW IT demand, 100 kWh initial and maximum 
 No physical controls or external telemetry are used. The browser has no shared simulation backend or client analytics, and the local API binds to loopback. Independent external technical review, formal security audit, facility calibration, and real-site validation are absent. Lesson completion is not collected. Unknown costs and unavailable quantities remain explicit in exports.
 
 The course uses the repository's original synthetic fixtures and code under [Apache-2.0](../../LICENSE). See [NOTICE](../../NOTICE), [synthetic provenance](../../data/provenance/manifest.json), and [browser runtime licenses](../third-party/README.md).
+
+## Infrastructure Engineering, lessons 13–24
+
+Continue from PUE to the [evidence/load ledger](https://khanlab.co.technology/?lesson=evidence-load-ledger), or select the Infrastructure Engineering track. Read the declared source boundary, optionally predict, select **Run screen**, inspect the applied result, then select **Apply challenge** and run again. Each lesson includes its supplied prose, source locators, three assessments with answer criteria, a separate SVG scene and a no-JavaScript reading note. **Export completed screen** keeps the applied values, units, assumptions, version and hashes even after draft edits. Generator fuel has its own screen.
+
+Play/Pause and narrative stepping are explanatory; physical seconds appear only in the separately labelled thermal preview. Static tables and reduced motion preserve essential states. Source statement, Editorial derivation, Illustrative assumption and Unresolved identify the claim boundaries. Numerical agreement does not clear engineering HOLD. Infrastructure results have no supported in-browser Python-verification protocol. The existing worksheets and Python comparison remain available for their original continuity result family.

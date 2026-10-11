@@ -51,4 +51,16 @@ test('curriculum tabs expose the original lesson and study routes with keyboard 
     (element) => element.scrollWidth <= element.clientWidth,
   );
   expect(fitsPhone).toBe(true);
+  for (const tab of [
+    foundations,
+    facility,
+    power,
+    page.getByRole('tab', { name: /Infrastructure Engineering/ }),
+  ]) {
+    await tab.click();
+    await expect(tab).toHaveAttribute('aria-selected', 'true');
+    expect(await trackPanel.evaluate((element) => element.scrollWidth <= element.clientWidth)).toBe(
+      true,
+    );
+  }
 });

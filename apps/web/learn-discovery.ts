@@ -5,7 +5,7 @@ const cards = [...document.querySelectorAll<HTMLElement>('[data-learning-id]')];
 const filters = [...document.querySelectorAll<HTMLButtonElement>('[data-filter]')];
 const count = document.querySelector<HTMLElement>('#learning-count');
 const empty = document.querySelector<HTMLElement>('.learn-empty');
-const kinds = new Set(['all', 'continuity', 'emt', 'dynamics']);
+const kinds = new Set(['all', 'continuity', 'infrastructure', 'emt', 'dynamics']);
 let path = 'all';
 
 function render(): void {

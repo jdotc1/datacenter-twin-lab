@@ -1,0 +1,110 @@
+{
+  "id": "resilience-state-matrix",
+  "number": 14,
+  "chapter": 2,
+  "title": "Test capacity, paths and common dependencies",
+  "trackId": "infrastructure",
+  "contentVersion": "2.0.0",
+  "estimatedMinutes": 25,
+  "route": "?lesson=resilience-state-matrix",
+  "readingRoute": "learn/infrastructure/resilience-state-matrix/",
+  "source": {
+    "id": "DCIE-R1",
+    "pdfPages": [14, 17],
+    "chapter": 2,
+    "evidenceStatus": "manuscript-derived; not independent source verification"
+  },
+  "prerequisites": ["n-plus-one", "shared-controls", "single-point"],
+  "lead": "The existing lessons show how a surviving path or shared controller can govern electrical service. Now extend that intuition into a state matrix. Installed equipment, connected equipment and independently substitutable equipment are different sets. A spare counts only when it can reach the required load in the state being assessed.",
+  "objectives": [
+    "Calculate available capacity after specified losses.",
+    "Distinguish a bank screen from a connectivity proof.",
+    "Explain how common dependence changes an ideal availability model."
+  ],
+  "sections": [
+    {
+      "title": "Capacity belongs to an operating state",
+      "body": "For each normal, maintenance, failure and restoration state, sum the ratings of the equipment that remains connected and usable after site derating and any imposed loading ceiling. A bus, breaker, cable or interlock can restrict the route even when the bank total is adequate. The simple N+1 count is ceil(required demand / usable unit rating) + 1; this is a capacity screen, not a complete classification.",
+      "evidenceLabel": "editorial-derivation"
+    },
+    {
+      "title": "Count the usable units",
+      "body": "The review exercise uses 9 MW required demand, 2 MW units, a 0.9 derating and a 0.9 loading limit. Each usable unit contributes 1.62 MW. Seven installed units leave six after one loss, giving 9.72 MW and a 0.72 MW arithmetic margin. Six installed units would leave only 8.1 MW. The scene must not show a spare behind an isolated bus as available to the load.",
+      "evidenceLabel": "illustrative-assumption"
+    },
+    {
+      "title": "Interrogate independence",
+      "body": "For the declared stationary two-state model, availability equals MTBF divided by MTBF plus MTTR. Two conditionally independent substitutable paths have unavailability qA × qB while the shared dependency is healthy. Including shared unavailability q0 gives total availability (1−q0)(1−qAqB). With the manuscript’s illustrative path and common-dependency values, expected unavailable time is about 52.56 minutes per 8,760-hour year. That is neither an outage-duration guarantee nor Tier certification.",
+      "evidenceLabel": "editorial-derivation"
+    }
+  ],
+  "experiment": {
+    "model": "capacityBank",
+    "defaultInputs": {
+      "requiredMW": 9,
+      "unitMW": 2,
+      "derating": 0.9,
+      "loading": 0.9,
+      "installed": 7,
+      "unavailable": 1
+    },
+    "challenge": {
+      "changes": {
+        "installed": 6
+      },
+      "question": "Does one spare still leave enough usable capacity?",
+      "answer": "Five usable units remain: 8.1 MW, a 0.9 MW shortfall. The minimum elementary N+1 count is seven."
+    },
+    "predictionRequired": false,
+    "explicitRunRequired": true,
+    "instructions": [
+      "Read the declared boundary and units. Predict the selected result before calculating.",
+      "Run the starting case and inspect the ledger, assumptions and model limits.",
+      "Apply the challenge, run again, and explain the difference. Export only the last completed inputs and results."
+    ]
+  },
+  "scene": {
+    "id": "dcie-02",
+    "title": "A/B paths with visible common cause",
+    "storyboard": [
+      "Expose physically separate A and B corridors.",
+      "Remove one unit and recalculate connected capacity.",
+      "Highlight a shared control/fuel/cooling dependency using a distinct dependency edge.",
+      "Compare state rows without converting them into a certification badge."
+    ],
+    "interaction": "Choose normal, maintenance, one-failure and restoration states; inspect why a component is excluded.",
+    "staticAlternative": "State-by-state capacity and dependency table; each failed route also carries a text label.",
+    "projection": "orthographic axonometric SVG with upright HTML labels",
+    "loopPolicy": "user-started; pauseable; stop on hidden/offscreen",
+    "timelineSemantics": "Narrative steps unless an explicitly labelled physical-time model is active.",
+    "reducedMotion": "Same states and values; no particles, parallax, camera travel or tweening."
+  },
+  "assessments": [
+    {
+      "id": "2.1",
+      "question": "Size an N+1 bank for 9 MW with 2 MW units and both factors equal to 0.9.",
+      "answer": "Seven installed; six remaining provide 9.72 MW.",
+      "rubric": "Use both factors once and round up before adding the spare.",
+      "source": "DCIE-R1 Appendix A, PDF pp.59-61"
+    },
+    {
+      "id": "2.2",
+      "question": "Explain the common-dependency availability expression.",
+      "answer": "Condition service on the shared dependency being healthy, then multiply by the conditional parallel-path availability.",
+      "rubric": "State conditional independence rather than silently assuming all failures are independent.",
+      "source": "DCIE-R1 Appendix A, PDF pp.59-61"
+    },
+    {
+      "id": "2.3",
+      "question": "Why are two utility cables in one duct not universally independent?",
+      "answer": "The duct remains one shared failure domain for an excavation event.",
+      "rubric": "Tie independence to the initiating event and route evidence.",
+      "source": "DCIE-R1 Appendix A, PDF pp.59-61"
+    }
+  ],
+  "limits": [
+    "No probability estimate from the original deterministic simulator is implied.",
+    "Use Uptime Tier and TIA Rated terminology separately; no certification is awarded."
+  ],
+  "publicUseStatus": "Original lesson adaptation; owner confirmed rights and approved educational publication and attribution on 12 October 2026 (Europe/Paris). Engineering HOLD remains; see docs/releases/v2.0.0-publication-decision.md."
+}

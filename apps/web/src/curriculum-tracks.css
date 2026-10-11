@@ -39,7 +39,7 @@
 
 .curriculum-track-tabs {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 8px;
   margin-bottom: 9px;
 }
@@ -79,6 +79,11 @@
 .curriculum-track-tab[data-track='power-dynamics'] {
   --track-accent: #b59aff;
   --track-soft: #292343;
+}
+
+.curriculum-track-tab[data-track='infrastructure'] {
+  --track-accent: #63e6bc;
+  --track-soft: #17352f;
 }
 
 .curriculum-track-tab:hover {
@@ -178,6 +183,7 @@
   }
 
   .curriculum-track-tabs {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 5px;
   }
 

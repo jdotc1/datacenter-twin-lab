@@ -1,0 +1,117 @@
+{
+  "id": "network-optical-budget",
+  "number": 21,
+  "chapter": 9,
+  "title": "Separate physical routes, optical budgets and fabric capacity",
+  "trackId": "infrastructure",
+  "contentVersion": "2.0.0",
+  "estimatedMinutes": 25,
+  "route": "?lesson=network-optical-budget",
+  "readingRoute": "learn/infrastructure/network-optical-budget/",
+  "source": {
+    "id": "DCIE-R1",
+    "pdfPages": [42, 45],
+    "chapter": 9,
+    "evidenceStatus": "manuscript-derived; not independent source verification"
+  },
+  "prerequisites": ["single-point", "shared-controls", "n-plus-one"],
+  "lead": "Two fibres are not automatically two independent services, and a low optical loss is not automatically an application pass. Separate the physical administration route from the logical fabric, then calculate a narrow loss budget and post-uplink-loss capacity. The lesson adds communications reasoning without pretending that the existing electrical simulator already models packets.",
+  "objectives": [
+    "Distinguish distribution spaces from switching functions.",
+    "Calculate optical loss plus an explicit engineering margin.",
+    "Evaluate post-failure uplink capacity and common route dependencies."
+  ],
+  "sections": [
+    {
+      "title": "Draw two different maps",
+      "body": "Entrance arrangements, MDA, IDA/HDA, optional ZDA and EDA identify physical distribution and administration spaces. Leaf, spine, core and access identify logical connectivity or function. A top-of-rack switch can exist within a structured-cabling hierarchy. Two logical paths can still share a tray, patch panel, room, fire boundary, maintenance zone or transceiver supply. Preserve those physical dependencies rather than using a complete-looking mesh as proof.",
+      "evidenceLabel": "source-statement"
+    },
+    {
+      "title": "Add the channel losses",
+      "body": "The teaching channel is 100 m at 3.5 dB/km, four connector events at 0.35 dB, two splices at 0.1 dB and 0.5 dB engineering margin. The total budget allocation is 2.45 dB. Against an explicitly illustrative 2.6 dB interface budget, only 0.15 dB remains. Engineering margin is budget allocation, not a literal extra connector or measured attenuation. Dispersion, bandwidth, wavelength, polarity, reflectance and interface compatibility remain separate.",
+      "evidenceLabel": "illustrative-assumption"
+    },
+    {
+      "title": "Recalculate after a link loss",
+      "body": "Forty-eight 25 Gb/s downlinks total 1,200 Gb/s. Six 100 Gb/s uplinks total 600 Gb/s, giving 2:1 nominal oversubscription. One lost uplink leaves 500 Gb/s and a ratio of 2.4:1. This is a line-rate capacity ratio, not predicted application throughput. The underlying cabling guide is historical and the manuscript’s 2024 standards excerpt is front matter only; no missing normative clauses or current transceiver limits are supplied.",
+      "evidenceLabel": "unresolved"
+    }
+  ],
+  "experiment": {
+    "model": "networkScreen",
+    "defaultInputs": {
+      "lengthM": 100,
+      "dbPerKm": 3.5,
+      "connectors": 4,
+      "connectorDB": 0.35,
+      "splices": 2,
+      "spliceDB": 0.1,
+      "engineeringMarginDB": 0.5,
+      "budgetDB": 2.6,
+      "downlinks": 48,
+      "downlinkGbps": 25,
+      "uplinks": 6,
+      "uplinkGbps": 100,
+      "lostUplinks": 0
+    },
+    "challenge": {
+      "changes": {
+        "lostUplinks": 1
+      },
+      "question": "Does one uplink failure change the optical budget of the remaining channel?",
+      "answer": "The line-rate ratio becomes 2.4:1. The separately declared optical channel stays at 2.45 dB allocation and 0.15 dB remaining margin."
+    },
+    "predictionRequired": false,
+    "explicitRunRequired": true,
+    "instructions": [
+      "Read the declared boundary and units. Predict the selected result before calculating.",
+      "Run the starting case and inspect the ledger, assumptions and model limits.",
+      "Apply the challenge, run again, and explain the difference. Export only the last completed inputs and results."
+    ]
+  },
+  "scene": {
+    "id": "dcie-09",
+    "title": "A physical route beneath the logical fabric",
+    "storyboard": [
+      "Reveal entrance → distribution spaces → racks on a physical floor plane.",
+      "Lift the logical leaf–spine fabric above it without merging the identities.",
+      "Inspect each optical loss event and a separate margin reservation.",
+      "Remove one uplink and recalculate the capacity ratio; expose shared trays separately."
+    ],
+    "interaction": "Toggle physical/logical layers, remove uplinks with keyboard controls and inspect each loss term.",
+    "staticAlternative": "Separate physical-route and logical-link tables plus optical-loss and line-rate ledgers.",
+    "projection": "orthographic axonometric SVG with upright HTML labels",
+    "loopPolicy": "user-started; pauseable; stop on hidden/offscreen",
+    "timelineSemantics": "Narrative steps unless an explicitly labelled physical-time model is active.",
+    "reducedMotion": "Same states and values; no particles, parallax, camera travel or tweening."
+  },
+  "assessments": [
+    {
+      "id": "9.1",
+      "question": "Find loss allocation for 200 m at 3 dB/km, two 0.4 dB connectors and 0.5 dB margin.",
+      "answer": "1.9 dB.",
+      "rubric": "Convert metres to kilometres and keep margin explicit.",
+      "source": "DCIE-R1 Appendix A, PDF pp.59-61"
+    },
+    {
+      "id": "9.2",
+      "question": "Find normal and one-uplink-lost ratios for 32 × 25 Gb/s downlinks and 4 × 100 Gb/s uplinks.",
+      "answer": "2:1 normally; 800/300 ≈ 2.67:1 after one loss.",
+      "rubric": "Recalculate only active uplink capacity.",
+      "source": "DCIE-R1 Appendix A, PDF pp.59-61"
+    },
+    {
+      "id": "9.3",
+      "question": "Why is attenuation alone insufficient for a high-speed multimode channel?",
+      "answer": "Bandwidth, dispersion, polarity, reflectance and interface compatibility also require evidence.",
+      "rubric": "Do not call a loss screen full application conformity.",
+      "source": "DCIE-R1 Appendix A, PDF pp.59-61"
+    }
+  ],
+  "limits": [
+    "No packet simulator, latency prediction or contemporary transceiver recommendation.",
+    "No normative TIA-942-C body was supplied to the manuscript."
+  ],
+  "publicUseStatus": "Original lesson adaptation; owner confirmed rights and approved educational publication and attribution on 12 October 2026 (Europe/Paris). Engineering HOLD remains; see docs/releases/v2.0.0-publication-decision.md."
+}

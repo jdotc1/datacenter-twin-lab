@@ -1,0 +1,230 @@
+[
+  {
+    "id": "power-energy",
+    "number": 1,
+    "title": "Power becomes energy",
+    "trackId": "foundations",
+    "renderer": "legacy",
+    "readingRoute": "learn/power-energy/",
+    "prerequisites": []
+  },
+  {
+    "id": "distribution-loss",
+    "number": 2,
+    "title": "Account for distribution losses",
+    "trackId": "foundations",
+    "renderer": "legacy",
+    "readingRoute": "learn/distribution-loss/",
+    "prerequisites": []
+  },
+  {
+    "id": "ride-through",
+    "number": 3,
+    "title": "Calculate battery ride-through",
+    "trackId": "foundations",
+    "renderer": "legacy",
+    "readingRoute": "learn/ride-through/",
+    "prerequisites": []
+  },
+  {
+    "id": "generator-delay",
+    "number": 4,
+    "title": "Bridge generator startup",
+    "trackId": "foundations",
+    "renderer": "legacy",
+    "readingRoute": "learn/generator-delay/",
+    "prerequisites": []
+  },
+  {
+    "id": "generator-failure",
+    "number": 5,
+    "title": "Add a failed generator",
+    "trackId": "foundations",
+    "renderer": "legacy",
+    "readingRoute": "learn/generator-failure/",
+    "prerequisites": []
+  },
+  {
+    "id": "n-plus-one",
+    "number": 6,
+    "title": "Check a surviving path",
+    "trackId": "facility",
+    "renderer": "legacy",
+    "readingRoute": "learn/n-plus-one/",
+    "prerequisites": []
+  },
+  {
+    "id": "shared-controls",
+    "number": 7,
+    "title": "Expose shared control failures",
+    "trackId": "facility",
+    "renderer": "legacy",
+    "readingRoute": "learn/shared-controls/",
+    "prerequisites": []
+  },
+  {
+    "id": "single-point",
+    "number": 8,
+    "title": "Find a single point of failure",
+    "trackId": "facility",
+    "renderer": "legacy",
+    "readingRoute": "learn/single-point/",
+    "prerequisites": []
+  },
+  {
+    "id": "precharge",
+    "number": 9,
+    "title": "Track energy before the outage",
+    "trackId": "facility",
+    "renderer": "legacy",
+    "readingRoute": "learn/precharge/",
+    "prerequisites": []
+  },
+  {
+    "id": "ai-outage",
+    "number": 10,
+    "title": "Interrupt a 50 MW AI cluster",
+    "trackId": "facility",
+    "renderer": "legacy",
+    "readingRoute": "learn/ai-outage/",
+    "prerequisites": []
+  },
+  {
+    "id": "recovery-deadline",
+    "number": 11,
+    "title": "Catch a sub-second service gap",
+    "trackId": "facility",
+    "renderer": "legacy",
+    "readingRoute": "learn/recovery-deadline/",
+    "prerequisites": []
+  },
+  {
+    "id": "pue",
+    "number": 12,
+    "title": "Separate PUE from continuity",
+    "trackId": "facility",
+    "renderer": "legacy",
+    "readingRoute": "learn/pue/",
+    "prerequisites": []
+  },
+  {
+    "id": "evidence-load-ledger",
+    "number": 13,
+    "title": "Build an evidence-controlled load ledger",
+    "trackId": "infrastructure",
+    "renderer": "infrastructure",
+    "readingRoute": "learn/infrastructure/evidence-load-ledger/",
+    "prerequisites": ["power-energy", "distribution-loss", "pue"]
+  },
+  {
+    "id": "resilience-state-matrix",
+    "number": 14,
+    "title": "Test capacity, paths and common dependencies",
+    "trackId": "infrastructure",
+    "renderer": "infrastructure",
+    "readingRoute": "learn/infrastructure/resilience-state-matrix/",
+    "prerequisites": ["n-plus-one", "shared-controls", "single-point"]
+  },
+  {
+    "id": "transformer-fault-boundaries",
+    "number": 15,
+    "title": "Declare transformer and fault-current boundaries",
+    "trackId": "infrastructure",
+    "renderer": "infrastructure",
+    "readingRoute": "learn/infrastructure/transformer-fault-boundaries/",
+    "prerequisites": ["distribution-loss", "n-plus-one"]
+  },
+  {
+    "id": "generator-bank-fuel",
+    "number": 16,
+    "title": "Audit generator banks and usable fuel",
+    "trackId": "infrastructure",
+    "renderer": "infrastructure",
+    "readingRoute": "learn/infrastructure/generator-bank-fuel/",
+    "prerequisites": ["generator-delay", "generator-failure", "n-plus-one"]
+  },
+  {
+    "id": "ups-battery-station-dc",
+    "number": 17,
+    "title": "Separate UPS power, battery energy and trip DC",
+    "trackId": "infrastructure",
+    "renderer": "infrastructure",
+    "readingRoute": "learn/infrastructure/ups-battery-station-dc/",
+    "prerequisites": ["ride-through", "precharge", "distribution-loss"]
+  },
+  {
+    "id": "protection-trip-chain",
+    "number": 18,
+    "title": "Trace protection zones and the full trip chain",
+    "trackId": "infrastructure",
+    "renderer": "infrastructure",
+    "readingRoute": "learn/infrastructure/protection-trip-chain/",
+    "prerequisites": ["shared-controls", "single-point"]
+  },
+  {
+    "id": "grounding-power-quality",
+    "number": 19,
+    "title": "Inspect grounding, distortion and control-power loops",
+    "trackId": "infrastructure",
+    "renderer": "infrastructure",
+    "readingRoute": "learn/infrastructure/grounding-power-quality/",
+    "prerequisites": ["shared-controls", "single-point", "distribution-loss"]
+  },
+  {
+    "id": "thermal-liquid-continuity",
+    "number": 20,
+    "title": "Coordinate liquid cooling and thermal ride-through",
+    "trackId": "infrastructure",
+    "renderer": "infrastructure",
+    "readingRoute": "learn/infrastructure/thermal-liquid-continuity/",
+    "prerequisites": ["ride-through", "ai-outage", "recovery-deadline"]
+  },
+  {
+    "id": "network-optical-budget",
+    "number": 21,
+    "title": "Separate physical routes, optical budgets and fabric capacity",
+    "trackId": "infrastructure",
+    "renderer": "infrastructure",
+    "readingRoute": "learn/infrastructure/network-optical-budget/",
+    "prerequisites": ["single-point", "shared-controls", "n-plus-one"]
+  },
+  {
+    "id": "facilities-phased-development",
+    "number": 22,
+    "title": "Review spatial capacity and phased development",
+    "trackId": "infrastructure",
+    "renderer": "infrastructure",
+    "readingRoute": "learn/infrastructure/facilities-phased-development/",
+    "prerequisites": ["n-plus-one", "single-point", "ai-outage"]
+  },
+  {
+    "id": "commissioning-evidence-loop",
+    "number": 23,
+    "title": "Build an integrated commissioning evidence loop",
+    "trackId": "infrastructure",
+    "renderer": "infrastructure",
+    "readingRoute": "learn/infrastructure/commissioning-evidence-loop/",
+    "prerequisites": ["recovery-deadline", "pue", "thermal-liquid-continuity"]
+  },
+  {
+    "id": "integrated-design-release",
+    "number": 24,
+    "title": "Audit the correction before releasing the design",
+    "trackId": "infrastructure",
+    "renderer": "infrastructure",
+    "readingRoute": "learn/infrastructure/integrated-design-release/",
+    "prerequisites": [
+      "evidence-load-ledger",
+      "resilience-state-matrix",
+      "transformer-fault-boundaries",
+      "generator-bank-fuel",
+      "ups-battery-station-dc",
+      "protection-trip-chain",
+      "grounding-power-quality",
+      "thermal-liquid-continuity",
+      "network-optical-budget",
+      "facilities-phased-development",
+      "commissioning-evidence-loop"
+    ]
+  }
+]
