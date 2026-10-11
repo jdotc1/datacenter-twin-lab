@@ -1,6 +1,9 @@
 import { expect, test } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
+import { ENGINE_VERSION } from '../src/js-engine/version';
+import { courseTotal } from '../src/curriculum';
 import { lessons } from '../src/course-lessons';
+import { infrastructureLessons } from '../seo-infrastructure';
 import { readFile } from 'node:fs/promises';
 import { execFileSync } from 'node:child_process';
 import { join } from 'node:path';
@@ -48,7 +51,7 @@ test('search pages expose all twelve worked lessons with JavaScript disabled', a
   const page = await context.newPage();
   try {
     await page.goto('./');
-    await page.getByRole('link', { name: 'Read all twelve course lessons' }).click();
+    await page.getByRole('link', { name: 'Read all 24 course lessons' }).click();
     await expect(page.getByRole('heading', { level: 1 })).toHaveText(
       'Power Systems for Datacenter Engineers',
     );
@@ -92,9 +95,9 @@ test('search pages expose all twelve worked lessons with JavaScript disabled', a
       'href',
       'https://mrkhan.co.technology/',
     );
-    const manifest = await request.get('./data/evidence/v1.0.0/manifest.json');
+    const manifest = await request.get(`./data/evidence/v${ENGINE_VERSION}/manifest.json`);
     expect(manifest.status()).toBe(200);
-    expect((await manifest.json()).engine_version).toBe('1.0.0');
+    expect((await manifest.json()).engine_version).toBe(ENGINE_VERSION);
   } finally {
     await context.close();
   }
@@ -110,7 +113,7 @@ test('search pages sitemap, canonical URLs and social metadata agree', async ({
   const urls = [...(await sitemap.text()).matchAll(/<loc>([^<]+)<\/loc>/g)].map(
     (match) => match[1],
   );
-  expect(new Set(urls).size).toBe(18);
+  expect(new Set(urls).size).toBe(30);
   expect(urls.every((url) => url.startsWith(publicBase))).toBe(true);
   const robots = await request.get('./robots.txt');
   const robotsText = await robots.text();
@@ -133,7 +136,7 @@ test('search pages sitemap, canonical URLs and social metadata agree', async ({
   expect(fullText.status()).toBe(200);
   const fullTextBody = await fullText.text();
   expect(Buffer.byteLength(fullTextBody, 'utf8')).toBeLessThanOrEqual(60 * 1024);
-  expect(fullTextBody.match(/^## /gm)).toHaveLength(18);
+  expect(fullTextBody.match(/^## /gm)).toHaveLength(30);
   expect(fullTextBody).toContain('## Datacenter Power Systems: Free Interactive Course');
   expect(fullTextBody).toContain('## Power Systems for Datacenter Engineers');
   expect(fullTextBody).toContain('## DC-link EMT Study: Voltage Sag and Recovery');
@@ -141,7 +144,15 @@ test('search pages sitemap, canonical URLs and social metadata agree', async ({
   expect(fullTextBody).not.toContain('[Content truncated');
   expect(fullTextBody).not.toContain('Clear filters');
   expect(fullTextBody).not.toContain('Pause flow');
-  expect(fullTextBody).toContain('The ideal source may absorb reverse current');
+  expect(fullTextBody).toContain('The ideal source can absorb reverse current');
+  for (const lesson of infrastructureLessons) {
+    const entry = fullTextBody
+      .split(`## ${lesson.number}. ${lesson.title} | Datacenter Twin Lab\n`)[1]
+      ?.split('\n## ')[0];
+    expect(entry).toContain(`URL: ${publicBase}${lesson.readingRoute}`);
+    expect(entry).toContain(lesson.lead);
+    expect(entry).toContain('Engineering HOLD');
+  }
   const indexNow = await request.get('./bc90742762581d53d7c536004f9443ec.txt');
   expect(indexNow.status()).toBe(200);
   expect(await indexNow.text()).toBe('bc90742762581d53d7c536004f9443ec');
@@ -187,14 +198,14 @@ test('search pages sitemap, canonical URLs and social metadata agree', async ({
       const course = linkedData['@graph'].find(
         (item: { '@type': string }) => item['@type'] === 'Course',
       );
-      expect(course.hasPart).toHaveLength(12);
+      expect(course.hasPart).toHaveLength(courseTotal);
       expect(
         course.hasPart.every((item: { '@type': string }) => item['@type'] === 'LearningResource'),
       ).toBe(true);
       expect(course).not.toHaveProperty('hasCourseInstance');
     }
   }
-  expect(titles.size).toBe(18);
+  expect(titles.size).toBe(30);
   const image = await request.get('./guide-preview.png');
   expect(image.status()).toBe(200);
   expect(image.headers()['content-type']).toContain('image/png');
@@ -245,6 +256,9 @@ test('search pages result records reproduce all 24 native lesson calculations', 
   );
   const context = await browser.newContext({ javaScriptEnabled: false, baseURL });
   const page = await context.newPage();
+  const identity = await (await request.get('./build-identity.json')).json();
+  expect(identity.version).toBe(ENGINE_VERSION);
+  if (identity.sourceRevision !== null) expect(identity.sourceRevision).toMatch(/^[a-f0-9]{40}$/);
   try {
     for (const lesson of lessons) {
       const response = await request.get(`./learn/${lesson.id}/results.json`);
@@ -253,7 +267,7 @@ test('search pages result records reproduce all 24 native lesson calculations', 
       expect(record.lesson_id).toBe(lesson.id);
       expect(record.result_unit).toBe(lesson.resultUnit);
       expect(record.records).toHaveLength(2);
-      expect(record.source_revision).toMatch(/^(?:[a-f0-9]{40}|v1\.0\.0)$/);
+      expect(record.source_revision).toBe(identity.sourceRevision || `v${ENGINE_VERSION}`);
       const expected = expectations.find((item: { id: string }) => item.id === lesson.id);
       await page.goto(`./learn/${lesson.id}/#worked-answer`);
       const cells = page.locator('#calculated-results [data-result]');

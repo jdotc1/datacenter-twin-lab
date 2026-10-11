@@ -5,8 +5,9 @@ import { fileURLToPath } from 'node:url';
 import { lessons } from './src/course-lessons.ts';
 import { emtIntroduction } from './seo-emt.ts';
 import { researchStudies } from './seo-research.ts';
+import { infrastructureLessons } from './seo-infrastructure';
 
-export type LearningKind = 'continuity' | 'emt' | 'dynamics';
+export type LearningKind = 'continuity' | 'infrastructure' | 'emt' | 'dynamics';
 const sourceTextNormalization = 'UTF-8, CRLF normalized to LF' as const;
 
 export type LearningRecord = {
@@ -171,8 +172,37 @@ export function buildLearningManifest(sourceRevision: string | null) {
         cache,
       ),
     ),
+    ...infrastructureLessons.map((lesson) =>
+      withHashes(
+        {
+          id: lesson.id,
+          kind: 'infrastructure',
+          sequence: lesson.number,
+          title: lesson.title,
+          question: lesson.experiment.challenge.question,
+          description: lesson.lead,
+          tags: lesson.objectives,
+          modelFamily: 'infrastructure-screen-1',
+          overviewPath: `/${lesson.readingRoute}`,
+          runtimePath: `/?lesson=${lesson.id}`,
+          sharedOverview: false,
+          evidenceLinks: [
+            `/${lesson.readingRoute}`,
+            `/${lesson.readingRoute}results.json`,
+            'docs/validation/infrastructure-serialization.md',
+          ],
+        },
+        [
+          `apps/web/src/infrastructure/content/${lesson.number}-${lesson.id}.json`,
+          'apps/web/src/infrastructure/screens.ts',
+          ...(lesson.id === 'generator-bank-fuel' ? ['apps/web/src/infrastructure/fuel.ts'] : []),
+          'scripts/verify_infrastructure.py',
+        ],
+        cache,
+      ),
+    ),
   ];
-  const counts = { continuity: 0, emt: 0, dynamics: 0 };
+  const counts = { continuity: 0, infrastructure: 0, emt: 0, dynamics: 0 };
   for (const item of items) counts[item.kind] += 1;
   return { schemaVersion: 1 as const, sourceRevision, sourceTextNormalization, counts, items };
 }

@@ -1,9 +1,15 @@
 import { useEffect, useRef, useState, type KeyboardEvent } from 'react';
-import { lessons } from './course-lessons';
+import {
+  trackLessons,
+  trackForLesson,
+  type CurriculumTrackId,
+  type LessonTrackId,
+} from './curriculum';
 import { RESEARCH_STUDIES } from './research/types';
 import './curriculum-tracks.css';
 
-export type CurriculumTrackId = 'foundations' | 'facility' | 'power-dynamics';
+export { trackForLesson };
+export type { CurriculumTrackId };
 
 type CurriculumTracksProps = {
   /** Track containing the page currently shown. Selecting a tab only changes the choices below it. */
@@ -24,6 +30,12 @@ const trackDetails: Record<
     summary: 'Lessons 6–12',
     description: 'Trace facility paths, shared risks, recovery and planning at scale.',
   },
+  infrastructure: {
+    title: 'Infrastructure Engineering',
+    summary: 'Lessons 13–24',
+    description:
+      'Inspect source boundaries, cross-system capacity and unresolved engineering evidence.',
+  },
   'power-dynamics': {
     title: 'Power Dynamics & Transients',
     summary: 'EMT + 5 studies',
@@ -31,22 +43,23 @@ const trackDetails: Record<
   },
 };
 
-const trackOrder: CurriculumTrackId[] = ['foundations', 'facility', 'power-dynamics'];
-const trackLessonIds: Record<'foundations' | 'facility', readonly string[]> = {
-  foundations: lessons.slice(0, 5).map((lesson) => lesson.id),
-  facility: lessons.slice(5, 12).map((lesson) => lesson.id),
-};
+const trackOrder: CurriculumTrackId[] = [
+  'foundations',
+  'facility',
+  'power-dynamics',
+  'infrastructure',
+];
 
-export function trackForLesson(lessonId: string): Exclude<CurriculumTrackId, 'power-dynamics'> {
-  return trackLessonIds.foundations.includes(lessonId) ? 'foundations' : 'facility';
+for (const track of ['foundations', 'facility', 'infrastructure'] as const) {
+  const members = trackLessons(track);
+  trackDetails[track].summary = `Lessons ${members[0].number}–${members.at(-1)!.number}`;
 }
+trackDetails['power-dynamics'].summary = `EMT + ${RESEARCH_STUDIES.length} studies`;
 
-function lessonRouteChoices(trackId: 'foundations' | 'facility') {
-  const start = trackId === 'foundations' ? 0 : 5;
-  const count = trackId === 'foundations' ? 5 : 7;
-  return lessons.slice(start, start + count).map((lesson, offset) => ({
+function lessonRouteChoices(trackId: LessonTrackId) {
+  return trackLessons(trackId).map((lesson) => ({
     href: `?lesson=${encodeURIComponent(lesson.id)}`,
-    label: `Lesson ${start + offset + 1} · ${lesson.title.replace(/^\d+\.\s*/, '')}`,
+    label: `Lesson ${lesson.number} · ${lesson.title}`,
   }));
 }
 

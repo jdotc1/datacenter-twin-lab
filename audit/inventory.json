@@ -1,0 +1,3917 @@
+{
+  "inventorySchema": "datacenter-twin-release-inventory-1",
+  "auditDate": "2026-10-11",
+  "targetRelease": "2.0.0",
+  "auditBasis": {
+    "repository": "https://github.com/mohammadrezwankhan/datacenter-twin-lab",
+    "checkoutPath": "C:\\Users\\MRK\\Downloads\\DataCenterv2\\datacenter-twin-lab",
+    "baseBranch": "origin/main",
+    "baseSha": "1410b82d645d22b7e3af7f3803fa557a1d6c61e2",
+    "baseTreeSha1": "c647e5a4c686249a8ece494981ff86f12a6609e5",
+    "trackedFileCount": 364,
+    "trackedFiles": [
+      {
+        "path": ".gitattributes",
+        "mode": "100644",
+        "gitBlobSha1": "5ed5b0b83e66978f5c458c9bf5086b2956c74c3c"
+      },
+      {
+        "path": ".github/FUNDING.yml",
+        "mode": "100644",
+        "gitBlobSha1": "d235f4b2ea2d9aec6c0bfb852be75d1ef1cfb27b"
+      },
+      {
+        "path": ".github/ISSUE_TEMPLATE/bug-reproducibility.yml",
+        "mode": "100644",
+        "gitBlobSha1": "e8abe062b9e862fc684c6d503e24b8d9ca4ee6cf"
+      },
+      {
+        "path": ".github/ISSUE_TEMPLATE/config.yml",
+        "mode": "100644",
+        "gitBlobSha1": "3d3cdc2710aa526d5748deda9909565c12f461f5"
+      },
+      {
+        "path": ".github/ISSUE_TEMPLATE/first-run.yml",
+        "mode": "100644",
+        "gitBlobSha1": "92a4800bbe4f0838e89742c9feac673499db8072"
+      },
+      {
+        "path": ".github/ISSUE_TEMPLATE/scenario-proposal.yml",
+        "mode": "100644",
+        "gitBlobSha1": "4ca3d5b3a03d922ff26effae3c5beb23429559cf"
+      },
+      {
+        "path": ".github/PULL_REQUEST_TEMPLATE.md",
+        "mode": "100644",
+        "gitBlobSha1": "369935d9c946d224d2d3ec5f70b3fb68ab898ed3"
+      },
+      {
+        "path": ".github/workflows/publish-pypi.yml",
+        "mode": "100644",
+        "gitBlobSha1": "7d5a4f076bdf0c42eeefd342643613c0ffad865a"
+      },
+      {
+        "path": ".github/workflows/tests.yml",
+        "mode": "100644",
+        "gitBlobSha1": "a0f9d8ee206c60d7ebd3ff1c336f44478f2343e8"
+      },
+      {
+        "path": ".gitignore",
+        "mode": "100644",
+        "gitBlobSha1": "20128b4be0b2837edf15bb153683a2bf0a51ca63"
+      },
+      {
+        "path": "CHANGELOG.md",
+        "mode": "100644",
+        "gitBlobSha1": "9b86e63c352abf6515cc6f5c0b523e9c6a01c8ee"
+      },
+      {
+        "path": "CITATION.cff",
+        "mode": "100644",
+        "gitBlobSha1": "b9647b1ff7df0a83948f9abf3b3591ec67b27d4a"
+      },
+      {
+        "path": "CODE_OF_CONDUCT.md",
+        "mode": "100644",
+        "gitBlobSha1": "cc75eb1a91735e6776cbf4806718627738800bb6"
+      },
+      {
+        "path": "CONTRIBUTING.md",
+        "mode": "100644",
+        "gitBlobSha1": "34de6cc87774c3add1d224dcafc471912d0f550c"
+      },
+      {
+        "path": "LICENSE",
+        "mode": "100644",
+        "gitBlobSha1": "d645695673349e3947e8e5ae42332d0ac3164cd7"
+      },
+      {
+        "path": "NOTICE",
+        "mode": "100644",
+        "gitBlobSha1": "60b5678855bfe435281f8c6dff9d64628d478c26"
+      },
+      {
+        "path": "README-PYPI.md",
+        "mode": "100644",
+        "gitBlobSha1": "cf8384054b72c722e49642ce5bb677263205c470"
+      },
+      {
+        "path": "README.md",
+        "mode": "100644",
+        "gitBlobSha1": "5ff0db0dfd3fc539f42cc657e4e66a80568986b8"
+      },
+      {
+        "path": "ROADMAP.md",
+        "mode": "100644",
+        "gitBlobSha1": "30a9aa1ff0bd2018686579ec5e717130f784957d"
+      },
+      {
+        "path": "SECURITY.md",
+        "mode": "100644",
+        "gitBlobSha1": "896df4cc1a1f925b79336289f6907bd6f9bc910c"
+      },
+      {
+        "path": "SOURCE-MANIFEST.json",
+        "mode": "100644",
+        "gitBlobSha1": "652cfe5baa25afd11257127ca330ef3391324a15"
+      },
+      {
+        "path": "SUPPORT.md",
+        "mode": "100644",
+        "gitBlobSha1": "1af00138b0754fc68905a87e521010a10558d57e"
+      },
+      {
+        "path": "apps/web/.prettierrc.json",
+        "mode": "100644",
+        "gitBlobSha1": "554f2a3baa531082ce39a2c0710c6643d68749ef"
+      },
+      {
+        "path": "apps/web/index.html",
+        "mode": "100644",
+        "gitBlobSha1": "b43066fce85d8f13206c063cf9b65907368213ca"
+      },
+      {
+        "path": "apps/web/learn-discovery.ts",
+        "mode": "100644",
+        "gitBlobSha1": "30936d3b327993c07fa81d4f8d97662bbceacce9"
+      },
+      {
+        "path": "apps/web/learn-manifest.ts",
+        "mode": "100644",
+        "gitBlobSha1": "9bcd5715246f9a6072ca12b3cdb098e5e354fa0f"
+      },
+      {
+        "path": "apps/web/learn-page.ts",
+        "mode": "100644",
+        "gitBlobSha1": "a6f5f81b7c2258234504808e19aba01a7dccf1b0"
+      },
+      {
+        "path": "apps/web/learn.css",
+        "mode": "100644",
+        "gitBlobSha1": "c4f91d92e0e1fab920d10e57cd43e5e752ae032a"
+      },
+      {
+        "path": "apps/web/package-lock.json",
+        "mode": "100644",
+        "gitBlobSha1": "c1d3e19225507646c7b29cab2ee2e7c8533adeec"
+      },
+      {
+        "path": "apps/web/package.json",
+        "mode": "100644",
+        "gitBlobSha1": "55db8268bd90724c5b4436d9a0670f3b7fe3e78b"
+      },
+      {
+        "path": "apps/web/playwright.config.ts",
+        "mode": "100644",
+        "gitBlobSha1": "c8ff294ec07034ac281836e705bcb0eef4c95668"
+      },
+      {
+        "path": "apps/web/playwright.demo.config.ts",
+        "mode": "100644",
+        "gitBlobSha1": "2093ca74740cb43d7c0f399302135e3502b53e96"
+      },
+      {
+        "path": "apps/web/public/THIRD-PARTY-NOTICES.txt",
+        "mode": "100644",
+        "gitBlobSha1": "7bf722aae6caf2f5524862594aa75fadee683479"
+      },
+      {
+        "path": "apps/web/public/_headers",
+        "mode": "100644",
+        "gitBlobSha1": "b65b536cfa503c5235e1069047d4cc82a386e8d2"
+      },
+      {
+        "path": "apps/web/public/_redirects",
+        "mode": "100644",
+        "gitBlobSha1": "92d482f9d67eb00bc640cc84a66e226da5f6a93d"
+      },
+      {
+        "path": "apps/web/public/bc90742762581d53d7c536004f9443ec.txt",
+        "mode": "100644",
+        "gitBlobSha1": "39e372f63910d16bc5c0a6ae6d9af322e65a29ab"
+      },
+      {
+        "path": "apps/web/public/favicon.png",
+        "mode": "100644",
+        "gitBlobSha1": "86bae4f3edd44c0e35d2bbace192d67dc41757a2"
+      },
+      {
+        "path": "apps/web/public/favicon.svg",
+        "mode": "100644",
+        "gitBlobSha1": "643a24620b5b284f0f14d54026e6ce3af3ea4941"
+      },
+      {
+        "path": "apps/web/public/llms.txt",
+        "mode": "100644",
+        "gitBlobSha1": "b4efd49e5a72864c3a6d6b1014447da3b2a496db"
+      },
+      {
+        "path": "apps/web/scripts/record-demo.mjs",
+        "mode": "100644",
+        "gitBlobSha1": "5672e9d184e09af8e258645fd10472681ef56731"
+      },
+      {
+        "path": "apps/web/scripts/record-proof-demo.mjs",
+        "mode": "100644",
+        "gitBlobSha1": "8f7f34b4538113b08577a1922712dfcbce3f8ce7"
+      },
+      {
+        "path": "apps/web/security-headers.ts",
+        "mode": "100644",
+        "gitBlobSha1": "05b78d4fa44db783c8b6a64db5f9861c8772ef57"
+      },
+      {
+        "path": "apps/web/seo-emt.ts",
+        "mode": "100644",
+        "gitBlobSha1": "3a8127b9c9f929dfd799e8296cfb7d87889314db"
+      },
+      {
+        "path": "apps/web/seo-records.ts",
+        "mode": "100644",
+        "gitBlobSha1": "e0d4fadc43967007f2ec951732d4e3e341e7b673"
+      },
+      {
+        "path": "apps/web/seo-research.ts",
+        "mode": "100644",
+        "gitBlobSha1": "69a652f4bcc85bfa79c10e98c360627ce36f20bf"
+      },
+      {
+        "path": "apps/web/seo.ts",
+        "mode": "100644",
+        "gitBlobSha1": "534f21d30dfd95d31b7672691f401577937ce619"
+      },
+      {
+        "path": "apps/web/site.config.json",
+        "mode": "100644",
+        "gitBlobSha1": "53c91272dfa28c781aa94ee6ca773137fed2e752"
+      },
+      {
+        "path": "apps/web/src/App.tsx",
+        "mode": "100644",
+        "gitBlobSha1": "f3278b0b59ca56eba6e806bd7fc0a1bd1499d28a"
+      },
+      {
+        "path": "apps/web/src/Course.tsx",
+        "mode": "100644",
+        "gitBlobSha1": "f87fb0c27c3fb319ca904a556ec9a5677d071828"
+      },
+      {
+        "path": "apps/web/src/CourseMap.tsx",
+        "mode": "100644",
+        "gitBlobSha1": "a714dbe37496ddd1e6ec0204550ce9ed6c330e89"
+      },
+      {
+        "path": "apps/web/src/CurriculumTracks.tsx",
+        "mode": "100644",
+        "gitBlobSha1": "cc419830d59102e1aa37d34dc607fdac66183143"
+      },
+      {
+        "path": "apps/web/src/DemandTimeline.tsx",
+        "mode": "100644",
+        "gitBlobSha1": "370eb73eb8f35f951f514e5c7ec18fa6f6382078"
+      },
+      {
+        "path": "apps/web/src/EnergyWorkspace.tsx",
+        "mode": "100644",
+        "gitBlobSha1": "e5c8e6a2188a20cca313e46f2d29a5f3c33ca792"
+      },
+      {
+        "path": "apps/web/src/Evidence.tsx",
+        "mode": "100644",
+        "gitBlobSha1": "89dbbf92954ed848909cca6ae42adf7b71d3410c"
+      },
+      {
+        "path": "apps/web/src/EvidenceHub.tsx",
+        "mode": "100644",
+        "gitBlobSha1": "2608730a72ea1a47dab5e23b0b333d2db271660b"
+      },
+      {
+        "path": "apps/web/src/GuidedStart.tsx",
+        "mode": "100644",
+        "gitBlobSha1": "10d82ce504618a23b605d43443ae9fc8b41c2870"
+      },
+      {
+        "path": "apps/web/src/LessonScene.tsx",
+        "mode": "100644",
+        "gitBlobSha1": "8ba3f7e1a1e7559dc8b242da02098f5bafc22174"
+      },
+      {
+        "path": "apps/web/src/PowerScene.tsx",
+        "mode": "100644",
+        "gitBlobSha1": "0eafe00d5c224b135a902011556080016abf7367"
+      },
+      {
+        "path": "apps/web/src/PythonVerification.tsx",
+        "mode": "100644",
+        "gitBlobSha1": "c7381a39b99a9ef9c60bafb9b95aeadc0e8b193c"
+      },
+      {
+        "path": "apps/web/src/RunTools.tsx",
+        "mode": "100644",
+        "gitBlobSha1": "ec4ccf3c51fbe6fc65ec3c2a55ef7f5645f08ee8"
+      },
+      {
+        "path": "apps/web/src/RuntimeProgress.tsx",
+        "mode": "100644",
+        "gitBlobSha1": "6beef9d19d8542a0dce19f0e5095d1f9e4256b06"
+      },
+      {
+        "path": "apps/web/src/ScenarioFiles.tsx",
+        "mode": "100644",
+        "gitBlobSha1": "e130290b4719aa74f6a882445630176d8752eb3f"
+      },
+      {
+        "path": "apps/web/src/browser-client.ts",
+        "mode": "100644",
+        "gitBlobSha1": "34f7b49ccf421467efe22c8851f814ce69e07cc6"
+      },
+      {
+        "path": "apps/web/src/browser-worker.ts",
+        "mode": "100644",
+        "gitBlobSha1": "823c1e9a23c6ede6778ab99b929722f3e9124daf"
+      },
+      {
+        "path": "apps/web/src/chartPointer.ts",
+        "mode": "100644",
+        "gitBlobSha1": "4d0fd17752336fbc1467647a974c40129bd0fd3d"
+      },
+      {
+        "path": "apps/web/src/client.ts",
+        "mode": "100644",
+        "gitBlobSha1": "882364dff1a28c50dcf991686f595b8b0d167f98"
+      },
+      {
+        "path": "apps/web/src/course-experience.css",
+        "mode": "100644",
+        "gitBlobSha1": "9c059ccf533d15c5e3f3702fa830ace45da68fd1"
+      },
+      {
+        "path": "apps/web/src/course-lessons.ts",
+        "mode": "100644",
+        "gitBlobSha1": "9000fc1103b07bcf02bf01e6c80becaceb52bc7a"
+      },
+      {
+        "path": "apps/web/src/course-map.css",
+        "mode": "100644",
+        "gitBlobSha1": "c533fbe0afb280cb8feb2fa29383c7f245e965e5"
+      },
+      {
+        "path": "apps/web/src/course-themes.ts",
+        "mode": "100644",
+        "gitBlobSha1": "ba9e11480ba84707d6a2125c43a5d44adee965b2"
+      },
+      {
+        "path": "apps/web/src/curriculum-tracks.css",
+        "mode": "100644",
+        "gitBlobSha1": "139e5fe10c25bd46f2694141b630ffb8534b0509"
+      },
+      {
+        "path": "apps/web/src/demand-timeline.css",
+        "mode": "100644",
+        "gitBlobSha1": "055c015348666dd8b637bad9b2991ba1984b278c"
+      },
+      {
+        "path": "apps/web/src/demand-timeline.ts",
+        "mode": "100644",
+        "gitBlobSha1": "07af6ba6ee1c50e0e038c1f0da6e1cb298638c91"
+      },
+      {
+        "path": "apps/web/src/emt/Charts.tsx",
+        "mode": "100644",
+        "gitBlobSha1": "fe4ff36ba97115fc972166b9572343633beef416"
+      },
+      {
+        "path": "apps/web/src/emt/Scene.tsx",
+        "mode": "100644",
+        "gitBlobSha1": "dea5897794db5b03743f9ce627b1b1a9a625275b"
+      },
+      {
+        "path": "apps/web/src/emt/Study.tsx",
+        "mode": "100644",
+        "gitBlobSha1": "a2cbf289eddfb9649721cf7029bc2227526867c5"
+      },
+      {
+        "path": "apps/web/src/emt/Verification.tsx",
+        "mode": "100644",
+        "gitBlobSha1": "1d2240ce76b4436c5085cc21faf80eb389710e83"
+      },
+      {
+        "path": "apps/web/src/emt/engine.ts",
+        "mode": "100644",
+        "gitBlobSha1": "00b8f906f7a56f0dd8eef1defad725d200eac035"
+      },
+      {
+        "path": "apps/web/src/emt/study.css",
+        "mode": "100644",
+        "gitBlobSha1": "8b7ca546a81a5fbb8519cc233d3828dc31a8f269"
+      },
+      {
+        "path": "apps/web/src/energy-workspace.css",
+        "mode": "100644",
+        "gitBlobSha1": "394b99f26e6db9a37022350ee672fc9db0ac0860"
+      },
+      {
+        "path": "apps/web/src/evidence-hub.css",
+        "mode": "100644",
+        "gitBlobSha1": "10e69a0b84508285af10562dd670a3fcf0ecefc7"
+      },
+      {
+        "path": "apps/web/src/facility-profiles.ts",
+        "mode": "100644",
+        "gitBlobSha1": "05f956f1244f6aefdd0d06bf731cd74feb38b0d5"
+      },
+      {
+        "path": "apps/web/src/guided-start.css",
+        "mode": "100644",
+        "gitBlobSha1": "5de62136cfd0f039bf33d0e819a1fd06e8848a06"
+      },
+      {
+        "path": "apps/web/src/javascript-worker.ts",
+        "mode": "100644",
+        "gitBlobSha1": "93209f6d95134c13674dc3c84b3122970d052135"
+      },
+      {
+        "path": "apps/web/src/js-engine/canonical.ts",
+        "mode": "100644",
+        "gitBlobSha1": "ea237ab5e2df2313dabfee4e853f75665ada1a4a"
+      },
+      {
+        "path": "apps/web/src/js-engine/continuity.ts",
+        "mode": "100644",
+        "gitBlobSha1": "2eae3d1e53291d4a0922e611645594855634cc8d"
+      },
+      {
+        "path": "apps/web/src/js-engine/contract.ts",
+        "mode": "100644",
+        "gitBlobSha1": "f74e02bbd40a6421ebbd6ab48bdb9137b63ce418"
+      },
+      {
+        "path": "apps/web/src/js-engine/decimal.ts",
+        "mode": "100644",
+        "gitBlobSha1": "f385dddaef93ac083d085de5d2a84d00c472178d"
+      },
+      {
+        "path": "apps/web/src/js-engine/index.ts",
+        "mode": "100644",
+        "gitBlobSha1": "460756859833740420d933db4efd8af1489c962b"
+      },
+      {
+        "path": "apps/web/src/js-engine/planning.ts",
+        "mode": "100644",
+        "gitBlobSha1": "2cfb7c577bd4950a8231f41818e03223eb7778a3"
+      },
+      {
+        "path": "apps/web/src/js-engine/quotes.ts",
+        "mode": "100644",
+        "gitBlobSha1": "95ed40881ea04a3050f8957a00e3510410872f08"
+      },
+      {
+        "path": "apps/web/src/js-engine/report.ts",
+        "mode": "100644",
+        "gitBlobSha1": "2f5265435e6e6d7b3a95d3cc25aca34b884db90e"
+      },
+      {
+        "path": "apps/web/src/js-engine/sweep.ts",
+        "mode": "100644",
+        "gitBlobSha1": "9a18333cd9077ec6db3c3ded25597373bfda17ce"
+      },
+      {
+        "path": "apps/web/src/js-engine/types.ts",
+        "mode": "100644",
+        "gitBlobSha1": "7c8b9046295be338d88838c6c70ba1e9cf0656f7"
+      },
+      {
+        "path": "apps/web/src/js-engine/version.ts",
+        "mode": "100644",
+        "gitBlobSha1": "1c13c067cfa92cc97e9688e280814be39961c469"
+      },
+      {
+        "path": "apps/web/src/lesson-results.ts",
+        "mode": "100644",
+        "gitBlobSha1": "d05222f8c92a02e571ff1e3d74d31929206216e2"
+      },
+      {
+        "path": "apps/web/src/lesson-scene.css",
+        "mode": "100644",
+        "gitBlobSha1": "086bcc4cf616bfa2ecf91f0fc04e7e12dfe28b29"
+      },
+      {
+        "path": "apps/web/src/lesson-worksheet-style.ts",
+        "mode": "100644",
+        "gitBlobSha1": "7e491e82365d7993be50fe7db0661c88806bf691"
+      },
+      {
+        "path": "apps/web/src/lesson-worksheet.ts",
+        "mode": "100644",
+        "gitBlobSha1": "c93b5a9a15888c46ace62582f6707985db94cff3"
+      },
+      {
+        "path": "apps/web/src/main.tsx",
+        "mode": "100644",
+        "gitBlobSha1": "ed3b67f51d0aee682a5a4a2e37df2730b74a3cd8"
+      },
+      {
+        "path": "apps/web/src/power-scene.css",
+        "mode": "100644",
+        "gitBlobSha1": "440eadcdd2ece645df6cb8657a892397347a384f"
+      },
+      {
+        "path": "apps/web/src/python-client.ts",
+        "mode": "100644",
+        "gitBlobSha1": "c2cb9725f8cd06d866208ede2cf1036e6ab2aa64"
+      },
+      {
+        "path": "apps/web/src/research/ModePlot.tsx",
+        "mode": "100644",
+        "gitBlobSha1": "444cd4f50ab28f63b2d35a7e2dc49276b6aaec04"
+      },
+      {
+        "path": "apps/web/src/research/NetworkDiagram.tsx",
+        "mode": "100644",
+        "gitBlobSha1": "503a3aad73dcc892c667bc9144fd312291c6190e"
+      },
+      {
+        "path": "apps/web/src/research/ResearchChart.tsx",
+        "mode": "100644",
+        "gitBlobSha1": "40ebaf0b8289cd0c14faa5f0e81277301f2edbc2"
+      },
+      {
+        "path": "apps/web/src/research/Studio.tsx",
+        "mode": "100644",
+        "gitBlobSha1": "1b939345bb9e94e7d4ba66752a3d5bf57a66c95c"
+      },
+      {
+        "path": "apps/web/src/research/research.css",
+        "mode": "100644",
+        "gitBlobSha1": "df48897c8b8fb597b1fb53ca55baff55a9d42be8"
+      },
+      {
+        "path": "apps/web/src/research/runtime-client.ts",
+        "mode": "100644",
+        "gitBlobSha1": "32a64533dd095dc293b6d502bfc023968571b52b"
+      },
+      {
+        "path": "apps/web/src/research/runtime-worker.ts",
+        "mode": "100644",
+        "gitBlobSha1": "6dbbf28333c9c4ffe27c543a9f00cd0a8c76a3f7"
+      },
+      {
+        "path": "apps/web/src/research/types.ts",
+        "mode": "100644",
+        "gitBlobSha1": "e2f8e5bcd5162159bb7d0ac7b2d1af5e43c63e55"
+      },
+      {
+        "path": "apps/web/src/runtime-progress.css",
+        "mode": "100644",
+        "gitBlobSha1": "84ff9752746b43dca1a17e925277a7349c16cbbd"
+      },
+      {
+        "path": "apps/web/src/runtime-progress.ts",
+        "mode": "100644",
+        "gitBlobSha1": "4f47e09f1578b8318289b4e7926fa3f5ad02b524"
+      },
+      {
+        "path": "apps/web/src/scenario-comparison.css",
+        "mode": "100644",
+        "gitBlobSha1": "8bcb543cf0e5d87237901292c4891534cb5b36ee"
+      },
+      {
+        "path": "apps/web/src/scenario-files.css",
+        "mode": "100644",
+        "gitBlobSha1": "51db53415df73827b72da08743f9c3b2ffa55fb9"
+      },
+      {
+        "path": "apps/web/src/styles.css",
+        "mode": "100644",
+        "gitBlobSha1": "0609db96af003c4378cbb6014f279e1d45bea7b0"
+      },
+      {
+        "path": "apps/web/src/tokens.css",
+        "mode": "100644",
+        "gitBlobSha1": "519826ed70fd63d893336571d5caa5ef8fdf3519"
+      },
+      {
+        "path": "apps/web/src/types.ts",
+        "mode": "100644",
+        "gitBlobSha1": "09c0e4fa3fab8d9b8e5b0d78e5c36dd67511ad87"
+      },
+      {
+        "path": "apps/web/src/vite-env.d.ts",
+        "mode": "100644",
+        "gitBlobSha1": "11f02fe2a0061d6e6e1f271b21da95423b448b32"
+      },
+      {
+        "path": "apps/web/src/worker-request.ts",
+        "mode": "100644",
+        "gitBlobSha1": "1bf847f7033a096c639151e321f1fc0b5bbaa3a0"
+      },
+      {
+        "path": "apps/web/tests-demo/accessibility.spec.ts",
+        "mode": "100644",
+        "gitBlobSha1": "a82d1b764e3cdd1f54e48dc1a5001392a18a7185"
+      },
+      {
+        "path": "apps/web/tests-demo/benchmark.spec.ts",
+        "mode": "100644",
+        "gitBlobSha1": "5332883613a0e444ac3c72ab1566913ba8e38cfb"
+      },
+      {
+        "path": "apps/web/tests-demo/chart-inspection.spec.ts",
+        "mode": "100644",
+        "gitBlobSha1": "83ff36a9c7b926ed8df487c221f180f0308b276e"
+      },
+      {
+        "path": "apps/web/tests-demo/course-studio.spec.ts",
+        "mode": "100644",
+        "gitBlobSha1": "a65343f49260c28a485f2e1e036f1ebb92fc8185"
+      },
+      {
+        "path": "apps/web/tests-demo/course-test-helpers.ts",
+        "mode": "100644",
+        "gitBlobSha1": "0a861ca47f5e04035ba0830cc4034fc543fa9041"
+      },
+      {
+        "path": "apps/web/tests-demo/course.spec.ts",
+        "mode": "100644",
+        "gitBlobSha1": "70b517aba82bf7c7b45fd321765ff77d7bf97ae0"
+      },
+      {
+        "path": "apps/web/tests-demo/curriculum-tracks.spec.ts",
+        "mode": "100644",
+        "gitBlobSha1": "67afa9936f12386888ea558c735bc6b45cb3ddd5"
+      },
+      {
+        "path": "apps/web/tests-demo/demand-timeline.spec.ts",
+        "mode": "100644",
+        "gitBlobSha1": "f14a4506aee88db8327fe62c27a89863c6a5d3d1"
+      },
+      {
+        "path": "apps/web/tests-demo/demand-timing-lesson.spec.ts",
+        "mode": "100644",
+        "gitBlobSha1": "253ad4911e109a1455288ab2ab4c024ed42f56c8"
+      },
+      {
+        "path": "apps/web/tests-demo/demo.spec.ts",
+        "mode": "100644",
+        "gitBlobSha1": "417ba3bb75ada5e5cc8930b34f497b0854782d96"
+      },
+      {
+        "path": "apps/web/tests-demo/emt.spec.ts",
+        "mode": "100644",
+        "gitBlobSha1": "1bf8add248ef9b6a27fd137dcdce70273ecdd052"
+      },
+      {
+        "path": "apps/web/tests-demo/energy-workspace.spec.ts",
+        "mode": "100644",
+        "gitBlobSha1": "4e23c98cccb083a84342fd79f707bec68630fa45"
+      },
+      {
+        "path": "apps/web/tests-demo/evidence.spec.ts",
+        "mode": "100644",
+        "gitBlobSha1": "8314a4515deb461cca94aeb2fb84ef9b32b9ac4b"
+      },
+      {
+        "path": "apps/web/tests-demo/guided-start.spec.ts",
+        "mode": "100644",
+        "gitBlobSha1": "9f9343b06baf42cfbbb9025b8d57fa72614e7756"
+      },
+      {
+        "path": "apps/web/tests-demo/learn-discovery.spec.ts",
+        "mode": "100644",
+        "gitBlobSha1": "6f8d984bc658e7eb8f9b86dfe016fc2e8cd0840b"
+      },
+      {
+        "path": "apps/web/tests-demo/lesson-worksheet.spec.ts",
+        "mode": "100644",
+        "gitBlobSha1": "50d9f1a6b9e42eb4284ea9772a0987657b1531d5"
+      },
+      {
+        "path": "apps/web/tests-demo/research.spec.ts",
+        "mode": "100644",
+        "gitBlobSha1": "b98bad934efdf3a69bca63c8e8618bdd6bd5efc6"
+      },
+      {
+        "path": "apps/web/tests-demo/runtime-progress.spec.ts",
+        "mode": "100644",
+        "gitBlobSha1": "89d64870bebfb3b4e4ab240406c425a32608b9a2"
+      },
+      {
+        "path": "apps/web/tests-demo/scenario-comparison.spec.ts",
+        "mode": "100644",
+        "gitBlobSha1": "166fd1c47bb718ed24249106d16be4432eb0b57a"
+      },
+      {
+        "path": "apps/web/tests-demo/scenario-files.spec.ts",
+        "mode": "100644",
+        "gitBlobSha1": "6557c345eb1d4036fdd96625ba05a85e40b2c096"
+      },
+      {
+        "path": "apps/web/tests-demo/search-pages.spec.ts",
+        "mode": "100644",
+        "gitBlobSha1": "bbceb74f2310d75f4b0289df32191825182acc80"
+      },
+      {
+        "path": "apps/web/tests-demo/security.spec.ts",
+        "mode": "100644",
+        "gitBlobSha1": "d5a7cdae0e070c0d5729527553fca6510a420f46"
+      },
+      {
+        "path": "apps/web/tests-engine/demand-timeline.test.ts",
+        "mode": "100644",
+        "gitBlobSha1": "a4dbe57381d532a5f79f195af7320b265176f829"
+      },
+      {
+        "path": "apps/web/tests-engine/emt.test.ts",
+        "mode": "100644",
+        "gitBlobSha1": "ff98d15915890c73a5fffd825dcdc23a5b582fd8"
+      },
+      {
+        "path": "apps/web/tests-engine/engine.test.ts",
+        "mode": "100644",
+        "gitBlobSha1": "a91a28ade3a8241ed4d8cb913b138ceb4e54316e"
+      },
+      {
+        "path": "apps/web/tests-engine/facility-profiles.test.ts",
+        "mode": "100644",
+        "gitBlobSha1": "748eadf060471099a8f46bf1c5bcee6233d76f61"
+      },
+      {
+        "path": "apps/web/tests-engine/integration.test.ts",
+        "mode": "100644",
+        "gitBlobSha1": "986e709555aa2ac5335d0d6014159a7df0719049"
+      },
+      {
+        "path": "apps/web/tests-engine/learn-manifest.test.ts",
+        "mode": "100644",
+        "gitBlobSha1": "6ea1e15bbd86c0b07f156ebaf0bb31eb3097fc17"
+      },
+      {
+        "path": "apps/web/tests-engine/resolve-loader.mjs",
+        "mode": "100644",
+        "gitBlobSha1": "502da6f0e04231b180eb37a135868c6ed9d837cc"
+      },
+      {
+        "path": "apps/web/tests-engine/runtime-progress.test.ts",
+        "mode": "100644",
+        "gitBlobSha1": "e5382df92b74e0cbf0f7c67919aab7675d0d962d"
+      },
+      {
+        "path": "apps/web/tests/journey.spec.ts",
+        "mode": "100644",
+        "gitBlobSha1": "560fa3998521d432c7f8d18d205a3d7fc4ec89ce"
+      },
+      {
+        "path": "apps/web/tsconfig.json",
+        "mode": "100644",
+        "gitBlobSha1": "496ef65dd6f4976b34fa44825a88e7c5069e70d8"
+      },
+      {
+        "path": "apps/web/vite.config.ts",
+        "mode": "100644",
+        "gitBlobSha1": "b633c51d4f9baa337bf26e8315c4d1b411d46ee7"
+      },
+      {
+        "path": "data/evidence/index-v0.4.0rc1.json",
+        "mode": "100644",
+        "gitBlobSha1": "92adb9d1236a04161675802e0c81de44397e69ba"
+      },
+      {
+        "path": "data/evidence/index-v0.4.0rc2.json",
+        "mode": "100644",
+        "gitBlobSha1": "06643a46e5616bf23ab84051a825babf7251519e"
+      },
+      {
+        "path": "data/evidence/index-v0.4.0rc3.json",
+        "mode": "100644",
+        "gitBlobSha1": "ae1b2491a88bd89c683994537926fcd9d01a5b38"
+      },
+      {
+        "path": "data/evidence/index-v1.0.0.json",
+        "mode": "100644",
+        "gitBlobSha1": "65f0682dc6cc6a040bbfe2050fd85472611208ca"
+      },
+      {
+        "path": "data/evidence/v0.4.0rc1/environment.json",
+        "mode": "100644",
+        "gitBlobSha1": "a34f1bbe4f2e7e398288e03a953cbd1a7d1e28ad"
+      },
+      {
+        "path": "data/evidence/v0.4.0rc1/manifest.json",
+        "mode": "100644",
+        "gitBlobSha1": "5c2abc8a25932cedf0284c0e640ec040e0006e44"
+      },
+      {
+        "path": "data/evidence/v0.4.0rc1/receipt.md",
+        "mode": "100644",
+        "gitBlobSha1": "956895eb857e11e3873ec8c8eca6e1f8c500b5fb"
+      },
+      {
+        "path": "data/evidence/v0.4.0rc1/report-canonical-1mw-100kwh-a11b0d4078daef9a79e07f7969940203c23ccaa800c0a2c60cc5853b0acacfd0.html",
+        "mode": "100644",
+        "gitBlobSha1": "6c08cb41d22b24199b2edf924995cb54aebf6b56"
+      },
+      {
+        "path": "data/evidence/v0.4.0rc1/report-canonical-1mw-100kwh-a11b0d4078daef9a79e07f7969940203c23ccaa800c0a2c60cc5853b0acacfd0.md",
+        "mode": "100644",
+        "gitBlobSha1": "04906953064ea00a6542d1e740d8775e5041c602"
+      },
+      {
+        "path": "data/evidence/v0.4.0rc1/report-canonical-1mw-50kwh-0db72b981fa59c8a566e5610fd8627f4c623baeb8bb2662d22c5cae246a2b8b9.html",
+        "mode": "100644",
+        "gitBlobSha1": "628fc3cdf5788c18b4c9e379ca9ecc2a22c38926"
+      },
+      {
+        "path": "data/evidence/v0.4.0rc1/report-canonical-1mw-50kwh-0db72b981fa59c8a566e5610fd8627f4c623baeb8bb2662d22c5cae246a2b8b9.md",
+        "mode": "100644",
+        "gitBlobSha1": "46da89363e9d8cf9af6666fdc6426ed4518097db"
+      },
+      {
+        "path": "data/evidence/v0.4.0rc1/report-path-maintenance-700kw-6b446789e2f755b9ac1ac81896c7f0d85827a9a03b6ceedfd8fbdc6cb3b775dd.html",
+        "mode": "100644",
+        "gitBlobSha1": "3b71ccfa48163c9df7f17640cff2e6c97d5f7c96"
+      },
+      {
+        "path": "data/evidence/v0.4.0rc1/report-path-maintenance-700kw-6b446789e2f755b9ac1ac81896c7f0d85827a9a03b6ceedfd8fbdc6cb3b775dd.md",
+        "mode": "100644",
+        "gitBlobSha1": "3eeb07ac981b0113b45412d6e55c43668fc501ec"
+      },
+      {
+        "path": "data/evidence/v0.4.0rc1/run-canonical-1mw-100kwh-a11b0d4078daef9a79e07f7969940203c23ccaa800c0a2c60cc5853b0acacfd0.json",
+        "mode": "100644",
+        "gitBlobSha1": "c8f0e47cd6382adf7778425b96c91d064f480b76"
+      },
+      {
+        "path": "data/evidence/v0.4.0rc1/run-canonical-1mw-50kwh-0db72b981fa59c8a566e5610fd8627f4c623baeb8bb2662d22c5cae246a2b8b9.json",
+        "mode": "100644",
+        "gitBlobSha1": "af7661553acb0b562a8b2486ba744a9cc8324358"
+      },
+      {
+        "path": "data/evidence/v0.4.0rc1/run-path-maintenance-700kw-6b446789e2f755b9ac1ac81896c7f0d85827a9a03b6ceedfd8fbdc6cb3b775dd.json",
+        "mode": "100644",
+        "gitBlobSha1": "49bdb5bfd498680fc6e5d95418c381272bda56a8"
+      },
+      {
+        "path": "data/evidence/v0.4.0rc1/scenario-canonical-1mw-100kwh-a11b0d4078daef9a79e07f7969940203c23ccaa800c0a2c60cc5853b0acacfd0.json",
+        "mode": "100644",
+        "gitBlobSha1": "221dd9a41de495439eb65e096ce5824fc4de00d1"
+      },
+      {
+        "path": "data/evidence/v0.4.0rc1/scenario-canonical-1mw-50kwh-0db72b981fa59c8a566e5610fd8627f4c623baeb8bb2662d22c5cae246a2b8b9.json",
+        "mode": "100644",
+        "gitBlobSha1": "a5b1e670e4cc6d2e5aca83afe8032637571503b3"
+      },
+      {
+        "path": "data/evidence/v0.4.0rc1/scenario-path-maintenance-700kw-6b446789e2f755b9ac1ac81896c7f0d85827a9a03b6ceedfd8fbdc6cb3b775dd.json",
+        "mode": "100644",
+        "gitBlobSha1": "7c2c9237fa7cf2c9768d53d33e6f86af02ba4793"
+      },
+      {
+        "path": "data/evidence/v0.4.0rc2/environment.json",
+        "mode": "100644",
+        "gitBlobSha1": "856128aeaf66887c744685d3516f9c8e9bad54c4"
+      },
+      {
+        "path": "data/evidence/v0.4.0rc2/manifest.json",
+        "mode": "100644",
+        "gitBlobSha1": "8e122568e5404197de502b9ed29775cb988e0567"
+      },
+      {
+        "path": "data/evidence/v0.4.0rc2/receipt.md",
+        "mode": "100644",
+        "gitBlobSha1": "747580610520946d0939716a821d477a39d23708"
+      },
+      {
+        "path": "data/evidence/v0.4.0rc2/report-canonical-1mw-100kwh-a11b0d4078daef9a79e07f7969940203c23ccaa800c0a2c60cc5853b0acacfd0.html",
+        "mode": "100644",
+        "gitBlobSha1": "51b1f847f905895fa335bc6ac85d7542174e8cc4"
+      },
+      {
+        "path": "data/evidence/v0.4.0rc2/report-canonical-1mw-100kwh-a11b0d4078daef9a79e07f7969940203c23ccaa800c0a2c60cc5853b0acacfd0.md",
+        "mode": "100644",
+        "gitBlobSha1": "b76581a03d0307a531b886981f6c0c9bfacb503a"
+      },
+      {
+        "path": "data/evidence/v0.4.0rc2/report-canonical-1mw-50kwh-0db72b981fa59c8a566e5610fd8627f4c623baeb8bb2662d22c5cae246a2b8b9.html",
+        "mode": "100644",
+        "gitBlobSha1": "f2977e0906a681af4b63efff255c7b4d5e231e67"
+      },
+      {
+        "path": "data/evidence/v0.4.0rc2/report-canonical-1mw-50kwh-0db72b981fa59c8a566e5610fd8627f4c623baeb8bb2662d22c5cae246a2b8b9.md",
+        "mode": "100644",
+        "gitBlobSha1": "f94654be33d7cc7cded122a3cb9732cadc8dc99e"
+      },
+      {
+        "path": "data/evidence/v0.4.0rc2/report-path-maintenance-700kw-6b446789e2f755b9ac1ac81896c7f0d85827a9a03b6ceedfd8fbdc6cb3b775dd.html",
+        "mode": "100644",
+        "gitBlobSha1": "7ee8549caeb9b6cc8db9d9405988c02f42535b8c"
+      },
+      {
+        "path": "data/evidence/v0.4.0rc2/report-path-maintenance-700kw-6b446789e2f755b9ac1ac81896c7f0d85827a9a03b6ceedfd8fbdc6cb3b775dd.md",
+        "mode": "100644",
+        "gitBlobSha1": "c4d34ab45994fedf6e941c6ffbc35625d3215632"
+      },
+      {
+        "path": "data/evidence/v0.4.0rc2/run-canonical-1mw-100kwh-a11b0d4078daef9a79e07f7969940203c23ccaa800c0a2c60cc5853b0acacfd0.json",
+        "mode": "100644",
+        "gitBlobSha1": "955579aef15999ceb0c379cdda18987c90673742"
+      },
+      {
+        "path": "data/evidence/v0.4.0rc2/run-canonical-1mw-50kwh-0db72b981fa59c8a566e5610fd8627f4c623baeb8bb2662d22c5cae246a2b8b9.json",
+        "mode": "100644",
+        "gitBlobSha1": "d2bcf05dca310f3c5b91e3beae19c06f9d020a22"
+      },
+      {
+        "path": "data/evidence/v0.4.0rc2/run-path-maintenance-700kw-6b446789e2f755b9ac1ac81896c7f0d85827a9a03b6ceedfd8fbdc6cb3b775dd.json",
+        "mode": "100644",
+        "gitBlobSha1": "db10db597c8687465edd7c24aaf51167802aa88f"
+      },
+      {
+        "path": "data/evidence/v0.4.0rc2/scenario-canonical-1mw-100kwh-a11b0d4078daef9a79e07f7969940203c23ccaa800c0a2c60cc5853b0acacfd0.json",
+        "mode": "100644",
+        "gitBlobSha1": "221dd9a41de495439eb65e096ce5824fc4de00d1"
+      },
+      {
+        "path": "data/evidence/v0.4.0rc2/scenario-canonical-1mw-50kwh-0db72b981fa59c8a566e5610fd8627f4c623baeb8bb2662d22c5cae246a2b8b9.json",
+        "mode": "100644",
+        "gitBlobSha1": "a5b1e670e4cc6d2e5aca83afe8032637571503b3"
+      },
+      {
+        "path": "data/evidence/v0.4.0rc2/scenario-path-maintenance-700kw-6b446789e2f755b9ac1ac81896c7f0d85827a9a03b6ceedfd8fbdc6cb3b775dd.json",
+        "mode": "100644",
+        "gitBlobSha1": "7c2c9237fa7cf2c9768d53d33e6f86af02ba4793"
+      },
+      {
+        "path": "data/evidence/v0.4.0rc3/environment.json",
+        "mode": "100644",
+        "gitBlobSha1": "ba0fc04023c05b886eb049c81f2ddce77cdec938"
+      },
+      {
+        "path": "data/evidence/v0.4.0rc3/manifest.json",
+        "mode": "100644",
+        "gitBlobSha1": "f1d0b5161ba0c1af25da7048081cc57e4aae7d59"
+      },
+      {
+        "path": "data/evidence/v0.4.0rc3/receipt.md",
+        "mode": "100644",
+        "gitBlobSha1": "db854c7e94a3b9acd1b6f0edbf19b9db88f2c15f"
+      },
+      {
+        "path": "data/evidence/v0.4.0rc3/report-canonical-1mw-100kwh-a11b0d4078daef9a79e07f7969940203c23ccaa800c0a2c60cc5853b0acacfd0.html",
+        "mode": "100644",
+        "gitBlobSha1": "cd92e9bfee5d7ea236f7d0e7b0456367210d5444"
+      },
+      {
+        "path": "data/evidence/v0.4.0rc3/report-canonical-1mw-100kwh-a11b0d4078daef9a79e07f7969940203c23ccaa800c0a2c60cc5853b0acacfd0.md",
+        "mode": "100644",
+        "gitBlobSha1": "c6252358e0a25fffb5ddba312a6e46beb2fac4a7"
+      },
+      {
+        "path": "data/evidence/v0.4.0rc3/report-canonical-1mw-50kwh-0db72b981fa59c8a566e5610fd8627f4c623baeb8bb2662d22c5cae246a2b8b9.html",
+        "mode": "100644",
+        "gitBlobSha1": "8ce12afce3fbb1dd67fbc75eb064798acd337e1e"
+      },
+      {
+        "path": "data/evidence/v0.4.0rc3/report-canonical-1mw-50kwh-0db72b981fa59c8a566e5610fd8627f4c623baeb8bb2662d22c5cae246a2b8b9.md",
+        "mode": "100644",
+        "gitBlobSha1": "d231f33be453ca00cb2eb86b1ea9e9f5da017408"
+      },
+      {
+        "path": "data/evidence/v0.4.0rc3/report-path-maintenance-700kw-6b446789e2f755b9ac1ac81896c7f0d85827a9a03b6ceedfd8fbdc6cb3b775dd.html",
+        "mode": "100644",
+        "gitBlobSha1": "d635487d23305ce2765c1b66772031a4709f4f1f"
+      },
+      {
+        "path": "data/evidence/v0.4.0rc3/report-path-maintenance-700kw-6b446789e2f755b9ac1ac81896c7f0d85827a9a03b6ceedfd8fbdc6cb3b775dd.md",
+        "mode": "100644",
+        "gitBlobSha1": "60732f4202dfdb57bd870c3fd613ad7556935177"
+      },
+      {
+        "path": "data/evidence/v0.4.0rc3/run-canonical-1mw-100kwh-a11b0d4078daef9a79e07f7969940203c23ccaa800c0a2c60cc5853b0acacfd0.json",
+        "mode": "100644",
+        "gitBlobSha1": "e4dec4818c8ddd627564ee4f227537c4b82697ce"
+      },
+      {
+        "path": "data/evidence/v0.4.0rc3/run-canonical-1mw-50kwh-0db72b981fa59c8a566e5610fd8627f4c623baeb8bb2662d22c5cae246a2b8b9.json",
+        "mode": "100644",
+        "gitBlobSha1": "547b5705901b98b8eddd2caa5aba982641aedc01"
+      },
+      {
+        "path": "data/evidence/v0.4.0rc3/run-path-maintenance-700kw-6b446789e2f755b9ac1ac81896c7f0d85827a9a03b6ceedfd8fbdc6cb3b775dd.json",
+        "mode": "100644",
+        "gitBlobSha1": "8c5ffd7cb483b34671b9f01dcecdb538314fe3a6"
+      },
+      {
+        "path": "data/evidence/v0.4.0rc3/scenario-canonical-1mw-100kwh-a11b0d4078daef9a79e07f7969940203c23ccaa800c0a2c60cc5853b0acacfd0.json",
+        "mode": "100644",
+        "gitBlobSha1": "221dd9a41de495439eb65e096ce5824fc4de00d1"
+      },
+      {
+        "path": "data/evidence/v0.4.0rc3/scenario-canonical-1mw-50kwh-0db72b981fa59c8a566e5610fd8627f4c623baeb8bb2662d22c5cae246a2b8b9.json",
+        "mode": "100644",
+        "gitBlobSha1": "a5b1e670e4cc6d2e5aca83afe8032637571503b3"
+      },
+      {
+        "path": "data/evidence/v0.4.0rc3/scenario-path-maintenance-700kw-6b446789e2f755b9ac1ac81896c7f0d85827a9a03b6ceedfd8fbdc6cb3b775dd.json",
+        "mode": "100644",
+        "gitBlobSha1": "7c2c9237fa7cf2c9768d53d33e6f86af02ba4793"
+      },
+      {
+        "path": "data/evidence/v1.0.0/environment.json",
+        "mode": "100644",
+        "gitBlobSha1": "44f4b93ecc8dcdf957ce9ee8a1c4319c9a158a97"
+      },
+      {
+        "path": "data/evidence/v1.0.0/manifest.json",
+        "mode": "100644",
+        "gitBlobSha1": "b53c38408bb51d50db97fc840a549284ecb31b48"
+      },
+      {
+        "path": "data/evidence/v1.0.0/receipt.md",
+        "mode": "100644",
+        "gitBlobSha1": "88676181296600cee7beda1be1e448a3318a3305"
+      },
+      {
+        "path": "data/evidence/v1.0.0/report-canonical-1mw-100kwh-a11b0d4078daef9a79e07f7969940203c23ccaa800c0a2c60cc5853b0acacfd0.html",
+        "mode": "100644",
+        "gitBlobSha1": "a970e499fac1729f3734d4018f75486f6c83e0f6"
+      },
+      {
+        "path": "data/evidence/v1.0.0/report-canonical-1mw-100kwh-a11b0d4078daef9a79e07f7969940203c23ccaa800c0a2c60cc5853b0acacfd0.md",
+        "mode": "100644",
+        "gitBlobSha1": "6aeadf5dde485d65ce3f2c813dea3a553b5edcac"
+      },
+      {
+        "path": "data/evidence/v1.0.0/report-canonical-1mw-50kwh-0db72b981fa59c8a566e5610fd8627f4c623baeb8bb2662d22c5cae246a2b8b9.html",
+        "mode": "100644",
+        "gitBlobSha1": "1fca907703935bddc7d0b6f34ab643e29af01d13"
+      },
+      {
+        "path": "data/evidence/v1.0.0/report-canonical-1mw-50kwh-0db72b981fa59c8a566e5610fd8627f4c623baeb8bb2662d22c5cae246a2b8b9.md",
+        "mode": "100644",
+        "gitBlobSha1": "a47831120e2bebd355057c030afe3da14bbdc5a5"
+      },
+      {
+        "path": "data/evidence/v1.0.0/report-path-maintenance-700kw-6b446789e2f755b9ac1ac81896c7f0d85827a9a03b6ceedfd8fbdc6cb3b775dd.html",
+        "mode": "100644",
+        "gitBlobSha1": "8ca5402f40fb65f2d4cf14bc76678f12c195f1f5"
+      },
+      {
+        "path": "data/evidence/v1.0.0/report-path-maintenance-700kw-6b446789e2f755b9ac1ac81896c7f0d85827a9a03b6ceedfd8fbdc6cb3b775dd.md",
+        "mode": "100644",
+        "gitBlobSha1": "b52cdbf3cc04ceaaae799580f240585d753f53db"
+      },
+      {
+        "path": "data/evidence/v1.0.0/run-canonical-1mw-100kwh-a11b0d4078daef9a79e07f7969940203c23ccaa800c0a2c60cc5853b0acacfd0.json",
+        "mode": "100644",
+        "gitBlobSha1": "878aa1f4078b2bc771790feed78c76c701fd4c01"
+      },
+      {
+        "path": "data/evidence/v1.0.0/run-canonical-1mw-50kwh-0db72b981fa59c8a566e5610fd8627f4c623baeb8bb2662d22c5cae246a2b8b9.json",
+        "mode": "100644",
+        "gitBlobSha1": "660ca2b843ba40a59dd4e2445d6126ce18b41c04"
+      },
+      {
+        "path": "data/evidence/v1.0.0/run-path-maintenance-700kw-6b446789e2f755b9ac1ac81896c7f0d85827a9a03b6ceedfd8fbdc6cb3b775dd.json",
+        "mode": "100644",
+        "gitBlobSha1": "37b4a8963ce7cc68b135a66521f16e0c1f5c1c01"
+      },
+      {
+        "path": "data/evidence/v1.0.0/scenario-canonical-1mw-100kwh-a11b0d4078daef9a79e07f7969940203c23ccaa800c0a2c60cc5853b0acacfd0.json",
+        "mode": "100644",
+        "gitBlobSha1": "221dd9a41de495439eb65e096ce5824fc4de00d1"
+      },
+      {
+        "path": "data/evidence/v1.0.0/scenario-canonical-1mw-50kwh-0db72b981fa59c8a566e5610fd8627f4c623baeb8bb2662d22c5cae246a2b8b9.json",
+        "mode": "100644",
+        "gitBlobSha1": "a5b1e670e4cc6d2e5aca83afe8032637571503b3"
+      },
+      {
+        "path": "data/evidence/v1.0.0/scenario-path-maintenance-700kw-6b446789e2f755b9ac1ac81896c7f0d85827a9a03b6ceedfd8fbdc6cb3b775dd.json",
+        "mode": "100644",
+        "gitBlobSha1": "7c2c9237fa7cf2c9768d53d33e6f86af02ba4793"
+      },
+      {
+        "path": "data/provenance/manifest.json",
+        "mode": "100644",
+        "gitBlobSha1": "7a9e19f737ccf0a95e2f61ce6c6552b3b894dbb4"
+      },
+      {
+        "path": "data/scenarios/alternative-pue-115.json",
+        "mode": "100644",
+        "gitBlobSha1": "3e0874f0812adac7307158dddfbca8a5677d5ea7"
+      },
+      {
+        "path": "data/scenarios/baseline-10mw.json",
+        "mode": "100644",
+        "gitBlobSha1": "96af0572365b03e430c36e6b5181ce91eb6e0fed"
+      },
+      {
+        "path": "data/scenarios/baseline-1mw.json",
+        "mode": "100644",
+        "gitBlobSha1": "158fb1791158a97ac03dbef9fabf73a55c5fe508"
+      },
+      {
+        "path": "data/scenarios/baseline-40mw.json",
+        "mode": "100644",
+        "gitBlobSha1": "d1b4199967444b218bdffe0e1ea2382567d90f6e"
+      },
+      {
+        "path": "datacenter_twin/__init__.py",
+        "mode": "100644",
+        "gitBlobSha1": "ce22a130b727550b6a8e8f1d9ebf151661d886b0"
+      },
+      {
+        "path": "datacenter_twin/__main__.py",
+        "mode": "100644",
+        "gitBlobSha1": "eb53e2f31b2f703ad32ef64b8a41faa3e7d18e08"
+      },
+      {
+        "path": "datacenter_twin/api.py",
+        "mode": "100644",
+        "gitBlobSha1": "97d0567170448082c0775bb7c658e493d04f0353"
+      },
+      {
+        "path": "datacenter_twin/browser.py",
+        "mode": "100644",
+        "gitBlobSha1": "7eec89a36c0d41407d02ef07c31012b784808bc9"
+      },
+      {
+        "path": "datacenter_twin/calculations.py",
+        "mode": "100644",
+        "gitBlobSha1": "68ca40fd00a01828efa16f51a66f838c0b3360c2"
+      },
+      {
+        "path": "datacenter_twin/catalog.py",
+        "mode": "100644",
+        "gitBlobSha1": "f32fb609be0197b6504675dc60bc4ea4c6b993e1"
+      },
+      {
+        "path": "datacenter_twin/cli.py",
+        "mode": "100644",
+        "gitBlobSha1": "57a4ecab0cafb50011049ee2d799421b930595c5"
+      },
+      {
+        "path": "datacenter_twin/continuity.py",
+        "mode": "100644",
+        "gitBlobSha1": "bf3ddd60962ad40d433060113da2f8b7648b58a3"
+      },
+      {
+        "path": "datacenter_twin/contracts.py",
+        "mode": "100644",
+        "gitBlobSha1": "e7184343c626f02efa3eafb7de1166aad1cecaf4"
+      },
+      {
+        "path": "datacenter_twin/demo.py",
+        "mode": "100644",
+        "gitBlobSha1": "87fd3ce1f2e00f2dbad600e6378069f025801b2d"
+      },
+      {
+        "path": "datacenter_twin/emt.py",
+        "mode": "100644",
+        "gitBlobSha1": "eca819907045c750620463b828f00bba54352a05"
+      },
+      {
+        "path": "datacenter_twin/engine.py",
+        "mode": "100644",
+        "gitBlobSha1": "d15d4b161a50b6e9492e09c43ce22414fe103bf5"
+      },
+      {
+        "path": "datacenter_twin/output.py",
+        "mode": "100644",
+        "gitBlobSha1": "262376011bc704653c78fba2dbaacf8f44c45632"
+      },
+      {
+        "path": "datacenter_twin/reporting.py",
+        "mode": "100644",
+        "gitBlobSha1": "f6b3ced13c78ed248cf2115d61c86401bc586611"
+      },
+      {
+        "path": "datacenter_twin/research/__init__.py",
+        "mode": "100644",
+        "gitBlobSha1": "c47f093d5273a6147bdf6a12350a5520151aa400"
+      },
+      {
+        "path": "datacenter_twin/research/__main__.py",
+        "mode": "100644",
+        "gitBlobSha1": "1b66855897e2f1adb840f7745c7cdcea6065f26f"
+      },
+      {
+        "path": "datacenter_twin/research/common.py",
+        "mode": "100644",
+        "gitBlobSha1": "ae9e3aecdd0cca76bac8d51a68827e916ec1c958"
+      },
+      {
+        "path": "datacenter_twin/research/datacenter_init_from_pf_qss.py",
+        "mode": "100644",
+        "gitBlobSha1": "c71fcf7433053870e471509dc2b11175040d4ee4"
+      },
+      {
+        "path": "datacenter_twin/research/datacenter_port_model.py",
+        "mode": "100644",
+        "gitBlobSha1": "c0b37b04c9a5f9754bfcd7e80018be6b9ff70fbd"
+      },
+      {
+        "path": "datacenter_twin/research/gfl_init_from_pf_qss_newton.py",
+        "mode": "100644",
+        "gitBlobSha1": "69b65df9d95a712d7c73dbff37a758c35934540d"
+      },
+      {
+        "path": "datacenter_twin/research/gfl_port_model.py",
+        "mode": "100644",
+        "gitBlobSha1": "53148277a60b8651f3434b7bb3c97cd67a1c59c9"
+      },
+      {
+        "path": "datacenter_twin/research/gfm_init_from_pf_qss_newton.py",
+        "mode": "100644",
+        "gitBlobSha1": "206436db1400924d1103235d538126745c16b082"
+      },
+      {
+        "path": "datacenter_twin/research/gfm_port_model.py",
+        "mode": "100644",
+        "gitBlobSha1": "11dff29ab7c5ef5de16945e94d0bd2d650e8f81f"
+      },
+      {
+        "path": "datacenter_twin/research/grid_network.py",
+        "mode": "100644",
+        "gitBlobSha1": "5d6ae8c873321a25fa812a55d81962cfa778c485"
+      },
+      {
+        "path": "datacenter_twin/research/model_comparison.py",
+        "mode": "100644",
+        "gitBlobSha1": "1546ec14cdfb441e0b81e0ce5afbafc2f74e3654"
+      },
+      {
+        "path": "datacenter_twin/research/model_validation.py",
+        "mode": "100644",
+        "gitBlobSha1": "858c1c014cd7e18853d14442a30ffe5fc21e095a"
+      },
+      {
+        "path": "datacenter_twin/research/sdcib.py",
+        "mode": "100644",
+        "gitBlobSha1": "f6b5a7a2d7473ec615d172e130a1d2f651f1ce52"
+      },
+      {
+        "path": "datacenter_twin/research/sdcib_core.py",
+        "mode": "100644",
+        "gitBlobSha1": "4c6ff2d1b313a8f01917f3b5a3ae0e7da3ba09a3"
+      },
+      {
+        "path": "datacenter_twin/research/sm_init_from_pf_fsolve.py",
+        "mode": "100644",
+        "gitBlobSha1": "b7d285e65fc0aa6ccc40007304f43d133fed9129"
+      },
+      {
+        "path": "datacenter_twin/research/sm_port_model.py",
+        "mode": "100644",
+        "gitBlobSha1": "0f2867725adbac9b1779c6ebb903d9804a9bf582"
+      },
+      {
+        "path": "datacenter_twin/resources/azure-retail-snapshot.json",
+        "mode": "100644",
+        "gitBlobSha1": "76e02c2a24dde5997e15b10fb6bdf13c785b8592"
+      },
+      {
+        "path": "datacenter_twin/resources/catalog.json",
+        "mode": "100644",
+        "gitBlobSha1": "39bd9c151d4f0aef2033db1c27d5dd9c834b5369"
+      },
+      {
+        "path": "datacenter_twin/resources/reference-site-v2.json",
+        "mode": "100644",
+        "gitBlobSha1": "ddf4abf5504a678421dd67520d30b0d8000663f5"
+      },
+      {
+        "path": "datacenter_twin/sensitivity.py",
+        "mode": "100644",
+        "gitBlobSha1": "524e06a7cb793bf875d8f7effc32bb87635cfdbd"
+      },
+      {
+        "path": "datacenter_twin/topology.py",
+        "mode": "100644",
+        "gitBlobSha1": "17d120f74166921791cee7bfc3441c2650c6e9d3"
+      },
+      {
+        "path": "docs/canonical-case.md",
+        "mode": "100644",
+        "gitBlobSha1": "47dc673db56c7de720dbfc8cf7ffa52ddb51098c"
+      },
+      {
+        "path": "docs/choosing-a-simulator.md",
+        "mode": "100644",
+        "gitBlobSha1": "7f8629214591cfd22012d411a8c3821748d99459"
+      },
+      {
+        "path": "docs/contracts/electrical-v2.md",
+        "mode": "100644",
+        "gitBlobSha1": "28f5ba8e61ea9b270b21e86c4aac9569e0ec1cd5"
+      },
+      {
+        "path": "docs/contracts/local-api.md",
+        "mode": "100644",
+        "gitBlobSha1": "cd435bfeb95664091f113fb172faa69b68e3796f"
+      },
+      {
+        "path": "docs/contracts/reports.md",
+        "mode": "100644",
+        "gitBlobSha1": "d9dd124b223ad8b72ba6c0fb25769cc9a46f4783"
+      },
+      {
+        "path": "docs/contracts/scenario-v1.md",
+        "mode": "100644",
+        "gitBlobSha1": "a002431e68628557d6e970c557420a392c53c9ec"
+      },
+      {
+        "path": "docs/engineering/adding-a-scenario.md",
+        "mode": "100644",
+        "gitBlobSha1": "02eff5f183cd76db0c6dc5edb63401e731809c3c"
+      },
+      {
+        "path": "docs/engineering/benchmark-method.md",
+        "mode": "100644",
+        "gitBlobSha1": "d299d9d7f9c4725331296f76a70883b408f8d1bd"
+      },
+      {
+        "path": "docs/engineering/browser-demo.md",
+        "mode": "100644",
+        "gitBlobSha1": "f4658984ed59f16e96af827c8481cd96a3913011"
+      },
+      {
+        "path": "docs/engineering/calculation-boundaries.md",
+        "mode": "100644",
+        "gitBlobSha1": "51f2283e1e745e06b86974e5600b5382ad1f8511"
+      },
+      {
+        "path": "docs/engineering/course-studio.md",
+        "mode": "100644",
+        "gitBlobSha1": "8e620a793005417e8ae6ce021cfc17c97d5108b8"
+      },
+      {
+        "path": "docs/engineering/custom-domain.md",
+        "mode": "100644",
+        "gitBlobSha1": "b23b431f61e82635d082bb30aaabc31aac57f885"
+      },
+      {
+        "path": "docs/engineering/electrical-continuity.md",
+        "mode": "100644",
+        "gitBlobSha1": "e19eee855f9829bf6b92d3ba797d137f1c5aae66"
+      },
+      {
+        "path": "docs/engineering/energy-scenario-workspace.md",
+        "mode": "100644",
+        "gitBlobSha1": "87ba893f060e243aca72a00b99598839b1e413c2"
+      },
+      {
+        "path": "docs/engineering/learn-discovery.md",
+        "mode": "100644",
+        "gitBlobSha1": "894fd088ba2d0cb8e862c8bc7125b4b5088d611f"
+      },
+      {
+        "path": "docs/engineering/pypi-publication.md",
+        "mode": "100644",
+        "gitBlobSha1": "0f6a03bc09f1a012ffdf32bdad792544b805f6f9"
+      },
+      {
+        "path": "docs/engineering/release-readiness.md",
+        "mode": "100644",
+        "gitBlobSha1": "e11c53e90ead6855fb27bc3690a4f7e2669df9eb"
+      },
+      {
+        "path": "docs/engineering/scenario-comparison.md",
+        "mode": "100644",
+        "gitBlobSha1": "a81e51e9110e991f30a517cc422a3fec26f7274f"
+      },
+      {
+        "path": "docs/engineering/search-discovery.md",
+        "mode": "100644",
+        "gitBlobSha1": "5f34e053d34ceba17bde31f234995cf576f331e5"
+      },
+      {
+        "path": "docs/engineering/sensitivity.md",
+        "mode": "100644",
+        "gitBlobSha1": "872f0c482e694a1e5f8a16bace932f0aa31bb20e"
+      },
+      {
+        "path": "docs/engineering/static-security.md",
+        "mode": "100644",
+        "gitBlobSha1": "9454b43b1fe0883d47b73d12991e7c13e633298d"
+      },
+      {
+        "path": "docs/evidence.md",
+        "mode": "100644",
+        "gitBlobSha1": "8514cf203d58094147786143a8e724658a122cf8"
+      },
+      {
+        "path": "docs/examples/battery-ride-through.ipynb",
+        "mode": "100644",
+        "gitBlobSha1": "d679a7c24d009954d9ee47108052ab9447737088"
+      },
+      {
+        "path": "docs/examples/battery-ride-through.md",
+        "mode": "100644",
+        "gitBlobSha1": "61a62bbbc3f1dd86ff93cc27881f8d6ea3f432e8"
+      },
+      {
+        "path": "docs/examples/demand-timing/early-peak.json",
+        "mode": "100644",
+        "gitBlobSha1": "7c1ff96e4618a1ee9aded5c42310ccc766249eab"
+      },
+      {
+        "path": "docs/examples/demand-timing/late-peak.json",
+        "mode": "100644",
+        "gitBlobSha1": "471eb553b84dc21e77274a79f0f5705a424e5588"
+      },
+      {
+        "path": "docs/examples/demand-timing/shifted-peak.json",
+        "mode": "100644",
+        "gitBlobSha1": "ec393df93d9e51fdc43f3d883c19d6b1786162a8"
+      },
+      {
+        "path": "docs/examples/demo-walkthrough.md",
+        "mode": "100644",
+        "gitBlobSha1": "fc1d0ec2788fd974c19a581c8e10ae76a59ffd1d"
+      },
+      {
+        "path": "docs/examples/proof-demo.md",
+        "mode": "100644",
+        "gitBlobSha1": "d0e315054403a8f047bdc105c29e8fa47eb9bb6f"
+      },
+      {
+        "path": "docs/images/course-studio.png",
+        "mode": "100644",
+        "gitBlobSha1": "6f22a0ec6f8c4e11940796700101b9b6a5bdf014"
+      },
+      {
+        "path": "docs/images/datacenter-twin-lab-cover-v1.png",
+        "mode": "100644",
+        "gitBlobSha1": "3f264f5624c1bcb2a4a7f3865b9e949fa20a9f34"
+      },
+      {
+        "path": "docs/images/demand-timing.svg",
+        "mode": "100644",
+        "gitBlobSha1": "6392d91b144448cffcdb2004c4df898dc9fd838b"
+      },
+      {
+        "path": "docs/images/demo-preview.png",
+        "mode": "100644",
+        "gitBlobSha1": "fd1f191831bb09f89d4d437d6c074de7442905b8"
+      },
+      {
+        "path": "docs/images/demo-walkthrough.gif",
+        "mode": "100644",
+        "gitBlobSha1": "c68ab50b06c5a0d68ed98467bbc144d52427dbb2"
+      },
+      {
+        "path": "docs/images/demo-walkthrough.json",
+        "mode": "100644",
+        "gitBlobSha1": "9bba1dfe54a641c681e6631edce0a9f1068fa92b"
+      },
+      {
+        "path": "docs/images/energy-workspace.png",
+        "mode": "100644",
+        "gitBlobSha1": "436f5207fe4791cbefc01fec40af4aefe08e2c9e"
+      },
+      {
+        "path": "docs/images/guide-evidence.png",
+        "mode": "100644",
+        "gitBlobSha1": "eb2f80c53a244dcd78288b6d7376a60385529985"
+      },
+      {
+        "path": "docs/images/guide-predict.png",
+        "mode": "100644",
+        "gitBlobSha1": "888aa3a1662058f922f789994025f00792f0c3e6"
+      },
+      {
+        "path": "docs/images/guide-preview.png",
+        "mode": "100644",
+        "gitBlobSha1": "fcb0011c4693e0df2acd4a909cd4f31dee9a3c0c"
+      },
+      {
+        "path": "docs/images/guide-result.png",
+        "mode": "100644",
+        "gitBlobSha1": "bdd243048a4e55e7327cfe32aef6858544ae4d39"
+      },
+      {
+        "path": "docs/images/overview.png",
+        "mode": "100644",
+        "gitBlobSha1": "25a36a619eff33bb2dbaa6d347f0211452bd45dc"
+      },
+      {
+        "path": "docs/images/proof-demo-recording.json",
+        "mode": "100644",
+        "gitBlobSha1": "ec943e76ed3351e410edde8dd1825c99446527ea"
+      },
+      {
+        "path": "docs/images/proof-demo.vtt",
+        "mode": "100644",
+        "gitBlobSha1": "242bb08e28b84db2b31e4bfd3f6240ca174a9a1b"
+      },
+      {
+        "path": "docs/images/proof-demo.webm",
+        "mode": "100644",
+        "gitBlobSha1": "1e27e2cab813db85a87d89ae70815c5747a113b5"
+      },
+      {
+        "path": "docs/quickstart.md",
+        "mode": "100644",
+        "gitBlobSha1": "78e4cb56b673c03308060edb1812bdcec8e2a030"
+      },
+      {
+        "path": "docs/scenarios/ai-cluster-50mw.md",
+        "mode": "100644",
+        "gitBlobSha1": "486e8257a8074bd0ba22a7777d59cac0a02227c8"
+      },
+      {
+        "path": "docs/scenarios/contribution-ideas.md",
+        "mode": "100644",
+        "gitBlobSha1": "6e353f01b21fa30d30d8c13969cbf996001354d4"
+      },
+      {
+        "path": "docs/scenarios/generator_failure.md",
+        "mode": "100644",
+        "gitBlobSha1": "cec55a1dfb52516b1dd91eb4d44e178b82fda480"
+      },
+      {
+        "path": "docs/scenarios/glossary.md",
+        "mode": "100644",
+        "gitBlobSha1": "87dc342ca2c1b24c4f40a163c8ff5277dcec5ada"
+      },
+      {
+        "path": "docs/scenarios/index.md",
+        "mode": "100644",
+        "gitBlobSha1": "4a48ca87ab01e5eccdf4310eb3b7ad8d9265e22f"
+      },
+      {
+        "path": "docs/scenarios/normal.md",
+        "mode": "100644",
+        "gitBlobSha1": "59bb905a9be91bdd506a079836a3ca3cd1938691"
+      },
+      {
+        "path": "docs/scenarios/path_maintenance.md",
+        "mode": "100644",
+        "gitBlobSha1": "26effc568029ae3c731091a55150359497ccd071"
+      },
+      {
+        "path": "docs/scenarios/shared_domain.md",
+        "mode": "100644",
+        "gitBlobSha1": "6822f08b501ab79e5918b5fc17f18022bc27b74f"
+      },
+      {
+        "path": "docs/scenarios/utility_loss.md",
+        "mode": "100644",
+        "gitBlobSha1": "afe9c54500a2636ef65751ffe986228ff1f7a5f1"
+      },
+      {
+        "path": "docs/studies/emt.md",
+        "mode": "100644",
+        "gitBlobSha1": "196dd37190edb5ac900060370aa482a93b8316b4"
+      },
+      {
+        "path": "docs/studies/power-dynamics.md",
+        "mode": "100644",
+        "gitBlobSha1": "0078421775bcc9c88541c176b505d1e0292ef50d"
+      },
+      {
+        "path": "docs/third-party/CPYTHON-LICENSE.txt",
+        "mode": "100644",
+        "gitBlobSha1": "20cf39097c68baa17cc566b64e76d34ebf034044"
+      },
+      {
+        "path": "docs/third-party/PYODIDE-LICENSE.txt",
+        "mode": "100644",
+        "gitBlobSha1": "a612ad9813b006ce81d1ee438dd784da99a54007"
+      },
+      {
+        "path": "docs/third-party/REACT-DOM-LICENSE.txt",
+        "mode": "100644",
+        "gitBlobSha1": "b93be90515ccd0b9daedaa589e42bf5929693f1f"
+      },
+      {
+        "path": "docs/third-party/REACT-LICENSE.txt",
+        "mode": "100644",
+        "gitBlobSha1": "b93be90515ccd0b9daedaa589e42bf5929693f1f"
+      },
+      {
+        "path": "docs/third-party/README.md",
+        "mode": "100644",
+        "gitBlobSha1": "8e8c0f8bc503f55debdcc24c2afc4a3b01d581e8"
+      },
+      {
+        "path": "docs/tutorials/battery-ride-through-worksheet.md",
+        "mode": "100644",
+        "gitBlobSha1": "3e56ab42f5bf55f782a710f546cc0d41aadec685"
+      },
+      {
+        "path": "docs/tutorials/continuity-walkthrough.md",
+        "mode": "100644",
+        "gitBlobSha1": "ca9e0ad73ab7fdcf9d695580fadf48d7322a67ec"
+      },
+      {
+        "path": "docs/tutorials/demand-timing.md",
+        "mode": "100644",
+        "gitBlobSha1": "ead27617d125fa0ae3d5641b8b482d254c10cdfe"
+      },
+      {
+        "path": "docs/tutorials/index.md",
+        "mode": "100644",
+        "gitBlobSha1": "93bed21d506199bbd9bdc1a63c46f8bc8384418a"
+      },
+      {
+        "path": "docs/tutorials/power-systems-course.md",
+        "mode": "100644",
+        "gitBlobSha1": "9b4bdf255f409d06ac4f7d46caa9cf3d3b14b0cb"
+      },
+      {
+        "path": "docs/validation/browser-entry-measurement.json",
+        "mode": "100644",
+        "gitBlobSha1": "1479cd3137aa211de5b9ddf553b8f98a8f0aaf4e"
+      },
+      {
+        "path": "docs/validation/course-studio-entry-measurement.json",
+        "mode": "100644",
+        "gitBlobSha1": "52593a60e030f86fecc67740294822170483be49"
+      },
+      {
+        "path": "docs/validation/energy-workspace-entry-measurement.json",
+        "mode": "100644",
+        "gitBlobSha1": "4a0acf1eab8cc8899cf352b6f87670f896aeb9a0"
+      },
+      {
+        "path": "docs/validation/evidence-method.md",
+        "mode": "100644",
+        "gitBlobSha1": "eabeee4bac0ebd41a824b38fb801f4216a26a7e3"
+      },
+      {
+        "path": "docs/validation/examples/generator-failure-report.html",
+        "mode": "100644",
+        "gitBlobSha1": "049018fd54039ee09ec623c106b7aadaa8b91ae0"
+      },
+      {
+        "path": "docs/validation/examples/generator-failure-report.md",
+        "mode": "100644",
+        "gitBlobSha1": "835a66b1f8b10a9f85081a38c088228a6b4e718f"
+      },
+      {
+        "path": "docs/validation/guide-benchmark-0.4.0rc1.json",
+        "mode": "100644",
+        "gitBlobSha1": "1d8c36ec8d1c65e20b4ccbb6e0d36588a5333aa7"
+      },
+      {
+        "path": "docs/validation/native-benchmark-0.4.0rc1.json",
+        "mode": "100644",
+        "gitBlobSha1": "0750a0a65186b4bf5eb0a0c661556857ef005357"
+      },
+      {
+        "path": "docs/validation/reproducibility-capsule.md",
+        "mode": "100644",
+        "gitBlobSha1": "2616b8d3460c8edbf3bab215aa9bac3252dfa832"
+      },
+      {
+        "path": "docs/validation/review-protocol.md",
+        "mode": "100644",
+        "gitBlobSha1": "a2a44485eb489cd101167e4873587245d45af461"
+      },
+      {
+        "path": "docs/validation/reviewer-receipt-template.md",
+        "mode": "100644",
+        "gitBlobSha1": "cf12b5996e016ee2b54257077a9647bb3c650391"
+      },
+      {
+        "path": "pyproject.toml",
+        "mode": "100644",
+        "gitBlobSha1": "17038c912f531e51bbd015dbcd4d5c45c6167c34"
+      },
+      {
+        "path": "requirements-api.lock",
+        "mode": "100644",
+        "gitBlobSha1": "1b41c29de8adb18e3e734382216bcf501122f4c8"
+      },
+      {
+        "path": "requirements-studies.lock",
+        "mode": "100644",
+        "gitBlobSha1": "32fada55dbf9763668de0292418277c5da0a7bf1"
+      },
+      {
+        "path": "scripts/benchmark_continuity.py",
+        "mode": "100644",
+        "gitBlobSha1": "545ffe8fad85bca9117b1879ae10f32e4e27f045"
+      },
+      {
+        "path": "scripts/build_evidence.py",
+        "mode": "100644",
+        "gitBlobSha1": "c50142aba62895f487eab0e14f7f750a9e314675"
+      },
+      {
+        "path": "scripts/build_pages_redirect.py",
+        "mode": "100644",
+        "gitBlobSha1": "7b0e323947555270edcf4a7dd4bee82a87cd689a"
+      },
+      {
+        "path": "scripts/encode_demo_gif.mjs",
+        "mode": "100644",
+        "gitBlobSha1": "3bc4ef4d676f90d43a91338727b07a5311499fee"
+      },
+      {
+        "path": "scripts/fetch_study_runtime.py",
+        "mode": "100644",
+        "gitBlobSha1": "125df3398ed09f231c6f594a9cbf48441af471bd"
+      },
+      {
+        "path": "scripts/prepare_browser_demo.py",
+        "mode": "100644",
+        "gitBlobSha1": "d88197785cf955c633c3a591bd1b4bb4cdf8ef76"
+      },
+      {
+        "path": "scripts/render_demand_timing.py",
+        "mode": "100644",
+        "gitBlobSha1": "ca1a70edd7bf5c222acf5b93838295b7a945cbb0"
+      },
+      {
+        "path": "scripts/reproduce_demand_timing.py",
+        "mode": "100644",
+        "gitBlobSha1": "33f36b8b85b6b1f809696eefab69ca63d6da9c38"
+      },
+      {
+        "path": "scripts/verify_distribution.py",
+        "mode": "100644",
+        "gitBlobSha1": "fc8661a49d1ffa3eeb27b59d0ffee6ee2c91ad4d"
+      },
+      {
+        "path": "tests/test_api.py",
+        "mode": "100644",
+        "gitBlobSha1": "29929f33eebfeb6d775d2d52d14f8f76a5d2b591"
+      },
+      {
+        "path": "tests/test_browser_bridge.py",
+        "mode": "100644",
+        "gitBlobSha1": "d2ec9f27cdb80a6ef7b74e5a5805905421ebe4b3"
+      },
+      {
+        "path": "tests/test_catalog.py",
+        "mode": "100644",
+        "gitBlobSha1": "357a314bc212a3dc80bd94543a03afed14ae181d"
+      },
+      {
+        "path": "tests/test_cli.py",
+        "mode": "100644",
+        "gitBlobSha1": "d8de915b449b7fd7d34edc8b8d1ddb9cf101e2c4"
+      },
+      {
+        "path": "tests/test_continuity.py",
+        "mode": "100644",
+        "gitBlobSha1": "3eced63433f66d8749662ec9b5ccdcd8227723ad"
+      },
+      {
+        "path": "tests/test_contracts.py",
+        "mode": "100644",
+        "gitBlobSha1": "94772ce77616c06be3f3449abcde7c9d7734bee4"
+      },
+      {
+        "path": "tests/test_course_lessons.py",
+        "mode": "100644",
+        "gitBlobSha1": "0cb890d8b395ee95e859d86375f3c6d7727d9c02"
+      },
+      {
+        "path": "tests/test_demand_timing_lesson.py",
+        "mode": "100644",
+        "gitBlobSha1": "c02666a06261661a0f9c0261310c064c7f9ca828"
+      },
+      {
+        "path": "tests/test_emt.py",
+        "mode": "100644",
+        "gitBlobSha1": "4536065e427c63f9705f189d91d190728efc0ab3"
+      },
+      {
+        "path": "tests/test_evidence_package.py",
+        "mode": "100644",
+        "gitBlobSha1": "3c68385472672ea2bd612b4a998face39b981477"
+      },
+      {
+        "path": "tests/test_facility_profiles.py",
+        "mode": "100644",
+        "gitBlobSha1": "e28f827dbd8661044415cc9ab312f04ae4a8bdc8"
+      },
+      {
+        "path": "tests/test_numerical.py",
+        "mode": "100644",
+        "gitBlobSha1": "5ae3a73d9749c903354acd5d67e2acdb5972d751"
+      },
+      {
+        "path": "tests/test_output.py",
+        "mode": "100644",
+        "gitBlobSha1": "add9704d2ab8bdc8ca252eee16f54b9277498468"
+      },
+      {
+        "path": "tests/test_reporting.py",
+        "mode": "100644",
+        "gitBlobSha1": "3e70b925b1d85c662e291c9a8368f0572cc3079e"
+      },
+      {
+        "path": "tests/test_research.py",
+        "mode": "100644",
+        "gitBlobSha1": "f8ed7a65a68635aeb75c4d40b3f452d8b40d0c76"
+      },
+      {
+        "path": "tests/test_review_regressions.py",
+        "mode": "100644",
+        "gitBlobSha1": "647a00d5ed9ed2c40a85f60f6ddc6b9773429c3d"
+      },
+      {
+        "path": "tests/test_sensitivity.py",
+        "mode": "100644",
+        "gitBlobSha1": "540eb84f40efbb9caff868757e4c6e89ec18124d"
+      },
+      {
+        "path": "tests/test_static_evidence.py",
+        "mode": "100644",
+        "gitBlobSha1": "e993fde97d77f075d864e817ae8732615535bf9f"
+      },
+      {
+        "path": "tests/test_study_runtime_fetch.py",
+        "mode": "100644",
+        "gitBlobSha1": "f27541ecee64486bb90ef3ff3add1f7efd4f54d1"
+      }
+    ],
+    "worktreeWasCleanAtAuditStart": true,
+    "snapshotRule": "All repository paths and hashes below refer to the exact base commit, not later concurrent integration edits."
+  },
+  "upstreamReleaseStatus": {
+    "latestPublishedRelease": {
+      "tag": "v1.0.0",
+      "title": "1.0.0 — Power-continuity teaching lab",
+      "publishedAt": "2026-09-27T19:46:05Z"
+    },
+    "v2TagPrefixMatchCount": 0,
+    "publishedReleasesObserved": [
+      "v1.0.0",
+      "v0.4.0rc3",
+      "v0.4.0rc2",
+      "v0.4.0rc1",
+      "v0.3.0a0",
+      "v0.2.0a0"
+    ],
+    "v1ReleaseAssets": [
+      {
+        "name": "BROWSER-SHA256SUMS.txt",
+        "bytes": 9729
+      },
+      {
+        "name": "CHANGELOG.md",
+        "bytes": 5456
+      },
+      {
+        "name": "datacenter-twin-lab-1.0.0-browser.zip",
+        "bytes": 11278799
+      },
+      {
+        "name": "datacenter-twin-lab-1.0.0-ci-evidence.zip",
+        "bytes": 184227
+      },
+      {
+        "name": "datacenter-twin-lab-1.0.0-evidence.zip",
+        "bytes": 42606
+      },
+      {
+        "name": "datacenter-twin-lab-1.0.0-source.zip",
+        "bytes": 8575614
+      },
+      {
+        "name": "datacenter_twin_lab-1.0.0-py3-none-any.whl",
+        "bytes": 4054415
+      },
+      {
+        "name": "REPRODUCIBILITY.md",
+        "bytes": 4960
+      },
+      {
+        "name": "REVIEWER-TEMPLATE.md",
+        "bytes": 1737
+      },
+      {
+        "name": "SHA256SUMS.txt",
+        "bytes": 869
+      }
+    ],
+    "remoteQueriesWereReadOnly": true,
+    "v1AssetsHistoricalBoundary": "Current main contains EMT and five power-dynamics studies; docs state historical v1.0.0 release assets predate these studies."
+  },
+  "versions": {
+    "pythonPackageVersion": "1.0.0",
+    "pythonVersionSource": "datacenter_twin/__init__.py; pyproject.toml uses dynamic version from this attribute",
+    "frontendPackageVersion": "1.0.0",
+    "frontendVersionSource": "apps/web/package.json",
+    "continuityEngineVersion": "1.0.0",
+    "continuityEngineVersionSource": "apps/web/src/js-engine/version.ts",
+    "evidencePacketVersions": [
+      "v0.4.0rc1",
+      "v0.4.0rc2",
+      "v0.4.0rc3",
+      "v1.0.0"
+    ],
+    "kitContentVersion": "2.0.0",
+    "kitIntegrationState": "prepared-not-integrated at base SHA; no v2.0.0 tag/release found"
+  },
+  "currentBaseInventory": {
+    "legacyLessonCount": 12,
+    "legacyLessons": [
+      {
+        "number": 1,
+        "id": "power-energy",
+        "title": "Power becomes energy",
+        "runtimeRoute": "/?lesson=power-energy",
+        "readingRoute": "/learn/power-energy/"
+      },
+      {
+        "number": 2,
+        "id": "distribution-loss",
+        "title": "Account for distribution losses",
+        "runtimeRoute": "/?lesson=distribution-loss",
+        "readingRoute": "/learn/distribution-loss/"
+      },
+      {
+        "number": 3,
+        "id": "ride-through",
+        "title": "Calculate battery ride-through",
+        "runtimeRoute": "/?lesson=ride-through",
+        "readingRoute": "/learn/ride-through/"
+      },
+      {
+        "number": 4,
+        "id": "generator-delay",
+        "title": "Bridge generator startup",
+        "runtimeRoute": "/?lesson=generator-delay",
+        "readingRoute": "/learn/generator-delay/"
+      },
+      {
+        "number": 5,
+        "id": "generator-failure",
+        "title": "Add a failed generator",
+        "runtimeRoute": "/?lesson=generator-failure",
+        "readingRoute": "/learn/generator-failure/"
+      },
+      {
+        "number": 6,
+        "id": "n-plus-one",
+        "title": "Check a surviving path",
+        "runtimeRoute": "/?lesson=n-plus-one",
+        "readingRoute": "/learn/n-plus-one/"
+      },
+      {
+        "number": 7,
+        "id": "shared-controls",
+        "title": "Expose shared control failures",
+        "runtimeRoute": "/?lesson=shared-controls",
+        "readingRoute": "/learn/shared-controls/"
+      },
+      {
+        "number": 8,
+        "id": "single-point",
+        "title": "Find a single point of failure",
+        "runtimeRoute": "/?lesson=single-point",
+        "readingRoute": "/learn/single-point/"
+      },
+      {
+        "number": 9,
+        "id": "precharge",
+        "title": "Track energy before the outage",
+        "runtimeRoute": "/?lesson=precharge",
+        "readingRoute": "/learn/precharge/"
+      },
+      {
+        "number": 10,
+        "id": "ai-outage",
+        "title": "Interrupt a 50 MW AI cluster",
+        "runtimeRoute": "/?lesson=ai-outage",
+        "readingRoute": "/learn/ai-outage/"
+      },
+      {
+        "number": 11,
+        "id": "recovery-deadline",
+        "title": "Catch a sub-second service gap",
+        "runtimeRoute": "/?lesson=recovery-deadline",
+        "readingRoute": "/learn/recovery-deadline/"
+      },
+      {
+        "number": 12,
+        "id": "pue",
+        "title": "Separate PUE from continuity",
+        "runtimeRoute": "/?lesson=pue",
+        "readingRoute": "/learn/pue/"
+      }
+    ],
+    "sitemapStaticPageCount": 18,
+    "sitemapRoutes": [
+      "/",
+      "/learn/",
+      "/learn/power-energy/",
+      "/learn/distribution-loss/",
+      "/learn/ride-through/",
+      "/learn/generator-delay/",
+      "/learn/generator-failure/",
+      "/learn/n-plus-one/",
+      "/learn/shared-controls/",
+      "/learn/single-point/",
+      "/learn/precharge/",
+      "/learn/ai-outage/",
+      "/learn/recovery-deadline/",
+      "/learn/pue/",
+      "/evidence/",
+      "/about/",
+      "/studies/emt/",
+      "/studies/power-dynamics/"
+    ],
+    "staticPages": [
+      {
+        "route": "/",
+        "kind": "application-home",
+        "source": "apps/web/seo.ts"
+      },
+      {
+        "route": "/learn/",
+        "kind": "learning-index",
+        "source": "apps/web/seo.ts"
+      },
+      {
+        "route": "/learn/power-energy/",
+        "kind": "legacy-lesson-note",
+        "id": "power-energy",
+        "source": "apps/web/seo.ts + apps/web/learn-manifest.ts"
+      },
+      {
+        "route": "/learn/distribution-loss/",
+        "kind": "legacy-lesson-note",
+        "id": "distribution-loss",
+        "source": "apps/web/seo.ts + apps/web/learn-manifest.ts"
+      },
+      {
+        "route": "/learn/ride-through/",
+        "kind": "legacy-lesson-note",
+        "id": "ride-through",
+        "source": "apps/web/seo.ts + apps/web/learn-manifest.ts"
+      },
+      {
+        "route": "/learn/generator-delay/",
+        "kind": "legacy-lesson-note",
+        "id": "generator-delay",
+        "source": "apps/web/seo.ts + apps/web/learn-manifest.ts"
+      },
+      {
+        "route": "/learn/generator-failure/",
+        "kind": "legacy-lesson-note",
+        "id": "generator-failure",
+        "source": "apps/web/seo.ts + apps/web/learn-manifest.ts"
+      },
+      {
+        "route": "/learn/n-plus-one/",
+        "kind": "legacy-lesson-note",
+        "id": "n-plus-one",
+        "source": "apps/web/seo.ts + apps/web/learn-manifest.ts"
+      },
+      {
+        "route": "/learn/shared-controls/",
+        "kind": "legacy-lesson-note",
+        "id": "shared-controls",
+        "source": "apps/web/seo.ts + apps/web/learn-manifest.ts"
+      },
+      {
+        "route": "/learn/single-point/",
+        "kind": "legacy-lesson-note",
+        "id": "single-point",
+        "source": "apps/web/seo.ts + apps/web/learn-manifest.ts"
+      },
+      {
+        "route": "/learn/precharge/",
+        "kind": "legacy-lesson-note",
+        "id": "precharge",
+        "source": "apps/web/seo.ts + apps/web/learn-manifest.ts"
+      },
+      {
+        "route": "/learn/ai-outage/",
+        "kind": "legacy-lesson-note",
+        "id": "ai-outage",
+        "source": "apps/web/seo.ts + apps/web/learn-manifest.ts"
+      },
+      {
+        "route": "/learn/recovery-deadline/",
+        "kind": "legacy-lesson-note",
+        "id": "recovery-deadline",
+        "source": "apps/web/seo.ts + apps/web/learn-manifest.ts"
+      },
+      {
+        "route": "/learn/pue/",
+        "kind": "legacy-lesson-note",
+        "id": "pue",
+        "source": "apps/web/seo.ts + apps/web/learn-manifest.ts"
+      },
+      {
+        "route": "/evidence/",
+        "kind": "reference-results",
+        "source": "apps/web/seo.ts"
+      },
+      {
+        "route": "/about/",
+        "kind": "author-and-scope",
+        "source": "apps/web/seo.ts"
+      },
+      {
+        "route": "/studies/emt/",
+        "kind": "EMT-note",
+        "source": "apps/web/seo-emt.ts + apps/web/seo.ts"
+      },
+      {
+        "route": "/studies/power-dynamics/",
+        "kind": "shared-dynamics-note",
+        "source": "apps/web/seo-research.ts + apps/web/seo.ts"
+      }
+    ],
+    "additionalGeneratedDataRoutes": {
+      "lessonResultRecords": "/learn/<legacy-lesson-id>/results.json (12, two calculations per lesson)",
+      "emt": "/studies/emt/default-config.json and /studies/emt/default-result.json",
+      "versionedEvidence": "/data/evidence/v1.0.0/<manifest-listed-assets> plus /evidence-index.json"
+    },
+    "presetCount": 18,
+    "presetIds": [
+      {
+        "id": "normal",
+        "family": "base-1mw"
+      },
+      {
+        "id": "utility_loss",
+        "family": "base-1mw"
+      },
+      {
+        "id": "generator_failure",
+        "family": "base-1mw"
+      },
+      {
+        "id": "path_maintenance",
+        "family": "base-1mw"
+      },
+      {
+        "id": "shared_domain",
+        "family": "base-1mw"
+      },
+      {
+        "id": "ai_cluster_utility_loss",
+        "family": "ai-cluster-50mw-existing"
+      },
+      {
+        "id": "ai_cluster_generator_failure",
+        "family": "ai-cluster-50mw-profile-outage"
+      },
+      {
+        "id": "ai_cluster_50mw_ramp",
+        "family": "ai-cluster-50mw-profile-ramp"
+      },
+      {
+        "id": "ai_cluster_50mw_reserve",
+        "family": "ai-cluster-50mw-profile-reserve"
+      },
+      {
+        "id": "hyperscale_200mw_outage",
+        "family": "hyperscale-200mw"
+      },
+      {
+        "id": "hyperscale_200mw_ramp",
+        "family": "hyperscale-200mw"
+      },
+      {
+        "id": "hyperscale_200mw_reserve",
+        "family": "hyperscale-200mw"
+      },
+      {
+        "id": "crypto_30mw_outage",
+        "family": "crypto-30mw"
+      },
+      {
+        "id": "crypto_30mw_ramp",
+        "family": "crypto-30mw"
+      },
+      {
+        "id": "crypto_30mw_reserve",
+        "family": "crypto-30mw"
+      },
+      {
+        "id": "traditional_5mw_outage",
+        "family": "traditional-5mw"
+      },
+      {
+        "id": "traditional_5mw_ramp",
+        "family": "traditional-5mw"
+      },
+      {
+        "id": "traditional_5mw_reserve",
+        "family": "traditional-5mw"
+      }
+    ],
+    "presetCountReconciliation": {
+      "repositoryDocsReport": 18,
+      "kitOldRecoveryCount": 17,
+      "actualBaseRuntimeCount": 18,
+      "finding": "The actual PRESETS registry is assembled from seven explicit IDs plus profile-derived additions: the AI profile shares its outage ID with ai_cluster_generator_failure, while its ramp and reserve are added. The 18 unique IDs listed here match the documented count; the earlier 17 was an incomplete source recovery, not a missing runtime preset."
+    },
+    "profileCount": 4,
+    "facilityProfiles": [
+      {
+        "id": "ai_cluster_50mw",
+        "name": "AI cluster",
+        "loadMW": 50,
+        "presets": {
+          "outage": "ai_cluster_generator_failure",
+          "ramp": "ai_cluster_50mw_ramp",
+          "reserve": "ai_cluster_50mw_reserve"
+        }
+      },
+      {
+        "id": "hyperscale_200mw",
+        "name": "Hyperscale",
+        "loadMW": 200,
+        "presets": {
+          "outage": "hyperscale_200mw_outage",
+          "ramp": "hyperscale_200mw_ramp",
+          "reserve": "hyperscale_200mw_reserve"
+        }
+      },
+      {
+        "id": "crypto_30mw",
+        "name": "Crypto mining",
+        "loadMW": 30,
+        "presets": {
+          "outage": "crypto_30mw_outage",
+          "ramp": "crypto_30mw_ramp",
+          "reserve": "crypto_30mw_reserve"
+        }
+      },
+      {
+        "id": "traditional_5mw",
+        "name": "Traditional",
+        "loadMW": 5,
+        "presets": {
+          "outage": "traditional_5mw_outage",
+          "ramp": "traditional_5mw_ramp",
+          "reserve": "traditional_5mw_reserve"
+        }
+      }
+    ],
+    "emt": {
+      "count": 1,
+      "route": "/?mode=emt",
+      "readingRoute": "/studies/emt/",
+      "model": "dc-link-rlc-v1",
+      "presetCount": 4,
+      "presetIds": [
+        "voltage-sag",
+        "short-dip",
+        "buffered-bus",
+        "recovery-ringing"
+      ],
+      "source": "datacenter_twin/emt.py + apps/web/src/emt"
+    },
+    "researchStudies": {
+      "count": 5,
+      "sharedReadingRoute": "/studies/power-dynamics/",
+      "items": [
+        {
+          "id": "load-step",
+          "title": "Load-step response",
+          "runtimeRoute": "/?study=load-step"
+        },
+        {
+          "id": "modal",
+          "title": "Modes and frequency response",
+          "runtimeRoute": "/?study=modal"
+        },
+        {
+          "id": "forced-response",
+          "title": "Synthetic load spectrum",
+          "runtimeRoute": "/?study=forced-response"
+        },
+        {
+          "id": "model-comparison",
+          "title": "Phase model versus QSS",
+          "runtimeRoute": "/?study=model-comparison"
+        },
+        {
+          "id": "grid-network",
+          "title": "Interacting grid ports",
+          "runtimeRoute": "/?study=grid-network"
+        }
+      ]
+    },
+    "learningItems": {
+      "count": 18,
+      "counts": {
+        "continuity": 12,
+        "emt": 1,
+        "dynamics": 5
+      },
+      "source": "apps/web/learn-manifest.ts schemaVersion 1"
+    },
+    "evidencePackets": [
+      {
+        "version": "v0.4.0rc1",
+        "engineVersion": "0.4.0rc1",
+        "manifestSchema": 1,
+        "caseCount": 3,
+        "declaredArtifactCountExcludingManifest": 14,
+        "physicalFileCountIncludingManifest": 15,
+        "integrityMismatches": [],
+        "files": [
+          {
+            "path": "data/evidence/v0.4.0rc1/environment.json",
+            "sha256": "dce0e4c90026d4091465fd680d8f89fb354d825d80cfbd20d17b4bb9db4257dd",
+            "declaredInPacketManifest": true,
+            "manifestSha256": "dce0e4c90026d4091465fd680d8f89fb354d825d80cfbd20d17b4bb9db4257dd"
+          },
+          {
+            "path": "data/evidence/v0.4.0rc1/manifest.json",
+            "sha256": "9263d843ed7c06d1e553a5337547ac417807a07a280473394bdc2326381e5c23",
+            "declaredInPacketManifest": false,
+            "manifestSha256": null
+          },
+          {
+            "path": "data/evidence/v0.4.0rc1/receipt.md",
+            "sha256": "b2b26f35ee50876bfcfa1dad70aaafe3f236f95adc4abe2f34a2e225069ed5dd",
+            "declaredInPacketManifest": true,
+            "manifestSha256": "b2b26f35ee50876bfcfa1dad70aaafe3f236f95adc4abe2f34a2e225069ed5dd"
+          },
+          {
+            "path": "data/evidence/v0.4.0rc1/report-canonical-1mw-100kwh-a11b0d4078daef9a79e07f7969940203c23ccaa800c0a2c60cc5853b0acacfd0.html",
+            "sha256": "3950e59197362936e9fe1765bf6cb93add4807bbd6a2964eb83f0bd73bc110af",
+            "declaredInPacketManifest": true,
+            "manifestSha256": "3950e59197362936e9fe1765bf6cb93add4807bbd6a2964eb83f0bd73bc110af"
+          },
+          {
+            "path": "data/evidence/v0.4.0rc1/report-canonical-1mw-100kwh-a11b0d4078daef9a79e07f7969940203c23ccaa800c0a2c60cc5853b0acacfd0.md",
+            "sha256": "bcebdce518656636a088e7023a13cfa22af3e9a0b26a83369fc36258205e7c8c",
+            "declaredInPacketManifest": true,
+            "manifestSha256": "bcebdce518656636a088e7023a13cfa22af3e9a0b26a83369fc36258205e7c8c"
+          },
+          {
+            "path": "data/evidence/v0.4.0rc1/report-canonical-1mw-50kwh-0db72b981fa59c8a566e5610fd8627f4c623baeb8bb2662d22c5cae246a2b8b9.html",
+            "sha256": "a9a1a7af415fc4db4e146d5ea424b2f4d731a50ea39ebb0f9da2f250a72d62fb",
+            "declaredInPacketManifest": true,
+            "manifestSha256": "a9a1a7af415fc4db4e146d5ea424b2f4d731a50ea39ebb0f9da2f250a72d62fb"
+          },
+          {
+            "path": "data/evidence/v0.4.0rc1/report-canonical-1mw-50kwh-0db72b981fa59c8a566e5610fd8627f4c623baeb8bb2662d22c5cae246a2b8b9.md",
+            "sha256": "00c01ae1fb131d53c6ab828122df2e9c64b52c1489a2919becbae4f284ebe6fc",
+            "declaredInPacketManifest": true,
+            "manifestSha256": "00c01ae1fb131d53c6ab828122df2e9c64b52c1489a2919becbae4f284ebe6fc"
+          },
+          {
+            "path": "data/evidence/v0.4.0rc1/report-path-maintenance-700kw-6b446789e2f755b9ac1ac81896c7f0d85827a9a03b6ceedfd8fbdc6cb3b775dd.html",
+            "sha256": "4b8d7fedc4cd120d51c89d6056c3a081a5822c5fcc0f55956169ad52097f9dd2",
+            "declaredInPacketManifest": true,
+            "manifestSha256": "4b8d7fedc4cd120d51c89d6056c3a081a5822c5fcc0f55956169ad52097f9dd2"
+          },
+          {
+            "path": "data/evidence/v0.4.0rc1/report-path-maintenance-700kw-6b446789e2f755b9ac1ac81896c7f0d85827a9a03b6ceedfd8fbdc6cb3b775dd.md",
+            "sha256": "22a7ac57e732282249a789ab8609196439bbbfdabf0d5bc59e939e4ac38841e0",
+            "declaredInPacketManifest": true,
+            "manifestSha256": "22a7ac57e732282249a789ab8609196439bbbfdabf0d5bc59e939e4ac38841e0"
+          },
+          {
+            "path": "data/evidence/v0.4.0rc1/run-canonical-1mw-100kwh-a11b0d4078daef9a79e07f7969940203c23ccaa800c0a2c60cc5853b0acacfd0.json",
+            "sha256": "d6206f4782882581c4d0285a0a31f7c0ed7269304a33e22a0852752d50e21036",
+            "declaredInPacketManifest": true,
+            "manifestSha256": "d6206f4782882581c4d0285a0a31f7c0ed7269304a33e22a0852752d50e21036"
+          },
+          {
+            "path": "data/evidence/v0.4.0rc1/run-canonical-1mw-50kwh-0db72b981fa59c8a566e5610fd8627f4c623baeb8bb2662d22c5cae246a2b8b9.json",
+            "sha256": "970061eda53c9ecc75e4996b3c3e30cd0495406ad4c1aa912e4b0657ea89d10d",
+            "declaredInPacketManifest": true,
+            "manifestSha256": "970061eda53c9ecc75e4996b3c3e30cd0495406ad4c1aa912e4b0657ea89d10d"
+          },
+          {
+            "path": "data/evidence/v0.4.0rc1/run-path-maintenance-700kw-6b446789e2f755b9ac1ac81896c7f0d85827a9a03b6ceedfd8fbdc6cb3b775dd.json",
+            "sha256": "80e429e0161f6b8c5b59a0a9dadc6be816fac429920518b0ca802378df78eea0",
+            "declaredInPacketManifest": true,
+            "manifestSha256": "80e429e0161f6b8c5b59a0a9dadc6be816fac429920518b0ca802378df78eea0"
+          },
+          {
+            "path": "data/evidence/v0.4.0rc1/scenario-canonical-1mw-100kwh-a11b0d4078daef9a79e07f7969940203c23ccaa800c0a2c60cc5853b0acacfd0.json",
+            "sha256": "49a5e41c298b33b6821af2cbf2e3317f916cae40bd95f1b8866f87d8524e9751",
+            "declaredInPacketManifest": true,
+            "manifestSha256": "49a5e41c298b33b6821af2cbf2e3317f916cae40bd95f1b8866f87d8524e9751"
+          },
+          {
+            "path": "data/evidence/v0.4.0rc1/scenario-canonical-1mw-50kwh-0db72b981fa59c8a566e5610fd8627f4c623baeb8bb2662d22c5cae246a2b8b9.json",
+            "sha256": "854f2a9f7886bbbc7588c6f8b242a273709cc421e85467ba9ebdfd56d7f5b58b",
+            "declaredInPacketManifest": true,
+            "manifestSha256": "854f2a9f7886bbbc7588c6f8b242a273709cc421e85467ba9ebdfd56d7f5b58b"
+          },
+          {
+            "path": "data/evidence/v0.4.0rc1/scenario-path-maintenance-700kw-6b446789e2f755b9ac1ac81896c7f0d85827a9a03b6ceedfd8fbdc6cb3b775dd.json",
+            "sha256": "24a51ab64523a2c0db6c1c88f61c53a5e4883c62df840334126e9a4723ec5a99",
+            "declaredInPacketManifest": true,
+            "manifestSha256": "24a51ab64523a2c0db6c1c88f61c53a5e4883c62df840334126e9a4723ec5a99"
+          }
+        ]
+      },
+      {
+        "version": "v0.4.0rc2",
+        "engineVersion": "0.4.0rc2",
+        "manifestSchema": 1,
+        "caseCount": 3,
+        "declaredArtifactCountExcludingManifest": 14,
+        "physicalFileCountIncludingManifest": 15,
+        "integrityMismatches": [],
+        "files": [
+          {
+            "path": "data/evidence/v0.4.0rc2/environment.json",
+            "sha256": "8ccc3340e1f23f5ab05d0ca833331c9980c1a0fe1fe3f4417874e1d17e8f7c35",
+            "declaredInPacketManifest": true,
+            "manifestSha256": "8ccc3340e1f23f5ab05d0ca833331c9980c1a0fe1fe3f4417874e1d17e8f7c35"
+          },
+          {
+            "path": "data/evidence/v0.4.0rc2/manifest.json",
+            "sha256": "1a44f3a12d65effae3a4196adda84aef7af00476020628351083683e61751e46",
+            "declaredInPacketManifest": false,
+            "manifestSha256": null
+          },
+          {
+            "path": "data/evidence/v0.4.0rc2/receipt.md",
+            "sha256": "d9df1e5f8ab06465a5108b7e01fcbb5eb6318739af9a215c9b00fc3c40193dac",
+            "declaredInPacketManifest": true,
+            "manifestSha256": "d9df1e5f8ab06465a5108b7e01fcbb5eb6318739af9a215c9b00fc3c40193dac"
+          },
+          {
+            "path": "data/evidence/v0.4.0rc2/report-canonical-1mw-100kwh-a11b0d4078daef9a79e07f7969940203c23ccaa800c0a2c60cc5853b0acacfd0.html",
+            "sha256": "28da5f2f2cede1fbd84ae7c09c47036daddeb6b7333eeb9d4310c9b81913daf4",
+            "declaredInPacketManifest": true,
+            "manifestSha256": "28da5f2f2cede1fbd84ae7c09c47036daddeb6b7333eeb9d4310c9b81913daf4"
+          },
+          {
+            "path": "data/evidence/v0.4.0rc2/report-canonical-1mw-100kwh-a11b0d4078daef9a79e07f7969940203c23ccaa800c0a2c60cc5853b0acacfd0.md",
+            "sha256": "87ca408685b59104c1d7ed0c21a976df0cef46f3c5a4b21e4027bcc27aa83567",
+            "declaredInPacketManifest": true,
+            "manifestSha256": "87ca408685b59104c1d7ed0c21a976df0cef46f3c5a4b21e4027bcc27aa83567"
+          },
+          {
+            "path": "data/evidence/v0.4.0rc2/report-canonical-1mw-50kwh-0db72b981fa59c8a566e5610fd8627f4c623baeb8bb2662d22c5cae246a2b8b9.html",
+            "sha256": "f4527424a57864726c2e822d5baaa1d3c7614f25eaea30b3377e293fbdcdb688",
+            "declaredInPacketManifest": true,
+            "manifestSha256": "f4527424a57864726c2e822d5baaa1d3c7614f25eaea30b3377e293fbdcdb688"
+          },
+          {
+            "path": "data/evidence/v0.4.0rc2/report-canonical-1mw-50kwh-0db72b981fa59c8a566e5610fd8627f4c623baeb8bb2662d22c5cae246a2b8b9.md",
+            "sha256": "430bc59a101fd9fbc976d029510bf2d5de8ed82a65f8f730dfdaf5de88f0bcde",
+            "declaredInPacketManifest": true,
+            "manifestSha256": "430bc59a101fd9fbc976d029510bf2d5de8ed82a65f8f730dfdaf5de88f0bcde"
+          },
+          {
+            "path": "data/evidence/v0.4.0rc2/report-path-maintenance-700kw-6b446789e2f755b9ac1ac81896c7f0d85827a9a03b6ceedfd8fbdc6cb3b775dd.html",
+            "sha256": "e5603d1246a6fc105459e3d3e0016d6639d029b1540bd89668c5156816b5a973",
+            "declaredInPacketManifest": true,
+            "manifestSha256": "e5603d1246a6fc105459e3d3e0016d6639d029b1540bd89668c5156816b5a973"
+          },
+          {
+            "path": "data/evidence/v0.4.0rc2/report-path-maintenance-700kw-6b446789e2f755b9ac1ac81896c7f0d85827a9a03b6ceedfd8fbdc6cb3b775dd.md",
+            "sha256": "79ce316049a80c98e9ad95b4bac8be023481de620baeb4d7e846ade7dd49ee2c",
+            "declaredInPacketManifest": true,
+            "manifestSha256": "79ce316049a80c98e9ad95b4bac8be023481de620baeb4d7e846ade7dd49ee2c"
+          },
+          {
+            "path": "data/evidence/v0.4.0rc2/run-canonical-1mw-100kwh-a11b0d4078daef9a79e07f7969940203c23ccaa800c0a2c60cc5853b0acacfd0.json",
+            "sha256": "6696e32df0fe50fa894645a965031d10b5834ded17dd730be4ccf1241c95147c",
+            "declaredInPacketManifest": true,
+            "manifestSha256": "6696e32df0fe50fa894645a965031d10b5834ded17dd730be4ccf1241c95147c"
+          },
+          {
+            "path": "data/evidence/v0.4.0rc2/run-canonical-1mw-50kwh-0db72b981fa59c8a566e5610fd8627f4c623baeb8bb2662d22c5cae246a2b8b9.json",
+            "sha256": "0a97bdd51039f163ed08d614c61cb912d3bb4baa0e5b137ba82e1c13d269bbba",
+            "declaredInPacketManifest": true,
+            "manifestSha256": "0a97bdd51039f163ed08d614c61cb912d3bb4baa0e5b137ba82e1c13d269bbba"
+          },
+          {
+            "path": "data/evidence/v0.4.0rc2/run-path-maintenance-700kw-6b446789e2f755b9ac1ac81896c7f0d85827a9a03b6ceedfd8fbdc6cb3b775dd.json",
+            "sha256": "a4acc34abffae935b6ec346c2399307ca065dd23487143f26789831ab7899125",
+            "declaredInPacketManifest": true,
+            "manifestSha256": "a4acc34abffae935b6ec346c2399307ca065dd23487143f26789831ab7899125"
+          },
+          {
+            "path": "data/evidence/v0.4.0rc2/scenario-canonical-1mw-100kwh-a11b0d4078daef9a79e07f7969940203c23ccaa800c0a2c60cc5853b0acacfd0.json",
+            "sha256": "49a5e41c298b33b6821af2cbf2e3317f916cae40bd95f1b8866f87d8524e9751",
+            "declaredInPacketManifest": true,
+            "manifestSha256": "49a5e41c298b33b6821af2cbf2e3317f916cae40bd95f1b8866f87d8524e9751"
+          },
+          {
+            "path": "data/evidence/v0.4.0rc2/scenario-canonical-1mw-50kwh-0db72b981fa59c8a566e5610fd8627f4c623baeb8bb2662d22c5cae246a2b8b9.json",
+            "sha256": "854f2a9f7886bbbc7588c6f8b242a273709cc421e85467ba9ebdfd56d7f5b58b",
+            "declaredInPacketManifest": true,
+            "manifestSha256": "854f2a9f7886bbbc7588c6f8b242a273709cc421e85467ba9ebdfd56d7f5b58b"
+          },
+          {
+            "path": "data/evidence/v0.4.0rc2/scenario-path-maintenance-700kw-6b446789e2f755b9ac1ac81896c7f0d85827a9a03b6ceedfd8fbdc6cb3b775dd.json",
+            "sha256": "24a51ab64523a2c0db6c1c88f61c53a5e4883c62df840334126e9a4723ec5a99",
+            "declaredInPacketManifest": true,
+            "manifestSha256": "24a51ab64523a2c0db6c1c88f61c53a5e4883c62df840334126e9a4723ec5a99"
+          }
+        ]
+      },
+      {
+        "version": "v0.4.0rc3",
+        "engineVersion": "0.4.0rc3",
+        "manifestSchema": 1,
+        "caseCount": 3,
+        "declaredArtifactCountExcludingManifest": 14,
+        "physicalFileCountIncludingManifest": 15,
+        "integrityMismatches": [],
+        "files": [
+          {
+            "path": "data/evidence/v0.4.0rc3/environment.json",
+            "sha256": "45126b8520cafff6eacb86de2379a50e20936890834732d00a1e6c7fb035bd40",
+            "declaredInPacketManifest": true,
+            "manifestSha256": "45126b8520cafff6eacb86de2379a50e20936890834732d00a1e6c7fb035bd40"
+          },
+          {
+            "path": "data/evidence/v0.4.0rc3/manifest.json",
+            "sha256": "b3fdbb2be41930f47151048b6d674df06d8f7f8e912cb50241065f855e47d1e3",
+            "declaredInPacketManifest": false,
+            "manifestSha256": null
+          },
+          {
+            "path": "data/evidence/v0.4.0rc3/receipt.md",
+            "sha256": "3a3b347f745e445efe699dc7d099179602ba8a9893b60aea1cae7a12985dff57",
+            "declaredInPacketManifest": true,
+            "manifestSha256": "3a3b347f745e445efe699dc7d099179602ba8a9893b60aea1cae7a12985dff57"
+          },
+          {
+            "path": "data/evidence/v0.4.0rc3/report-canonical-1mw-100kwh-a11b0d4078daef9a79e07f7969940203c23ccaa800c0a2c60cc5853b0acacfd0.html",
+            "sha256": "804ba257b012c824f7d5635b820724d2ac6469b3a7d811e4b689ff3f657e6546",
+            "declaredInPacketManifest": true,
+            "manifestSha256": "804ba257b012c824f7d5635b820724d2ac6469b3a7d811e4b689ff3f657e6546"
+          },
+          {
+            "path": "data/evidence/v0.4.0rc3/report-canonical-1mw-100kwh-a11b0d4078daef9a79e07f7969940203c23ccaa800c0a2c60cc5853b0acacfd0.md",
+            "sha256": "1d9f635b04aa1463697e88586be50c6b163f01fdb48457fd2f2f3563e80e21e1",
+            "declaredInPacketManifest": true,
+            "manifestSha256": "1d9f635b04aa1463697e88586be50c6b163f01fdb48457fd2f2f3563e80e21e1"
+          },
+          {
+            "path": "data/evidence/v0.4.0rc3/report-canonical-1mw-50kwh-0db72b981fa59c8a566e5610fd8627f4c623baeb8bb2662d22c5cae246a2b8b9.html",
+            "sha256": "0a5a2954e48d60807461d5e5c7f5ccc05d98bf44b24bee76df319147ee070b33",
+            "declaredInPacketManifest": true,
+            "manifestSha256": "0a5a2954e48d60807461d5e5c7f5ccc05d98bf44b24bee76df319147ee070b33"
+          },
+          {
+            "path": "data/evidence/v0.4.0rc3/report-canonical-1mw-50kwh-0db72b981fa59c8a566e5610fd8627f4c623baeb8bb2662d22c5cae246a2b8b9.md",
+            "sha256": "b06d58f54aadcaf6feb1bde9775e7d61d6576f2842c7f13b42a2a5c23bd34dc6",
+            "declaredInPacketManifest": true,
+            "manifestSha256": "b06d58f54aadcaf6feb1bde9775e7d61d6576f2842c7f13b42a2a5c23bd34dc6"
+          },
+          {
+            "path": "data/evidence/v0.4.0rc3/report-path-maintenance-700kw-6b446789e2f755b9ac1ac81896c7f0d85827a9a03b6ceedfd8fbdc6cb3b775dd.html",
+            "sha256": "57c7d6889d911b0e08683b74955d78abb9bd642904e38b64d1c032c1037775c2",
+            "declaredInPacketManifest": true,
+            "manifestSha256": "57c7d6889d911b0e08683b74955d78abb9bd642904e38b64d1c032c1037775c2"
+          },
+          {
+            "path": "data/evidence/v0.4.0rc3/report-path-maintenance-700kw-6b446789e2f755b9ac1ac81896c7f0d85827a9a03b6ceedfd8fbdc6cb3b775dd.md",
+            "sha256": "1ed6b4255c3f5222b8401a689ee231db352f2b18b55b1b9707453f0d6b6e1ae4",
+            "declaredInPacketManifest": true,
+            "manifestSha256": "1ed6b4255c3f5222b8401a689ee231db352f2b18b55b1b9707453f0d6b6e1ae4"
+          },
+          {
+            "path": "data/evidence/v0.4.0rc3/run-canonical-1mw-100kwh-a11b0d4078daef9a79e07f7969940203c23ccaa800c0a2c60cc5853b0acacfd0.json",
+            "sha256": "689506128d0cc6cd58f78d5a1fa9dcfa7236347f02b79d2d27b2755454bec4c6",
+            "declaredInPacketManifest": true,
+            "manifestSha256": "689506128d0cc6cd58f78d5a1fa9dcfa7236347f02b79d2d27b2755454bec4c6"
+          },
+          {
+            "path": "data/evidence/v0.4.0rc3/run-canonical-1mw-50kwh-0db72b981fa59c8a566e5610fd8627f4c623baeb8bb2662d22c5cae246a2b8b9.json",
+            "sha256": "e7b356bbcda7489f28a387d7d3579312fa3980d0a85ea0181b90565ecbe91a8e",
+            "declaredInPacketManifest": true,
+            "manifestSha256": "e7b356bbcda7489f28a387d7d3579312fa3980d0a85ea0181b90565ecbe91a8e"
+          },
+          {
+            "path": "data/evidence/v0.4.0rc3/run-path-maintenance-700kw-6b446789e2f755b9ac1ac81896c7f0d85827a9a03b6ceedfd8fbdc6cb3b775dd.json",
+            "sha256": "c4e64f883552c63097e6393eac948a389b35e1c9a338031acd068524ff7292c0",
+            "declaredInPacketManifest": true,
+            "manifestSha256": "c4e64f883552c63097e6393eac948a389b35e1c9a338031acd068524ff7292c0"
+          },
+          {
+            "path": "data/evidence/v0.4.0rc3/scenario-canonical-1mw-100kwh-a11b0d4078daef9a79e07f7969940203c23ccaa800c0a2c60cc5853b0acacfd0.json",
+            "sha256": "49a5e41c298b33b6821af2cbf2e3317f916cae40bd95f1b8866f87d8524e9751",
+            "declaredInPacketManifest": true,
+            "manifestSha256": "49a5e41c298b33b6821af2cbf2e3317f916cae40bd95f1b8866f87d8524e9751"
+          },
+          {
+            "path": "data/evidence/v0.4.0rc3/scenario-canonical-1mw-50kwh-0db72b981fa59c8a566e5610fd8627f4c623baeb8bb2662d22c5cae246a2b8b9.json",
+            "sha256": "854f2a9f7886bbbc7588c6f8b242a273709cc421e85467ba9ebdfd56d7f5b58b",
+            "declaredInPacketManifest": true,
+            "manifestSha256": "854f2a9f7886bbbc7588c6f8b242a273709cc421e85467ba9ebdfd56d7f5b58b"
+          },
+          {
+            "path": "data/evidence/v0.4.0rc3/scenario-path-maintenance-700kw-6b446789e2f755b9ac1ac81896c7f0d85827a9a03b6ceedfd8fbdc6cb3b775dd.json",
+            "sha256": "24a51ab64523a2c0db6c1c88f61c53a5e4883c62df840334126e9a4723ec5a99",
+            "declaredInPacketManifest": true,
+            "manifestSha256": "24a51ab64523a2c0db6c1c88f61c53a5e4883c62df840334126e9a4723ec5a99"
+          }
+        ]
+      },
+      {
+        "version": "v1.0.0",
+        "engineVersion": "1.0.0",
+        "manifestSchema": 1,
+        "caseCount": 3,
+        "declaredArtifactCountExcludingManifest": 14,
+        "physicalFileCountIncludingManifest": 15,
+        "integrityMismatches": [],
+        "files": [
+          {
+            "path": "data/evidence/v1.0.0/environment.json",
+            "sha256": "93014ffbaa9f85bd97c5efdac0a22e9496c668030f96ee7d9a3366e0c8ea6730",
+            "declaredInPacketManifest": true,
+            "manifestSha256": "93014ffbaa9f85bd97c5efdac0a22e9496c668030f96ee7d9a3366e0c8ea6730"
+          },
+          {
+            "path": "data/evidence/v1.0.0/manifest.json",
+            "sha256": "a2c3c64dcbc6f4ccf477eda78f8fd39260387edb85979bbb7c14083c585fd446",
+            "declaredInPacketManifest": false,
+            "manifestSha256": null
+          },
+          {
+            "path": "data/evidence/v1.0.0/receipt.md",
+            "sha256": "1a3907b2b818406e30063b3fd3041d389c015bef0e92db44acc0ba6d6997e9fc",
+            "declaredInPacketManifest": true,
+            "manifestSha256": "1a3907b2b818406e30063b3fd3041d389c015bef0e92db44acc0ba6d6997e9fc"
+          },
+          {
+            "path": "data/evidence/v1.0.0/report-canonical-1mw-100kwh-a11b0d4078daef9a79e07f7969940203c23ccaa800c0a2c60cc5853b0acacfd0.html",
+            "sha256": "0f7c2661b50652746a35fab9e243021b0298991a7da14387ef0ba77455385723",
+            "declaredInPacketManifest": true,
+            "manifestSha256": "0f7c2661b50652746a35fab9e243021b0298991a7da14387ef0ba77455385723"
+          },
+          {
+            "path": "data/evidence/v1.0.0/report-canonical-1mw-100kwh-a11b0d4078daef9a79e07f7969940203c23ccaa800c0a2c60cc5853b0acacfd0.md",
+            "sha256": "d0eff958a7f302c80f3a54f9977167fc21a1e0b14bfdc79c02a867ef4c7c7082",
+            "declaredInPacketManifest": true,
+            "manifestSha256": "d0eff958a7f302c80f3a54f9977167fc21a1e0b14bfdc79c02a867ef4c7c7082"
+          },
+          {
+            "path": "data/evidence/v1.0.0/report-canonical-1mw-50kwh-0db72b981fa59c8a566e5610fd8627f4c623baeb8bb2662d22c5cae246a2b8b9.html",
+            "sha256": "6eb8309329cfaa3415b375062c15d3b8e89075d4e51554976b1b03d811a79500",
+            "declaredInPacketManifest": true,
+            "manifestSha256": "6eb8309329cfaa3415b375062c15d3b8e89075d4e51554976b1b03d811a79500"
+          },
+          {
+            "path": "data/evidence/v1.0.0/report-canonical-1mw-50kwh-0db72b981fa59c8a566e5610fd8627f4c623baeb8bb2662d22c5cae246a2b8b9.md",
+            "sha256": "4c5fd7915cd9dc366fed84d45c7db506eb89065eaca0f4e183d8792829099394",
+            "declaredInPacketManifest": true,
+            "manifestSha256": "4c5fd7915cd9dc366fed84d45c7db506eb89065eaca0f4e183d8792829099394"
+          },
+          {
+            "path": "data/evidence/v1.0.0/report-path-maintenance-700kw-6b446789e2f755b9ac1ac81896c7f0d85827a9a03b6ceedfd8fbdc6cb3b775dd.html",
+            "sha256": "f3868a650bef2521e536b31d7a84747b9c156e52d6f932d089da906f23741243",
+            "declaredInPacketManifest": true,
+            "manifestSha256": "f3868a650bef2521e536b31d7a84747b9c156e52d6f932d089da906f23741243"
+          },
+          {
+            "path": "data/evidence/v1.0.0/report-path-maintenance-700kw-6b446789e2f755b9ac1ac81896c7f0d85827a9a03b6ceedfd8fbdc6cb3b775dd.md",
+            "sha256": "fa8c115825fb62c05270ef705256342d42e769bfc07b396b6e0aeb3de22b18c2",
+            "declaredInPacketManifest": true,
+            "manifestSha256": "fa8c115825fb62c05270ef705256342d42e769bfc07b396b6e0aeb3de22b18c2"
+          },
+          {
+            "path": "data/evidence/v1.0.0/run-canonical-1mw-100kwh-a11b0d4078daef9a79e07f7969940203c23ccaa800c0a2c60cc5853b0acacfd0.json",
+            "sha256": "5aa02b1f76033fcda4c2bf0f631f5ec43c6e2f3a4c70ecf1088e1db592ae7ecc",
+            "declaredInPacketManifest": true,
+            "manifestSha256": "5aa02b1f76033fcda4c2bf0f631f5ec43c6e2f3a4c70ecf1088e1db592ae7ecc"
+          },
+          {
+            "path": "data/evidence/v1.0.0/run-canonical-1mw-50kwh-0db72b981fa59c8a566e5610fd8627f4c623baeb8bb2662d22c5cae246a2b8b9.json",
+            "sha256": "f4b27b0746cd2a78c9db015a01028e95534103369c13735a00d883b547ac901f",
+            "declaredInPacketManifest": true,
+            "manifestSha256": "f4b27b0746cd2a78c9db015a01028e95534103369c13735a00d883b547ac901f"
+          },
+          {
+            "path": "data/evidence/v1.0.0/run-path-maintenance-700kw-6b446789e2f755b9ac1ac81896c7f0d85827a9a03b6ceedfd8fbdc6cb3b775dd.json",
+            "sha256": "85ade4931d326b19a0073b26ce795037b0704b647959bc042d98ff124d9439d1",
+            "declaredInPacketManifest": true,
+            "manifestSha256": "85ade4931d326b19a0073b26ce795037b0704b647959bc042d98ff124d9439d1"
+          },
+          {
+            "path": "data/evidence/v1.0.0/scenario-canonical-1mw-100kwh-a11b0d4078daef9a79e07f7969940203c23ccaa800c0a2c60cc5853b0acacfd0.json",
+            "sha256": "49a5e41c298b33b6821af2cbf2e3317f916cae40bd95f1b8866f87d8524e9751",
+            "declaredInPacketManifest": true,
+            "manifestSha256": "49a5e41c298b33b6821af2cbf2e3317f916cae40bd95f1b8866f87d8524e9751"
+          },
+          {
+            "path": "data/evidence/v1.0.0/scenario-canonical-1mw-50kwh-0db72b981fa59c8a566e5610fd8627f4c623baeb8bb2662d22c5cae246a2b8b9.json",
+            "sha256": "854f2a9f7886bbbc7588c6f8b242a273709cc421e85467ba9ebdfd56d7f5b58b",
+            "declaredInPacketManifest": true,
+            "manifestSha256": "854f2a9f7886bbbc7588c6f8b242a273709cc421e85467ba9ebdfd56d7f5b58b"
+          },
+          {
+            "path": "data/evidence/v1.0.0/scenario-path-maintenance-700kw-6b446789e2f755b9ac1ac81896c7f0d85827a9a03b6ceedfd8fbdc6cb3b775dd.json",
+            "sha256": "24a51ab64523a2c0db6c1c88f61c53a5e4883c62df840334126e9a4723ec5a99",
+            "declaredInPacketManifest": true,
+            "manifestSha256": "24a51ab64523a2c0db6c1c88f61c53a5e4883c62df840334126e9a4723ec5a99"
+          }
+        ]
+      }
+    ],
+    "evidencePacketHashMismatches": 0,
+    "historicalSourceManifest": {
+      "path": "SOURCE-MANIFEST.json",
+      "schemaVersion": 1,
+      "status": "validated_historical_release_snapshot",
+      "appliesToPublicRevision": "42ede550e731619fefe4a4faef1ecbb6d87c304a",
+      "appliesToReleaseTag": "v0.2.0a0",
+      "sourceRepository": "mohammadrezwankhan/ai-datacenter-twin",
+      "warning": "This manifest describes the original v0.2.0a0 snapshot of a different repository, not current main; do not use its file hashes as current-source hashes."
+    }
+  },
+  "proposedKitInventory": {
+    "root": "C:\\Users\\MRK\\Downloads\\DataCenterv2\\datacenter-twin-v2.0.0-kit",
+    "status": "content, design, integration handoff; not an upstream patch/release/deployment",
+    "auditInventoryRecordCount": 68,
+    "contentVersion": "2.0.0",
+    "contentSchema": "dcie-lesson-content-1",
+    "track": {
+      "id": "infrastructure",
+      "title": "Infrastructure Engineering",
+      "lessonNumbers": [
+        13,
+        24
+      ]
+    },
+    "manuscriptSourcePdfSha256Claim": "b4df5519a0860ae794b59b8d2760bb01444c3ecbfda28cf77633cbde41ac2a1a",
+    "sourcePdfPresentInKit": false,
+    "sourcePdfHashVerifiedAgainstFile": false,
+    "newLessonCount": 12,
+    "newLessons": [
+      {
+        "number": 13,
+        "id": "evidence-load-ledger",
+        "title": "Build an evidence-controlled load ledger",
+        "chapter": 1,
+        "contentVersion": "2.0.0",
+        "runtimeRouteProposed": "?lesson=evidence-load-ledger",
+        "readingRouteProposed": "/learn/infrastructure/evidence-load-ledger/",
+        "source": {
+          "id": "DCIE-R1",
+          "pdfPages": [
+            10,
+            13
+          ],
+          "chapter": 1,
+          "evidenceStatus": "manuscript-derived; not independent source verification"
+        },
+        "prerequisites": [
+          "power-energy",
+          "distribution-loss",
+          "pue"
+        ],
+        "assessmentCount": 3,
+        "contentFiles": [
+          "content/lessons/13-evidence-load-ledger.json",
+          "content/lessons/13-evidence-load-ledger.md"
+        ],
+        "sceneStoryboard": "content/scenes/dcie-01.json",
+        "publicUseStatus": "Original lesson adaptation; accountable owner must clear attribution and publication rights before repository publication."
+      },
+      {
+        "number": 14,
+        "id": "resilience-state-matrix",
+        "title": "Test capacity, paths and common dependencies",
+        "chapter": 2,
+        "contentVersion": "2.0.0",
+        "runtimeRouteProposed": "?lesson=resilience-state-matrix",
+        "readingRouteProposed": "/learn/infrastructure/resilience-state-matrix/",
+        "source": {
+          "id": "DCIE-R1",
+          "pdfPages": [
+            14,
+            17
+          ],
+          "chapter": 2,
+          "evidenceStatus": "manuscript-derived; not independent source verification"
+        },
+        "prerequisites": [
+          "n-plus-one",
+          "shared-controls",
+          "single-point"
+        ],
+        "assessmentCount": 3,
+        "contentFiles": [
+          "content/lessons/14-resilience-state-matrix.json",
+          "content/lessons/14-resilience-state-matrix.md"
+        ],
+        "sceneStoryboard": "content/scenes/dcie-02.json",
+        "publicUseStatus": "Original lesson adaptation; accountable owner must clear attribution and publication rights before repository publication."
+      },
+      {
+        "number": 15,
+        "id": "transformer-fault-boundaries",
+        "title": "Declare transformer and fault-current boundaries",
+        "chapter": 3,
+        "contentVersion": "2.0.0",
+        "runtimeRouteProposed": "?lesson=transformer-fault-boundaries",
+        "readingRouteProposed": "/learn/infrastructure/transformer-fault-boundaries/",
+        "source": {
+          "id": "DCIE-R1",
+          "pdfPages": [
+            18,
+            21
+          ],
+          "chapter": 3,
+          "evidenceStatus": "manuscript-derived; not independent source verification"
+        },
+        "prerequisites": [
+          "distribution-loss",
+          "n-plus-one"
+        ],
+        "assessmentCount": 3,
+        "contentFiles": [
+          "content/lessons/15-transformer-fault-boundaries.json",
+          "content/lessons/15-transformer-fault-boundaries.md"
+        ],
+        "sceneStoryboard": "content/scenes/dcie-03.json",
+        "publicUseStatus": "Original lesson adaptation; accountable owner must clear attribution and publication rights before repository publication."
+      },
+      {
+        "number": 16,
+        "id": "generator-bank-fuel",
+        "title": "Audit generator banks and usable fuel",
+        "chapter": 4,
+        "contentVersion": "2.0.0",
+        "runtimeRouteProposed": "?lesson=generator-bank-fuel",
+        "readingRouteProposed": "/learn/infrastructure/generator-bank-fuel/",
+        "source": {
+          "id": "DCIE-R1",
+          "pdfPages": [
+            22,
+            25
+          ],
+          "chapter": 4,
+          "evidenceStatus": "manuscript-derived; not independent source verification"
+        },
+        "prerequisites": [
+          "generator-delay",
+          "generator-failure",
+          "n-plus-one"
+        ],
+        "assessmentCount": 3,
+        "contentFiles": [
+          "content/lessons/16-generator-bank-fuel.json",
+          "content/lessons/16-generator-bank-fuel.md"
+        ],
+        "sceneStoryboard": "content/scenes/dcie-04.json",
+        "publicUseStatus": "Original lesson adaptation; accountable owner must clear attribution and publication rights before repository publication."
+      },
+      {
+        "number": 17,
+        "id": "ups-battery-station-dc",
+        "title": "Separate UPS power, battery energy and trip DC",
+        "chapter": 5,
+        "contentVersion": "2.0.0",
+        "runtimeRouteProposed": "?lesson=ups-battery-station-dc",
+        "readingRouteProposed": "/learn/infrastructure/ups-battery-station-dc/",
+        "source": {
+          "id": "DCIE-R1",
+          "pdfPages": [
+            26,
+            29
+          ],
+          "chapter": 5,
+          "evidenceStatus": "manuscript-derived; not independent source verification"
+        },
+        "prerequisites": [
+          "ride-through",
+          "precharge",
+          "distribution-loss"
+        ],
+        "assessmentCount": 3,
+        "contentFiles": [
+          "content/lessons/17-ups-battery-station-dc.json",
+          "content/lessons/17-ups-battery-station-dc.md"
+        ],
+        "sceneStoryboard": "content/scenes/dcie-05.json",
+        "publicUseStatus": "Original lesson adaptation; accountable owner must clear attribution and publication rights before repository publication."
+      },
+      {
+        "number": 18,
+        "id": "protection-trip-chain",
+        "title": "Trace protection zones and the full trip chain",
+        "chapter": 6,
+        "contentVersion": "2.0.0",
+        "runtimeRouteProposed": "?lesson=protection-trip-chain",
+        "readingRouteProposed": "/learn/infrastructure/protection-trip-chain/",
+        "source": {
+          "id": "DCIE-R1",
+          "pdfPages": [
+            30,
+            33
+          ],
+          "chapter": 6,
+          "evidenceStatus": "manuscript-derived; not independent source verification"
+        },
+        "prerequisites": [
+          "shared-controls",
+          "single-point"
+        ],
+        "assessmentCount": 3,
+        "contentFiles": [
+          "content/lessons/18-protection-trip-chain.json",
+          "content/lessons/18-protection-trip-chain.md"
+        ],
+        "sceneStoryboard": "content/scenes/dcie-06.json",
+        "publicUseStatus": "Original lesson adaptation; accountable owner must clear attribution and publication rights before repository publication."
+      },
+      {
+        "number": 19,
+        "id": "grounding-power-quality",
+        "title": "Inspect grounding, distortion and control-power loops",
+        "chapter": 7,
+        "contentVersion": "2.0.0",
+        "runtimeRouteProposed": "?lesson=grounding-power-quality",
+        "readingRouteProposed": "/learn/infrastructure/grounding-power-quality/",
+        "source": {
+          "id": "DCIE-R1",
+          "pdfPages": [
+            34,
+            37
+          ],
+          "chapter": 7,
+          "evidenceStatus": "manuscript-derived; not independent source verification"
+        },
+        "prerequisites": [
+          "shared-controls",
+          "single-point",
+          "distribution-loss"
+        ],
+        "assessmentCount": 3,
+        "contentFiles": [
+          "content/lessons/19-grounding-power-quality.json",
+          "content/lessons/19-grounding-power-quality.md"
+        ],
+        "sceneStoryboard": "content/scenes/dcie-07.json",
+        "publicUseStatus": "Original lesson adaptation; accountable owner must clear attribution and publication rights before repository publication."
+      },
+      {
+        "number": 20,
+        "id": "thermal-liquid-continuity",
+        "title": "Coordinate liquid cooling and thermal ride-through",
+        "chapter": 8,
+        "contentVersion": "2.0.0",
+        "runtimeRouteProposed": "?lesson=thermal-liquid-continuity",
+        "readingRouteProposed": "/learn/infrastructure/thermal-liquid-continuity/",
+        "source": {
+          "id": "DCIE-R1",
+          "pdfPages": [
+            38,
+            41
+          ],
+          "chapter": 8,
+          "evidenceStatus": "manuscript-derived; not independent source verification"
+        },
+        "prerequisites": [
+          "ride-through",
+          "ai-outage",
+          "recovery-deadline"
+        ],
+        "assessmentCount": 3,
+        "contentFiles": [
+          "content/lessons/20-thermal-liquid-continuity.json",
+          "content/lessons/20-thermal-liquid-continuity.md"
+        ],
+        "sceneStoryboard": "content/scenes/dcie-08.json",
+        "publicUseStatus": "Original lesson adaptation; accountable owner must clear attribution and publication rights before repository publication."
+      },
+      {
+        "number": 21,
+        "id": "network-optical-budget",
+        "title": "Separate physical routes, optical budgets and fabric capacity",
+        "chapter": 9,
+        "contentVersion": "2.0.0",
+        "runtimeRouteProposed": "?lesson=network-optical-budget",
+        "readingRouteProposed": "/learn/infrastructure/network-optical-budget/",
+        "source": {
+          "id": "DCIE-R1",
+          "pdfPages": [
+            42,
+            45
+          ],
+          "chapter": 9,
+          "evidenceStatus": "manuscript-derived; not independent source verification"
+        },
+        "prerequisites": [
+          "single-point",
+          "shared-controls",
+          "n-plus-one"
+        ],
+        "assessmentCount": 3,
+        "contentFiles": [
+          "content/lessons/21-network-optical-budget.json",
+          "content/lessons/21-network-optical-budget.md"
+        ],
+        "sceneStoryboard": "content/scenes/dcie-09.json",
+        "publicUseStatus": "Original lesson adaptation; accountable owner must clear attribution and publication rights before repository publication."
+      },
+      {
+        "number": 22,
+        "id": "facilities-phased-development",
+        "title": "Review spatial capacity and phased development",
+        "chapter": 10,
+        "contentVersion": "2.0.0",
+        "runtimeRouteProposed": "?lesson=facilities-phased-development",
+        "readingRouteProposed": "/learn/infrastructure/facilities-phased-development/",
+        "source": {
+          "id": "DCIE-R1",
+          "pdfPages": [
+            46,
+            49
+          ],
+          "chapter": 10,
+          "evidenceStatus": "manuscript-derived; not independent source verification"
+        },
+        "prerequisites": [
+          "n-plus-one",
+          "single-point",
+          "ai-outage"
+        ],
+        "assessmentCount": 3,
+        "contentFiles": [
+          "content/lessons/22-facilities-phased-development.json",
+          "content/lessons/22-facilities-phased-development.md"
+        ],
+        "sceneStoryboard": "content/scenes/dcie-10.json",
+        "publicUseStatus": "Original lesson adaptation; accountable owner must clear attribution and publication rights before repository publication."
+      },
+      {
+        "number": 23,
+        "id": "commissioning-evidence-loop",
+        "title": "Build an integrated commissioning evidence loop",
+        "chapter": 11,
+        "contentVersion": "2.0.0",
+        "runtimeRouteProposed": "?lesson=commissioning-evidence-loop",
+        "readingRouteProposed": "/learn/infrastructure/commissioning-evidence-loop/",
+        "source": {
+          "id": "DCIE-R1",
+          "pdfPages": [
+            50,
+            53
+          ],
+          "chapter": 11,
+          "evidenceStatus": "manuscript-derived; not independent source verification"
+        },
+        "prerequisites": [
+          "recovery-deadline",
+          "pue",
+          "thermal-liquid-continuity"
+        ],
+        "assessmentCount": 3,
+        "contentFiles": [
+          "content/lessons/23-commissioning-evidence-loop.json",
+          "content/lessons/23-commissioning-evidence-loop.md"
+        ],
+        "sceneStoryboard": "content/scenes/dcie-11.json",
+        "publicUseStatus": "Original lesson adaptation; accountable owner must clear attribution and publication rights before repository publication."
+      },
+      {
+        "number": 24,
+        "id": "integrated-design-release",
+        "title": "Audit the correction before releasing the design",
+        "chapter": 12,
+        "contentVersion": "2.0.0",
+        "runtimeRouteProposed": "?lesson=integrated-design-release",
+        "readingRouteProposed": "/learn/infrastructure/integrated-design-release/",
+        "source": {
+          "id": "DCIE-R1",
+          "pdfPages": [
+            54,
+            58
+          ],
+          "chapter": 12,
+          "evidenceStatus": "manuscript-derived; not independent source verification"
+        },
+        "prerequisites": [
+          "evidence-load-ledger",
+          "resilience-state-matrix",
+          "transformer-fault-boundaries",
+          "generator-bank-fuel",
+          "ups-battery-station-dc",
+          "protection-trip-chain",
+          "grounding-power-quality",
+          "thermal-liquid-continuity",
+          "network-optical-budget",
+          "facilities-phased-development",
+          "commissioning-evidence-loop"
+        ],
+        "assessmentCount": 3,
+        "contentFiles": [
+          "content/lessons/24-integrated-design-release.json",
+          "content/lessons/24-integrated-design-release.md"
+        ],
+        "sceneStoryboard": "content/scenes/dcie-12.json",
+        "publicUseStatus": "Original lesson adaptation; accountable owner must clear attribution and publication rights before repository publication."
+      }
+    ],
+    "assessmentCount": 36,
+    "sceneStoryboardCount": 12,
+    "pairedLessonFileCount": 24,
+    "proposedReadingRouteCount": 12,
+    "integrationState": {
+      "productionReactScenes": 0,
+      "standaloneHtmlPrototypes": 1,
+      "upstreamTestsExecuted": false,
+      "mergePerformed": false,
+      "releasePublished": false,
+      "siteDeployed": false
+    },
+    "kitDeclaredLocalEvidence": {
+      "validatedJsonFiles": 30,
+      "pythonJsDefaultChallengeCases": 24,
+      "numericComparisons": 102,
+      "nodeTests": 38,
+      "prototypeFunctionalChecks": 15,
+      "status": "Declared by kit logs; not rerun as part of this read-only source audit."
+    },
+    "rightsBoundary": {
+      "ownerPublicationClearanceRequired": true,
+      "contentRegistryPublicUseStatus": "Every draft calls for accountable-owner attribution/publication-rights clearance.",
+      "thirdPartyAndPrivateSource": "Manuscript/PDF is absent; no blanket third-party license; no private manual/standards/vendor corpus should be copied.",
+      "repositoryOwnCodeLicense": "Apache-2.0, retain NOTICE and browser third-party notices."
+    },
+    "hashManifest": {
+      "path": "SHA256SUMS",
+      "entries": 65,
+      "verifiedEntries": 65,
+      "issues": [],
+      "files": [
+        {
+          "path": "README.md",
+          "sha256": "eddca6ac783ec3c41781a73cb583e096cce3e1b73e44683f81686952e3c48ade",
+          "bytes": 6096
+        },
+        {
+          "path": "audit/AUDIT_AND_INVENTORY.md",
+          "sha256": "8de66774abe6669fcb12bbdd51d9a423acc1b368f9e83daf7b5e5f1b05835549",
+          "bytes": 11219
+        },
+        {
+          "path": "audit/inventory.json",
+          "sha256": "ed2f39b0bfe0b4122bbed01b913298267c1201c96a72074f6e23b7928d48da7a",
+          "bytes": 29724
+        },
+        {
+          "path": "content/ALL_LESSONS.md",
+          "sha256": "87fb3902fd0902180937dc5c6e750410c35153d57c82cd1d59e6ed553333676d",
+          "bytes": 61386
+        },
+        {
+          "path": "content/INTEGRATION_MAP.md",
+          "sha256": "96db384ef722e084ba47457a386f7f55cf070e914b927378b74c956efba82212",
+          "bytes": 4867
+        },
+        {
+          "path": "content/lessons/13-evidence-load-ledger.json",
+          "sha256": "99656f55e313bc8b6751f78f5556b4c2dba55a72d81e10864fe12b6d4aa2cd51",
+          "bytes": 6313
+        },
+        {
+          "path": "content/lessons/13-evidence-load-ledger.md",
+          "sha256": "e53dd1091b89f4606b015662e172cc417dbc5aae47523a83e451546f4b888748",
+          "bytes": 5090
+        },
+        {
+          "path": "content/lessons/14-resilience-state-matrix.json",
+          "sha256": "319d1a79e2bc978cb22f7b05c8e3d1ad1eb36bf6e6454300b7b329f4c2eac488",
+          "bytes": 6125
+        },
+        {
+          "path": "content/lessons/14-resilience-state-matrix.md",
+          "sha256": "dbd531f4b6e1c0e821be559de5b57f341e94fa9970865cceadb05071d79cf9de",
+          "bytes": 4901
+        },
+        {
+          "path": "content/lessons/15-transformer-fault-boundaries.json",
+          "sha256": "4648c7e5617dfccbd29a37e9a646e91b6caff50d36f84997f0f0dff21b264add",
+          "bytes": 6135
+        },
+        {
+          "path": "content/lessons/15-transformer-fault-boundaries.md",
+          "sha256": "9ed3fbbe922b333491ca034fdda895e3e7e8e26f0a468531af9183f195730f11",
+          "bytes": 4910
+        },
+        {
+          "path": "content/lessons/16-generator-bank-fuel.json",
+          "sha256": "5b0e5bad2946cbc03aa2ea253dcb806c130f724254a7d1e9bcdeb03ed557fae2",
+          "bytes": 6256
+        },
+        {
+          "path": "content/lessons/16-generator-bank-fuel.md",
+          "sha256": "cb0ef6c360cc5791d6f07f6ac4f72c6057fff900d2629076552a97e2dfff0af0",
+          "bytes": 5044
+        },
+        {
+          "path": "content/lessons/17-ups-battery-station-dc.json",
+          "sha256": "6d9a0509a227939743eaeb5ce8c09ea78b7474ee97b56335c022f36b959d1d97",
+          "bytes": 6303
+        },
+        {
+          "path": "content/lessons/17-ups-battery-station-dc.md",
+          "sha256": "894d0775249d96b8b157204b5f1ae52d08270448ddbc38630cfe2085646d1abf",
+          "bytes": 5082
+        },
+        {
+          "path": "content/lessons/18-protection-trip-chain.json",
+          "sha256": "4e46b5cb27a5f03d6ef87f98fb27ce7fc536429a0e803cad913898026e8a61f0",
+          "bytes": 5985
+        },
+        {
+          "path": "content/lessons/18-protection-trip-chain.md",
+          "sha256": "3093eab4aeb69c9c04b38f5caf4303386f391d3e97f65d38930e5c3bdbda8172",
+          "bytes": 4789
+        },
+        {
+          "path": "content/lessons/19-grounding-power-quality.json",
+          "sha256": "40c33c4a736e5d2648ff213ee78a0d9970c40bddda84201f63eb09f8f93036f9",
+          "bytes": 6252
+        },
+        {
+          "path": "content/lessons/19-grounding-power-quality.md",
+          "sha256": "f97e70ab746ed6d50350e6b4fefb82f5b1cbfd07a5b7c56d36faaeb478198148",
+          "bytes": 5020
+        },
+        {
+          "path": "content/lessons/20-thermal-liquid-continuity.json",
+          "sha256": "f2a31ab63d6389a8bd97bd87faf8c1d5dab8bbeca53628be2bc3bf652f487f0b",
+          "bytes": 6445
+        },
+        {
+          "path": "content/lessons/20-thermal-liquid-continuity.md",
+          "sha256": "b6d801549ed5fdbfcbe524a827f330ffd9a2903fa20b5f84c4061b3041a9e8b5",
+          "bytes": 5187
+        },
+        {
+          "path": "content/lessons/21-network-optical-budget.json",
+          "sha256": "6424553941eaf8fa0832dcad6367e85b1c7a33027da1377ed54556ab1aa26851",
+          "bytes": 6448
+        },
+        {
+          "path": "content/lessons/21-network-optical-budget.md",
+          "sha256": "a59abb27d5f3ed7a9a6e6bc94d05d0b088c6d5098f0cca3ea177362f8ee4b613",
+          "bytes": 5199
+        },
+        {
+          "path": "content/lessons/22-facilities-phased-development.json",
+          "sha256": "82c93b1ba7048b4d705e658222d203525795d3028a7957aae1a514b04240ae4f",
+          "bytes": 6313
+        },
+        {
+          "path": "content/lessons/22-facilities-phased-development.md",
+          "sha256": "41d8617463a72f9fe98127ec412b60e75753d3dd440a031b0d0e48fa361842de",
+          "bytes": 5062
+        },
+        {
+          "path": "content/lessons/23-commissioning-evidence-loop.json",
+          "sha256": "d8d03701d6d42fd64e393cced1f086194ef0c0f2ca020842c24446c695f08a8a",
+          "bytes": 6594
+        },
+        {
+          "path": "content/lessons/23-commissioning-evidence-loop.md",
+          "sha256": "6351df11e2773d6d8cb7e95dc90ed36ab615907d974182eaaf2dce9de53f8f35",
+          "bytes": 5279
+        },
+        {
+          "path": "content/lessons/24-integrated-design-release.json",
+          "sha256": "d46cf997130797b238ef078135c9d672ca83c08325b5b561d37fe72d0c7cb09f",
+          "bytes": 6878
+        },
+        {
+          "path": "content/lessons/24-integrated-design-release.md",
+          "sha256": "c7c689c606db50d69cd13f03849183753322ccb423e51c33153a39e6a478e411",
+          "bytes": 5599
+        },
+        {
+          "path": "content/manifest.json",
+          "sha256": "79f767dfcadaa2ccc4a427301b54567f81da51721c8a1cd18ae1af9a190d8870",
+          "bytes": 82110
+        },
+        {
+          "path": "content/scenes/dcie-01.json",
+          "sha256": "2a70398952bcfa5a35034212d4e122cb76fd3f02606ac1f3d2fe8e1fd186f7ff",
+          "bytes": 1554
+        },
+        {
+          "path": "content/scenes/dcie-02.json",
+          "sha256": "219c2633a6fe821e3293668fff7bfd3520b1a95ec7fcf62f041100c5fc85c405",
+          "bytes": 1496
+        },
+        {
+          "path": "content/scenes/dcie-03.json",
+          "sha256": "bbe997fe96a1abec75dca7443e6812fc664b5a4ac4d7a6ae0841b6c1efe204fa",
+          "bytes": 1493
+        },
+        {
+          "path": "content/scenes/dcie-04.json",
+          "sha256": "2de3cf4d83ce90fcf7d8d7a2c7fccbd45e3d680172ed42229fb224eb801d9a92",
+          "bytes": 1530
+        },
+        {
+          "path": "content/scenes/dcie-05.json",
+          "sha256": "82cce2ce423027bd21f78a83da77f991a3e94143d4dc8da82c4e6d39f77284a7",
+          "bytes": 1554
+        },
+        {
+          "path": "content/scenes/dcie-06.json",
+          "sha256": "b6a5755828e31bc8cca0ed659a0fcd654350ee2117fd2e1c97fccb66279d5ce7",
+          "bytes": 1438
+        },
+        {
+          "path": "content/scenes/dcie-07.json",
+          "sha256": "e133c0cea3f6f16961560ed952d98a993175bc2dceadbffaafcc26364ae9049d",
+          "bytes": 1585
+        },
+        {
+          "path": "content/scenes/dcie-08.json",
+          "sha256": "5d0526e68d965423f6b731d5b96f76bf90480a806a909be8d8ce142267503900",
+          "bytes": 1773
+        },
+        {
+          "path": "content/scenes/dcie-09.json",
+          "sha256": "c5d187a87850b15211c72bf4b46834257ea4cb19b5007068633aef0ae2260678",
+          "bytes": 1718
+        },
+        {
+          "path": "content/scenes/dcie-10.json",
+          "sha256": "af5bc48afcc1047ca68e1e71a7b061c55ab979a38517d9ebd34284782111d297",
+          "bytes": 1566
+        },
+        {
+          "path": "content/scenes/dcie-11.json",
+          "sha256": "6c632974a4459869fbe6a4da81e802b420ec29c64ae49d4b3c4612c96deb1d40",
+          "bytes": 1736
+        },
+        {
+          "path": "content/scenes/dcie-12.json",
+          "sha256": "31c6af7f8f4ee99c83ea6221a506a207b03e8a6a3e495102f5343f0d903bd9cc",
+          "bytes": 1618
+        },
+        {
+          "path": "design/STYLE_AND_MOTION.md",
+          "sha256": "d8709c331811137bae49907dbbe241c08c692658ec94086db98a3dec936b5ced",
+          "bytes": 8119
+        },
+        {
+          "path": "design/content-contract.ts",
+          "sha256": "1c786e08b01757985be2601e3b88b79abbeaef4412f02fbc5a36d0388a0cdaf0",
+          "bytes": 1477
+        },
+        {
+          "path": "design/token-adapter.css",
+          "sha256": "b7facf08fe07d73f4be7324a8ff06cb6b856735ec872cf4501e97601f270ffd4",
+          "bytes": 1725
+        },
+        {
+          "path": "preview/check_preview.py",
+          "sha256": "88d59d30604549dfe16b3e9aba0984842de08afc76d43d5de812cbdbecd692a8",
+          "bytes": 4235
+        },
+        {
+          "path": "preview/thermal-continuity.html",
+          "sha256": "2688957dc0c88b5d59c1603c87a0112f0772e7c085a6eb5798fd275182e92a0f",
+          "bytes": 21195
+        },
+        {
+          "path": "preview/thermal-desktop.png",
+          "sha256": "4e5804ded7e5e9e376e378a9e525f66907214db5ada1f494cbb31849d2727655",
+          "bytes": 309860
+        },
+        {
+          "path": "preview/thermal-mobile.png",
+          "sha256": "c01fe351d1c28082a752407dc502282b58c4b2c215149650bf33773fd7801b1d",
+          "bytes": 230534
+        },
+        {
+          "path": "prompts/CHATGPT_ASTRA_MULTIAGENT_PROMPT.md",
+          "sha256": "d513b85fe87021cf39d5597035f3f7565f2be5cfee0d3f559a3b19508a495db5",
+          "bytes": 8162
+        },
+        {
+          "path": "prompts/CHATGPT_ASTRA_MULTIAGENT_PROMPT.txt",
+          "sha256": "d513b85fe87021cf39d5597035f3f7565f2be5cfee0d3f559a3b19508a495db5",
+          "bytes": 8162
+        },
+        {
+          "path": "prompts/CODEX_INTEGRATE_MERGE_PUBLISH.md",
+          "sha256": "f1440e2d3b65775a96f1325f8f4dc4acad77271be2c39f9509f3f192fa9d5f49",
+          "bytes": 17923
+        },
+        {
+          "path": "prompts/CODEX_INTEGRATE_MERGE_PUBLISH.txt",
+          "sha256": "f1440e2d3b65775a96f1325f8f4dc4acad77271be2c39f9509f3f192fa9d5f49",
+          "bytes": 17923
+        },
+        {
+          "path": "reference/evaluate.mjs",
+          "sha256": "123a68186d9e6e7db8d117414de90ec969fd430138413a35134018d07cf734f7",
+          "bytes": 228
+        },
+        {
+          "path": "reference/golden-cases.json",
+          "sha256": "286ca6a41853a6e54e49f8f026dff65dd1f0a6a0fc68222c5865e7edc10b73fa",
+          "bytes": 10603
+        },
+        {
+          "path": "reference/models.mjs",
+          "sha256": "41a12b48426e1edef29281fed34cd3f5e1e03573e0e048ba76e3fa82d8c7e378",
+          "bytes": 9384
+        },
+        {
+          "path": "reference/models.test.mjs",
+          "sha256": "d275bfd0b63fa467f7d2082da3624c02afc8542305756039467f428fb883af9f",
+          "bytes": 4857
+        },
+        {
+          "path": "reference/verify_reference.py",
+          "sha256": "4fd73b0d06bbc88704c706d3c25b37c263f9a2295fabddbf9b8d6e725b4c90a7",
+          "bytes": 5169
+        },
+        {
+          "path": "release/KIT_VALIDATION.json",
+          "sha256": "61679a823054695ae985ca370bd0537776243f367519c4db5dc3383a28828d1f",
+          "bytes": 559
+        },
+        {
+          "path": "release/RECEIPT_TEMPLATE.json",
+          "sha256": "c3c155acc4c48e1d060bb6d204139bb94b984cc95651961cb3453a151be5fbe6",
+          "bytes": 1285
+        },
+        {
+          "path": "release/RELEASE_GATES.md",
+          "sha256": "5dddc93c078ac19254978784bcf7fe0d27d1d4fb50c180cfa7e3cbb0e68b4389",
+          "bytes": 4254
+        },
+        {
+          "path": "release/RELEASE_NOTES_DRAFT.md",
+          "sha256": "36a5bb9a66f1bad95748c33b30dc663c58b69639883ee5f760f0e6061ccaed9b",
+          "bytes": 3703
+        },
+        {
+          "path": "release/node-test-results.tap",
+          "sha256": "a65c0034b4927e31c745d44fc39b061c4681b1d0aa6caf670c4fd498df5a26f3",
+          "bytes": 5763
+        },
+        {
+          "path": "release/preview-check-results.json",
+          "sha256": "4448f58c78bfc2b4a66f2a8f2b2929b12cc14667b41d1d6c8d241da23c595da6",
+          "bytes": 1752
+        },
+        {
+          "path": "release/reference-check-results.json",
+          "sha256": "a05ec7accbd6cbf35fb9668bb2c5a52b55d57043bf00cb233e4a0ea992bf59c5",
+          "bytes": 226
+        }
+      ]
+    }
+  },
+  "schemaAndHashSources": {
+    "planningScenario": {
+      "schemaVersion": 1,
+      "source": "datacenter_twin/contracts.py",
+      "contractDoc": "docs/contracts/scenario-v1.md"
+    },
+    "electricalScenarioAndRun": {
+      "schemaVersion": 2,
+      "source": "datacenter_twin/topology.py",
+      "runSource": "datacenter_twin/continuity.py",
+      "contractDoc": "docs/contracts/electrical-v2.md"
+    },
+    "staticLearningManifest": {
+      "schemaVersion": 1,
+      "source": "apps/web/learn-manifest.ts",
+      "hashNormalization": "UTF-8 text with CRLF normalized to LF",
+      "revisionSource": "VITE_PUBLIC_SOURCE_REVISION / explicit source revision, null for undeclared local build"
+    },
+    "versionedEvidence": {
+      "source": "data/evidence/v<engine-version>/manifest.json",
+      "caseCount": 3,
+      "declaredArtifactsPerPacket": 14,
+      "physicalFilesPerPacket": 15
+    },
+    "proposedInfrastructureContent": {
+      "contentSchema": "dcie-lesson-content-1",
+      "contentVersion": "2.0.0",
+      "proposedResultSchema": "infrastructure-screen-1",
+      "resultContractSource": "design/content-contract.ts",
+      "status": "proposed only; separate from schema 1/2"
+    },
+    "baseSourceFilesSha256": [
+      {
+        "path": "README.md",
+        "sha256": "a8e48b5138f084a02188496ed7d8201af4a341af4abf8a88ba15a1e890b865d4",
+        "gitBlobSha1": "5ff0db0dfd3fc539f42cc657e4e66a80568986b8"
+      },
+      {
+        "path": "CONTRIBUTING.md",
+        "sha256": "e087aa4176a6804610041abd014ef3ae76e9eb33efc9a69b1cc42f536471c8a2",
+        "gitBlobSha1": "34de6cc87774c3add1d224dcafc471912d0f550c"
+      },
+      {
+        "path": "CHANGELOG.md",
+        "sha256": "33d88491feeab6a4e14e8f64ee91f2ddb72fedced138db19d93ba3a59585eb20",
+        "gitBlobSha1": "9b86e63c352abf6515cc6f5c0b523e9c6a01c8ee"
+      },
+      {
+        "path": "SOURCE-MANIFEST.json",
+        "sha256": "80e51f85f90c9fc5729031b3a1d3fa2c0e305a7aeb4f5910f965e71beddcc68d",
+        "gitBlobSha1": "652cfe5baa25afd11257127ca330ef3391324a15"
+      },
+      {
+        "path": "pyproject.toml",
+        "sha256": "1f73c3b1ed602e5215dbf3976c9dded09c7f350a83c1af564ba747c996126980",
+        "gitBlobSha1": "17038c912f531e51bbd015dbcd4d5c45c6167c34"
+      },
+      {
+        "path": "datacenter_twin/__init__.py",
+        "sha256": "e713c8c2e0412d4a5f497cc1084dce495cee828b253e2145e4950464a4a18ad6",
+        "gitBlobSha1": "ce22a130b727550b6a8e8f1d9ebf151661d886b0"
+      },
+      {
+        "path": "datacenter_twin/demo.py",
+        "sha256": "b443812824df8ca3dee2a941d5148bcc71346cf1e3d66a7ae9581436d8871436",
+        "gitBlobSha1": "87fd3ce1f2e00f2dbad600e6378069f025801b2d"
+      },
+      {
+        "path": "datacenter_twin/emt.py",
+        "sha256": "676ac6ffabfe618c41d2fbf02f3ef1453a3574f91c3bf65b2e34c0a30a7c3c7d",
+        "gitBlobSha1": "eca819907045c750620463b828f00bba54352a05"
+      },
+      {
+        "path": "datacenter_twin/contracts.py",
+        "sha256": "be62fe16b127650854e7432ade76720e0baf27a5aa055719bdfb0f20af76270a",
+        "gitBlobSha1": "e7184343c626f02efa3eafb7de1166aad1cecaf4"
+      },
+      {
+        "path": "datacenter_twin/topology.py",
+        "sha256": "a61b29fee86c30bc93e77e80ca935ee2259cc801b216cd58dbde3c70fc5a9337",
+        "gitBlobSha1": "17d120f74166921791cee7bfc3441c2650c6e9d3"
+      },
+      {
+        "path": "apps/web/package.json",
+        "sha256": "0f819b03e9b4c84743b457a7d3dffc1a0fb39f60afdc6f72e19535a33b09f2f0",
+        "gitBlobSha1": "55db8268bd90724c5b4436d9a0670f3b7fe3e78b"
+      },
+      {
+        "path": "apps/web/src/js-engine/version.ts",
+        "sha256": "58c44c72317c058e95ad4f167e5ba1c4f8bb8b93747457d297dd333e769d1fe2",
+        "gitBlobSha1": "1c13c067cfa92cc97e9688e280814be39961c469"
+      },
+      {
+        "path": "apps/web/src/course-lessons.ts",
+        "sha256": "58040cb0d6b871802004204cc77fcd84e94f3fcad9f4a7dfd8f885179aec7a49",
+        "gitBlobSha1": "9000fc1103b07bcf02bf01e6c80becaceb52bc7a"
+      },
+      {
+        "path": "apps/web/src/facility-profiles.ts",
+        "sha256": "e37116e6293d557cbcace5e52e54dba401d21c49b637b36119f1637ad3ba2936",
+        "gitBlobSha1": "05f956f1244f6aefdd0d06bf731cd74feb38b0d5"
+      },
+      {
+        "path": "apps/web/seo-research.ts",
+        "sha256": "5772ccf3c6f91469b7bf0438ac9a534786ea04054bb7c7b939d2547d6ebdf970",
+        "gitBlobSha1": "69a652f4bcc85bfa79c10e98c360627ce36f20bf"
+      },
+      {
+        "path": "apps/web/learn-manifest.ts",
+        "sha256": "03b0f4d6e648fd28a06ac2272d3cb4343895168a26bc3f50eb78c5e7e199c944",
+        "gitBlobSha1": "9bcd5715246f9a6072ca12b3cdb098e5e354fa0f"
+      },
+      {
+        "path": "apps/web/seo.ts",
+        "sha256": "005e403821778a9b7623c394769adde686f3478cf40e04389a86a52a6eb56203",
+        "gitBlobSha1": "534f21d30dfd95d31b7672691f401577937ce619"
+      },
+      {
+        "path": "apps/web/vite.config.ts",
+        "sha256": "9961c90268c940f58aa901942c30a26562e15df812af7317fe5a97a8c5d6efaa",
+        "gitBlobSha1": "b633c51d4f9baa337bf26e8315c4d1b411d46ee7"
+      },
+      {
+        "path": ".github/workflows/tests.yml",
+        "sha256": "d5ec98724c4710393d08ca06345383f0a70351e6ee0f527ed3198d676121b55d",
+        "gitBlobSha1": "a0f9d8ee206c60d7ebd3ff1c336f44478f2343e8"
+      },
+      {
+        "path": ".github/workflows/publish-pypi.yml",
+        "sha256": "2e0c1ab3ef2b89f7bd9551de4cd1d81f82a658f1992853e2054d788cfa7944d3",
+        "gitBlobSha1": "7d5a4f076bdf0c42eeefd342643613c0ffad865a"
+      },
+      {
+        "path": "docs/contracts/scenario-v1.md",
+        "sha256": "02e75dd22c4edbf8a531573abebf9bfbccc3c7fc085019e445044f75aa62336d",
+        "gitBlobSha1": "a002431e68628557d6e970c557420a392c53c9ec"
+      },
+      {
+        "path": "docs/contracts/electrical-v2.md",
+        "sha256": "65312da3663f7969575b2e67769e76000ab83d247b943b5c6c9675070d0e4a12",
+        "gitBlobSha1": "28f5ba8e61ea9b270b21e86c4aac9569e0ec1cd5"
+      },
+      {
+        "path": "docs/engineering/release-readiness.md",
+        "sha256": "8623e885840e7e5b79d169fbbd8d18540e927ffa00a5a1f80e1dc219fa012019",
+        "gitBlobSha1": "e11c53e90ead6855fb27bc3690a4f7e2669df9eb"
+      },
+      {
+        "path": "docs/engineering/custom-domain.md",
+        "sha256": "cca4a51dc0aedc140aefaa4f6698d96b7d6b266d95c1c31cbc6b2b15dfa65b0b",
+        "gitBlobSha1": "b23b431f61e82635d082bb30aaabc31aac57f885"
+      },
+      {
+        "path": "docs/engineering/browser-demo.md",
+        "sha256": "1036017bd81bc0e8e64273620cca3274a96c982055b363c5d659ae811049d5ba",
+        "gitBlobSha1": "f4658984ed59f16e96af827c8481cd96a3913011"
+      },
+      {
+        "path": "docs/engineering/search-discovery.md",
+        "sha256": "b1b9e51cbf5bc7bf4e2a5c98e5b310011362b8f922ee6af1204878a518b29093",
+        "gitBlobSha1": "5f34e053d34ceba17bde31f234995cf576f331e5"
+      },
+      {
+        "path": "docs/engineering/learn-discovery.md",
+        "sha256": "634ed591100c82e44cc671f5c613cc8fb2e0aed0ed79046b549012c61b3de525",
+        "gitBlobSha1": "894fd088ba2d0cb8e862c8bc7125b4b5088d611f"
+      },
+      {
+        "path": "docs/engineering/benchmark-method.md",
+        "sha256": "14038d4856d29c30968af3564f28928f0afd49a0cdd3fb6e52219387b22eca9f",
+        "gitBlobSha1": "d299d9d7f9c4725331296f76a70883b408f8d1bd"
+      },
+      {
+        "path": "docs/studies/emt.md",
+        "sha256": "57199f8b8ba8d2c85286b51ef07e8bf03834b4daadf3fc04fa301bc97ab02428",
+        "gitBlobSha1": "196dd37190edb5ac900060370aa482a93b8316b4"
+      },
+      {
+        "path": "docs/studies/power-dynamics.md",
+        "sha256": "f371849a184a4af12d440bca5694f388b0d22ab774c04d445556a3f1882cbf75",
+        "gitBlobSha1": "0078421775bcc9c88541c176b505d1e0292ef50d"
+      },
+      {
+        "path": "docs/third-party/README.md",
+        "sha256": "9d72edd00c1878a0615707493e1cf8aa3563211f597c47100c726b9dbc203a38",
+        "gitBlobSha1": "8e8c0f8bc503f55debdcc24c2afc4a3b01d581e8"
+      },
+      {
+        "path": "LICENSE",
+        "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+        "gitBlobSha1": "d645695673349e3947e8e5ae42332d0ac3164cd7"
+      },
+      {
+        "path": "NOTICE",
+        "sha256": "6aa3b693b6a47a1814f4ef137b553604cc4dd50db4da4efe7e24c3fc7484c158",
+        "gitBlobSha1": "60b5678855bfe435281f8c6dff9d64628d478c26"
+      }
+    ]
+  },
+  "releasePipeline": {
+    "repositoryWorkflowFiles": [
+      ".github/workflows/tests.yml",
+      ".github/workflows/publish-pypi.yml"
+    ],
+    "githubReleaseAutomationWorkflowPresent": false,
+    "fullCi": {
+      "workflow": "Tests",
+      "trigger": "push to main and pull_request",
+      "matrix": "Windows/Linux x Python 3.12/3.14; browser-demo on Ubuntu Python 3.12",
+      "baseShaRun": {
+        "runId": "37843262955",
+        "status": "success",
+        "event": "push",
+        "createdAt": "2026-10-08T20:57:13Z",
+        "url": "https://github.com/mohammadrezwankhan/datacenter-twin-lab/actions/runs/37843262955"
+      },
+      "checksConfigured": [
+        "Python stdlib/API/regressions",
+        "research tests",
+        "three evidence cases + verify",
+        "native benchmarks",
+        "npm format + dashboard build",
+        "wheel verify outside checkout",
+        "Playwright journeys",
+        "browser JS/Python engine parity at subpath and root",
+        "static browser bundle upload",
+        "GitHub Pages forwarding upload"
+      ]
+    },
+    "githubPages": {
+      "configReadFromGitHubApi": {
+        "buildType": "workflow",
+        "sourceBranch": "main",
+        "sourcePath": "/",
+        "httpsEnforced": true,
+        "cname": null,
+        "url": "https://mohammadrezwankhan.github.io/datacenter-twin-lab/"
+      },
+      "latestObservedBaseDeployment": {
+        "deploymentId": "6946892464",
+        "sha": "1410b82d645d22b7e3af7f3803fa557a1d6c61e2",
+        "environment": "github-pages",
+        "state": "success",
+        "updatedAt": "2026-10-08T21:12:08Z",
+        "url": "https://mohammadrezwankhan.github.io/datacenter-twin-lab/",
+        "runUrl": "https://github.com/mohammadrezwankhan/datacenter-twin-lab/actions/runs/37843262955"
+      },
+      "artifactRole": "Workflow deploys the separate legacy Pages forwarding artifact; it is not the full Cloudflare application bundle."
+    },
+    "customDomain": {
+      "documentedPrimary": "https://khanlab.co.technology/",
+      "documentedProvider": "Cloudflare Pages Direct Upload",
+      "repoDeployWorkflowForCloudflare": false,
+      "cloudflareProjectOrDeploymentId": "not present in checkout or GitHub Pages API",
+      "domainConfigInGitHubPages": null,
+      "customDomainDeploymentObserved": false,
+      "documentedDeploy": "Upload contents of tested .local/browser-demo-site, preserve directory layout, save artifact SHA-256 manifest; configure custom domain/DNS/HTTPS separately.",
+      "documentedRollback": "Keep prior complete artifact and hosting deployment; kit says controlled revert without retargeting tags.",
+      "executableCustomDomainRollbackConfig": "None found in checkout; manual Cloudflare project/account and restore route remain unverified."
+    },
+    "pypiWorkflow": "Manual workflow_dispatch for package datacenter-twin only; separate from GitHub Release and site deployment."
+  },
+  "releaseGatesAndBudgets": {
+    "documentedRequiredCommands": [
+      "python scripts/build_evidence.py --output outputs/evidence",
+      "python scripts/build_evidence.py --verify outputs/evidence",
+      "python -m unittest discover -s tests -v",
+      "npm --prefix apps/web run test:engine",
+      "npm --prefix apps/web run test:demo",
+      "python scripts/verify_distribution.py dist --require-web",
+      "npm --prefix apps/web run format:check",
+      "npm --prefix apps/web run build:demo",
+      "npm --prefix apps/web run test:demo -- --grep \"search pages\"",
+      "npm --prefix apps/web run test:demo -- benchmark.spec.ts"
+    ],
+    "requiredEnvironment": "Python >=3.12, Node 24, npm; requirements-studies.lock and prepared Pyodide runtime for complete browser-demo workflow.",
+    "performanceBudgets": [
+      {
+        "budget": "<=600000 decoded response bytes to first result",
+        "scope": "explicit advanced 50 MW journey",
+        "test": "apps/web/tests-demo/course.spec.ts; npm --prefix apps/web run test:demo",
+        "source": "docs/engineering/browser-demo.md"
+      },
+      {
+        "budget": "<=35 KiB gzip added discovery JavaScript",
+        "scope": "learning-index discovery enhancement only",
+        "test": "apps/web/tests-demo/learn-discovery.spec.ts; npm --prefix apps/web run test:demo -- --grep \"search pages\"",
+        "source": "docs/engineering/learn-discovery.md"
+      },
+      {
+        "budget": "60 fps desktop / usable static or 30 fps constrained mobile",
+        "scope": "proposed target for future infrastructure scenes; not a measured/passing gate",
+        "test": "No dedicated current integration test; measure/profile after implementation",
+        "source": "kit design/STYLE_AND_MOTION.md"
+      }
+    ],
+    "kitGatesStillOpen": [
+      "rights/publication decision",
+      "12 production scenes and routes/notes",
+      "new result serialization/hash checks",
+      "full upstream CI at reviewed and merge SHAs",
+      "accessibility and responsive audit",
+      "measured new bundle/performance",
+      "tag/release assets/checksum receipt",
+      "authorized live custom-domain deploy and anonymous smoke tests"
+    ]
+  },
+  "sourceReferences": [
+    {
+      "path": "datacenter_twin/demo.py",
+      "lines": "10-99",
+      "why": "Actual PRESETS registry, four profiles and profile-derived additions."
+    },
+    {
+      "path": "apps/web/src/course-lessons.ts",
+      "lines": "46-270",
+      "why": "Twelve legacy lesson definitions/IDs."
+    },
+    {
+      "path": "apps/web/src/Course.tsx",
+      "lines": "81-85",
+      "why": "Base runtime resolves only known legacy IDs; unrecognized lesson falls back to first legacy lesson."
+    },
+    {
+      "path": "apps/web/src/facility-profiles.ts",
+      "lines": "23-71",
+      "why": "Four profiles and three mode-to-preset mappings."
+    },
+    {
+      "path": "datacenter_twin/emt.py",
+      "lines": "17-45",
+      "why": "EMT model defaults and four presets."
+    },
+    {
+      "path": "apps/web/seo-research.ts",
+      "lines": "3-33",
+      "why": "Five research-study IDs."
+    },
+    {
+      "path": "apps/web/learn-manifest.ts",
+      "lines": "94-177",
+      "why": "Learning index routes, item counts, source hashes and schema version."
+    },
+    {
+      "path": "apps/web/seo.ts",
+      "lines": "289-325, 410-430, 501-502, 569-620",
+      "why": "Generated static notes, download records and 18 sitemap routes."
+    },
+    {
+      "path": "docs/engineering/release-readiness.md",
+      "lines": "3-23",
+      "why": "Release gates and preservation requirements."
+    },
+    {
+      "path": "docs/engineering/custom-domain.md",
+      "lines": "1-34",
+      "why": "Manual Pages/Cloudflare domain setup and artifact handling."
+    },
+    {
+      "path": "docs/engineering/learn-discovery.md",
+      "lines": "39-41",
+      "why": "35 KiB discovery JS budget and prior-artifact rollback note."
+    },
+    {
+      "path": "docs/engineering/browser-demo.md",
+      "lines": "21-29",
+      "why": "600,000-byte first-result regression budget and privacy/hosting docs."
+    },
+    {
+      "path": "docs/engineering/search-discovery.md",
+      "lines": "3-23",
+      "why": "18 static pages, canonical host, separate redirect/full bundle."
+    },
+    {
+      "path": "docs/contracts/scenario-v1.md",
+      "lines": "1-23",
+      "why": "Planning schema 1."
+    },
+    {
+      "path": "docs/contracts/electrical-v2.md",
+      "lines": "1-29",
+      "why": "Electrical schema 2, provenance and compatibility rules."
+    },
+    {
+      "path": "README.md",
+      "lines": "133-135",
+      "why": "Private source exclusions, Apache-2.0 and historical source-manifest scope."
+    },
+    {
+      "path": "CONTRIBUTING.md",
+      "lines": "24-64,76",
+      "why": "Runtime/toolchain, contributor checks, numerical boundaries and third-party notices."
+    },
+    {
+      "path": "kit content/manifest.json",
+      "lines": "1-13",
+      "why": "New content version/schema/track and manuscript hash claim."
+    },
+    {
+      "path": "kit design/content-contract.ts",
+      "lines": "1-29",
+      "why": "Proposed distinct result schema; preserve legacy schemas."
+    },
+    {
+      "path": "kit release/RELEASE_GATES.md",
+      "lines": "5-18,45-49",
+      "why": "Upstream release gates and requirement for actual per-stage evidence."
+    }
+  ],
+  "auditExecution": {
+    "repositoryBuildOrTestsRun": false,
+    "sharedRuntimeOperationsPerformed": false,
+    "repoFilesModifiedByThisAudit": false,
+    "readOnlyActions": [
+      "pinned Git object/file inventory",
+      "kit SHA256SUMS comparison",
+      "existing packet manifest hash comparison",
+      "authenticated read-only GitHub release/workflow/run/Pages/deployment queries"
+    ],
+    "executedEvidence": "The base GitHub Actions run and Pages deployment were observed through read-only GitHub queries; they were not executed by this audit.",
+    "notRechecked": [
+      "No downstream build or tests",
+      "No production Cloudflare access or anonymous domain verification",
+      "No educational-publication rights approval",
+      "No v2.0.0 integration/release/deployment"
+    ]
+  },
+  "integrationResolution": {
+    "publication": "Owner confirmed rights and educational publication/attribution; see docs/releases/v2.0.0-publication-decision.md.",
+    "engineeringDecision": "HOLD",
+    "infrastructureLessonCount": 12,
+    "courseLessonCount": 24,
+    "infrastructureAssessments": 36,
+    "sitemapPageCount": 30,
+    "hosting": {
+      "provider": "Cloudflare Pages Direct Upload",
+      "project": "datacenter-twin-lab",
+      "domain": "khanlab.co.technology",
+      "productionBranch": "main",
+      "previousProductionDeployment": "480c6205-113a-4607-b680-54f628e908af",
+      "previousImmutableUrl": "https://480c6205.datacenter-twin-lab.pages.dev",
+      "previousSourceRevision": "1410b82d645d22b7e3af7f3803fa557a1d6c61e2",
+      "productionDeploymentState": "pending release gates"
+    }
+  }
+}

@@ -111,6 +111,8 @@ jobs:
           python -m pip install -r requirements-studies.lock
           python scripts/fetch_study_runtime.py
       - run: python scripts/prepare_browser_demo.py
+      - name: Infrastructure screens and independent Python equations
+        run: python scripts/verify_infrastructure.py
       - run: npm --prefix apps/web run test:engine
       - name: Build browser demo with the appropriate source provenance
         run: |
@@ -127,7 +129,7 @@ jobs:
         run: python scripts/build_pages_redirect.py --site .local/browser-demo-site --output .local/github-pages-redirect
       - run: npm --prefix apps/web run test:demo
       - name: Verify the same artifact at a custom-domain root
-        run: npm --prefix apps/web run test:demo -- --grep "all presets match native Python|evidence hub exposes|five-minute guide requires|search pages|EMT study|power dynamics"
+        run: npm --prefix apps/web run test:demo -- --grep "all presets match native Python|evidence hub exposes|five-minute guide requires|search pages|EMT study|power dynamics|infrastructure"
         env:
           TWIN_DEMO_BASE: /
       - name: Retain browser and engine evidence

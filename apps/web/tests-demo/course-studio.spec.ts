@@ -20,10 +20,10 @@ test('course atlas, predictions, replay and session review marks form one learni
 }) => {
   await page.goto('./?lesson=power-energy');
   await expect(page.getByTestId('lesson-result')).toContainText('500');
-  await page.getByText('Explore all 12 lessons', { exact: true }).click();
-  await expect(page.getByRole('button', { name: /^Open lesson / })).toHaveCount(12);
+  await page.getByText('Explore all 24 lessons', { exact: true }).click();
+  await expect(page.getByRole('button', { name: /^Open lesson / })).toHaveCount(24);
   const themes = await page
-    .locator('.course-map-card')
+    .locator('.course-map-card[data-renderer="legacy"]')
     .evaluateAll((cards) =>
       cards.map((card) => getComputedStyle(card).getPropertyValue('--lesson-accent').trim()),
     );
@@ -32,7 +32,7 @@ test('course atlas, predictions, replay and session review marks form one learni
     'aria-current',
     'step',
   );
-  await page.getByText('Explore all 12 lessons', { exact: true }).click();
+  await page.getByText('Explore all 24 lessons', { exact: true }).click();
 
   await page.getByRole('button', { name: 'Try the challenge value' }).click();
   await page.getByLabel('Your prediction (kWh)').fill('250');

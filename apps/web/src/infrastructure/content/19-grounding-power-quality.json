@@ -1,0 +1,112 @@
+{
+  "id": "grounding-power-quality",
+  "number": 19,
+  "chapter": 7,
+  "title": "Inspect grounding, distortion and control-power loops",
+  "trackId": "infrastructure",
+  "contentVersion": "2.0.0",
+  "estimatedMinutes": 25,
+  "route": "?lesson=grounding-power-quality",
+  "readingRoute": "learn/infrastructure/grounding-power-quality/",
+  "source": {
+    "id": "DCIE-R1",
+    "pdfPages": [34, 37],
+    "chapter": 7,
+    "evidenceStatus": "manuscript-derived; not independent source verification"
+  },
+  "prerequisites": ["shared-controls", "single-point", "distribution-loss"],
+  "lead": "Low resistance, low distortion and a nominal battery voltage each answer only a narrowly defined question. This lesson turns those single numbers into explicit boundaries. Follow the ground current, compare harmonic denominators, and include the return conductor in the trip circuit before drawing any conclusion about service.",
+  "objectives": [
+    "Distinguish ground-potential rise from touch/step assessment.",
+    "Calculate THD and TDD using different denominators.",
+    "Evaluate a complete DC loop and explain frequency-change consequences."
+  ],
+  "sections": [
+    {
+      "title": "Grounding has several functions",
+      "body": "Protective bonding, source-neutral grounding, lightning protection and signal/EMC interfaces are related but not interchangeable. In the deliberately simplified resistive model, 2 kA entering a 0.5 Ω grounding system gives 1,000 V ground-potential rise. It does not automatically give the voltage across a person. Soil structure, geometry, current distribution, bonding, surface layer, duration and the applicable criterion remain necessary for a safety assessment.",
+      "evidenceLabel": "illustrative-assumption"
+    },
+    {
+      "title": "Choose the correct distortion denominator",
+      "body": "THD uses aggregate harmonic RMS current divided by fundamental RMS current. TDD uses the same numerator divided by a declared reference maximum-demand current. With 30 A harmonics, 100 A fundamental and 300 A reference, THD is 30% and TDD is 10%. Those different percentages describe the same numerator. A generic five-percent statement without a metric, operating state and boundary is not a universal conformity rule.",
+      "evidenceLabel": "editorial-derivation"
+    },
+    {
+      "title": "Close the return path and preserve physical duty",
+      "body": "A two-wire DC route has both outgoing and return conductors. At 10 A, one-way length 100 m and resistance 0.003 Ω/m, the conductor drop is 6 V before contacts and other elements. The minimum loaded source voltage and receiving coil requirement still govern. Frequency changes are also physical changes: at unchanged voltage, 60-to-50 Hz increases ideal transformer flux by 20%; rotating-equipment affinity relations have their own stated assumptions.",
+      "evidenceLabel": "editorial-derivation"
+    }
+  ],
+  "experiment": {
+    "model": "auxiliaryScreen",
+    "defaultInputs": {
+      "harmonicA": 30,
+      "fundamentalA": 100,
+      "referenceA": 300,
+      "groundA": 2000,
+      "groundOhm": 0.5,
+      "dcA": 10,
+      "oneWayM": 100,
+      "ohmPerM": 0.003
+    },
+    "challenge": {
+      "changes": {
+        "fundamentalA": 50
+      },
+      "question": "What changes if the fundamental current falls while harmonics and reference demand stay fixed?",
+      "answer": "THD rises to 60%; TDD stays at 10%. This demonstrates denominator sensitivity, not a new measured harmonic event."
+    },
+    "predictionRequired": false,
+    "explicitRunRequired": true,
+    "instructions": [
+      "Read the declared boundary and units. Predict the selected result before calculating.",
+      "Run the starting case and inspect the ledger, assumptions and model limits.",
+      "Apply the challenge, run again, and explain the difference. Export only the last completed inputs and results."
+    ]
+  },
+  "scene": {
+    "id": "dcie-07",
+    "title": "The hidden return path",
+    "storyboard": [
+      "Separate neutral grounding, protective bonding and signal interfaces.",
+      "Show ground-potential rise without depicting a safe human exposure.",
+      "Swap THD and TDD denominator labels while keeping harmonic bars fixed.",
+      "Trace both halves of the DC circuit and reveal the remote-voltage loss."
+    ],
+    "interaction": "Change the fundamental denominator and DC route length independently; inspect source versus receiving-device voltage.",
+    "staticAlternative": "Metric definitions, denominators, ground-current assumptions and outgoing/return conductor table.",
+    "projection": "orthographic axonometric SVG with upright HTML labels",
+    "loopPolicy": "user-started; pauseable; stop on hidden/offscreen",
+    "timelineSemantics": "Narrative steps unless an explicitly labelled physical-time model is active.",
+    "reducedMotion": "Same states and values; no particles, parallax, camera travel or tweening."
+  },
+  "assessments": [
+    {
+      "id": "7.1",
+      "question": "Compute THD and TDD for 20 A harmonics, 80 A fundamental and 200 A reference.",
+      "answer": "25% THD and 10% TDD.",
+      "rubric": "Identify both denominators.",
+      "source": "DCIE-R1 Appendix A, PDF pp.59-61"
+    },
+    {
+      "id": "7.2",
+      "question": "Find the ideal flux ratio for a 400 V/60 Hz winding used at 380 V/50 Hz.",
+      "answer": "(380/50)/(400/60) = 1.14, or 14% higher ideal flux.",
+      "rubric": "Do not label this equipment approval or a prediction of failure.",
+      "source": "DCIE-R1 Appendix A, PDF pp.59-61"
+    },
+    {
+      "id": "7.3",
+      "question": "Why are two earth conductors not independent when both use one severed bonding point?",
+      "answer": "The common connection disables both intended paths.",
+      "rubric": "Identify the shared node and initiating failure.",
+      "source": "DCIE-R1 Appendix A, PDF pp.59-61"
+    }
+  ],
+  "limits": [
+    "No touch/step-voltage certification or jurisdictional harmonic limits.",
+    "Frequency adaptation and DC operating voltages remain equipment-specific."
+  ],
+  "publicUseStatus": "Original lesson adaptation; owner confirmed rights and approved educational publication and attribution on 12 October 2026 (Europe/Paris). Engineering HOLD remains; see docs/releases/v2.0.0-publication-decision.md."
+}

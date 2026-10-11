@@ -1,0 +1,110 @@
+{
+  "id": "generator-bank-fuel",
+  "number": 16,
+  "chapter": 4,
+  "title": "Audit generator banks and usable fuel",
+  "trackId": "infrastructure",
+  "contentVersion": "2.0.0",
+  "estimatedMinutes": 25,
+  "route": "?lesson=generator-bank-fuel",
+  "readingRoute": "learn/infrastructure/generator-bank-fuel/",
+  "source": {
+    "id": "DCIE-R1",
+    "pdfPages": [22, 25],
+    "chapter": 4,
+    "evidenceStatus": "manuscript-derived; not independent source verification"
+  },
+  "prerequisites": ["generator-delay", "generator-failure", "n-plus-one"],
+  "lead": "The original startup lessons ask whether a generator becomes available in time. This lesson asks a different question: can the available bank carry the backed load at all? Follow a source claim through its real-power conversion, post-loss capacity and fuel ledger. A failed arithmetic claim should stay failed even when the combined installed nameplates look impressive.",
+  "objectives": [
+    "Convert the source-specific generator kVA rating to real-power capability.",
+    "Test one independent bank after one unit is unavailable.",
+    "Separate usable fuel consumption from gross tank volume and dynamic qualification."
+  ],
+  "sections": [
+    {
+      "title": "Define what is backed",
+      "body": "The backed load may include IT, cooling needed for continuity, controls, fans, pumps, fuel transfer and permitted recharge. Essential demand is a declared classification, not another name for IT alone. The manuscript’s project claims that either generator bank supports the complete 27 MW facility. Each source unit is 3,000 kVA at a stated rated power factor of 0.8, or 2.4 MW under that rating relationship.",
+      "evidenceLabel": "source-statement"
+    },
+    {
+      "title": "Reject the incorrect inequality",
+      "body": "A ten-unit bank with one unavailable unit provides 9 × 2.4 = 21.6 MW, which is below 27 MW by 5.4 MW. Even ten healthy units provide only 24 MW. With no derating or loading ceiling, the elementary N+1 screen requires thirteen installed units per independent bank; twelve remain and provide 28.8 MW. With both factors at 0.9, fifteen installed units are required. Neither change constitutes an approved redesign.",
+      "evidenceLabel": "editorial-derivation"
+    },
+    {
+      "title": "Follow fuel and time separately",
+      "body": "At a constant 27,000 kW for 48 hours and an assumed source coefficient of 0.25 L/kWh, usable consumption is 324,000 L. Gross storage, reserve, inaccessible volume, quality, transfer pumps and replenishment are separate questions. A steady capacity total also does not establish startup, load-step acceptance, synchronizing, qualification or restoration. The transition storyboard is explanatory; it must not emit real closing commands or invented synchronization limits.",
+      "evidenceLabel": "source-statement"
+    }
+  ],
+  "experiment": {
+    "model": "capacityBank",
+    "defaultInputs": {
+      "requiredMW": 27,
+      "unitMW": 2.4,
+      "derating": 1,
+      "loading": 1,
+      "installed": 10,
+      "unavailable": 1
+    },
+    "challenge": {
+      "changes": {
+        "installed": 13
+      },
+      "question": "Does thirteen installed per side close the capacity screen?",
+      "answer": "Twelve remain, giving 28.8 MW and 1.8 MW headroom. Dynamic, routing, fuel, emissions and equipment evidence remain open."
+    },
+    "predictionRequired": false,
+    "explicitRunRequired": true,
+    "instructions": [
+      "Read the declared boundary and units. Predict the selected result before calculating.",
+      "Run the starting case and inspect the ledger, assumptions and model limits.",
+      "Apply the challenge, run again, and explain the difference. Export only the last completed inputs and results."
+    ]
+  },
+  "scene": {
+    "id": "dcie-04",
+    "title": "The generator bank that cannot meet its claim",
+    "storyboard": [
+      "Expose ten labelled generator blocks per bank.",
+      "Remove one and compare 21.6 MW with the 27 MW demand plane.",
+      "Add units through the capacity-only control without erasing the open redesign badge.",
+      "Trace bulk tank → transfer pump → day tank separately from the electrical route."
+    ],
+    "interaction": "Change installed units and derating; inspect a separate fuel calculation and an illustrative start/qualify/load sequence.",
+    "staticAlternative": "Per-bank surviving-unit table, capacity inequality and usable-fuel ledger.",
+    "projection": "orthographic axonometric SVG with upright HTML labels",
+    "loopPolicy": "user-started; pauseable; stop on hidden/offscreen",
+    "timelineSemantics": "Narrative steps unless an explicitly labelled physical-time model is active.",
+    "reducedMotion": "Same states and values; no particles, parallax, camera travel or tweening."
+  },
+  "assessments": [
+    {
+      "id": "4.1",
+      "question": "Find usable fuel for 8 MW over 36 h at 0.27 L/kWh.",
+      "answer": "77,760 L before gross-volume and operational allowances.",
+      "rubric": "Convert MW to kW and preserve L/kWh.",
+      "source": "DCIE-R1 Appendix A, PDF pp.59-61"
+    },
+    {
+      "id": "4.2",
+      "question": "Find the N+1 count for 27 MW with 2.4 MW units, derating 0.95 and loading 0.9.",
+      "answer": "2.052 MW usable per unit; fourteen operating plus one spare = fifteen installed per bank.",
+      "rubric": "Round up the required operating count.",
+      "source": "DCIE-R1 Appendix A, PDF pp.59-61"
+    },
+    {
+      "id": "4.3",
+      "question": "Why does a no-load engine run not prove a whole-facility transfer?",
+      "answer": "It does not demonstrate load acceptance, transfer equipment, sustained fuel supply, cooling recovery or service continuity.",
+      "rubric": "List dependencies outside the engine-only test.",
+      "source": "DCIE-R1 Appendix A, PDF pp.59-61"
+    }
+  ],
+  "limits": [
+    "Capacity-only redesign screens; no approved generator selection or operational switching procedure.",
+    "Fuel coefficient is fixed and source-specific; variable-load consumption requires integration."
+  ],
+  "publicUseStatus": "Original lesson adaptation; owner confirmed rights and approved educational publication and attribution on 12 October 2026 (Europe/Paris). Engineering HOLD remains; see docs/releases/v2.0.0-publication-decision.md."
+}

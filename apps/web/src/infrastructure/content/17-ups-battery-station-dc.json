@@ -1,0 +1,110 @@
+{
+  "id": "ups-battery-station-dc",
+  "number": 17,
+  "chapter": 5,
+  "title": "Separate UPS power, battery energy and trip DC",
+  "trackId": "infrastructure",
+  "contentVersion": "2.0.0",
+  "estimatedMinutes": 25,
+  "route": "?lesson=ups-battery-station-dc",
+  "readingRoute": "learn/infrastructure/ups-battery-station-dc/",
+  "source": {
+    "id": "DCIE-R1",
+    "pdfPages": [26, 29],
+    "chapter": 5,
+    "evidenceStatus": "manuscript-derived; not independent source verification"
+  },
+  "prerequisites": ["ride-through", "precharge", "distribution-loss"],
+  "lead": "The battery lesson already distinguishes reserve from ride-through. Now separate three further boundaries: AC output energy, delivered DC energy and nominal end-of-life storage. Then examine the protection DC circuit, where enough ampere-hours can coexist with insufficient voltage at the device that must operate.",
+  "objectives": [
+    "Compute AC, delivered DC and nominal energy as different quantities.",
+    "Evaluate constant-power current at minimum loaded DC voltage.",
+    "Separate UPS module redundancy, battery dependence and station DC integrity."
+  ],
+  "sections": [
+    {
+      "title": "Track the conversion path",
+      "body": "UPS operating states include normal conversion, battery operation, static bypass, maintenance bypass, overload and fault. They can have different current limits and dependencies. The source’s ten 2.5 MVA units at power factor 0.9 provide 22.5 MW installed per path; one unit unavailable leaves 20.25 MW. That is a narrow 0.25 MW arithmetic margin above 20 MW IT, before other constraints.",
+      "evidenceLabel": "source-statement"
+    },
+    {
+      "title": "Do not call output energy nominal capacity",
+      "body": "A 2,250 kW output for ten minutes supplies 375 kWh AC. With illustrative discharge-path efficiency of 0.95, the delivered DC requirement is 394.74 kWh. With additional illustrative usable-discharge and retained-age fractions of 0.8 each, the nominal-energy screen becomes 616.78 kWh. These scalar factors explain the bookkeeping, not a universal chemistry-specific battery sizing method. Manufacturer discharge curves and voltage limits remain necessary.",
+      "evidenceLabel": "illustrative-assumption"
+    },
+    {
+      "title": "Follow the complete DC circuit",
+      "body": "At an illustrative minimum loaded voltage of 420 V, that constant output requires approximately 5,639 A DC. Nominal voltage alone misses the higher low-voltage operating current. Station DC must also be assessed through the fuse, contacts, cable, return conductor, coil and mechanism. A charge ledger sums current × time; a charger recovery screen adds standing load to removed charge divided by charge efficiency and recovery hours. A healthy charger display is not an end-to-end trip proof.",
+      "evidenceLabel": "editorial-derivation"
+    }
+  ],
+  "experiment": {
+    "model": "storageScreen",
+    "defaultInputs": {
+      "acKW": 2250,
+      "minutes": 10,
+      "efficiency": 0.95,
+      "dischargeFraction": 0.8,
+      "retainedAgeFraction": 0.8,
+      "minDcV": 420
+    },
+    "challenge": {
+      "changes": {
+        "minutes": 15
+      },
+      "question": "How do the energy screens change at the same output power?",
+      "answer": "AC energy becomes 562.5 kWh, delivered DC 592.11 kWh and nominal energy about 925.16 kWh. Current remains approximately 5,639 A because power and voltage are unchanged."
+    },
+    "predictionRequired": false,
+    "explicitRunRequired": true,
+    "instructions": [
+      "Read the declared boundary and units. Predict the selected result before calculating.",
+      "Run the starting case and inspect the ledger, assumptions and model limits.",
+      "Apply the challenge, run again, and explain the difference. Export only the last completed inputs and results."
+    ]
+  },
+  "scene": {
+    "id": "dcie-05",
+    "title": "An exploded UPS with a separate trip circuit",
+    "storyboard": [
+      "Lift rectifier, DC link and inverter into distinct layers.",
+      "Reveal battery delivery and separately route bypass.",
+      "Show AC, delivered DC and nominal energy as nested labelled accounting quantities.",
+      "Inspect station DC as its own complete outgoing-and-return circuit."
+    ],
+    "interaction": "Change duration or minimum loaded voltage; keep power and energy readouts separate; expose a common bypass dependency.",
+    "staticAlternative": "Conversion-path table, three energy quantities and complete station-DC circuit description.",
+    "projection": "orthographic axonometric SVG with upright HTML labels",
+    "loopPolicy": "user-started; pauseable; stop on hidden/offscreen",
+    "timelineSemantics": "Narrative steps unless an explicitly labelled physical-time model is active.",
+    "reducedMotion": "Same states and values; no particles, parallax, camera travel or tweening."
+  },
+  "assessments": [
+    {
+      "id": "5.1",
+      "question": "Find nominal energy for 1 MW for 15 min with efficiency 0.96, discharge fraction 0.8 and age fraction 0.8.",
+      "answer": "406.90 kWh as a nominal-energy screen.",
+      "rubric": "Apply the three factors in the denominator once.",
+      "source": "DCIE-R1 Appendix A, PDF pp.59-61"
+    },
+    {
+      "id": "5.2",
+      "question": "Derive conversion loss from output and efficiency.",
+      "answer": "P_loss = P_out × (1/η − 1), because P_in = P_out/η.",
+      "rubric": "Do not double-count loss already included in a facility total.",
+      "source": "DCIE-R1 Appendix A, PDF pp.59-61"
+    },
+    {
+      "id": "5.3",
+      "question": "Why can a battery capacity test and healthy charger fail to prove the trip circuit?",
+      "answer": "Wiring, contacts, fuse, coil, mechanism and minimum terminal voltage can still fail.",
+      "rubric": "Distinguish component evidence from end-to-end operation.",
+      "source": "DCIE-R1 Appendix A, PDF pp.59-61"
+    }
+  ],
+  "limits": [
+    "No product selection, chemistry approval, protection coordination or fire strategy.",
+    "UPS module capacity does not establish battery or distribution redundancy."
+  ],
+  "publicUseStatus": "Original lesson adaptation; owner confirmed rights and approved educational publication and attribution on 12 October 2026 (Europe/Paris). Engineering HOLD remains; see docs/releases/v2.0.0-publication-decision.md."
+}

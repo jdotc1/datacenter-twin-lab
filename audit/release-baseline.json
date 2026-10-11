@@ -1,0 +1,127 @@
+{
+  "schema": "release-baseline-1",
+  "repository": "mohammadrezwankhan/datacenter-twin-lab",
+  "defaultBranch": "main",
+  "baseSha": "1410b82d645d22b7e3af7f3803fa557a1d6c61e2",
+  "branch": "release/v2.0.0-infrastructure",
+  "tagCollision": false,
+  "releaseCollision": false,
+  "kitFiles": [
+    {
+      "path": "content/manifest.json",
+      "sha256": "79f767dfcadaa2ccc4a427301b54567f81da51721c8a1cd18ae1af9a190d8870"
+    },
+    {
+      "path": "content/ALL_LESSONS.md",
+      "sha256": "87fb3902fd0902180937dc5c6e750410c35153d57c82cd1d59e6ed553333676d"
+    },
+    {
+      "path": "prompts/CODEX_INTEGRATE_MERGE_PUBLISH.md",
+      "sha256": "f1440e2d3b65775a96f1325f8f4dc4acad77271be2c39f9509f3f192fa9d5f49"
+    },
+    {
+      "path": "content/lessons/13-evidence-load-ledger.json",
+      "sha256": "99656f55e313bc8b6751f78f5556b4c2dba55a72d81e10864fe12b6d4aa2cd51"
+    },
+    {
+      "path": "content/lessons/14-resilience-state-matrix.json",
+      "sha256": "319d1a79e2bc978cb22f7b05c8e3d1ad1eb36bf6e6454300b7b329f4c2eac488"
+    },
+    {
+      "path": "content/lessons/15-transformer-fault-boundaries.json",
+      "sha256": "4648c7e5617dfccbd29a37e9a646e91b6caff50d36f84997f0f0dff21b264add"
+    },
+    {
+      "path": "content/lessons/16-generator-bank-fuel.json",
+      "sha256": "5b0e5bad2946cbc03aa2ea253dcb806c130f724254a7d1e9bcdeb03ed557fae2"
+    },
+    {
+      "path": "content/lessons/17-ups-battery-station-dc.json",
+      "sha256": "6d9a0509a227939743eaeb5ce8c09ea78b7474ee97b56335c022f36b959d1d97"
+    },
+    {
+      "path": "content/lessons/18-protection-trip-chain.json",
+      "sha256": "4e46b5cb27a5f03d6ef87f98fb27ce7fc536429a0e803cad913898026e8a61f0"
+    },
+    {
+      "path": "content/lessons/19-grounding-power-quality.json",
+      "sha256": "40c33c4a736e5d2648ff213ee78a0d9970c40bddda84201f63eb09f8f93036f9"
+    },
+    {
+      "path": "content/lessons/20-thermal-liquid-continuity.json",
+      "sha256": "f2a31ab63d6389a8bd97bd87faf8c1d5dab8bbeca53628be2bc3bf652f487f0b"
+    },
+    {
+      "path": "content/lessons/21-network-optical-budget.json",
+      "sha256": "6424553941eaf8fa0832dcad6367e85b1c7a33027da1377ed54556ab1aa26851"
+    },
+    {
+      "path": "content/lessons/22-facilities-phased-development.json",
+      "sha256": "82c93b1ba7048b4d705e658222d203525795d3028a7957aae1a514b04240ae4f"
+    },
+    {
+      "path": "content/lessons/23-commissioning-evidence-loop.json",
+      "sha256": "d8d03701d6d42fd64e393cced1f086194ef0c0f2ca020842c24446c695f08a8a"
+    },
+    {
+      "path": "content/lessons/24-integrated-design-release.json",
+      "sha256": "d46cf997130797b238ef078135c9d672ca83c08325b5b561d37fe72d0c7cb09f"
+    },
+    {
+      "path": "content/scenes/dcie-01.json",
+      "sha256": "2a70398952bcfa5a35034212d4e122cb76fd3f02606ac1f3d2fe8e1fd186f7ff"
+    },
+    {
+      "path": "content/scenes/dcie-02.json",
+      "sha256": "219c2633a6fe821e3293668fff7bfd3520b1a95ec7fcf62f041100c5fc85c405"
+    },
+    {
+      "path": "content/scenes/dcie-03.json",
+      "sha256": "bbe997fe96a1abec75dca7443e6812fc664b5a4ac4d7a6ae0841b6c1efe204fa"
+    },
+    {
+      "path": "content/scenes/dcie-04.json",
+      "sha256": "2de3cf4d83ce90fcf7d8d7a2c7fccbd45e3d680172ed42229fb224eb801d9a92"
+    },
+    {
+      "path": "content/scenes/dcie-05.json",
+      "sha256": "82cce2ce423027bd21f78a83da77f991a3e94143d4dc8da82c4e6d39f77284a7"
+    },
+    {
+      "path": "content/scenes/dcie-06.json",
+      "sha256": "b6a5755828e31bc8cca0ed659a0fcd654350ee2117fd2e1c97fccb66279d5ce7"
+    },
+    {
+      "path": "content/scenes/dcie-07.json",
+      "sha256": "e133c0cea3f6f16961560ed952d98a993175bc2dceadbffaafcc26364ae9049d"
+    },
+    {
+      "path": "content/scenes/dcie-08.json",
+      "sha256": "5d0526e68d965423f6b731d5b96f76bf90480a806a909be8d8ce142267503900"
+    },
+    {
+      "path": "content/scenes/dcie-09.json",
+      "sha256": "c5d187a87850b15211c72bf4b46834257ea4cb19b5007068633aef0ae2260678"
+    },
+    {
+      "path": "content/scenes/dcie-10.json",
+      "sha256": "af5bc48afcc1047ca68e1e71a7b061c55ab979a38517d9ebd34284782111d297"
+    },
+    {
+      "path": "content/scenes/dcie-11.json",
+      "sha256": "6c632974a4459869fbe6a4da81e802b420ec29c64ae49d4b3c4612c96deb1d40"
+    },
+    {
+      "path": "content/scenes/dcie-12.json",
+      "sha256": "31c6af7f8f4ee99c83ea6221a506a207b03e8a6a3e495102f5343f0d903bd9cc"
+    }
+  ],
+  "privatePdf": {
+    "sha256ReportedByKit": "b4df5519a0860ae794b59b8d2760bb01444c3ecbfda28cf77633cbde41ac2a1a",
+    "availableInCheckout": false,
+    "independentlyHashed": false
+  },
+  "publicationDecision": "docs/releases/v2.0.0-publication-decision.md",
+  "engineeringDecision": "HOLD",
+  "workingTreeAtClone": "clean"
+}

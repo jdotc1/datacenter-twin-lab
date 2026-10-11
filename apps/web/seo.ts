@@ -12,11 +12,12 @@ import { emtPage } from './seo-emt';
 import { researchPage } from './seo-research';
 import { buildLearningManifest } from './learn-manifest';
 import { learningDirectory, learningExplorer } from './learn-page';
+import { infrastructureLessons, infrastructureReadingPages } from './seo-infrastructure';
+import { courseCatalog, courseTotal } from './src/curriculum';
 
 const repository = 'https://github.com/mohammadrezwankhan/datacenter-twin-lab';
 const title = 'Datacenter Power Systems: Free Interactive Course | Datacenter Twin Lab';
-const description =
-  'Learn datacenter power continuity with 12 free browser lessons. Predict battery ride-through, test generator failures, and reproduce the energy balance in Python.';
+const description = `Learn datacenter continuity and Infrastructure Engineering with ${courseTotal} free browser lessons, EMT and power-dynamics studies. Inspect assumptions, run educational screens and reproduce the evidence.`;
 const courseName = 'Power Systems for Datacenter Engineers';
 const authorId = 'https://mrkhan.co.technology/#person';
 const authorUrl = 'https://mrkhan.co.technology/';
@@ -72,23 +73,6 @@ function visiblePageText(html: string): string {
   );
 }
 
-function capUtf8(value: string, maximumBytes: number): string {
-  if (Buffer.byteLength(value, 'utf8') <= maximumBytes) return value;
-  const marker = '\n\n[Content truncated to fit the 60 KiB llms-full.txt limit.]\n';
-  const allowance = maximumBytes - Buffer.byteLength(marker, 'utf8');
-  let result = '';
-  let bytes = 0;
-  for (const character of value) {
-    const size = Buffer.byteLength(character, 'utf8');
-    if (bytes + size > allowance) break;
-    result += character;
-    bytes += size;
-  }
-  const boundary = result.lastIndexOf('\n');
-  if (boundary > result.length * 0.8) result = result.slice(0, boundary);
-  return result.trimEnd() + marker;
-}
-
 export function publicSiteUrl(value: string): string {
   const url = new URL(value);
   if (url.protocol !== 'https:' || url.username || url.password || url.search || url.hash)
@@ -141,11 +125,11 @@ export function searchPages(): Plugin {
     license: `${source}LICENSE`,
     url: url('learn/'),
     educationalLevel: 'Introductory',
-    hasPart: lessons.map((lesson) => ({
+    hasPart: courseCatalog.map((lesson) => ({
       '@type': 'LearningResource',
-      '@id': url(`learn/${lesson.id}/#lesson`),
+      '@id': url(`${lesson.readingRoute}#lesson`),
       name: lesson.title,
-      url: url(`learn/${lesson.id}/`),
+      url: url(lesson.readingRoute),
     })),
   };
 
@@ -261,14 +245,14 @@ Read the <a href="${source}NOTICE">source notices</a> and <a href="${root}about/
       const landingPage = html
         .replace(
           '<!-- PUBLIC_COURSE_LINKS -->',
-          '<a href="./learn/">Read all twelve course lessons</a> · <a href="./studies/emt/">Explore the EMT study</a> · <a href="./studies/power-dynamics/">Power dynamics studies</a> · <a href="./evidence/">Reference results and source records</a> · <a href="./about/">About the author and evidence</a> ·',
+          `<a href="./learn/">Read all ${courseTotal} course lessons</a> · <a href="./studies/emt/">Explore the EMT study</a> · <a href="./studies/power-dynamics/">Power dynamics studies</a> · <a href="./evidence/">Reference results and source records</a> · <a href="./about/">About the author and evidence</a> ·`,
         )
         .replace(/<title>[\s\S]*?<\/title>/, '')
         .replace(/<meta\s+(?:name="description"|property="og:[^"]+")[\s\S]*?>/g, '')
         .replace('</head>', `${metadata(title, description, '', schema)}</head>`);
       return landingPage;
     },
-    generateBundle() {
+    async generateBundle() {
       const scenarios = JSON.parse(
         readFileSync(
           new URL('../../.local/browser-demo-assets/demo-data.json', import.meta.url),
@@ -286,6 +270,21 @@ Read the <a href="${source}NOTICE">source notices</a> and <a href="${root}about/
       if (evidence.version !== ENGINE_VERSION || evidence.cases.length !== 3)
         throw new Error('Expected the current three-case evidence index');
       const learning = buildLearningManifest(revision || null);
+      await infrastructureReadingPages(emit, document, escape, revision || null, url, author);
+      emit(
+        'build-identity.json',
+        JSON.stringify(
+          {
+            schema: 'datacenter-build-1',
+            version: ENGINE_VERSION,
+            sourceRevision: revision || null,
+            buildKind: 'browser-demo',
+            courseLessons: courseTotal,
+          },
+          null,
+          2,
+        ) + '\n',
+      );
       emit('learn/manifest.json', JSON.stringify(learning, null, 2) + '\n');
       emit('assets/learn.css', readFileSync(new URL('./learn.css', import.meta.url), 'utf8'));
       const graphic = `<figure><svg viewBox="0 0 920 220" role="img" aria-labelledby="reserve-title reserve-desc"><title id="reserve-title">Halving stored energy halves ride-through in the charging-disabled case</title><desc id="reserve-desc">At 1,000 kW, 100 kWh supplies 307.8 seconds; 50 kWh supplies 153.9 seconds after discharge and distribution losses.</desc><rect width="920" height="220" rx="16" fill="#e7f3ee"/><g fill="#173041" font-family="system-ui" font-size="18"><text x="28" y="40">BATTERY RESERVE → DELIVERED TIME AT 1 MW</text><text x="28" y="96">100 kWh</text><text x="28" y="162">50 kWh</text></g><rect x="140" y="65" width="590" height="43" rx="6" fill="#09685e"/><rect x="140" y="132" width="295" height="43" rx="6" fill="#236fb0"/><g fill="white" font-family="system-ui" font-size="20" font-weight="700"><text x="162" y="93">307.8 s</text><text x="162" y="161">153.9 s</text></g><text x="28" y="202" fill="#425c6b" font-family="system-ui" font-size="15">Charging disabled · 90% discharge efficiency · 95% distribution efficiency</text></svg><figcaption>Original calculation diagram. Duration starts at the utility outage; it is not an elapsed event timestamp.</figcaption></figure>`;
@@ -415,15 +414,15 @@ ${learningExplorer()}
           'about/',
           `
 <p class="eyebrow">About the lab / evidence you can inspect</p><h1>Understand the model. Reproduce the result.</h1>
-<p class="lead">Datacenter Twin Lab is a local-first power-continuity what-if simulator and a twelve-lesson course for datacenter engineers.</p>
+<p class="lead">Datacenter Twin Lab is a local-first power-continuity what-if simulator and a ${courseTotal}-lesson course for datacenter engineers.</p>
 <p id="author">Created and maintained by <a href="https://mrkhan.co.technology/" rel="me">Mohammad Rezwan Khan</a>. Visit the <a href="https://mrkhan.co.technology/">engineering profile and publications</a>. The project is open source under Apache-2.0. It runs on your device without an account or shared simulation backend.</p>
 <p>Development and educational writing use AI assistance. Numerical examples are checked with stated equations, the Python reference engine and browser tests; those maintainer checks are distinct from independent external review. Inspect the <a href="../evidence/">reference results and complete records</a> to follow a claim back to its inputs.</p>
 <section class="panel answer"><h2>How long does 100 kWh support a 1 MW load?</h2><p>For this fixed-load example, 100 kWh × 0.90 discharge efficiency × 0.95 distribution efficiency = 85.5 kWh delivered. That is 307.8 seconds at 1,000 kW. With 50 kWh, it is 153.9 seconds. Charging is disabled; utility and generator fail at 300 seconds and recover at 900 seconds.</p><p><a href="../learn/ride-through/">Read the assumptions and run the experiment →</a></p></section>
-<h2>What the simulator does</h2><p>It accounts for finite battery energy, charging and losses, generator startup and failure, surviving-path capacity, shared failure domains, timed recovery and unserved energy. The fast JavaScript path can be checked on demand against the Python reference. Eighteen presets and twelve lessons use explicit inputs and unit-labelled results.</p>
+<h2>What the simulator does</h2><p>It accounts for finite battery energy, charging and losses, generator startup and failure, surviving-path capacity, shared failure domains, timed recovery and unserved energy. The fast JavaScript path can be checked on demand against the Python reference. Eighteen presets and twelve continuity lessons use explicit inputs and unit-labelled results. Twelve Infrastructure Engineering lessons add separate bounded educational screens, with their assumptions and engineering HOLD visible.</p>
 <h2>What the evidence means</h2><p>The tests and published packets establish reproducible software behavior for the declared inputs. They do not establish facility calibration, AC transients, protection coordination, GPU workload performance, grid adequacy, certified uptime or equipment safety. This software does not control equipment. Independent external reproduction has not yet been obtained.</p>
 <h2>Inspect or cite the work</h2><ul class="sources"><li><a href="${repository}/releases/tag/v${ENGINE_VERSION}">Version ${ENGINE_VERSION} source, packages and release evidence</a></li><li><a href="${source}docs/canonical-case.md">Canonical input equations and reconstruction instructions</a></li><li><a href="../data/evidence/v${ENGINE_VERSION}/manifest.json">Versioned evidence manifest with per-file hashes</a></li><li><a href="${source}CITATION.cff">Author and software citation record</a></li><li><a href="${source}docs/validation/review-protocol.md">External reproduction protocol and scope</a></li><li><a href="${source}docs/quickstart.md">Install and run with Python</a></li></ul>
 <h2>How to contribute</h2><p>Try one lesson, note anything confusing and describe the steps to reproduce it. A clearer explanation, a documentation fix or an independently derived example can help the next learner. Read the <a href="${source}CONTRIBUTING.md">contribution guide</a> or <a href="${repository}/issues">open an issue</a>.</p>
-<p><a class="button" href="../learn/">Explore the twelve lessons →</a></p>`,
+<p><a class="button" href="../learn/">Explore all ${courseTotal} lessons →</a></p>`,
           {
             '@type': 'AboutPage',
             name: 'About Datacenter Twin Lab',
@@ -535,7 +534,7 @@ python scripts/build_evidence.py --verify outputs/reproduction-${ENGINE_VERSION}
 <p>For numerical reuse, include the case name, input SHA-256, engine version, result file and exact source revision. Documentation for this build: <a href="${source}docs/canonical-case.md">${revision || `v${ENGINE_VERSION}`}</a>. Use the <a href="${source}CITATION.cff">software citation record</a> for author and repository details.</p>
 <p class="small">This is a software reproduction record, not a peer-reviewed paper or a calibrated facility dataset. No DOI or independent external reproduction is asserted. Original code and inputs are Apache-2.0; <a href="${source}NOTICE">source notices</a> describe the material included.</p></section>
 <h2>What can these results support?</h2><p>They support learning about finite reserve, losses, outage timing and path capacity for the stated synthetic inputs. They do not establish equipment suitability, facility uptime, grid adequacy, GPU job performance or physical safety. See the <a href="../about/">model scope and authorship</a> and <a href="${source}docs/validation/review-protocol.md">external reproduction protocol</a>.</p>
-<p><a href="../learn/">Explore all twelve worked lessons →</a></p>`,
+<p><a href="../learn/">Explore all ${courseTotal} worked lessons →</a></p>`,
           [
             dataset,
             {
@@ -611,6 +610,7 @@ python scripts/build_evidence.py --verify outputs/reproduction-${ENGINE_VERSION}
         '',
         'learn/',
         ...lessons.map((lesson) => `learn/${lesson.id}/`),
+        ...infrastructureLessons.map((lesson) => lesson.readingRoute),
         'evidence/',
         'about/',
         'studies/emt/',
@@ -661,14 +661,30 @@ python scripts/build_evidence.py --verify outputs/reproduction-${ENGINE_VERSION}
           const html = Buffer.from(output.source).toString('utf8');
           const pageTitle = decodeHtml(html.match(/<title>([\s\S]*?)<\/title>/i)?.[1] ?? fileName);
           const path = fileName === 'index.html' ? '' : fileName.replace(/index\.html$/, '');
-          return `\n## ${pageTitle}\n\nURL: ${url(path)}\n\n${visiblePageText(html)}`;
+          let body = html;
+          // shortcut: summarize the expanded index and infrastructure notes to retain every page within 60 KiB; revisit if the course grows.
+          if (path === 'learn/' || path.startsWith('learn/infrastructure/')) {
+            const lead = html.match(/<p class="lead">[\s\S]*?<\/p>/i)?.[0];
+            if (!lead) throw new Error(`Missing visible summary for ${path}`);
+            body = lead;
+            if (path.startsWith('learn/infrastructure/')) {
+              const hold = html.match(/<aside class="panel">[\s\S]*?<\/aside>/i)?.[0];
+              if (!hold?.includes('Engineering HOLD'))
+                throw new Error(`Missing engineering HOLD for ${path}`);
+              body += hold;
+            }
+          }
+          return `\n## ${pageTitle}\n\nURL: ${url(path)}\n\n${visiblePageText(body)}`;
         });
       const fullText = [
-        '# Datacenter Twin Lab: full visible page text',
+        '# Datacenter Twin Lab: visible page text and summaries',
         `Canonical site: ${base}`,
+        'The course index and Infrastructure Engineering entries summarize their visible introductions and engineering HOLD. Follow their canonical URLs for complete prose, worked cases, assessments and sources. Other entries retain their visible page text.',
         ...pages,
       ].join('\n');
-      writeFileSync(resolve(options.dir, 'llms-full.txt'), capUtf8(fullText, llmsFullByteLimit));
+      if (Buffer.byteLength(fullText, 'utf8') > llmsFullByteLimit)
+        throw new Error('llms-full.txt exceeds its 60 KiB limit; revise visible summaries.');
+      writeFileSync(resolve(options.dir, 'llms-full.txt'), fullText);
     },
   };
 }

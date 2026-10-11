@@ -1,5 +1,15 @@
 # Changelog
 
+## 2.0.0 — Infrastructure Engineering
+
+- Extend the course to 24 lessons with the twelve supplied infrastructure adaptations, 36 assessments, chapter/page attribution and twelve no-JavaScript reading notes.
+- Add distinct lazy SVG scenes, accessible narrative controls, static tables and a separately labelled thermal-time preview.
+- Add typed educational models with applied-input snapshots, units, assumptions, model/content versions and canonical hashes. Generator capacity and fuel use separate screens; failed source claims and the engineering HOLD remain visible.
+- Preserve the twelve original lessons, eighteen presets, four facility profiles, EMT studio, five power-dynamics studies, existing reports and worksheets. Planning schema 1, electrical schema 2, canonical scenario inputs and arithmetic remain unchanged.
+- Advance current package metadata and add a separate 2.0.0 continuity evidence packet; historical releases and evidence are retained.
+
+The owner approved educational publication and attribution. These bounded screens do not certify equipment, an installation or design release. See the [publication decision](docs/releases/v2.0.0-publication-decision.md) and [release scope](docs/engineering/release-readiness.md).
+
 ## 1.0.0 — the complete power-continuity teaching lab
 
 - Package the guided 1 MW experiment, twelve interactive lessons, eighteen presets, visual demand editor, scenario imports, reports, comparisons and printable worksheets as a full teaching-software release.

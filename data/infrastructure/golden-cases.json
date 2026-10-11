@@ -1,0 +1,474 @@
+[
+  {
+    "id": "evidence-load-ledger:default",
+    "model": "loadLedger",
+    "inputs": {
+      "racks": 2500,
+      "rackKW": 8,
+      "demandFactor": 1,
+      "growth": 0,
+      "designRatio": 1.35,
+      "coolingKW": 6200,
+      "pf": 0.9,
+      "voltageKV": 13.8
+    },
+    "expected": {
+      "itKW": 20000,
+      "facilityKW": 27000.0,
+      "residualKW": 800.0,
+      "apparentKVA": 30000.0,
+      "lineA": 1255.1092808470125
+    }
+  },
+  {
+    "id": "evidence-load-ledger:challenge",
+    "model": "loadLedger",
+    "inputs": {
+      "racks": 2500,
+      "rackKW": 8,
+      "demandFactor": 1,
+      "growth": 0,
+      "designRatio": 1.25,
+      "coolingKW": 6200,
+      "pf": 0.9,
+      "voltageKV": 13.8
+    },
+    "expected": {
+      "itKW": 20000,
+      "facilityKW": 25000.0,
+      "residualKW": -1200.0,
+      "apparentKVA": 27777.777777777777,
+      "lineA": 1162.138223006493
+    }
+  },
+  {
+    "id": "resilience-state-matrix:default",
+    "model": "capacityBank",
+    "inputs": {
+      "requiredMW": 9,
+      "unitMW": 2,
+      "derating": 0.9,
+      "loading": 0.9,
+      "installed": 7,
+      "unavailable": 1
+    },
+    "expected": {
+      "usableUnitMW": 1.62,
+      "availableMW": 9.72,
+      "marginMW": 0.7200000000000006,
+      "minimumNPlusOne": 7
+    }
+  },
+  {
+    "id": "resilience-state-matrix:challenge",
+    "model": "capacityBank",
+    "inputs": {
+      "requiredMW": 9,
+      "unitMW": 2,
+      "derating": 0.9,
+      "loading": 0.9,
+      "installed": 6,
+      "unavailable": 1
+    },
+    "expected": {
+      "usableUnitMW": 1.62,
+      "availableMW": 8.100000000000001,
+      "marginMW": -0.8999999999999986,
+      "minimumNPlusOne": 7
+    }
+  },
+  {
+    "id": "transformer-fault-boundaries:default",
+    "model": "transformerScreen",
+    "inputs": {
+      "mva": 2,
+      "voltageV": 400,
+      "zPercent": 6,
+      "sourceMVA": 250
+    },
+    "expected": {
+      "fullLoadA": 2886.751345948129,
+      "baseOhm": 0.08,
+      "transformerOhm": 0.0048,
+      "sourceOhm": 0.00064,
+      "faultKA": 42.45222567570779
+    }
+  },
+  {
+    "id": "transformer-fault-boundaries:challenge",
+    "model": "transformerScreen",
+    "inputs": {
+      "mva": 2,
+      "voltageV": 400,
+      "zPercent": 6,
+      "sourceMVA": null
+    },
+    "expected": {
+      "fullLoadA": 2886.751345948129,
+      "baseOhm": 0.08,
+      "transformerOhm": 0.0048,
+      "sourceOhm": 0,
+      "faultKA": 48.11252243246882
+    }
+  },
+  {
+    "id": "generator-bank-fuel:default",
+    "model": "capacityBank",
+    "inputs": {
+      "requiredMW": 27,
+      "unitMW": 2.4,
+      "derating": 1,
+      "loading": 1,
+      "installed": 10,
+      "unavailable": 1
+    },
+    "expected": {
+      "usableUnitMW": 2.4,
+      "availableMW": 21.599999999999998,
+      "marginMW": -5.400000000000002,
+      "minimumNPlusOne": 13
+    }
+  },
+  {
+    "id": "generator-bank-fuel:challenge",
+    "model": "capacityBank",
+    "inputs": {
+      "requiredMW": 27,
+      "unitMW": 2.4,
+      "derating": 1,
+      "loading": 1,
+      "installed": 13,
+      "unavailable": 1
+    },
+    "expected": {
+      "usableUnitMW": 2.4,
+      "availableMW": 28.799999999999997,
+      "marginMW": 1.7999999999999972,
+      "minimumNPlusOne": 13
+    }
+  },
+  {
+    "id": "ups-battery-station-dc:default",
+    "model": "storageScreen",
+    "inputs": {
+      "acKW": 2250,
+      "minutes": 10,
+      "efficiency": 0.95,
+      "dischargeFraction": 0.8,
+      "retainedAgeFraction": 0.8,
+      "minDcV": 420
+    },
+    "expected": {
+      "acKWh": 375.0,
+      "deliveredDcKWh": 394.7368421052632,
+      "nominalKWh": 616.7763157894736,
+      "dcA": 5639.097744360902
+    }
+  },
+  {
+    "id": "ups-battery-station-dc:challenge",
+    "model": "storageScreen",
+    "inputs": {
+      "acKW": 2250,
+      "minutes": 15,
+      "efficiency": 0.95,
+      "dischargeFraction": 0.8,
+      "retainedAgeFraction": 0.8,
+      "minDcV": 420
+    },
+    "expected": {
+      "acKWh": 562.5,
+      "deliveredDcKWh": 592.1052631578948,
+      "nominalKWh": 925.1644736842105,
+      "dcA": 5639.097744360902
+    }
+  },
+  {
+    "id": "protection-trip-chain:default",
+    "model": "inverseTime",
+    "inputs": {
+      "multiple": 10,
+      "tms": 0.1
+    },
+    "expected": {
+      "tripS": 0.297059862418842
+    }
+  },
+  {
+    "id": "protection-trip-chain:challenge",
+    "model": "inverseTime",
+    "inputs": {
+      "multiple": 2,
+      "tms": 0.1
+    },
+    "expected": {
+      "tripS": 1.002902702004684
+    }
+  },
+  {
+    "id": "grounding-power-quality:default",
+    "model": "auxiliaryScreen",
+    "inputs": {
+      "harmonicA": 30,
+      "fundamentalA": 100,
+      "referenceA": 300,
+      "groundA": 2000,
+      "groundOhm": 0.5,
+      "dcA": 10,
+      "oneWayM": 100,
+      "ohmPerM": 0.003
+    },
+    "expected": {
+      "thdPercent": 30.0,
+      "tddPercent": 10.0,
+      "groundPotentialRiseV": 1000.0,
+      "dcDropV": 6.0
+    }
+  },
+  {
+    "id": "grounding-power-quality:challenge",
+    "model": "auxiliaryScreen",
+    "inputs": {
+      "harmonicA": 30,
+      "fundamentalA": 50,
+      "referenceA": 300,
+      "groundA": 2000,
+      "groundOhm": 0.5,
+      "dcA": 10,
+      "oneWayM": 100,
+      "ohmPerM": 0.003
+    },
+    "expected": {
+      "thdPercent": 60.0,
+      "tddPercent": 10.0,
+      "groundPotentialRiseV": 1000.0,
+      "dcDropV": 6.0
+    }
+  },
+  {
+    "id": "thermal-liquid-continuity:default",
+    "model": "thermalScreen",
+    "inputs": {
+      "heatMW": 20,
+      "removedMW": 0,
+      "capacitanceMJK": 150,
+      "deltaK": 5,
+      "rackKW": 100,
+      "captureFraction": 0.8,
+      "waterDeltaK": 10,
+      "waterCp": 4180,
+      "airDensity": 1.2,
+      "airCp": 1005,
+      "airDeltaK": 12
+    },
+    "expected": {
+      "liquidKW": 80.0,
+      "residualAirKW": 20.0,
+      "waterKgS": 1.9138755980861244,
+      "residualAirM3S": 1.3819789939192926,
+      "temperatureRiseKS": 0.13333333333333333,
+      "thermalLimitS": 37.5
+    }
+  },
+  {
+    "id": "thermal-liquid-continuity:challenge",
+    "model": "thermalScreen",
+    "inputs": {
+      "heatMW": 20,
+      "removedMW": 0,
+      "capacitanceMJK": 150,
+      "deltaK": 5,
+      "rackKW": 120,
+      "captureFraction": 0.75,
+      "waterDeltaK": 10,
+      "waterCp": 4180,
+      "airDensity": 1.2,
+      "airCp": 1005,
+      "airDeltaK": 12
+    },
+    "expected": {
+      "liquidKW": 90.0,
+      "residualAirKW": 30.0,
+      "waterKgS": 2.15311004784689,
+      "residualAirM3S": 2.0729684908789388,
+      "temperatureRiseKS": 0.13333333333333333,
+      "thermalLimitS": 37.5
+    }
+  },
+  {
+    "id": "network-optical-budget:default",
+    "model": "networkScreen",
+    "inputs": {
+      "lengthM": 100,
+      "dbPerKm": 3.5,
+      "connectors": 4,
+      "connectorDB": 0.35,
+      "splices": 2,
+      "spliceDB": 0.1,
+      "engineeringMarginDB": 0.5,
+      "budgetDB": 2.6,
+      "downlinks": 48,
+      "downlinkGbps": 25,
+      "uplinks": 6,
+      "uplinkGbps": 100,
+      "lostUplinks": 0
+    },
+    "expected": {
+      "physicalLossDB": 1.95,
+      "budgetUseDB": 2.45,
+      "remainingMarginDB": 0.15000000000000013,
+      "activeUplinkGbps": 600,
+      "oversubscription": 2.0
+    }
+  },
+  {
+    "id": "network-optical-budget:challenge",
+    "model": "networkScreen",
+    "inputs": {
+      "lengthM": 100,
+      "dbPerKm": 3.5,
+      "connectors": 4,
+      "connectorDB": 0.35,
+      "splices": 2,
+      "spliceDB": 0.1,
+      "engineeringMarginDB": 0.5,
+      "budgetDB": 2.6,
+      "downlinks": 48,
+      "downlinkGbps": 25,
+      "uplinks": 6,
+      "uplinkGbps": 100,
+      "lostUplinks": 1
+    },
+    "expected": {
+      "physicalLossDB": 1.95,
+      "budgetUseDB": 2.45,
+      "remainingMarginDB": 0.15000000000000013,
+      "activeUplinkGbps": 500,
+      "oversubscription": 2.4
+    }
+  },
+  {
+    "id": "facilities-phased-development:default",
+    "model": "facilityScreen",
+    "inputs": {
+      "massKG": 1000,
+      "areaM2": 1,
+      "gravityMS2": 9.81,
+      "coolingUnits": 7,
+      "tonsPerUnit": 30,
+      "kwPerTon": 3.51685
+    },
+    "expected": {
+      "averageKPa": 9.81,
+      "installedThermalKW": 738.5385
+    }
+  },
+  {
+    "id": "facilities-phased-development:challenge",
+    "model": "facilityScreen",
+    "inputs": {
+      "massKG": 1500,
+      "areaM2": 1.2,
+      "gravityMS2": 9.81,
+      "coolingUnits": 7,
+      "tonsPerUnit": 30,
+      "kwPerTon": 3.51685
+    },
+    "expected": {
+      "averageKPa": 12.2625,
+      "installedThermalKW": 738.5385
+    }
+  },
+  {
+    "id": "commissioning-evidence-loop:default",
+    "model": "commissioningScreen",
+    "inputs": {
+      "stageSeconds": [
+        2,
+        12,
+        3,
+        8
+      ],
+      "electricalSeconds": 600,
+      "thermalSeconds": 37.5,
+      "itMW": 20,
+      "hours": 8760,
+      "pue": 1.35,
+      "facilityRelativeUncertainty": 0.01,
+      "itRelativeUncertainty": 0.01
+    },
+    "expected": {
+      "restoreSeconds": 25,
+      "thermalMarginSeconds": 12.5,
+      "electricalMarginSeconds": 575,
+      "annualItMWh": 175200,
+      "annualFacilityMWh": 236520.00000000003,
+      "pueStandardUncertainty": 0.019091883092036785
+    }
+  },
+  {
+    "id": "commissioning-evidence-loop:challenge",
+    "model": "commissioningScreen",
+    "inputs": {
+      "stageSeconds": [
+        2,
+        12,
+        3,
+        23
+      ],
+      "electricalSeconds": 600,
+      "thermalSeconds": 37.5,
+      "itMW": 20,
+      "hours": 8760,
+      "pue": 1.35,
+      "facilityRelativeUncertainty": 0.01,
+      "itRelativeUncertainty": 0.01
+    },
+    "expected": {
+      "restoreSeconds": 40,
+      "thermalMarginSeconds": -2.5,
+      "electricalMarginSeconds": 560,
+      "annualItMWh": 175200,
+      "annualFacilityMWh": 236520.00000000003,
+      "pueStandardUncertainty": 0.019091883092036785
+    }
+  },
+  {
+    "id": "integrated-design-release:default",
+    "model": "designReview",
+    "inputs": {
+      "demandMVA": 560,
+      "unitMVA": 250,
+      "unitsPerSide": 3,
+      "unavailable": 1,
+      "voltageKV": 22,
+      "incomerA": 6300
+    },
+    "expected": {
+      "availableMVA": 500,
+      "marginMVA": -60,
+      "minimumNPlusOne": 4,
+      "fullLoadA": 6560.7985135184745,
+      "incomerMarginA": -260.79851351847446
+    }
+  },
+  {
+    "id": "integrated-design-release:challenge",
+    "model": "designReview",
+    "inputs": {
+      "demandMVA": 560,
+      "unitMVA": 250,
+      "unitsPerSide": 4,
+      "unavailable": 1,
+      "voltageKV": 22,
+      "incomerA": 6300
+    },
+    "expected": {
+      "availableMVA": 750,
+      "marginMVA": 190,
+      "minimumNPlusOne": 4,
+      "fullLoadA": 6560.7985135184745,
+      "incomerMarginA": -260.79851351847446
+    }
+  }
+]

@@ -25,13 +25,19 @@ const paths = [
     unit: 'advanced studies',
     detail: 'Explore converter response and grid modes.',
   },
+  {
+    id: 'infrastructure',
+    label: 'Infrastructure Engineering',
+    unit: 'course lessons',
+    detail: 'Inspect cross-system boundaries, assumptions and engineering HOLD.',
+  },
 ] as const;
 
 export function learningDirectory(items: LearningRecord[]): string {
   const count = (kind: string) => items.filter((item) => item.kind === kind).length;
   return `<nav class="learning-paths" aria-label="Learning pathways">${paths.map((path, index) => `<a href="#${path.id}" data-path="${path.id}" class="path-${path.id}"><span class="path-number">0${index + 1} / ${count(path.id)} ${path.unit}</span><strong>${path.label} <span aria-hidden="true">↗</span></strong><span>${path.detail}</span></a>`).join('')}</nav>
 <section id="learning-library" aria-labelledby="library-title">
-<div class="section-heading"><div><p class="eyebrow">Find your next question</p><h2 id="library-title">The learning library</h2></div><p>${count('continuity')} continuity lessons · ${count('emt')} EMT study · ${count('dynamics')} advanced studies.<br>Scenario presets are a separate collection.</p></div>
+<div class="section-heading"><div><p class="eyebrow">Find your next question</p><h2 id="library-title">The learning library</h2></div><p>${count('continuity')} continuity lessons · ${count('infrastructure')} infrastructure lessons · ${count('emt')} EMT study · ${count('dynamics')} advanced studies.<br>Scenario presets are a separate collection.</p></div>
 <form class="learn-search" role="search" aria-label="Search learning content" hidden>
 <label for="learning-search">Search a topic or question<input id="learning-search" name="q" type="search" maxlength="200" placeholder="Try battery, voltage or shared controls" autocomplete="off"></label>
 <fieldset><legend>Learning path</legend><div class="path-filters"><button type="button" data-filter="all" aria-pressed="true">All paths</button>${paths.map((path) => `<button type="button" data-filter="${path.id}" aria-pressed="false">${path.label}</button>`).join('')}</div></fieldset>
@@ -44,7 +50,7 @@ ${paths
         .filter((item) => item.kind === path.id)
         .map(
           (item) =>
-            `<article class="learning-card" data-learning-id="${item.id}" data-kind="${item.kind}" data-search="${escape([item.title, item.question, item.description, ...item.tags].join(' ').toLowerCase())}"><span class="eyebrow">${item.kind === 'continuity' ? `Lesson ${String(item.sequence).padStart(2, '0')} / ${count('continuity')}` : item.kind === 'emt' ? 'EMT fundamentals' : `Study ${item.sequence} / ${count('dynamics')}`}</span><h4><a href="..${item.overviewPath}">${escape(item.title)}</a></h4>${item.question ? `<p>${escape(item.question)}</p>` : ''}<p class="card-description">${escape(item.description)}</p><div class="card-links"><a href="..${item.overviewPath}">${item.kind === 'continuity' ? 'Read lesson' : 'Read study guide'}<span class="sr-only">: ${escape(item.title)}</span></a><a href="..${item.runtimePath}">Run experiment<span class="sr-only">: ${escape(item.title)}</span><span aria-hidden="true"> ↗</span></a></div></article>`,
+            `<article class="learning-card" data-learning-id="${item.id}" data-kind="${item.kind}" data-search="${escape([item.title, item.question, item.description, ...item.tags].join(' ').toLowerCase())}"><span class="eyebrow">${item.kind === 'continuity' || item.kind === 'infrastructure' ? `Lesson ${String(item.sequence).padStart(2, '0')} / ${count('continuity') + count('infrastructure')}` : item.kind === 'emt' ? 'EMT fundamentals' : `Study ${item.sequence} / ${count('dynamics')}`}</span><h4><a href="..${item.overviewPath}">${escape(item.title)}</a></h4>${item.question ? `<p>${escape(item.question)}</p>` : ''}<p class="card-description">${escape(item.description)}</p><div class="card-links"><a href="..${item.overviewPath}">${item.kind === 'continuity' || item.kind === 'infrastructure' ? 'Read lesson' : 'Read study guide'}<span class="sr-only">: ${escape(item.title)}</span></a><a href="..${item.runtimePath}">Run experiment<span class="sr-only">: ${escape(item.title)}</span><span aria-hidden="true"> ↗</span></a></div></article>`,
         )
         .join('')}</div></section>`,
   )
