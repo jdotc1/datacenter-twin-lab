@@ -1,0 +1,68 @@
+{
+  "schema": "codex-v2-release-review-1",
+  "repository": "mohammadrezwankhan/datacenter-twin-lab",
+  "reviewedCommit": "d7dffb11772ae616b6c8a710361570f3ce3eb9a4",
+  "baseCommit": "1410b82d645d22b7e3af7f3803fa557a1d6c61e2",
+  "directParent": "1410b82d645d22b7e3af7f3803fa557a1d6c61e2",
+  "branch": "release/v2.0.0-infrastructure",
+  "worktree": "clean at review",
+  "codeReviewVerdict": "no blocking implementation finding identified",
+  "releaseVerdict": "release and production deployment remain pending",
+  "findings": [],
+  "resolvedPriorFindings": [
+    {
+      "priority": "P2",
+      "issue": "Stale pending-rights metadata in lesson JSON",
+      "resolution": "All 12 lesson records now reflect owner approval and retained engineering HOLD."
+    },
+    {
+      "priority": "P2",
+      "issue": "Generator fuel source omitted from learning-manifest source hashes",
+      "resolution": "fuel.ts is included for generator-bank-fuel and covered by an engine test."
+    }
+  ],
+  "releaseConditions": [
+    {
+      "status": "open",
+      "issue": "Exact-head remote release gates",
+      "evidence": "No exact-head CI/approval, PR merge, two-parent merge SHA, annotated tag, or GitHub release was verified."
+    },
+    {
+      "status": "open",
+      "issue": "Artifact build identity",
+      "evidence": ".local/browser-demo-site/build-identity.json currently has sourceRevision null and must not be deployed; use a tested artifact stamped with the verified merge SHA."
+    },
+    {
+      "status": "open",
+      "issue": "Custom-domain deployment and smoke tests",
+      "evidence": "Cloudflare Pages Direct Upload and anonymous production checks remain unperformed."
+    }
+  ],
+  "localEvidence": {
+    "rootDemoTests": "32/32 passed",
+    "engineTests": "57/57 passed",
+    "infrastructureCases": 24,
+    "infrastructureComparisons": 222,
+    "pythonTestsPassed": 148,
+    "pythonTestsSkipped": 2,
+    "localDashboardBrowserTests": "10/10 passed",
+    "sceneCaptures": 49,
+    "sceneConsoleErrors": 0,
+    "firstLessonDecodedBytes": 463434,
+    "criticalJourneyBudgetBytes": 600000,
+    "llmsFullBytes": 58949,
+    "nativeZoom": "Chrome settings confirmed at 200%; no document horizontal overflow on capstone and thermal; capstone keyboard step check and thermal Run/output check passed; native page screenshot captures unusable, separate 720 CSS-equivalent screenshots retained",
+    "pythonTestsRun": 150,
+    "finalWheelVerification": "passed on final built wheel"
+  },
+  "publication": {
+    "ownerApproval": "I confirm the rights and approve this educational publication and attribution.",
+    "approvalScope": "Original educational adaptations and attribution; not an independent legal or engineering review.",
+    "engineeringDecision": "HOLD"
+  },
+  "limitations": [
+    "No source edits, test/build execution, browser launch, Git mutation, or authenticated network operation was performed in this review.",
+    "No remote CI, GitHub release, Cloudflare deployment, or production smoke state was verified.",
+    "No professional engineering review, facility certification, blanket WCAG claim, Lighthouse score, or FPS claim is made."
+  ]
+}

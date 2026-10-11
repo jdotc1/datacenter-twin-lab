@@ -1,0 +1,129 @@
+{
+  "schema": "release-local-verification-1",
+  "checkedAt": "2026-10-11T23:10:25.112441+00:00",
+  "implementationCommit": "d7dffb11772ae616b6c8a710361570f3ce3eb9a4",
+  "sourceScope": "Local checks on the implementation checkout; final PR/main commit checks and immutable publication identities are established in the external release receipt.",
+  "environment": {
+    "os": "Windows 10.0.26300",
+    "cpu": "AMD Ryzen 7 8745HS w/ Radeon 780M Graphics",
+    "python": "3.12.14",
+    "node": "v24.19.0",
+    "playwrightChromium": "153.0.8010.12",
+    "installedChrome": "155.0.8059.40",
+    "network": "Unthrottled local HTTP; fresh browser contexts"
+  },
+  "checks": [
+    {
+      "command": "python -m unittest discover -s tests -v",
+      "result": "150 tests OK; two Windows symlink-privilege skips",
+      "log": "python-tests.log",
+      "logSha256": "1522bf2ba28fa8a2106f4e53d914651d64812f058bbb95ed73b8f70cfea59793"
+    },
+    {
+      "command": "npm --prefix apps/web run test:engine",
+      "result": "57 passed",
+      "log": "engine-tests-final.log",
+      "logSha256": "8c22c1dc93da89368f87e26df741fa06b31603582c59e927fc195445217ec9f5"
+    },
+    {
+      "command": "python scripts/verify_infrastructure.py",
+      "result": "24 cases; 222 numerical and state comparisons",
+      "log": "infrastructure-models.log",
+      "logSha256": "919337231f67149479a27aade0e95f17e65521a75420db03349f8b2743d7ed08"
+    },
+    {
+      "command": "npm --prefix apps/web run format:check",
+      "result": "passed",
+      "log": "format-final.log",
+      "logSha256": "4cacd3f7647323a7af544cefc2ba9ded2c34025424e29d651aaa2fab0c8e8c74"
+    },
+    {
+      "command": "npm --prefix apps/web run build",
+      "result": "passed",
+      "log": "dashboard-build-final.log",
+      "logSha256": "8dd362b1514d9552f178f866030f55e51e18ae894d71a89f7f8fdcbcbb0f9c35"
+    },
+    {
+      "command": "npm --prefix apps/web run build:demo",
+      "result": "passed; local sourceRevision is null and this artifact is not approved for production",
+      "log": "demo-build-final.log",
+      "logSha256": "10f4099253a5b8dc3360bf69f3b77d85bef13cf587730f4c0be04c3aceac62f5"
+    },
+    {
+      "command": "python scripts/build_evidence.py --output outputs/evidence",
+      "result": "14 artifacts generated",
+      "log": "evidence-build.log",
+      "logSha256": "07d756eeb73c71ffb22e89bcea1e1194afaa52d6aa306d8967b991e0f2eed0d7"
+    },
+    {
+      "command": "python scripts/build_evidence.py --verify outputs/evidence",
+      "result": "14 artifacts and numerical reproduction passed",
+      "log": "evidence-verify.log",
+      "logSha256": "6777b0f384535da6e1a6f44c0d414041b9d39540d819755210009ff5a9304593"
+    },
+    {
+      "command": "npm --prefix apps/web run test:e2e",
+      "result": "10 passed",
+      "log": "local-dashboard-browser-final.log",
+      "logSha256": "0613816a80f0abecb5153f0af6e875cf102de02863e5f6cfa156f826bc628224"
+    },
+    {
+      "command": "python scripts/verify_distribution.py outputs/release-checks/wheel-current --require-web",
+      "result": "fresh outside-checkout install, CLI, catalogue, profiles and bundled dashboard passed",
+      "log": "distribution-final.log",
+      "logSha256": "a8a0d1e5ba2a4e37f53670af797047bfa8f091bae89b6a8f27b9de17610dd087"
+    },
+    {
+      "command": "TWIN_DEMO_BASE=/ npm --prefix apps/web run test:demo -- --grep \"all presets match native Python|evidence hub exposes|five-minute guide requires|search pages|EMT study|power dynamics|infrastructure\"",
+      "result": "32 passed at origin root",
+      "log": "root-final.log",
+      "logSha256": "4215ce52f561e3ea0e4987a35896c832c3ab657d386862dcd1b1ecaa76dcafab"
+    },
+    {
+      "command": "npm --prefix apps/web run test:demo -- search-pages.spec.ts --grep \"sitemap, canonical URLs\"",
+      "result": "all 30 canonical pages and metadata passed at repository subpath",
+      "log": "metadata-final.log",
+      "logSha256": "ce95585b533ed5c6863fdd02dd856458063065a8db546b553d6c4c0200885be3"
+    }
+  ],
+  "browserHistory": {
+    "fullAttempt": "97 passed, 1 failed, 4 did not run; the aggregate search text was truncated",
+    "focused": "All seven infrastructure tests passed; stale source quotation/version expectations and missing new-note author metadata were subsequently fixed",
+    "finalCoverage": "Root suite passes all 32 selected tests including infrastructure, search, presets, EMT, five dynamics studies and security. Subpath metadata passes all 30 pages. A complete single-run 102-test result is still required from commit-specific CI before merge.",
+    "assertions": "600000 decoded-byte, 60 KiB search-text, numerical tolerances and legacy contracts were retained; source version checks now bind to build identity"
+  },
+  "visual": {
+    "targetWidths": [
+      390,
+      768,
+      1440,
+      1920
+    ],
+    "sceneObservations": 48,
+    "screenshotCount": 49,
+    "documentOverflow": false,
+    "consoleErrors": [],
+    "inspected": "All 48 initial scene images were inspected by coordinator and separate agent; final thermal images at all four widths were recaptured and inspected after label separation. Separate 720 CSS-pixel reflow images were inspected.",
+    "nativeZoom": "Installed Chrome Settings selected 200%; outerWidth1440, innerWidth712, DPR2, visualViewport scale1, CSS zoom1. Capstone keyboard/Run and thermal37.5s output pass without horizontal overflow.",
+    "nativePixelCapture": "Native-zoom Playwright scene captures were uniform background and are not used as visual proof. Separate correctly rendered 720 CSS-pixel images supplement the actual native-zoom DOM checks.",
+    "skipLink": "Focused skip link is intentionally visible; activation moves focus to workspace-main and hides it again."
+  },
+  "performance": {
+    "siteDecodedBytes": 463434,
+    "budgetDecodedBytes": 600000,
+    "endpointSecurityInjectedBytes": 1843975,
+    "injectedHost": "local.adguard.org",
+    "treatment": "Only this identified client-side security injection is excluded from the application budget; other responses remain counted.",
+    "scores": "No Lighthouse score, guaranteed frame rate or general WCAG conformance is claimed."
+  },
+  "pendingExternalGates": [
+    "Separate final-head review confirmation",
+    "Required PR and exact-merge CI",
+    "Verified two-parent merge",
+    "Annotated tag collision check",
+    "Clean exact-merge artifacts",
+    "Downloaded release-asset checksum verification",
+    "Production deployment and anonymous smoke/hash verification"
+  ],
+  "engineeringDecision": "HOLD"
+}
