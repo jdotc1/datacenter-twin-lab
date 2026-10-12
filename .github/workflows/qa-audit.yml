@@ -1,0 +1,90 @@
+name: Audit quality gates (no deployment)
+
+on:
+  pull_request:
+  workflow_dispatch:
+    inputs:
+      audit_live_site:
+        description: 'Verify hosted routes, SEO and v2.0.0 evidence hashes'
+        required: false
+        default: true
+        type: boolean
+
+permissions:
+  contents: read
+
+jobs:
+  parity-and-visual:
+    name: Python / JavaScript parity, responsive and performance observations
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+          cache-dependency-path: apps/web/package-lock.json
+      - name: Install pinned Python API and study dependencies
+        run: |
+          python -m pip install -r requirements-api.lock
+          python -m pip install -r requirements-studies.lock
+      - name: Install pinned frontend packages
+        run: npm --prefix apps/web ci --ignore-scripts
+      - name: Python reference tests and site auditor self-tests
+        run: python -m unittest discover -s tests -v
+      - name: Native CLI smoke
+        run: python -m datacenter_twin simulate --preset generator_failure --format markdown > /dev/null
+      - name: Frontend format and production build
+        run: |
+          npm --prefix apps/web run format:check
+          npm --prefix apps/web run build
+      - name: Fetch pinned scientific assets and prepare exact browser Python reference
+        run: |
+          python scripts/fetch_study_runtime.py
+          python scripts/prepare_browser_demo.py
+      - name: Differential JavaScript engine suite and static demo build
+        run: |
+          npm --prefix apps/web run test:engine
+          npm --prefix apps/web run build:demo
+      - name: Install Chromium with required native libraries
+        run: npm --prefix apps/web exec -- playwright install --with-deps chromium
+      - name: Browser demo tests, including viewport matrix and performance observations
+        env:
+          TWIN_PYTHON: python
+        run: npm --prefix apps/web run test:demo
+      - name: Preserve regression evidence on success or failure
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: audit-regression-evidence
+          path: |
+            apps/web/test-results/
+            apps/web/playwright-report-demo/
+            apps/web/test-results-root/
+            apps/web/playwright-report-root/
+          if-no-files-found: ignore
+          retention-days: 14
+
+  hosted-integrity:
+    name: Hosted crawl and SHA-256 evidence verification (manual)
+    if: github.event_name == 'workflow_dispatch' && inputs.audit_live_site
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Crawl canonical pages and compare raw evidence bytes
+        run: python scripts/audit_public_site.py --strict-seo --max-pages 250 --out outputs/audit/public-site.json
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: live-site-audit-report
+          path: outputs/audit/public-site.json
+          if-no-files-found: ignore
+          retention-days: 30

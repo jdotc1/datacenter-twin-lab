@@ -1,5 +1,6 @@
 import type { Plugin } from 'vite';
 import { readFileSync, readdirSync, writeFileSync } from 'node:fs';
+import { execFileSync } from 'node:child_process';
 import { resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { lessons, lessonScenario, type Lesson } from './src/course-lessons.ts';
@@ -338,7 +339,7 @@ ${learningExplorer()}
           ) + '\n',
         );
         const resource = {
-          '@type': 'LearningResource',
+          '@type': ['LearningResource', 'TechArticle'],
           '@id': url(path + '#lesson'),
           url: url(path),
           name: cleanTitle,
@@ -606,6 +607,27 @@ python scripts/build_evidence.py --verify outputs/reproduction-${ENGINE_VERSION}
           },
         ),
       );
+      // Tie sitemap timestamps to the reproducible source revision, not the
+      // wall clock or each visitor request. A source archive can set
+      // SOURCE_DATE_EPOCH when Git metadata is unavailable.
+      const sourceDate = (() => {
+        try {
+          const date = execFileSync('git', ['log', '-1', '--format=%cs'], {
+            cwd: fileURLToPath(new URL('../../', import.meta.url)),
+            encoding: 'utf8',
+            stdio: ['ignore', 'pipe', 'ignore'],
+          }).trim();
+          if (/^\d{4}-\d{2}-\d{2}$/.test(date)) return date;
+        } catch {
+          // Source archives intentionally omit Git metadata.
+        }
+        const epoch = process.env.SOURCE_DATE_EPOCH;
+        if (epoch && /^\d+$/.test(epoch)) {
+          const date = new Date(Number(epoch) * 1000);
+          if (!Number.isNaN(date.valueOf())) return date.toISOString().slice(0, 10);
+        }
+        return null;
+      })();
       const paths = [
         '',
         'learn/',
@@ -618,11 +640,11 @@ python scripts/build_evidence.py --verify outputs/reproduction-${ENGINE_VERSION}
       ];
       emit(
         'sitemap.xml',
-        `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${paths.map((path) => `<url><loc>${escape(url(path))}</loc></url>`).join('')}</urlset>\n`,
+        `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${paths.map((path) => `<url><loc>${escape(url(path))}</loc>${sourceDate ? `<lastmod>${sourceDate}</lastmod>` : ''}</url>`).join('')}</urlset>\n`,
       );
       emit(
         'robots.txt',
-        `User-agent: *\nAllow: /\n\nUser-agent: Googlebot\nAllow: /\n\nUser-agent: Bingbot\nAllow: /\n\nUser-agent: OAI-SearchBot\nAllow: /\n\nUser-agent: GPTBot\nAllow: /\n\nUser-agent: PerplexityBot\nAllow: /\n\nUser-agent: Claude-SearchBot\nAllow: /\n\nSitemap: ${url('sitemap.xml')}\n`,
+        `User-agent: *\nAllow: /\n\nUser-agent: Googlebot\nAllow: /\n\nUser-agent: Bingbot\nAllow: /\n\nUser-agent: OAI-SearchBot\nAllow: /\n\nUser-agent: GPTBot\nAllow: /\n\nUser-agent: PerplexityBot\nAllow: /\n\nUser-agent: Claude-SearchBot\nAllow: /\n\nUser-agent: ClaudeBot\nAllow: /\n\nUser-agent: Google-Extended\nAllow: /\n\nSitemap: ${url('sitemap.xml')}\n`,
       );
       emit('llms.txt', readFileSync(new URL('./public/llms.txt', import.meta.url), 'utf8'));
       emit('llms-full.txt', '');
