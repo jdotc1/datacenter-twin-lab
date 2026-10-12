@@ -111,7 +111,7 @@ ${fuel ? `<h2>Separate usable-fuel ledger</h2><p>Source statement: constant load
             '',
           )}</nav><nav class="pager" aria-label="Lesson navigation">${prev ? `<a href="${root}${prev.readingRoute}">Previous · ${prev.number}. ${escape(prev.title)}</a>` : ''}${next ? `<a href="${root}${next.readingRoute}">Next · ${next.number}. ${escape(next.title)}</a>` : `<a href="${root}studies/emt/">Continue to EMT and dynamics</a>`}</nav>`,
         {
-          '@type': 'LearningResource',
+          '@type': ['LearningResource', 'TechArticle'],
           name: lesson.title,
           author,
           url: url(path),

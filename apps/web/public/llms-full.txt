@@ -1,0 +1,1106 @@
+# Datacenter Twin Lab: full visible page text
+Canonical site: https://khanlab.co.technology/
+
+## Datacenter Power Systems: Free Interactive Course | Datacenter Twin Lab
+
+URL: https://khanlab.co.technology/
+
+Datacenter Twin Lab
+
+Learn datacenter power continuity with twelve free, interactive browser lessons.
+
+A generator fails. How long does the battery last?
+
+In the canonical 1 MW example, a 100 kWh battery delivers 85.5 kWh after discharge and
+distribution losses. That supplies the load for 307.8 seconds after utility and generator
+fail at 300 seconds, with depletion at 607.8 seconds elapsed. Charging is disabled.
+Predict the result, run the experiment, then explain the energy balance.
+
+The interactive interface starts automatically when its scripts load. The hosted demo uses
+JavaScript. Optional Python verification downloads its runtime only when you request it.
+Calculations run on your device; no account is required.
+
+JavaScript is disabled. Use the Python quickstart or read the worked
+example below.
+
+Read all twelve course lessons · Explore the EMT study · Power dynamics studies · Reference results and source records · About the author and evidence ·
+Python quickstart
+·
+Worked example
+·
+Source and documentation
+
+This is an uncalibrated synthetic electrical model. It does not establish facility safety,
+cooling or workload performance, certified uptime, or live equipment control.
+
+## About, Model Scope & Reproducibility | Datacenter Twin Lab
+
+URL: https://khanlab.co.technology/about/
+
+About the lab / evidence you can inspect
+Understand the model. Reproduce the result.
+
+Datacenter Twin Lab is a local-first power-continuity what-if simulator and a twelve-lesson course for datacenter engineers.
+
+Created and maintained by Mohammad Rezwan Khan. Visit the engineering profile and publications. The project is open source under Apache-2.0. It runs on your device without an account or shared simulation backend.
+
+Development and educational writing use AI assistance. Numerical examples are checked with stated equations, the Python reference engine and browser tests; those maintainer checks are distinct from independent external review. Inspect the reference results and complete records to follow a claim back to its inputs.
+
+How long does 100 kWh support a 1 MW load?
+For this fixed-load example, 100 kWh × 0.90 discharge efficiency × 0.95 distribution efficiency = 85.5 kWh delivered. That is 307.8 seconds at 1,000 kW. With 50 kWh, it is 153.9 seconds. Charging is disabled; utility and generator fail at 300 seconds and recover at 900 seconds.
+Read the assumptions and run the experiment →
+
+What the simulator does
+It accounts for finite battery energy, charging and losses, generator startup and failure, surviving-path capacity, shared failure domains, timed recovery and unserved energy. The fast JavaScript path can be checked on demand against the Python reference. Eighteen presets and twelve lessons use explicit inputs and unit-labelled results.
+
+What the evidence means
+The tests and published packets establish reproducible software behavior for the declared inputs. They do not establish facility calibration, AC transients, protection coordination, GPU workload performance, grid adequacy, certified uptime or equipment safety. This software does not control equipment. Independent external reproduction has not yet been obtained.
+
+Inspect or cite the work
+Version 1.0.0 source, packages and release evidence
+Canonical input equations and reconstruction instructions
+Versioned evidence manifest with per-file hashes
+Author and software citation record
+External reproduction protocol and scope
+Install and run with Python
+
+How to contribute
+Try one lesson, note anything confusing and describe the steps to reproduce it. A clearer explanation, a documentation fix or an independently derived example can help the next learner. Read the contribution guide or open an issue.
+
+Explore the twelve lessons →
+
+## Datacenter Power Continuity: Results & Reproducibility Evidence
+
+URL: https://khanlab.co.technology/evidence/
+
+Reference desk / inputs, arithmetic, evidence
+
+Check the number.
+Cite the evidence.
+
+Three datacenter power-continuity cases you can calculate by hand, run in the browser and reproduce in Python.
+
+Original examples by Mohammad Rezwan Khan · Engine 1.0.0 · Citation and source revision
+
+Battery runtime answerThree reference casesReproduce the resultsCite the work
+
+How long does 100 kWh supply a 1 MW load?
+
+307.8 seconds in this charging-disabled example. Stored energy × discharge efficiency × distribution efficiency gives delivered energy: 100 × 0.90 × 0.95 = 85.5 kWh. Divide by 1,000 kW and multiply by 3,600 to convert hours to seconds. With 50 kWh, the same assumptions give 153.9 seconds.
+
+These are durations after the utility outage. With the outage beginning at 300 s, depletion occurs at 607.8 s or 453.9 s elapsed. An event timestamp and a ride-through duration describe different quantities.
+
+Run the 100 / 50 kWh lesson →
+
+Original calculation diagram. Duration starts at the utility outage; it is not an elapsed event timestamp.
+
+Three reference cases, one inspectable ledger
+
+The battery cases use 1,000 kW IT demand, 100 or 50 kWh opening energy, charging disabled, utility and generator failure at 300 s and recovery at 900 s, 90% discharge efficiency and 95% distribution efficiency. For path maintenance, one 700 kW gross path remains for 600 s: it delivers 665 kW and leaves a 335 kW deficit.
+
+Reference 01
+100 kWh at 1 MW
+307.8 seconds of battery ride-through
+
+100 × 0.90 × 0.95 ÷ 1,000 × 3,600
+
+Link to this result · Readable full report
+
+Scenario JSON · Complete result JSON
+
+Identity and pinned sourceInput SHA-256: a11b0d4078daef9a79e07f7969940203c23ccaa800c0a2c60cc5853b0acacfd0
+
+Run: 598f3279493596e75400. Result at the cited source revision.
+
+Reference 02
+50 kWh at 1 MW
+153.9 seconds of battery ride-through
+
+50 × 0.90 × 0.95 ÷ 1,000 × 3,600
+
+Link to this result · Readable full report
+
+Scenario JSON · Complete result JSON
+
+Identity and pinned sourceInput SHA-256: 0db72b981fa59c8a566e5610fd8627f4c623baeb8bb2662d22c5cae246a2b8b9
+
+Run: b27bf2eb3e3f3a603202. Result at the cited source revision.
+
+Reference 03
+One 700 kW surviving path
+55.833 kWh unserved over ten minutes
+
+700 × 0.95 = 665 kW served; 1,000 − 665 = 335 kW unserved
+
+Link to this result · Readable full report
+
+Scenario JSON · Complete result JSON
+
+Identity and pinned sourceInput SHA-256: 6b446789e2f755b9ac1ac81896c7f0d85827a9a03b6ceedfd8fbdc6cb3b775dd
+
+Run: bdbd07fc183ea54c6cba. Result at the cited source revision.
+
+Energy accounting over each complete 1,800-second run · kWh
+CaseRequested ITServed ITUnserved IT
+100 kWh at 1 MW
+500
+418.833333
+81.166667
+50 kWh at 1 MW
+500
+376.083333
+123.916667
+One 700 kW surviving path
+500
+444.166667
+55.833333
+
+The energy table rounds to six decimal places; the case summaries may be shorter. JSON records retain the complete decimal strings and interval ledger. Input-hash filenames identify each configuration; retain the source revision and manifest when citing a result.
+
+Reproduce the result before using it
+
+Download the version 1.0.0 source and evidence assets, or check out the exact public source revision linked below.
+
+From that source directory, build and verify the three-case packet with Python 3.12 or later:
+
+python scripts/build_evidence.py --output outputs/reproduction-1.0.0
+python scripts/build_evidence.py --verify outputs/reproduction-1.0.0
+
+Reconstruct the ledger from its terms, independently of the reported residual: source energy equals served IT energy plus the change in stored battery energy and the conversion losses. Requested IT energy equals served plus unserved IT energy.
+
+Equations, exact configuration and ledger reconstruction
+
+Reproduction method and decimal tolerance
+
+Packet builder and verifier at the cited source
+
+Versioned expected-versus-observed receipt
+
+Cite the claim and its configuration
+
+Mohammad Rezwan Khan. Datacenter Twin Lab, version 1.0.0. Synthetic continuity reference cases. https://khanlab.co.technology/evidence/
+
+For numerical reuse, include the case name, input SHA-256, engine version, result file and exact source revision. Documentation for this build: v1.0.0. Use the software citation record for author and repository details.
+
+This is a software reproduction record, not a peer-reviewed paper or a calibrated facility dataset. No DOI or independent external reproduction is asserted. Original code and inputs are Apache-2.0; source notices describe the material included.
+
+What can these results support?
+They support learning about finite reserve, losses, outage timing and path capacity for the stated synthetic inputs. They do not establish equipment suitability, facility uptime, grid adequacy, GPU job performance or physical safety. See the model scope and authorship and external reproduction protocol.
+
+Explore all twelve worked lessons →
+
+## Interrupt a 50 MW AI cluster | Datacenter Power Lesson 10
+
+URL: https://khanlab.co.technology/learn/ai-outage/
+
+Lesson 10 / 12 · Aggregate AI power demand
+
+Interrupt a 50 MW AI cluster
+How long can 5 MWh of stored energy bridge a 50 MW load?
+
+By Mohammad Rezwan Khan · Engine 1.0.0 · Cite this lesson
+
+Run this browser lesson →
+
+Predict before you run
+Write down your prediction, then change only the input below. In the interactive lesson, compare the starting case with the challenge and export a worksheet to retain your reasoning.
+
+The two lesson configurations
+InputStarting valueChallenge value
+Initial battery5000 kWh2500 kWh
+
+Reported quantity: s elapsed. The live control accepts 0–5000 kWh.
+
+Worked answer Link to this answer
+Scaling the electrical ratings and storage by 50 preserves the 307.8 s ride-through duration. Halving initial reserve gives depletion at 478.2675 s with pre-outage charging. This is aggregate demand, not GPU job or grid adequacy simulation.
+
+Calculated results · s elapsed
+ConfigurationInitial batteryResult (s elapsed)
+Starting case5000 kWh607.8
+Challenge2500 kWh478.2675
+
+Calculated from the same inputs as the interactive lesson. Display rounded to six decimal places; full decimal strings, inputs and energy records are in the downloadable result record. Elapsed seconds start at simulation time zero; ride-through starts at the outage.
+
+Reproduce the configuration
+Starting case assumptions
+IT demand / simulated duration50000 kW / 1800 s
+Opening battery / energy capacity5000 kWh / 5000 kWh
+Charging power limit5000 kW
+Charge / discharge efficiency0.95 / 0.9
+Distribution efficiency0.95
+Generator start delay30 s
+
+Scheduled events
+300 s: utility — asset down
+300 s: generator — asset down
+900 s: utility — asset up
+900 s: generator — asset up
+
+The browser lesson applies its configuration to the ai_cluster_generator_failure preset. Open it above, run the starting case, switch to the challenge, and use “Verify against Python” to compare complete results. Use the worksheet export to keep the prediction, completed inputs and answer together.
+
+Sources and verification
+Lesson definitions and input transformations
+Native Python default/challenge checks
+Electrical continuity contract
+Three reference cases, equations and versioned source records
+
+Cite this lesson
+Mohammad Rezwan Khan. “Interrupt a 50 MW AI cluster.” Datacenter Twin Lab, engine 1.0.0. https://khanlab.co.technology/learn/ai-outage/
+Documentation source: v1.0.0. For a numerical claim, also retain the completed inputs and the result record; the live lesson can be changed by its controls.
+
+Original material by Mohammad Rezwan Khan, engine 1.0.0. Synthetic teaching cases; no facility calibration or independent external reproduction has been established. Annual PUE planning and outage continuity are different calculations. Full scope and evidence.
+
+← 9. Track energy before the outage11. Catch a sub-second service gap →
+
+## Account for distribution losses | Datacenter Power Lesson 2
+
+URL: https://khanlab.co.technology/learn/distribution-loss/
+
+Lesson 02 / 12 · Efficiency
+
+Account for distribution losses
+How much source power is needed to deliver 1,000 kW?
+
+By Mohammad Rezwan Khan · Engine 1.0.0 · Cite this lesson
+
+Run this browser lesson →
+
+Predict before you run
+Write down your prediction, then change only the input below. In the interactive lesson, compare the starting case with the challenge and export a worksheet to retain your reasoning.
+
+The two lesson configurations
+InputStarting valueChallenge value
+Distribution efficiency0.95 ratio0.90 ratio
+
+Reported quantity: kWh over 30 min. The live control accepts 0.5–1 ratio.
+
+Worked answer Link to this answer
+Divide the IT demand by efficiency. At 0.95 the source supplies 1,052.631… kW; at 0.90 it supplies 1,111.111… kW.
+
+Calculated results · kWh over 30 min
+ConfigurationDistribution efficiencyResult (kWh over 30 min)
+Starting case0.95 ratio526.315789
+Challenge0.90 ratio555.555556
+
+Calculated from the same inputs as the interactive lesson. Display rounded to six decimal places; full decimal strings, inputs and energy records are in the downloadable result record. 
+
+Reproduce the configuration
+Starting case assumptions
+IT demand / simulated duration1000 kW / 1800 s
+Opening battery / energy capacity100 kWh / 100 kWh
+Charging power limit100 kW
+Charge / discharge efficiency0.95 / 0.9
+Distribution efficiency0.95
+Generator start delay30 s
+
+Scheduled events
+No failure or recovery events are scheduled.
+
+The browser lesson applies its configuration to the normal preset. Open it above, run the starting case, switch to the challenge, and use “Verify against Python” to compare complete results. Use the worksheet export to keep the prediction, completed inputs and answer together.
+
+Sources and verification
+Lesson definitions and input transformations
+Native Python default/challenge checks
+Electrical continuity contract
+Three reference cases, equations and versioned source records
+
+Cite this lesson
+Mohammad Rezwan Khan. “Account for distribution losses.” Datacenter Twin Lab, engine 1.0.0. https://khanlab.co.technology/learn/distribution-loss/
+Documentation source: v1.0.0. For a numerical claim, also retain the completed inputs and the result record; the live lesson can be changed by its controls.
+
+Original material by Mohammad Rezwan Khan, engine 1.0.0. Synthetic teaching cases; no facility calibration or independent external reproduction has been established. Annual PUE planning and outage continuity are different calculations. Full scope and evidence.
+
+← 1. Power becomes energy3. Calculate battery ride-through →
+
+## Bridge generator startup | Datacenter Power Lesson 4
+
+URL: https://khanlab.co.technology/learn/generator-delay/
+
+Lesson 04 / 12 · Sequence and delay
+
+Bridge generator startup
+What changes when startup takes 60 seconds instead of 30?
+
+By Mohammad Rezwan Khan · Engine 1.0.0 · Cite this lesson
+
+Run this browser lesson →
+
+Predict before you run
+Write down your prediction, then change only the input below. In the interactive lesson, compare the starting case with the challenge and export a worksheet to retain your reasoning.
+
+The two lesson configurations
+InputStarting valueChallenge value
+Generator start delay30 s60 s
+
+Reported quantity: s elapsed. The live control accepts 0–600 s.
+
+Worked answer Link to this answer
+A utility failure at 300 s requests a start. A 30 s delay makes the generator ready at 330 s; a 60 s delay makes it ready at 360 s. The battery bridges both in these inputs.
+
+Calculated results · s elapsed
+ConfigurationGenerator start delayResult (s elapsed)
+Starting case30 s330
+Challenge60 s360
+
+Calculated from the same inputs as the interactive lesson. Display rounded to six decimal places; full decimal strings, inputs and energy records are in the downloadable result record. Elapsed seconds start at simulation time zero; ride-through starts at the outage.
+
+Reproduce the configuration
+Starting case assumptions
+IT demand / simulated duration1000 kW / 1800 s
+Opening battery / energy capacity100 kWh / 100 kWh
+Charging power limit100 kW
+Charge / discharge efficiency0.95 / 0.9
+Distribution efficiency0.95
+Generator start delay30 s
+
+Scheduled events
+300 s: utility — asset down
+900 s: utility — asset up
+
+The browser lesson applies its configuration to the utility_loss preset. Open it above, run the starting case, switch to the challenge, and use “Verify against Python” to compare complete results. Use the worksheet export to keep the prediction, completed inputs and answer together.
+
+Sources and verification
+Lesson definitions and input transformations
+Native Python default/challenge checks
+Electrical continuity contract
+Three reference cases, equations and versioned source records
+
+Cite this lesson
+Mohammad Rezwan Khan. “Bridge generator startup.” Datacenter Twin Lab, engine 1.0.0. https://khanlab.co.technology/learn/generator-delay/
+Documentation source: v1.0.0. For a numerical claim, also retain the completed inputs and the result record; the live lesson can be changed by its controls.
+
+Original material by Mohammad Rezwan Khan, engine 1.0.0. Synthetic teaching cases; no facility calibration or independent external reproduction has been established. Annual PUE planning and outage continuity are different calculations. Full scope and evidence.
+
+← 3. Calculate battery ride-through5. Add a failed generator →
+
+## Add a failed generator | Datacenter Power Lesson 5
+
+URL: https://khanlab.co.technology/learn/generator-failure/
+
+Lesson 05 / 12 · Combined failures
+
+Add a failed generator
+What changes if the generator cannot start?
+
+By Mohammad Rezwan Khan · Engine 1.0.0 · Cite this lesson
+
+Run this browser lesson →
+
+Predict before you run
+Write down your prediction, then change only the input below. In the interactive lesson, compare the starting case with the challenge and export a worksheet to retain your reasoning.
+
+The two lesson configurations
+InputStarting valueChallenge value
+Generator available (0 = failed, 1 = available)0 1 
+
+Reported quantity: s unserved. The live control accepts 0–1.
+
+Worked answer Link to this answer
+With the generator failed, the battery empties at 607.8 s and service is lost for 292.2 s. An available generator starts after 30 s and avoids that gap.
+
+Calculated results · s unserved
+ConfigurationGenerator available (0 = failed, 1 = available)Result (s unserved)
+Starting case0 292.2
+Challenge1 0
+
+Calculated from the same inputs as the interactive lesson. Display rounded to six decimal places; full decimal strings, inputs and energy records are in the downloadable result record. 
+
+Reproduce the configuration
+Starting case assumptions
+IT demand / simulated duration1000 kW / 1800 s
+Opening battery / energy capacity100 kWh / 100 kWh
+Charging power limit100 kW
+Charge / discharge efficiency0.95 / 0.9
+Distribution efficiency0.95
+Generator start delay30 s
+
+Scheduled events
+300 s: utility — asset down
+300 s: generator — asset down
+900 s: utility — asset up
+900 s: generator — asset up
+
+The browser lesson applies its configuration to the generator_failure preset. Open it above, run the starting case, switch to the challenge, and use “Verify against Python” to compare complete results. Use the worksheet export to keep the prediction, completed inputs and answer together.
+
+Sources and verification
+Lesson definitions and input transformations
+Native Python default/challenge checks
+Electrical continuity contract
+Three reference cases, equations and versioned source records
+
+Cite this lesson
+Mohammad Rezwan Khan. “Add a failed generator.” Datacenter Twin Lab, engine 1.0.0. https://khanlab.co.technology/learn/generator-failure/
+Documentation source: v1.0.0. For a numerical claim, also retain the completed inputs and the result record; the live lesson can be changed by its controls.
+
+Original material by Mohammad Rezwan Khan, engine 1.0.0. Synthetic teaching cases; no facility calibration or independent external reproduction has been established. Annual PUE planning and outage continuity are different calculations. Full scope and evidence.
+
+← 4. Bridge generator startup6. Check a surviving path →
+
+## Power Systems for Datacenter Engineers | Free Course Notes
+
+URL: https://khanlab.co.technology/learn/
+
+The power playbook / 12 practical lessons
+Power Systems for Datacenter Engineers
+
+A generator fails. The battery takes over. Can you predict when the lights go out?
+
+Start with a 1 MW load and a 100 kWh battery, then change one assumption at a time. Read the calculations here, run each experiment in your browser, and compare the result with the reference Python engine.
+
+Original course by Mohammad Rezwan Khan · Engine 1.0.0 · Reference results and citation records
+
+Try the battery experiment →
+
+Free · no accountBrowser + PythonPredict · run · explain
+Original calculation diagram. Duration starts at the utility outage; it is not an elapsed event timestamp.
+
+Build your power-systems intuition
+For datacenter engineers learning power continuity. Begin with power and energy, work through outages and shared failures, then compare aggregate AI demand and annual PUE planning. Basic arithmetic is enough to start.
+Lesson 01 / 12Power becomes energy
+How much energy does a constant load request in half an hour?
+kW and kWh
+Lesson 02 / 12Account for distribution losses
+How much source power is needed to deliver 1,000 kW?
+Efficiency
+Lesson 03 / 12Calculate battery ride-through
+Does half the stored energy give half the ride-through duration?
+Finite storage
+Lesson 04 / 12Bridge generator startup
+What changes when startup takes 60 seconds instead of 30?
+Sequence and delay
+Lesson 05 / 12Add a failed generator
+What changes if the generator cannot start?
+Combined failures
+Lesson 06 / 12Check a surviving path
+Are two paths enough when either one must carry the whole load?
+N+1 capacity reasoning
+Lesson 07 / 12Expose shared control failures
+Can a shared control fault defeat both power paths?
+Failure domains
+Lesson 08 / 12Find a single point of failure
+What happens to two paths when their common main bus fails?
+Common upstream assets
+Lesson 09 / 12Track energy before the outage
+Why does the 50 kWh case last longer when it can charge first?
+Opening balances
+Lesson 10 / 12Interrupt a 50 MW AI cluster
+How long can 5 MWh of stored energy bridge a 50 MW load?
+Aggregate AI power demand
+Lesson 11 / 12Catch a sub-second service gap
+Does 57 kWh bridge recovery at 500 seconds? Does 58 kWh?
+Exact event timing
+Lesson 12 / 12Separate PUE from continuity
+How does assumed PUE change annual energy for the same 50 MW IT load?
+Facility energy planning
+
+Go inside a voltage sag
+Ready for a different timescale? The separate EMT fundamentals study explores a 200 ms ideal DC-link RLC transient with waveforms, an energy ledger and step-refinement checks. Continue with five advanced power-dynamics studies of converter response and grid modes.
+
+What these twelve experiments establish
+These are deterministic synthetic electrical examples with explicit units, input scenarios and downloadable results. They teach reserve accounting and failure-path reasoning. They do not predict GPU jobs, grid adequacy, electrical transients or certified facility uptime.
+Read about the author, model scope and reproducibility evidence →
+
+## Check a surviving path | Datacenter Power Lesson 6
+
+URL: https://khanlab.co.technology/learn/n-plus-one/
+
+Lesson 06 / 12 · N+1 capacity reasoning
+
+Check a surviving path
+Are two paths enough when either one must carry the whole load?
+
+By Mohammad Rezwan Khan · Engine 1.0.0 · Cite this lesson
+
+Run this browser lesson →
+
+Predict before you run
+Write down your prediction, then change only the input below. In the interactive lesson, compare the starting case with the challenge and export a worksheet to retain your reasoning.
+
+The two lesson configurations
+InputStarting valueChallenge value
+Each path gross capacity700 kW1100 kW
+
+Reported quantity: kW unserved. The live control accepts 100–1500 kW.
+
+Worked answer Link to this answer
+One 700 kW path delivers 665 kW after losses, leaving 335 kW unmet. One 1,100 kW path can deliver the full 1,000 kW request. This tests a capacity condition, not a complete N+1 classification.
+
+Calculated results · kW unserved
+ConfigurationEach path gross capacityResult (kW unserved)
+Starting case700 kW335
+Challenge1100 kW0
+
+Calculated from the same inputs as the interactive lesson. Display rounded to six decimal places; full decimal strings, inputs and energy records are in the downloadable result record. 
+
+Reproduce the configuration
+Starting case assumptions
+IT demand / simulated duration1000 kW / 1800 s
+Opening battery / energy capacity100 kWh / 100 kWh
+Charging power limit100 kW
+Charge / discharge efficiency0.95 / 0.9
+Distribution efficiency0.95
+Generator start delay30 s
+
+Scheduled events
+300 s: path-a — asset down
+900 s: path-a — asset up
+
+The browser lesson applies its configuration to the path_maintenance preset. Open it above, run the starting case, switch to the challenge, and use “Verify against Python” to compare complete results. Use the worksheet export to keep the prediction, completed inputs and answer together.
+
+Sources and verification
+Lesson definitions and input transformations
+Native Python default/challenge checks
+Electrical continuity contract
+Three reference cases, equations and versioned source records
+
+Cite this lesson
+Mohammad Rezwan Khan. “Check a surviving path.” Datacenter Twin Lab, engine 1.0.0. https://khanlab.co.technology/learn/n-plus-one/
+Documentation source: v1.0.0. For a numerical claim, also retain the completed inputs and the result record; the live lesson can be changed by its controls.
+
+Original material by Mohammad Rezwan Khan, engine 1.0.0. Synthetic teaching cases; no facility calibration or independent external reproduction has been established. Annual PUE planning and outage continuity are different calculations. Full scope and evidence.
+
+← 5. Add a failed generator7. Expose shared control failures →
+
+## Power becomes energy | Datacenter Power Lesson 1
+
+URL: https://khanlab.co.technology/learn/power-energy/
+
+Lesson 01 / 12 · kW and kWh
+
+Power becomes energy
+How much energy does a constant load request in half an hour?
+
+By Mohammad Rezwan Khan · Engine 1.0.0 · Cite this lesson
+
+Run this browser lesson →
+
+Predict before you run
+Write down your prediction, then change only the input below. In the interactive lesson, compare the starting case with the challenge and export a worksheet to retain your reasoning.
+
+The two lesson configurations
+InputStarting valueChallenge value
+IT demand1000 kW500 kW
+
+Reported quantity: kWh. The live control accepts 0–1000 kW.
+
+Worked answer Link to this answer
+Energy equals power multiplied by time. At 1,000 kW for 0.5 h the request is 500 kWh; at 500 kW it is 250 kWh.
+
+Calculated results · kWh
+ConfigurationIT demandResult (kWh)
+Starting case1000 kW500
+Challenge500 kW250
+
+Calculated from the same inputs as the interactive lesson. Display rounded to six decimal places; full decimal strings, inputs and energy records are in the downloadable result record. 
+
+Reproduce the configuration
+Starting case assumptions
+IT demand / simulated duration1000 kW / 1800 s
+Opening battery / energy capacity100 kWh / 100 kWh
+Charging power limit100 kW
+Charge / discharge efficiency0.95 / 0.9
+Distribution efficiency0.95
+Generator start delay30 s
+
+Scheduled events
+No failure or recovery events are scheduled.
+
+The browser lesson applies its configuration to the normal preset. Open it above, run the starting case, switch to the challenge, and use “Verify against Python” to compare complete results. Use the worksheet export to keep the prediction, completed inputs and answer together.
+
+Sources and verification
+Lesson definitions and input transformations
+Native Python default/challenge checks
+Electrical continuity contract
+Three reference cases, equations and versioned source records
+
+Cite this lesson
+Mohammad Rezwan Khan. “Power becomes energy.” Datacenter Twin Lab, engine 1.0.0. https://khanlab.co.technology/learn/power-energy/
+Documentation source: v1.0.0. For a numerical claim, also retain the completed inputs and the result record; the live lesson can be changed by its controls.
+
+Original material by Mohammad Rezwan Khan, engine 1.0.0. Synthetic teaching cases; no facility calibration or independent external reproduction has been established. Annual PUE planning and outage continuity are different calculations. Full scope and evidence.
+
+← Course index2. Account for distribution losses →
+
+## Track energy before the outage | Datacenter Power Lesson 9
+
+URL: https://khanlab.co.technology/learn/precharge/
+
+Lesson 09 / 12 · Opening balances
+
+Track energy before the outage
+Why does the 50 kWh case last longer when it can charge first?
+
+By Mohammad Rezwan Khan · Engine 1.0.0 · Cite this lesson
+
+Run this browser lesson →
+
+Predict before you run
+Write down your prediction, then change only the input below. In the interactive lesson, compare the starting case with the challenge and export a worksheet to retain your reasoning.
+
+The two lesson configurations
+InputStarting valueChallenge value
+Battery charging power100 kW0 kW
+
+Reported quantity: s elapsed. The live control accepts 0–100 kW.
+
+Worked answer Link to this answer
+The battery starts at 50 kWh. Before the 300 s outage it gains 7.9166… kWh at 100 kW charging power. Depletion is at 478.2675 s; with charging disabled it is at 453.9 s.
+
+Calculated results · s elapsed
+ConfigurationBattery charging powerResult (s elapsed)
+Starting case100 kW478.2675
+Challenge0 kW453.9
+
+Calculated from the same inputs as the interactive lesson. Display rounded to six decimal places; full decimal strings, inputs and energy records are in the downloadable result record. Elapsed seconds start at simulation time zero; ride-through starts at the outage.
+
+Reproduce the configuration
+Starting case assumptions
+IT demand / simulated duration1000 kW / 1800 s
+Opening battery / energy capacity50 kWh / 100 kWh
+Charging power limit100 kW
+Charge / discharge efficiency0.95 / 0.9
+Distribution efficiency0.95
+Generator start delay30 s
+
+Scheduled events
+300 s: utility — asset down
+300 s: generator — asset down
+900 s: utility — asset up
+900 s: generator — asset up
+
+The browser lesson applies its configuration to the generator_failure preset. Open it above, run the starting case, switch to the challenge, and use “Verify against Python” to compare complete results. Use the worksheet export to keep the prediction, completed inputs and answer together.
+
+Sources and verification
+Lesson definitions and input transformations
+Native Python default/challenge checks
+Electrical continuity contract
+Three reference cases, equations and versioned source records
+
+Cite this lesson
+Mohammad Rezwan Khan. “Track energy before the outage.” Datacenter Twin Lab, engine 1.0.0. https://khanlab.co.technology/learn/precharge/
+Documentation source: v1.0.0. For a numerical claim, also retain the completed inputs and the result record; the live lesson can be changed by its controls.
+
+Original material by Mohammad Rezwan Khan, engine 1.0.0. Synthetic teaching cases; no facility calibration or independent external reproduction has been established. Annual PUE planning and outage continuity are different calculations. Full scope and evidence.
+
+← 8. Find a single point of failure10. Interrupt a 50 MW AI cluster →
+
+## Separate PUE from continuity | Datacenter Power Lesson 12
+
+URL: https://khanlab.co.technology/learn/pue/
+
+Lesson 12 / 12 · Facility energy planning
+
+Separate PUE from continuity
+How does assumed PUE change annual energy for the same 50 MW IT load?
+
+By Mohammad Rezwan Khan · Engine 1.0.0 · Cite this lesson
+
+Run this browser lesson →
+
+Predict before you run
+Write down your prediction, then change only the input below. In the interactive lesson, compare the starting case with the challenge and export a worksheet to retain your reasoning.
+
+The two lesson configurations
+InputStarting valueChallenge value
+Assumed PUE1.25 ratio1.15 ratio
+
+Reported quantity: kWh per 8,760 h. The live control accepts 1–2 ratio.
+
+Worked answer Link to this answer
+50,000 × 8,760 × 1.25 = 547,500,000 kWh; at 1.15 it is 503,700,000 kWh. The difference is 43,800,000 kWh at identical IT demand. PUE already includes non-IT overhead: do not add continuity losses to it again.
+
+Calculated results · kWh per 8,760 h
+ConfigurationAssumed PUEResult (kWh per 8,760 h)
+Starting case1.25 ratio547,500,000
+Challenge1.15 ratio503,700,000
+
+Calculated from the same inputs as the interactive lesson. Display rounded to six decimal places; full decimal strings, inputs and energy records are in the downloadable result record. 
+
+Reproduce the configuration
+Constant 50,000 kW IT demand over 8,760 hours; assumed PUE of 1.25 or 1.15. This annual planning case has no outage timeline. PUE includes non-IT energy; do not add continuity losses again.
+
+This lesson builds an annual planning case for the fixed IT demand and duration above; it does not use an outage preset. Open it above, run the starting case, switch to the challenge, and use “Verify against Python” to compare complete results. Use the worksheet export to keep the prediction, completed inputs and answer together.
+
+Sources and verification
+Lesson definitions and input transformations
+Native Python default/challenge checks
+Electrical continuity contract
+Three reference cases, equations and versioned source records
+
+Cite this lesson
+Mohammad Rezwan Khan. “Separate PUE from continuity.” Datacenter Twin Lab, engine 1.0.0. https://khanlab.co.technology/learn/pue/
+Documentation source: v1.0.0. For a numerical claim, also retain the completed inputs and the result record; the live lesson can be changed by its controls.
+
+Original material by Mohammad Rezwan Khan, engine 1.0.0. Synthetic teaching cases; no facility calibration or independent external reproduction has been established. Annual PUE planning and outage continuity are different calculations. Full scope and evidence.
+
+← 11. Catch a sub-second service gapBack to all lessons →
+
+## Catch a sub-second service gap | Datacenter Power Lesson 11
+
+URL: https://khanlab.co.technology/learn/recovery-deadline/
+
+Lesson 11 / 12 · Exact event timing
+
+Catch a sub-second service gap
+Does 57 kWh bridge recovery at 500 seconds? Does 58 kWh?
+
+By Mohammad Rezwan Khan · Engine 1.0.0 · Cite this lesson
+
+Run this browser lesson →
+
+Predict before you run
+Write down your prediction, then change only the input below. In the interactive lesson, compare the starting case with the challenge and export a worksheet to retain your reasoning.
+
+The two lesson configurations
+InputStarting valueChallenge value
+Initial battery57 kWh58 kWh
+
+Reported quantity: s unserved. The live control accepts 50–65 kWh.
+
+Worked answer Link to this answer
+57 kWh depletes at 499.8135 s, leaving a 0.1865 s gap before recovery. 58 kWh bridges the outage. The engine resolves the event inside its nominal 10 s step.
+
+Calculated results · s unserved
+ConfigurationInitial batteryResult (s unserved)
+Starting case57 kWh0.1865
+Challenge58 kWh0
+
+Calculated from the same inputs as the interactive lesson. Display rounded to six decimal places; full decimal strings, inputs and energy records are in the downloadable result record. 
+
+Reproduce the configuration
+Starting case assumptions
+IT demand / simulated duration1000 kW / 1800 s
+Opening battery / energy capacity57 kWh / 100 kWh
+Charging power limit100 kW
+Charge / discharge efficiency0.95 / 0.9
+Distribution efficiency0.95
+Generator start delay30 s
+
+Scheduled events
+300 s: utility — asset down
+300 s: generator — asset down
+500 s: utility — asset up
+900 s: generator — asset up
+
+The browser lesson applies its configuration to the generator_failure preset. Open it above, run the starting case, switch to the challenge, and use “Verify against Python” to compare complete results. Use the worksheet export to keep the prediction, completed inputs and answer together.
+
+Sources and verification
+Lesson definitions and input transformations
+Native Python default/challenge checks
+Electrical continuity contract
+Three reference cases, equations and versioned source records
+
+Cite this lesson
+Mohammad Rezwan Khan. “Catch a sub-second service gap.” Datacenter Twin Lab, engine 1.0.0. https://khanlab.co.technology/learn/recovery-deadline/
+Documentation source: v1.0.0. For a numerical claim, also retain the completed inputs and the result record; the live lesson can be changed by its controls.
+
+Original material by Mohammad Rezwan Khan, engine 1.0.0. Synthetic teaching cases; no facility calibration or independent external reproduction has been established. Annual PUE planning and outage continuity are different calculations. Full scope and evidence.
+
+← 10. Interrupt a 50 MW AI cluster12. Separate PUE from continuity →
+
+## Calculate battery ride-through | Datacenter Power Lesson 3
+
+URL: https://khanlab.co.technology/learn/ride-through/
+
+Lesson 03 / 12 · Finite storage
+
+Calculate battery ride-through
+Does half the stored energy give half the ride-through duration?
+
+By Mohammad Rezwan Khan · Engine 1.0.0 · Cite this lesson
+
+Run this browser lesson →
+
+Predict before you run
+Write down your prediction, then change only the input below. In the interactive lesson, compare the starting case with the challenge and export a worksheet to retain your reasoning.
+
+The two lesson configurations
+InputStarting valueChallenge value
+Initial battery100 kWh50 kWh
+
+Reported quantity: s elapsed. The live control accepts 0–100 kWh.
+
+Worked answer Link to this answer
+Charging is disabled in this lesson. 100 kWh delivers 85.5 kWh after the two losses: 307.8 s of ride-through. 50 kWh gives 153.9 s, so depletion is at 453.9 s elapsed.
+
+Calculated results · s elapsed
+ConfigurationInitial batteryResult (s elapsed)
+Starting case100 kWh607.8
+Challenge50 kWh453.9
+
+Calculated from the same inputs as the interactive lesson. Display rounded to six decimal places; full decimal strings, inputs and energy records are in the downloadable result record. Elapsed seconds start at simulation time zero; ride-through starts at the outage.
+
+Reproduce the configuration
+Starting case assumptions
+IT demand / simulated duration1000 kW / 1800 s
+Opening battery / energy capacity100 kWh / 100 kWh
+Charging power limit0 kW
+Charge / discharge efficiency0.95 / 0.9
+Distribution efficiency0.95
+Generator start delay30 s
+
+Scheduled events
+300 s: utility — asset down
+300 s: generator — asset down
+900 s: utility — asset up
+900 s: generator — asset up
+
+The browser lesson applies its configuration to the generator_failure preset. Open it above, run the starting case, switch to the challenge, and use “Verify against Python” to compare complete results. Use the worksheet export to keep the prediction, completed inputs and answer together.
+
+Sources and verification
+Lesson definitions and input transformations
+Native Python default/challenge checks
+Electrical continuity contract
+Three reference cases, equations and versioned source records
+
+Cite this lesson
+Mohammad Rezwan Khan. “Calculate battery ride-through.” Datacenter Twin Lab, engine 1.0.0. https://khanlab.co.technology/learn/ride-through/
+Documentation source: v1.0.0. For a numerical claim, also retain the completed inputs and the result record; the live lesson can be changed by its controls.
+
+Original material by Mohammad Rezwan Khan, engine 1.0.0. Synthetic teaching cases; no facility calibration or independent external reproduction has been established. Annual PUE planning and outage continuity are different calculations. Full scope and evidence.
+
+← 2. Account for distribution losses4. Bridge generator startup →
+
+## Expose shared control failures | Datacenter Power Lesson 7
+
+URL: https://khanlab.co.technology/learn/shared-controls/
+
+Lesson 07 / 12 · Failure domains
+
+Expose shared control failures
+Can a shared control fault defeat both power paths?
+
+By Mohammad Rezwan Khan · Engine 1.0.0 · Cite this lesson
+
+Run this browser lesson →
+
+Predict before you run
+Write down your prediction, then change only the input below. In the interactive lesson, compare the starting case with the challenge and export a worksheet to retain your reasoning.
+
+The two lesson configurations
+InputStarting valueChallenge value
+Path B shares failed controls (0 = no, 1 = yes)1 0 
+
+Reported quantity: kW unserved. The live control accepts 0–1.
+
+Worked answer Link to this answer
+Both paths share the failed control domain initially: 1,000 kW is unmet. Removing that dependency from path B preserves its 665 kW delivery, leaving 335 kW unmet.
+
+Calculated results · kW unserved
+ConfigurationPath B shares failed controls (0 = no, 1 = yes)Result (kW unserved)
+Starting case1 1,000
+Challenge0 335
+
+Calculated from the same inputs as the interactive lesson. Display rounded to six decimal places; full decimal strings, inputs and energy records are in the downloadable result record. 
+
+Reproduce the configuration
+Starting case assumptions
+IT demand / simulated duration1000 kW / 1800 s
+Opening battery / energy capacity100 kWh / 100 kWh
+Charging power limit100 kW
+Charge / discharge efficiency0.95 / 0.9
+Distribution efficiency0.95
+Generator start delay30 s
+
+Scheduled events
+300 s: shared-controls — domain down
+900 s: shared-controls — domain up
+
+The browser lesson applies its configuration to the shared_domain preset. Open it above, run the starting case, switch to the challenge, and use “Verify against Python” to compare complete results. Use the worksheet export to keep the prediction, completed inputs and answer together.
+
+Sources and verification
+Lesson definitions and input transformations
+Native Python default/challenge checks
+Electrical continuity contract
+Three reference cases, equations and versioned source records
+
+Cite this lesson
+Mohammad Rezwan Khan. “Expose shared control failures.” Datacenter Twin Lab, engine 1.0.0. https://khanlab.co.technology/learn/shared-controls/
+Documentation source: v1.0.0. For a numerical claim, also retain the completed inputs and the result record; the live lesson can be changed by its controls.
+
+Original material by Mohammad Rezwan Khan, engine 1.0.0. Synthetic teaching cases; no facility calibration or independent external reproduction has been established. Annual PUE planning and outage continuity are different calculations. Full scope and evidence.
+
+← 6. Check a surviving path8. Find a single point of failure →
+
+## Find a single point of failure | Datacenter Power Lesson 8
+
+URL: https://khanlab.co.technology/learn/single-point/
+
+Lesson 08 / 12 · Common upstream assets
+
+Find a single point of failure
+What happens to two paths when their common main bus fails?
+
+By Mohammad Rezwan Khan · Engine 1.0.0 · Cite this lesson
+
+Run this browser lesson →
+
+Predict before you run
+Write down your prediction, then change only the input below. In the interactive lesson, compare the starting case with the challenge and export a worksheet to retain your reasoning.
+
+The two lesson configurations
+InputStarting valueChallenge value
+Main bus available (0 = failed, 1 = available)0 1 
+
+Reported quantity: kWh unserved. The live control accepts 0–1.
+
+Worked answer Link to this answer
+The common bus outage lasts 600 s. Even with two downstream paths, 1,000 × 600/3,600 = 166.666… kWh is unserved. Keeping the bus available removes the interruption.
+
+Calculated results · kWh unserved
+ConfigurationMain bus available (0 = failed, 1 = available)Result (kWh unserved)
+Starting case0 166.666667
+Challenge1 0
+
+Calculated from the same inputs as the interactive lesson. Display rounded to six decimal places; full decimal strings, inputs and energy records are in the downloadable result record. 
+
+Reproduce the configuration
+Starting case assumptions
+IT demand / simulated duration1000 kW / 1800 s
+Opening battery / energy capacity100 kWh / 100 kWh
+Charging power limit100 kW
+Charge / discharge efficiency0.95 / 0.9
+Distribution efficiency0.95
+Generator start delay30 s
+
+Scheduled events
+300 s: main-bus — asset down
+900 s: main-bus — asset up
+
+The browser lesson applies its configuration to the normal preset. Open it above, run the starting case, switch to the challenge, and use “Verify against Python” to compare complete results. Use the worksheet export to keep the prediction, completed inputs and answer together.
+
+Sources and verification
+Lesson definitions and input transformations
+Native Python default/challenge checks
+Electrical continuity contract
+Three reference cases, equations and versioned source records
+
+Cite this lesson
+Mohammad Rezwan Khan. “Find a single point of failure.” Datacenter Twin Lab, engine 1.0.0. https://khanlab.co.technology/learn/single-point/
+Documentation source: v1.0.0. For a numerical claim, also retain the completed inputs and the result record; the live lesson can be changed by its controls.
+
+Original material by Mohammad Rezwan Khan, engine 1.0.0. Synthetic teaching cases; no facility calibration or independent external reproduction has been established. Annual PUE planning and outage continuity are different calculations. Full scope and evidence.
+
+← 7. Expose shared control failures9. Track energy before the outage →
+
+## DC-link EMT Study: Voltage Sag and Recovery | Datacenter Twin Lab
+
+URL: https://khanlab.co.technology/studies/emt/
+
+Advanced study / EMT fundamentals
+
+Inside a voltage sag
+Explore a 200 ms DC-link transient. Change the circuit, replay the waveforms and check where the stored energy goes.
+
+Original lesson by Mohammad Rezwan Khan · Circuit model dc-link-rlc-v1
+
+Open the interactive EMT study →
+
+The starting experiment
+An ideal 800 V DC source feeds a 0.08 Ω resistor and 0.6 mH inductor, then a 12 mF capacitor in parallel with a 12.8 Ω load. At 40 ms the source drops to 400 V. At 120 ms it returns to 800 V.
+The bus starts at 795.03 V, falls to 178.95 V and reaches a recovery peak of 1014.10 V. Stored energy delays the response and produces ringing in this underdamped circuit.
+
+Generated from the same browser solver; shaded interval marks the source sag. The ideal source can absorb reverse current. Animation and chart samples are separate from integration steps.
+
+Predict, run, explain
+Predict whether the capacitor voltage changes instantly when the source falls.
+Run the baseline, then double capacitance. Compare both the lowest voltage and recovery peak.
+Lower series resistance. Explain how reduced damping changes the waveforms.
+Halve the integration step and compare every plotted voltage sample. A small difference checks numerical convergence, not equipment fidelity.
+
+The equations
+Use amperes, volts, seconds, ohms, henries and farads internally:
+L di/dt = Vsource − R i − Vbus
+C dVbus/dt = i − Vbus/Rload
+E = ½ L i² + ½ C Vbus²
+ΔE = ∫ Vsource i dt − ∫ R i² dt − ∫ Vbus²/Rload dt
+
+The initial DC state is i = 800/(0.08 + 12.8) A and Vbus = 12.8 i V. RK4 advances the electrical states and energy integrals together at 20 μs. Source events align with step boundaries. Output sampling is 100 μs; reported extrema use integration endpoints.
+
+Computed baseline energy ledger over 200 ms
+QuantityValue (J)
+Net source energy8865.58248
+Series resistor loss1867.21570
+Resistive load energy6989.86041
+Change in stored energy8.50636415
+Numerical balance residual-1.37879852e-7
+
+Reproduce the study
+From a checkout containing this lesson:
+python -m datacenter_twin.emt --preset voltage-sag --output outputs/emt.json
+Download the ten input fields · Download all 2,001 samples and the energy ledger · Read the model and command guide.
+
+What this circuit represents
+A deliberately small electromagnetic-transient teaching circuit with an ideal DC-equivalent source, linear R-L-C elements and a constant-resistance load. It does not simulate converter switching, an AC grid, UPS controls, protection or a facility. Reverse source current and even negative capacitor voltage are allowed by the ideal equations; no diode or voltage clamp is modeled. Parameters are authored examples, with no PSCAD equivalence or measured calibration claim.
+The twelve power-continuity lessons answer different questions about outage durations, capacity and finite battery energy.
+
+Sources and validation
+Reference Python solver and independent closed-form, energy and step-refinement tests.
+PSCAD: introduction to time-domain electromagnetic transients (background; not validation of this model).
+PSCAD: solution timestep versus channel plot step.
+MathWorks: circuit differential equations and analytic solutions.
+
+## Power Dynamics Studies: Converter Response and Grid Modes | Datacenter Twin Lab
+
+URL: https://khanlab.co.technology/studies/power-dynamics/
+
+Advanced power dynamics / five interactive studies
+
+Follow a load change through the power system
+
+Explore converter response, oscillation modes and interacting grid ports with the supplied Python study equations running in your browser.
+
+Open the study studio →
+
+Five configurable experimentsLocal Python + SciPyJSON and CSV exports
+
+Choose a question, predict, then run
+Study 1 / 5Load-step response
+How quickly does PCC power follow a change from 0.5 to 0.6 pu?
+Run an equilibrated 21-state converter chain. Compare the requested load, PCC response and DC-link voltage.
+
+Study 2 / 5Modes and frequency response
+What changes when the voltage-loop bandwidth changes?
+Inspect eigenvalues, damping, dominant state participation and a sampled small-signal frequency response.
+
+Study 3 / 5Synthetic load spectrum
+Which part of a repeating load swing reaches the PCC?
+Apply a bounded sinusoidal load and compare its time response and spectrum. The input is explicitly synthetic.
+
+Study 4 / 5Phase model versus QSS
+What does the reduced formulation leave out?
+Compare the supplied 41-state abc and 21-state quasi-steady formulations, including their hand-set startup and a shared step at 0.04 s in a bounded 0.08 s window.
+
+Study 5 / 5Interacting grid ports
+Does a solved power flow imply stable dynamics?
+Explore a modified nine-bus network with synchronous-machine, grid-forming, grid-following and data-center ports.
+
+Read the system at two timescales
+
+The twelve power-continuity lessons account for energy during outages. These advanced studies investigate the dynamics of idealized converter and grid models. For an introductory electromagnetic transient, begin with the separate DC-link RLC voltage-sag lesson.
+
+What a mode tells you
+For a linearized mode with eigenvalue λ = σ + jω, σ below zero indicates decay around that operating point. A positive σ indicates growth in the linearized model. Its frequency is |ω|/(2π) Hz; damping ratio is −σ/√(σ² + ω²). A converged power flow and stable dynamic modes answer different questions.
+
+Run one controlled comparison
+Select the load-step study and write a prediction before running.
+Keep the starting settings, run, and inspect the recorded solver diagnostics.
+Change only the DC capacitance from 2 to 3 pu. Run again and compare the transient shapes.
+Export each applied result. Draft input edits are not part of an earlier result.
+
+Runtime and reproducibility
+The scientific runtime downloads only when you choose Run. Computation stays in a cancellable browser worker; there is no shared simulation backend or usage telemetry. The simpler course and DC-link study retain their lightweight JavaScript first calculation.
+python -m pip install -r requirements-studies.lock
+python -m datacenter_twin.research --study load-step --output outputs/load-step.json
+
+Use a current checkout containing these studies. The historical v1.0.0 assets predate this addition. Results record the applied configuration, solver settings, assumptions, chart data and diagnostics. Per-unit values are normalized on the documented model bases, not automatically MW.
+
+Provenance and interpretation
+The owner supplied Python equivalents of MATLAB studies. The original MATLAB files and measured GPU trace were absent, so no MATLAB equivalence or measured-workload reproduction is claimed. The spectrum lesson uses a synthetic sinusoid. The phase-model comparison uses documented stiff integration instead of the original explicit Heun update. The nine-bus case is modified, not an unaltered standard benchmark. These are software teaching studies, not equipment or facility validation.
+
+Sources
+Study guide, equations provenance and adaptation map
+Reviewed Python study implementation
+Numerical regression and residual checks
+SciPy integration methods and solver completion
+Nine-bus test-network source and bibliography
