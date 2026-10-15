@@ -4,44 +4,63 @@
 # Permitted Traditional Search Engines
 User-agent: Googlebot
 Allow: /
+Disallow: /*?*
+Disallow: /404
+Disallow: /404.html
 
 User-agent: Bingbot
 Allow: /
+Disallow: /*?*
+Disallow: /404
+Disallow: /404.html
 
 # Permitted Generative AI Search & Answer Engines (GEO Discovery)
 User-agent: OAI-SearchBot
 Allow: /
+Disallow: /*?*
 
 User-agent: ChatGPT-User
 Allow: /
+Disallow: /*?*
 
 User-agent: GPTBot
 Allow: /
+Disallow: /*?*
 
 User-agent: Claude-SearchBot
 Allow: /
+Disallow: /*?*
 
 User-agent: ClaudeBot
 Allow: /
+Disallow: /*?*
 
 User-agent: Claude-User
 Allow: /
+Disallow: /*?*
 
 User-agent: PerplexityBot
 Allow: /
+Disallow: /*?*
 
 User-agent: Perplexity-User
 Allow: /
+Disallow: /*?*
 
 User-agent: Google-Extended
 Allow: /
+Disallow: /*?*
 
 User-agent: Applebot-Extended
 Allow: /
+Disallow: /*?*
 
 # Global Fallback for Standards-Compliant Crawlers
 User-agent: *
 Allow: /
+Disallow: /*?*
+Disallow: /404
+Disallow: /404.html
 
 # Canonical Sitemap
 Sitemap: https://khanlab.co.technology/sitemap.xml

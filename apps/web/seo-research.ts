@@ -37,9 +37,9 @@ export function researchPage(source: string): string {
   return `<p class="eyebrow">Advanced power dynamics / five interactive studies</p>
 <h1>Follow a load change through the power system</h1>
 <p class="lead">Explore converter response, oscillation modes and interacting grid ports with the supplied Python study equations running in your browser.</p>
-<p><a class="button" href="../../?study=load-step">Open the study studio →</a></p>
+<p><a class="button" rel="nofollow" href="../../?study=load-step">Open the study studio →</a></p>
 <div class="tags"><span>Five configurable experiments</span><span>Local Python + SciPy</span><span>JSON and CSV exports</span></div>
-<h2>Choose a question, predict, then run</h2><div class="cards">${researchStudies.map(([id, title, question, detail], i) => `<article class="card"><span class="eyebrow">Study ${i + 1} / 5</span><h2><a href="../../?study=${id}">${title}</a></h2><p><strong>${question}</strong></p><p>${detail}</p></article>`).join('')}</div>
+<h2>Choose a question, predict, then run</h2><div class="cards">${researchStudies.map(([id, title, question, detail], i) => `<article class="card"><span class="eyebrow">Study ${i + 1} / 5</span><h2><a rel="nofollow" href="../../?study=${id}">${title}</a></h2><p><strong>${question}</strong></p><p>${detail}</p></article>`).join('')}</div>
 <h2>Read the system at two timescales</h2>
 <p>The twelve <a href="../../learn/">power-continuity lessons</a> account for energy during outages. These advanced studies investigate the dynamics of idealized converter and grid models. For an introductory electromagnetic transient, begin with the separate <a href="../emt/">DC-link RLC voltage-sag lesson</a>.</p>
 <section class="panel answer"><h2>What a mode tells you</h2><p>For a linearized mode with eigenvalue λ = σ + jω, σ below zero indicates decay around that operating point. A positive σ indicates growth in the linearized model. Its frequency is |ω|/(2π) Hz; damping ratio is −σ/√(σ² + ω²). A converged power flow and stable dynamic modes answer different questions.</p></section>

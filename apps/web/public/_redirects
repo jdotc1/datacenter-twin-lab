@@ -1,4 +1,24 @@
+# Legacy application redirects
 /apps https://mklab.co.technology/ 301
 /apps/ https://mklab.co.technology/ 301
 /apps/llms.txt https://mklab.co.technology/llms.txt 301
 /apps/* https://mklab.co.technology/apps/:splat 301
+
+# Canonical Knowledge Graph & Sitemap Aliases
+/knowledge-graphs.json /knowledge-graph.json 301
+/sitemap /sitemap.xml 301
+/sitemap_index.xml /sitemap.xml 301
+
+# Icon Aliases
+/apple-touch-icon-precomposed.png /apple-touch-icon.png 301
+
+# Directory Normalization (Force 301 instead of 308)
+/learn https://khanlab.co.technology/learn/ 301
+/evidence https://khanlab.co.technology/evidence/ 301
+/about https://khanlab.co.technology/about/ 301
+/studies/emt https://khanlab.co.technology/studies/emt/ 301
+/studies/power-dynamics https://khanlab.co.technology/studies/power-dynamics/ 301
+
+# Direct access to 404 template redirects to root
+/404 https://khanlab.co.technology/ 302
+/404.html https://khanlab.co.technology/ 302

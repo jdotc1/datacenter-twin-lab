@@ -300,7 +300,7 @@ Read the <a href="${source}NOTICE">source notices</a> and <a href="${root}about/
 <p class="lead">A generator fails. The battery takes over. Can you predict when the lights go out?</p>
 <p>Start with a 1 MW load and a 100 kWh battery, then change one assumption at a time. Read the calculations here, run each experiment in your browser, and compare the result with the reference Python engine.</p>
 <p class="byline">Original course by <a href="../about/#author">${site.author}</a> · Engine ${ENGINE_VERSION} · <a href="../evidence/">Reference results and citation records</a></p>
-<p><a class="button" href="../?lesson=ride-through">Try the battery experiment →</a></p>
+<p><a class="button" rel="nofollow" href="../?lesson=ride-through">Try the battery experiment →</a></p>
 <div class="tags"><span>Free · no account</span><span>Browser + Python</span><span>Predict · run · explain</span></div>
 ${learningDirectory(learning.items)}
 ${learningExplorer()}
@@ -377,7 +377,7 @@ ${learningExplorer()}
 <p class="eyebrow">Lesson ${String(index + 1).padStart(2, '0')} / 12 · ${escape(lesson.concept)}</p>
 <h1>${escape(cleanTitle)}</h1><p class="lead">${escape(lesson.question)}</p>
 <p class="byline">By <a href="../../about/#author">${site.author}</a> · Engine ${ENGINE_VERSION} · <a href="#cite">Cite this lesson</a></p>
-<p><a class="button" href="../../?lesson=${lesson.id}">Run this browser lesson →</a></p>
+<p><a class="button" rel="nofollow" href="../../?lesson=${lesson.id}">Run this browser lesson →</a></p>
 <section class="panel"><h2>Predict before you run</h2><p>Write down your prediction, then change only the input below. In the interactive lesson, compare the starting case with the challenge and export a worksheet to retain your reasoning.</p>
 <div class="table-wrap"><table><caption>The two lesson configurations</caption><thead><tr><th scope="col">Input</th><th scope="col">Starting value</th><th scope="col">Challenge value</th></tr></thead><tbody><tr><th scope="row">${escape(lesson.label)}</th><td>${escape(lesson.initial)} ${escape(lesson.unit)}</td><td>${escape(lesson.challenge)} ${escape(lesson.unit)}</td></tr></tbody></table></div><p class="small">Reported quantity: ${escape(lesson.resultUnit)}. The live control accepts ${lesson.min}–${lesson.max}${lesson.unit ? ` ${escape(lesson.unit)}` : ''}.</p></section>
 <section class="panel answer section-link" id="worked-answer"><h2>Worked answer <a class="anchor" href="#worked-answer">Link to this answer</a></h2><p>${escape(lesson.explanation)}</p>
@@ -513,7 +513,7 @@ ${learningExplorer()}
 <section class="panel answer section-link" id="quick-answer"><h2>How long does 100 kWh supply a 1 MW load?</h2>
 <p><strong>307.8 seconds in this charging-disabled example.</strong> Stored energy × discharge efficiency × distribution efficiency gives delivered energy: 100 × 0.90 × 0.95 = 85.5 kWh. Divide by 1,000 kW and multiply by 3,600 to convert hours to seconds. With 50 kWh, the same assumptions give 153.9 seconds.</p>
 <p>These are durations after the utility outage. With the outage beginning at 300 s, depletion occurs at 607.8 s or 453.9 s elapsed. An event timestamp and a ride-through duration describe different quantities.</p>
-<p><a class="button" href="../?lesson=ride-through">Run the 100 / 50 kWh lesson →</a></p></section>
+<p><a class="button" rel="nofollow" href="../?lesson=ride-through">Run the 100 / 50 kWh lesson →</a></p></section>
 ${graphic}
 <section id="reference-packet" class="section-link"><h2>Three reference cases, one inspectable ledger</h2>
 <p>The battery cases use 1,000 kW IT demand, 100 or 50 kWh opening energy, charging disabled, utility and generator failure at 300 s and recovery at 900 s, 90% discharge efficiency and 95% distribution efficiency. For path maintenance, one 700 kW gross path remains for 600 s: it delivers 665 kW and leaves a 335 kW deficit.</p>
@@ -644,7 +644,7 @@ python scripts/build_evidence.py --verify outputs/reproduction-${ENGINE_VERSION}
       );
       emit(
         'robots.txt',
-        `User-agent: *\nAllow: /\n\nUser-agent: Googlebot\nAllow: /\n\nUser-agent: Bingbot\nAllow: /\n\nUser-agent: OAI-SearchBot\nAllow: /\n\nUser-agent: GPTBot\nAllow: /\n\nUser-agent: PerplexityBot\nAllow: /\n\nUser-agent: Claude-SearchBot\nAllow: /\n\nUser-agent: ClaudeBot\nAllow: /\n\nUser-agent: Google-Extended\nAllow: /\n\nSitemap: ${url('sitemap.xml')}\n`,
+        `User-agent: *\nAllow: /\nDisallow: /*?*\nDisallow: /404\nDisallow: /404.html\n\nUser-agent: Googlebot\nAllow: /\nDisallow: /*?*\nDisallow: /404\nDisallow: /404.html\n\nUser-agent: Bingbot\nAllow: /\nDisallow: /*?*\nDisallow: /404\nDisallow: /404.html\n\nUser-agent: OAI-SearchBot\nAllow: /\nDisallow: /*?*\n\nUser-agent: ChatGPT-User\nAllow: /\nDisallow: /*?*\n\nUser-agent: GPTBot\nAllow: /\nDisallow: /*?*\n\nUser-agent: PerplexityBot\nAllow: /\nDisallow: /*?*\n\nUser-agent: Claude-SearchBot\nAllow: /\nDisallow: /*?*\n\nUser-agent: ClaudeBot\nAllow: /\nDisallow: /*?*\n\nUser-agent: Google-Extended\nAllow: /\nDisallow: /*?*\n\nUser-agent: Applebot-Extended\nAllow: /\nDisallow: /*?*\n\nSitemap: ${url('sitemap.xml')}\n`,
       );
       emit('llms.txt', readFileSync(new URL('./public/llms.txt', import.meta.url), 'utf8'));
       emit('llms-full.txt', '');

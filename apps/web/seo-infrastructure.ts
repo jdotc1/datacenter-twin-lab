@@ -92,7 +92,7 @@ export async function infrastructureReadingPages(
         `${lesson.number}. ${lesson.title} | Datacenter Twin Lab`,
         lesson.lead,
         path,
-        `<p class="eyebrow">Infrastructure Engineering · Lesson ${lesson.number} of ${courseTotal} · ${lesson.estimatedMinutes} minutes</p><h1>${escape(lesson.title)}</h1><p class="lead">${escape(lesson.lead)}</p><a class="button" href="${root}?lesson=${encodeURIComponent(lesson.id)}">Run this lesson interactively</a>
+        `<p class="eyebrow">Infrastructure Engineering · Lesson ${lesson.number} of ${courseTotal} · ${lesson.estimatedMinutes} minutes</p><h1>${escape(lesson.title)}</h1><p class="lead">${escape(lesson.lead)}</p><a class="button" rel="nofollow" href="${root}?lesson=${encodeURIComponent(lesson.id)}">Run this lesson interactively</a>
 <aside class="panel"><h2>Engineering HOLD</h2><p>These are bounded educational screens, not an approved design or certification. Educational publication was approved by the owner on 12 October 2026; that decision does not clear engineering evidence.</p></aside>
 <h2>Learning objectives</h2><ul>${lesson.objectives.map((item) => `<li>${escape(item)}</li>`).join('')}</ul>
 ${lesson.sections.map((section) => `<section><p class="eyebrow">${labels[section.evidenceLabel]}</p><h2>${escape(section.title)}</h2><p>${escape(section.body)}</p></section>`).join('')}
