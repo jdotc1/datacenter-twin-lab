@@ -111,12 +111,13 @@ def prepare() -> dict:
             "note": "Reviewed numerical source only; no uploaded zip, bytecode, private metadata or Git objects.",
         }, indent=2) + "\n", encoding="utf-8")
     shutil.copyfile(ROOT / "apps/web/public/THIRD-PARTY-NOTICES.txt", output / "THIRD-PARTY-NOTICES.txt")
-    shutil.copyfile(ROOT / "apps/web/public/favicon.png", output / "favicon.png")
+    for name in ("favicon.png", "favicon.ico", "apple-touch-icon.png", "apple-touch-icon-precomposed.png"):
+        shutil.copyfile(ROOT / "apps/web/public" / name, output / name)
     for source in (ROOT / "docs/third-party").iterdir():
         if source.is_file():
             shutil.copyfile(source, output / "pyodide" / source.name)
     # Preserve the existing MKLab migration redirects and preview indexing rules.
-    for name in ("_headers", "_redirects", "llms.txt"):
+    for name in ("_headers", "_redirects", "llms.txt", "knowledge-graph.json", "knowledge-graph.jsonld"):
         shutil.copyfile(ROOT / "apps/web/public" / name, output / name)
     # Small scenario inputs feed JavaScript; the Python archive stays optional.
     demo_data = {"engine_version": __version__,

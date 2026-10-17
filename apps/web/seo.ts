@@ -248,6 +248,7 @@ Read the <a href="${source}NOTICE">source notices</a> and <a href="${root}about/
           '<!-- PUBLIC_COURSE_LINKS -->',
           `<a href="./learn/">Read all ${courseTotal} course lessons</a> · <a href="./studies/emt/">Explore the EMT study</a> · <a href="./studies/power-dynamics/">Power dynamics studies</a> · <a href="./evidence/">Reference results and source records</a> · <a href="./about/">About the author and evidence</a> ·`,
         )
+        .replace(/<script\b[^>]*type=["']application\/ld\+json["'][^>]*>[\s\S]*?<\/script>/gi, '')
         .replace(/<title>[\s\S]*?<\/title>/, '')
         .replace(/<meta\s+(?:name="description"|property="og:[^"]+")[\s\S]*?>/g, '')
         .replace('</head>', `${metadata(title, description, '', schema)}</head>`);
@@ -660,7 +661,7 @@ python scripts/build_evidence.py --verify outputs/reproduction-${ENGINE_VERSION}
       );
       if (ownershipKey.trim() !== ownershipFile.slice(0, -4))
         throw new Error('IndexNow ownership filename and contents must match');
-      emit(ownershipFile, ownershipKey);
+      emit(ownershipFile, ownershipKey.trim());
       emit(
         '404.html',
         '<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="robots" content="noindex"><title>Page not found | Datacenter Twin Lab</title></head><body><h1>Page not found</h1><p>The requested page is unavailable.</p><p><a href="' +

@@ -1,14 +1,15 @@
 .infra-scene {
-  --infra-bg: #0c1822;
-  --infra-surface: #101c29;
+  --infra-bg: #09141d;
+  --infra-surface: #0e1a26;
   --infra-raised: #142435;
   --infra-text: #edf4fa;
   --infra-muted: #a0b1c3;
-  --infra-line: #293a4b;
+  --infra-line: #24384a;
   --infra-accent: var(--accent, #63e6bc);
   color: var(--infra-text);
-  background: var(--infra-surface);
-  border: 1px solid var(--infra-line);
+  background: radial-gradient(circle at 85% 15%, #132737 0%, #0d1b26 65%, #08131c 100%);
+  border: 1px solid rgba(99, 230, 188, 0.22);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
   border-radius: 12px;
   min-width: 0;
   padding: clamp(14px, 2vw, 24px);
@@ -38,11 +39,15 @@
 }
 .infra-scene-tag {
   flex: 0 0 auto;
-  border: 1px solid var(--infra-line);
+  border: 1px solid rgba(99, 230, 188, 0.35);
   border-radius: 6px;
-  color: var(--infra-muted);
-  padding: 5px 8px;
-  font-size: 12px;
+  color: var(--infra-accent);
+  background: rgba(99, 230, 188, 0.08);
+  font-weight: 600;
+  padding: 5px 9px;
+  font-size: 11px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
 }
 .infra-scene-controls {
   display: flex;
@@ -85,18 +90,82 @@
   accent-color: var(--infra-accent);
 }
 .infra-step-copy {
-  margin: 8px 0;
-  padding: 12px 14px;
-  border-left: 3px solid var(--infra-accent);
-  background: #132630;
+  margin: 10px 0;
+  padding: 12px 16px;
+  border-left: 4px solid var(--infra-accent);
+  background: linear-gradient(90deg, rgba(99, 230, 188, 0.12), rgba(16, 28, 41, 0.6));
+  border-radius: 0 8px 8px 0;
   color: var(--infra-text);
-  line-height: 1.5;
+  line-height: 1.55;
+  font-size: 14.5px;
 }
 .infra-scene-note {
   margin: 8px 0 14px;
   color: var(--infra-muted);
-  font-size: 14px;
+  font-size: 13.5px;
   line-height: 1.5;
+}
+
+/* 2.5D Isometric Cable Energy & Signal Flow Keyframes */
+@keyframes cableFlow {
+  from {
+    stroke-dashoffset: 36;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes ledStatusBlink {
+  0%, 100% {
+    opacity: 0.95;
+  }
+  50% {
+    opacity: 0.35;
+  }
+}
+
+.infra-scene.has-motion .infra-route-power path:nth-child(2) {
+  stroke-dasharray: 12 6;
+  animation: cableFlow 1.6s linear infinite;
+}
+
+.infra-scene.has-motion .infra-route-path-b path:nth-child(2) {
+  stroke-dasharray: 9 7;
+  animation: cableFlow 1.8s linear infinite;
+}
+
+.infra-scene.has-motion .infra-route-liquid path:nth-child(2) {
+  stroke-dasharray: 8 6;
+  animation: cableFlow 2.4s linear infinite;
+}
+
+.infra-scene.has-motion .infra-route-network path:nth-child(2) {
+  stroke-dasharray: 6 5;
+  animation: cableFlow 0.85s linear infinite;
+}
+
+.infra-scene.has-motion .infra-route-air path:nth-child(2),
+.infra-scene.has-motion .infra-route-logical path:nth-child(2),
+.infra-scene.has-motion .infra-route-shared path:nth-child(2),
+.infra-scene.has-motion .infra-route-fuel path:nth-child(2),
+.infra-scene.has-motion .infra-route-ground path:nth-child(2) {
+  stroke-dasharray: 9 7;
+  animation: cableFlow 2.2s linear infinite;
+}
+
+.infra-device {
+  transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1), filter 0.25s ease;
+  transform-box: fill-box;
+  transform-origin: center bottom;
+}
+
+.infra-device:hover {
+  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.55));
+}
+
+.infra-scene.has-motion .infra-device circle {
+  animation: ledStatusBlink 2s ease-in-out infinite;
 }
 .infra-svg-scroll {
   overflow-x: auto;
