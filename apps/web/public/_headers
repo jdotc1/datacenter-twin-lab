@@ -11,3 +11,6 @@ https://:project.pages.dev/*
 
 https://:version.:project.pages.dev/*
   X-Robots-Tag: noindex
+
+/knowledge-graph.jsonld
+  Content-Type: application/ld+json

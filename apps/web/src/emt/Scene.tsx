@@ -1,5 +1,6 @@
 import type { KeyboardEvent, ReactNode } from 'react';
 import type { EmtConfig, EmtRow } from './engine';
+import { getEmtReferenceStatus } from './visuals';
 
 export type DeviceId = 'source' | 'reactor' | 'capacitor' | 'bus' | 'load';
 
@@ -67,15 +68,11 @@ export function EmtScene({
   selected: DeviceId;
   onSelect: (id: DeviceId) => void;
 }) {
+  const referenceStatus = getEmtReferenceStatus(config, row);
   const currentFraction = peakCurrentA > 0 ? Math.min(1, Math.abs(row.source_a) / peakCurrentA) : 0;
   const loadFraction = peakCurrentA > 0 ? Math.min(1, Math.abs(row.load_a) / peakCurrentA) : 0;
-  const busFraction =
-    config.source_v > 0 ? Math.max(0, Math.min(1, row.bus_v / config.source_v)) : 0;
-  const initialCurrent = config.source_v / (config.resistance_ohm + config.load_ohm);
-  const initialBus = config.load_ohm * initialCurrent;
-  const initialEnergy = ((0.5 * config.capacitance_mf) / 1000) * initialBus ** 2;
-  const capacitorEnergy = ((0.5 * config.capacitance_mf) / 1000) * row.bus_v ** 2;
-  const energyFraction = Math.max(0, Math.min(1, capacitorEnergy / Math.max(1e-9, initialEnergy)));
+  const busFraction = config.source_v > 0 ? Math.max(0, Math.min(1, referenceStatus.bus.ratio)) : 0;
+  const energyFraction = Math.max(0, Math.min(1, referenceStatus.capacitor.ratio));
   const wireAlpha = 0.28 + currentFraction * 0.72;
   const busAlpha = 0.22 + busFraction * 0.76;
 
@@ -373,6 +370,33 @@ export function EmtScene({
           IDEAL DC EQUIVALENT · LINEAR RLC NETWORK · NOT SWITCHING DETAIL
         </text>
       </svg>
+      <div
+        className="emt-scene-reference-status"
+        role="group"
+        aria-label="Electrical reference comparisons"
+      >
+        <span className={referenceStatus.bus.exceeds ? 'is-exceeded' : ''}>
+          <small>DC bus · source nominal</small>
+          <strong>
+            {Math.round(row.bus_v)} V<i>of {Math.round(referenceStatus.bus.reference)} V nominal</i>
+          </strong>
+          <em>
+            {referenceStatus.bus.exceeds
+              ? `+${Math.round(referenceStatus.bus.delta)} V above nominal · ${(
+                  referenceStatus.bus.ratio * 100
+                ).toFixed(1)}%`
+              : `${(referenceStatus.bus.ratio * 100).toFixed(1)}% of source nominal`}
+          </em>
+        </span>
+        <span className={referenceStatus.capacitor.exceeds ? 'is-exceeded' : ''}>
+          <small>Capacitor stored energy</small>
+          <strong>{referenceStatus.capacitor.ratio.toFixed(2)}× initial</strong>
+          <em>
+            {referenceStatus.capacitor.value.toFixed(2)} J vs{' '}
+            {referenceStatus.capacitor.reference.toFixed(2)} J initial
+          </em>
+        </span>
+      </div>
       <div className="emt-scene-caption">
         <span>
           <i className="key-source" /> Source

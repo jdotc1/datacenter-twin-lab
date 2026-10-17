@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import type { CSSProperties, KeyboardEvent, PointerEvent } from 'react';
 import type { Interval, Run } from './types';
 import './power-scene.css';
@@ -764,6 +764,10 @@ export function PowerScene({ run, row, motion, onMotionChange }: PowerSceneProps
   }, []);
 
   const handlePointerMove = (event: PointerEvent<HTMLDivElement>) => {
+    if (!motionAllowed) {
+      resetPointer();
+      return;
+    }
     if (event.pointerType !== 'mouse' || !stageRef.current) return;
     const bounds = event.currentTarget.getBoundingClientRect();
     const x = (event.clientX - bounds.left) / Math.max(bounds.width, 1) - 0.5;
@@ -779,6 +783,11 @@ export function PowerScene({ run, row, motion, onMotionChange }: PowerSceneProps
   };
 
   const motionAllowed = motion && !reducedMotion;
+
+  useLayoutEffect(() => {
+    if (!motionAllowed) resetPointer();
+  }, [motionAllowed]);
+
   const assetFor = (ids: string[]) =>
     run.scenario.assets.find(
       (asset) => ids.includes(asset.id) || ids.includes(asset.kind.toLowerCase()),

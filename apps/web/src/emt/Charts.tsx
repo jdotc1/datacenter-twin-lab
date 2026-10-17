@@ -1,8 +1,9 @@
 import { useRef, type PointerEvent } from 'react';
 import type { EmtConfig, EmtResult } from './engine';
 import { svgViewBoxPoint } from '../chartPointer';
+import { sourceStepPath } from './visuals';
 
-type Series = { name: string; color: string; values: number[] };
+type Series = { name: string; color: string; values: number[]; heldStep?: boolean };
 
 const numberText = (value: number, digits = 0) =>
   new Intl.NumberFormat('en', {
@@ -60,16 +61,18 @@ function LineChart({
   const inspectingPointer = useRef<number | null>(null);
   const ticks = Array.from({ length: 5 }, (_, index) => high - (index / 4) * (high - low));
   const timeTicks = Array.from({ length: 5 }, (_, index) => (index / 4) * spanMs);
-  const pathFor = (values: number[]) =>
-    result.rows
-      .map(
-        (row, index) =>
-          (index === 0 ? 'M' : 'L') +
-          x(row.time_ms).toFixed(2) +
-          ' ' +
-          y(values[index] ?? values[values.length - 1] ?? 0).toFixed(2),
-      )
-      .join(' ');
+  const pathFor = (item: Series) =>
+    item.heldStep
+      ? sourceStepPath(result.rows, x, y)
+      : result.rows
+          .map(
+            (row, index) =>
+              (index === 0 ? 'M' : 'L') +
+              x(row.time_ms).toFixed(2) +
+              ' ' +
+              y(item.values[index] ?? item.values[item.values.length - 1] ?? 0).toFixed(2),
+          )
+          .join(' ');
   const cursorX = x(selectedRow?.time_ms ?? 0);
   const eventLeft = x(config.sag_start_ms);
   const eventRight = x(Math.min(config.duration_ms, config.sag_start_ms + config.sag_duration_ms));
@@ -217,7 +220,7 @@ function LineChart({
         {series.map((item) => (
           <path
             key={item.name}
-            d={pathFor(item.values)}
+            d={pathFor(item)}
             fill="none"
             stroke={item.color}
             strokeWidth={item.name === 'DC bus' ? 2.8 : 2.1}
@@ -271,7 +274,12 @@ export function EmtCharts({
         timeMark={timeMark}
         onSampleIndexChange={onSampleIndexChange}
         series={[
-          { name: 'Source', color: '#58d8e8', values: rows.map((row) => row.source_v) },
+          {
+            name: 'Source',
+            color: '#58d8e8',
+            values: rows.map((row) => row.source_v),
+            heldStep: true,
+          },
           { name: 'DC bus', color: '#f0788f', values: rows.map((row) => row.bus_v) },
         ]}
       />

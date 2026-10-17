@@ -116,8 +116,14 @@ def prepare() -> dict:
     for source in (ROOT / "docs/third-party").iterdir():
         if source.is_file():
             shutil.copyfile(source, output / "pyodide" / source.name)
+    # These discovery documents are emitted from the current course catalog by Vite.
+    # Remove leftovers from earlier preparations so publicDir cannot re-copy stale metadata.
+    for name in ("llms.txt", "knowledge-graph.json", "knowledge-graph.jsonld"):
+        stale_discovery = output / name
+        if stale_discovery.exists() or stale_discovery.is_symlink():
+            stale_discovery.unlink()
     # Preserve the existing MKLab migration redirects and preview indexing rules.
-    for name in ("_headers", "_redirects", "llms.txt", "knowledge-graph.json", "knowledge-graph.jsonld"):
+    for name in ("_headers", "_redirects"):
         shutil.copyfile(ROOT / "apps/web/public" / name, output / name)
     # Small scenario inputs feed JavaScript; the Python archive stays optional.
     demo_data = {"engine_version": __version__,

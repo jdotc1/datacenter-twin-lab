@@ -2,6 +2,51 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { spawnSync } from 'node:child_process';
 import { DEFAULT_EMT, EMT_PRESETS, simulateEmt, refineEmt, compareEmt } from '../src/emt/engine';
+import { getEmtReferenceStatus, sourceStepPath } from '../src/emt/visuals';
+
+test('source-voltage chart path holds each level until its step event', () => {
+  const result = simulateEmt(DEFAULT_EMT);
+
+  assert.equal(
+    sourceStepPath(
+      result.rows,
+      (time) => time,
+      (voltage) => voltage,
+    ),
+    'M0.00 800.00 L40.00 800.00 L40.00 400.00 L120.00 400.00 L120.00 800.00 L200.00 800.00',
+  );
+
+  const flatResult = simulateEmt({ ...DEFAULT_EMT, sag_pu: 1 });
+  assert.equal(
+    sourceStepPath(
+      flatResult.rows,
+      (time) => time,
+      (voltage) => voltage,
+    ),
+    'M0.00 800.00 L200.00 800.00',
+  );
+});
+
+test('source-voltage path handles empty and single-row input', () => {
+  const x = (time: number) => time;
+  const y = (voltage: number) => voltage;
+
+  assert.equal(sourceStepPath([], x, y), '');
+  assert.equal(sourceStepPath([{ time_ms: 0, source_v: 800 }], x, y), 'M0.00 800.00');
+});
+
+test('scene reference status exposes bus overshoot and capacitor energy above initial', () => {
+  const result = simulateEmt(DEFAULT_EMT);
+  const peak = result.rows.reduce((maximum, row) => (row.bus_v > maximum.bus_v ? row : maximum));
+  const status = getEmtReferenceStatus(DEFAULT_EMT, peak);
+
+  assert.equal(status.bus.reference, 800);
+  assert.equal(status.bus.exceeds, true);
+  assert.ok(Math.abs(status.bus.value - 1014.1) < 0.2);
+  assert.ok(status.bus.ratio > 1.26 && status.bus.ratio < 1.28);
+  assert.equal(status.capacitor.exceeds, true);
+  assert.ok(status.capacitor.ratio > 1.62 && status.capacitor.ratio < 1.64);
+});
 
 test('EMT full outputs agree with native Python for presets, timestep and edge inputs', () => {
   const cases = [

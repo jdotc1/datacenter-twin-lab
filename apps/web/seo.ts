@@ -15,6 +15,12 @@ import { buildLearningManifest } from './learn-manifest';
 import { learningDirectory, learningExplorer } from './learn-page';
 import { infrastructureLessons, infrastructureReadingPages } from './seo-infrastructure';
 import { courseCatalog, courseTotal } from './src/curriculum';
+import {
+  buildDiscoveryDocuments,
+  createCourseSchema,
+  createSoftwareApplicationSchema,
+  type PublicAuthor,
+} from './seo-discovery';
 
 const repository = 'https://github.com/mohammadrezwankhan/datacenter-twin-lab';
 const title = 'Datacenter Power Systems: Free Interactive Course | Datacenter Twin Lab';
@@ -108,31 +114,38 @@ export function searchPages(): Plugin {
     throw new Error('Invalid public source revision');
   const source = `${repository}/blob/${revision || `v${ENGINE_VERSION}`}/`;
   const url = (path = '') => new URL(path, base).href;
-  const author = {
+  const author: PublicAuthor = {
     '@type': 'Person',
     '@id': authorId,
     name: site.author,
     url: authorUrl,
     sameAs: 'https://github.com/mohammadrezwankhan',
   };
-  const course = {
-    '@type': 'Course',
-    '@id': url('learn/#course'),
+  const course = createCourseSchema({
+    base,
     name: courseName,
     description,
-    inLanguage: 'en',
-    isAccessibleForFree: true,
     author,
     license: `${source}LICENSE`,
-    url: url('learn/'),
-    educationalLevel: 'Introductory',
-    hasPart: courseCatalog.map((lesson) => ({
-      '@type': 'LearningResource',
-      '@id': url(`${lesson.readingRoute}#lesson`),
-      name: lesson.title,
-      url: url(lesson.readingRoute),
-    })),
-  };
+    lessons: courseCatalog,
+  });
+  const softwareApplication = createSoftwareApplicationSchema({
+    base,
+    name: site.name,
+    version: ENGINE_VERSION,
+    author,
+    license: `${source}LICENSE`,
+    description:
+      'A local-first educational power-continuity what-if simulator with finite battery energy, generator delay and failure, surviving-path capacity, and reproducible exports. Scenarios are synthetic and uncalibrated; results are illustrative, not facility predictions or equipment ratings. The separate EMT study uses a simplified DC-equivalent R-L-C circuit with a resistive load; it does not model inverter controls, ATS transfer behavior, generator synchronization, or protection operation.',
+  });
+  const discoveryDocuments = buildDiscoveryDocuments({
+    base,
+    siteName: site.name,
+    repository,
+    author,
+    course,
+    softwareApplication,
+  });
 
   function metadata(pageTitle: string, summary: string, path: string, schema: unknown): string {
     return `<title>${escape(pageTitle)}</title>
@@ -217,20 +230,7 @@ Read the <a href="${source}NOTICE">source notices</a> and <a href="${root}about/
           inLanguage: 'en',
           author,
         },
-        {
-          '@type': 'SoftwareApplication',
-          '@id': url('#simulator'),
-          name: site.name,
-          url: base,
-          applicationCategory: 'EducationalApplication',
-          operatingSystem: 'Web browser; Python 3.12 or later',
-          softwareVersion: ENGINE_VERSION,
-          isAccessibleForFree: true,
-          license: `${source}LICENSE`,
-          author,
-          description:
-            'A local-first power-continuity what-if simulator with finite battery energy, generator delay and failure, surviving-path capacity, and reproducible exports.',
-        },
+        softwareApplication,
         {
           '@type': 'WebPage',
           '@id': url('#page'),
@@ -647,7 +647,9 @@ python scripts/build_evidence.py --verify outputs/reproduction-${ENGINE_VERSION}
         'robots.txt',
         `User-agent: *\nAllow: /\nDisallow: /*?*\nDisallow: /404\nDisallow: /404.html\n\nUser-agent: Googlebot\nAllow: /\nDisallow: /*?*\nDisallow: /404\nDisallow: /404.html\n\nUser-agent: Bingbot\nAllow: /\nDisallow: /*?*\nDisallow: /404\nDisallow: /404.html\n\nUser-agent: OAI-SearchBot\nAllow: /\nDisallow: /*?*\n\nUser-agent: ChatGPT-User\nAllow: /\nDisallow: /*?*\n\nUser-agent: GPTBot\nAllow: /\nDisallow: /*?*\n\nUser-agent: PerplexityBot\nAllow: /\nDisallow: /*?*\n\nUser-agent: Claude-SearchBot\nAllow: /\nDisallow: /*?*\n\nUser-agent: ClaudeBot\nAllow: /\nDisallow: /*?*\n\nUser-agent: Google-Extended\nAllow: /\nDisallow: /*?*\n\nUser-agent: Applebot-Extended\nAllow: /\nDisallow: /*?*\n\nSitemap: ${url('sitemap.xml')}\n`,
       );
-      emit('llms.txt', readFileSync(new URL('./public/llms.txt', import.meta.url), 'utf8'));
+      emit('llms.txt', discoveryDocuments.llmsText);
+      emit('knowledge-graph.json', discoveryDocuments.knowledgeGraphJson);
+      emit('knowledge-graph.jsonld', discoveryDocuments.knowledgeGraphJsonLd);
       emit('llms-full.txt', '');
       const ownershipFiles = readdirSync(new URL('./public/', import.meta.url)).filter((name) =>
         /^[a-f0-9]{32}\.txt$/.test(name),

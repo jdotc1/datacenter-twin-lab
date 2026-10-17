@@ -123,6 +123,68 @@ test('scene is visible and keyboard operable at desktop, tablet and phone widths
   }
 });
 
+test('scene pointer tilt follows motion preferences while explicit view controls remain usable', async ({
+  page,
+}) => {
+  await page.setViewportSize({ width: 1440, height: 900 });
+  await page.emulateMedia({ reducedMotion: 'no-preference' });
+  await page.goto('./?mode=advanced');
+
+  const stage = page.locator('.power-scene-stage');
+  const movePointerOverStage = async (xRatio = 0.85, yRatio = 0.2) => {
+    const bounds = await stage.boundingBox();
+    expect(bounds).not.toBeNull();
+    await page.mouse.move(bounds!.x + bounds!.width * xRatio, bounds!.y + bounds!.height * yRatio);
+  };
+  const pointerTilt = () =>
+    stage.evaluate((element) => [
+      (element as HTMLElement).style.getPropertyValue('--scene-pointer-x'),
+      (element as HTMLElement).style.getPropertyValue('--scene-pointer-y'),
+    ]);
+  const expectActiveTilt = async () => {
+    const tilt = await pointerTilt();
+    expect(tilt.every((value) => value !== '' && value !== '0deg')).toBe(true);
+  };
+
+  await movePointerOverStage();
+  await expectActiveTilt();
+  await expect(stage).toHaveAttribute('data-motion', 'on');
+
+  const pause = page.getByRole('button', { name: 'Pause animation', exact: true });
+  await pause.focus();
+  await pause.press('Enter');
+  await expect(stage).toHaveAttribute('data-motion', 'off');
+  await expect.poll(pointerTilt).toEqual(['0deg', '0deg']);
+  await movePointerOverStage(0.2, 0.8);
+  expect(await pointerTilt()).toEqual(['0deg', '0deg']);
+
+  await page.getByRole('button', { name: 'Turn scene left' }).click();
+  await expect(stage).toHaveCSS('--scene-turn', '-3deg');
+  await page.getByRole('button', { name: 'Turn scene right' }).click();
+  await expect(stage).toHaveCSS('--scene-turn', '0deg');
+  await page.getByRole('button', { name: 'Turn scene left' }).click();
+  await page.getByRole('button', { name: 'Reset view' }).click();
+  await expect(stage).toHaveCSS('--scene-turn', '0deg');
+
+  const resume = page.getByRole('button', { name: 'Resume animation', exact: true });
+  await resume.focus();
+  await resume.press('Enter');
+  await expect(stage).toHaveAttribute('data-motion', 'on');
+  await movePointerOverStage();
+  await expectActiveTilt();
+
+  await page.emulateMedia({ reducedMotion: 'reduce' });
+  await expect(stage).toHaveAttribute('data-motion', 'off');
+  await expect.poll(pointerTilt).toEqual(['0deg', '0deg']);
+  await movePointerOverStage(0.2, 0.8);
+  expect(await pointerTilt()).toEqual(['0deg', '0deg']);
+
+  await page.emulateMedia({ reducedMotion: 'no-preference' });
+  await expect(stage).toHaveAttribute('data-motion', 'on');
+  await movePointerOverStage();
+  await expectActiveTilt();
+});
+
 test('reduced motion is honored and the opening screen has no runtime errors', async ({
   page,
 }, testInfo) => {
