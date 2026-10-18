@@ -1320,3 +1320,10 @@ tr:last-child td {
 .python-verification p {
   overflow-wrap: anywhere;
 }
+
+@media (pointer: coarse) {
+  .energy-app :is(button, .nav-item, input[type='range'], [role='slider']) {
+    min-width: 48px !important;
+    min-height: 48px !important;
+  }
+}

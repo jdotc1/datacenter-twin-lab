@@ -159,15 +159,18 @@ test('the verified adapter fits mobile, tablet, and desktop without clipping cop
   await expect(adapter).not.toHaveAttribute('autoplay', '');
   await expect(adapter).not.toHaveAttribute('loop', '');
 
-  const origin = new URL(page.url()).origin;
-  const cspResponse = await page.request.get(`${origin}/assets/engineering-hero/v1/csp.json`);
+  // The Playwright demo preview can be mounted at a repository subpath as well as `/`.
+  // Resolve release assets from the active app root so both deployments exercise the same files.
+  const appRoot = page.url();
+  const appUrl = (path: string) => new URL(path, appRoot).toString();
+  const cspResponse = await page.request.get(appUrl('assets/engineering-hero/v1/csp.json'));
   expect(cspResponse.ok()).toBeTruthy();
   const releaseCsp = (await cspResponse.json()) as {
     suggestedContentSecurityPolicy: string;
   };
   const frameResponses = await Promise.all(
-    ['/assets/engineering-hero/v1/index.html', '/assets/engineering-hero/v1/'].map((path) =>
-      page.request.get(`${origin}${path}`),
+    ['assets/engineering-hero/v1/index.html', 'assets/engineering-hero/v1/'].map((path) =>
+      page.request.get(appUrl(path)),
     ),
   );
   for (const response of frameResponses) {
@@ -176,7 +179,7 @@ test('the verified adapter fits mobile, tablet, and desktop without clipping cop
     );
     expect(response.headers()['x-frame-options']).toBeUndefined();
   }
-  const hostResponse = await page.request.get(`${origin}/`);
+  const hostResponse = await page.request.get(appRoot);
   expect(hostResponse.headers()['content-security-policy']).not.toBe(
     releaseCsp.suggestedContentSecurityPolicy,
   );

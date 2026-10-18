@@ -6,9 +6,11 @@ import { lessons } from '../src/course-lessons';
 import { infrastructureLessons } from '../seo-infrastructure';
 import { readFile } from 'node:fs/promises';
 import { execFileSync } from 'node:child_process';
-import { join } from 'node:path';
+import { join, resolve } from 'node:path';
 import site from '../site.config.json' with { type: 'json' };
 import { nativeRun } from './course-test-helpers';
+
+const demoSite = resolve(process.env.TWIN_DEMO_OUT_DIR ?? '../../.local/browser-demo-site');
 
 test('search pages legacy forwarding preserves lesson, query and fragment on the fixed host', async ({
   page,
@@ -17,7 +19,7 @@ test('search pages legacy forwarding preserves lesson, query and fragment on the
   const output = testInfo.outputPath('legacy');
   execFileSync(
     process.env.TWIN_PYTHON || 'python',
-    ['scripts/build_pages_redirect.py', '--site', '.local/browser-demo-site', '--output', output],
+    ['scripts/build_pages_redirect.py', '--site', demoSite, '--output', output],
     { cwd: '../..' },
   );
   const document = await readFile(join(output, 'index.html'), 'utf8');
@@ -38,7 +40,7 @@ test('search pages legacy forwarding preserves lesson, query and fragment on the
   const note = await readFile(join(output, 'learn/ride-through/index.html'), 'utf8');
   expect(note).toContain(`content="0;url=${site.url}learn/ride-through/"`);
   expect(await readFile(join(output, 'guide-preview.png'))).toEqual(
-    await readFile(new URL('../../../.local/browser-demo-site/guide-preview.png', import.meta.url)),
+    await readFile(join(demoSite, 'guide-preview.png')),
   );
 });
 
@@ -72,13 +74,7 @@ test('search pages expose all twelve worked lessons with JavaScript disabled', a
         `../../?lesson=${lesson.id}`,
       );
       // Inspect shipped bytes: local endpoint protection can inject its own browser scripts.
-      const shipped = await readFile(
-        new URL(
-          '../../../.local/browser-demo-site/learn/' + lesson.id + '/index.html',
-          import.meta.url,
-        ),
-        'utf8',
-      );
+      const shipped = await readFile(join(demoSite, 'learn', lesson.id, 'index.html'), 'utf8');
       expect(shipped).not.toMatch(/<script\b[^>]*\bsrc=/i);
       const graph = JSON.parse(
         (await page.locator('script[type="application/ld+json"]').textContent())!,
@@ -118,7 +114,7 @@ test('search pages sitemap, canonical URLs and social metadata agree', async ({
   const robots = await request.get('./robots.txt');
   const robotsText = await robots.text();
   expect(robotsText).toContain(`Sitemap: ${publicBase}sitemap.xml`);
-  expect(robotsText).not.toContain('Disallow: /');
+  expect(robotsText).not.toMatch(/^Disallow:\s*\/\s*(?:#.*)?$/m);
   for (const crawler of [
     'Googlebot',
     'Bingbot',
@@ -340,10 +336,7 @@ test('search pages evidence claims link to complete versioned records without Ja
     await expect(page.locator('#cite')).toContainText(
       'No DOI or independent external reproduction is asserted',
     );
-    const missingPage = await readFile(
-      new URL('../../../.local/browser-demo-site/404.html', import.meta.url),
-      'utf8',
-    );
+    const missingPage = await readFile(join(demoSite, '404.html'), 'utf8');
     expect(missingPage).toContain('content="noindex"');
     expect(await (await request.get('./sitemap.xml')).text()).not.toContain('404.html');
   } finally {
