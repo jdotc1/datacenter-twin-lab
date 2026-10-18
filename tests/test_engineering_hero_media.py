@@ -12,7 +12,7 @@ from scripts import prepare_browser_demo
 class EngineeringHeroMediaTests(unittest.TestCase):
     def test_demo_mode_file_enables_hero_when_process_override_is_absent(self):
         with tempfile.TemporaryDirectory() as directory:
-            root = Path(directory)
+            root = Path(directory).resolve()
             mode_file = root / 'apps/web/.env.demo'
             mode_file.parent.mkdir(parents=True)
             mode_file.write_text('VITE_ENGINEERING_HERO=1\n')
@@ -24,7 +24,7 @@ class EngineeringHeroMediaTests(unittest.TestCase):
 
     def test_browser_preparation_does_not_stage_hero_media_when_flag_is_disabled(self):
         with tempfile.TemporaryDirectory() as directory:
-            root = Path(directory)
+            root = Path(directory).resolve()
             self._make_minimal_demo_tree(root)
 
             with patch.object(prepare_browser_demo, 'ROOT', root), patch.dict(
@@ -37,7 +37,7 @@ class EngineeringHeroMediaTests(unittest.TestCase):
 
     def test_browser_preparation_copies_only_hash_verified_hero_files_when_enabled(self):
         with tempfile.TemporaryDirectory() as directory:
-            root = Path(directory)
+            root = Path(directory).resolve()
             self._make_minimal_demo_tree(root)
             release = root / 'assets/engineering-hero/v1'
             self._make_hero_release_tree(release)
@@ -58,7 +58,8 @@ class EngineeringHeroMediaTests(unittest.TestCase):
     def test_browser_preparation_rejects_a_manifest_missing_adapter_dependencies(self):
         for omitted in ('integration/vanilla/embed.css', 'src/config.js'):
             with self.subTest(omitted=omitted), tempfile.TemporaryDirectory() as directory:
-                root = Path(directory)
+                # Match production ROOT even when Windows TEMP uses an 8.3 alias.
+                root = Path(directory).resolve()
                 release = root / 'assets/engineering-hero/v1'
                 self._make_hero_release_tree(release, omit_from_manifest=omitted)
 
