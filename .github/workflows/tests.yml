@@ -45,7 +45,7 @@ jobs:
         shell: bash
         run: python scripts/benchmark_continuity.py --runs 10 --preset normal --preset generator_failure --preset path_maintenance --revision "${{ github.sha }}" > outputs/native-benchmark.json
       - name: Retain environment-specific reproducibility and timing evidence
-        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         with:
           name: numerical-evidence-${{ matrix.os }}-python-${{ matrix.python }}
           path: |
@@ -81,7 +81,7 @@ jobs:
         working-directory: apps/web
       - name: Retain browser proof
         if: always() && matrix.os == 'ubuntu-latest' && matrix.python == '3.12'
-        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1, Node 24
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.1, Node 24
         with:
           name: browser-evidence
           path: |
@@ -134,7 +134,7 @@ jobs:
           TWIN_DEMO_BASE: /
       - name: Retain browser and engine evidence
         if: always()
-        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         with:
           name: browser-python-evidence
           path: |
@@ -147,7 +147,7 @@ jobs:
           retention-days: 14
       - name: Upload tested static demo
         if: github.event_name == 'push' && github.ref == 'refs/heads/main' && github.repository == 'mohammadrezwankhan/datacenter-twin-lab'
-        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         with:
           name: public-browser-bundle
           path: .local/browser-demo-site
