@@ -2,8 +2,13 @@ import { defineConfig, devices } from '@playwright/test';
 
 const mountPath = process.env.TWIN_DEMO_BASE || '/datacenter-twin-lab/';
 if (!/^\/(?:[\w-]+\/)*$/.test(mountPath)) throw new Error('Invalid demo mount path');
-const baseURL = `http://127.0.0.1:4174${mountPath}`;
+const port = process.env.TWIN_DEMO_PORT || '4174';
+const baseURL = `http://127.0.0.1:${port}${mountPath}`;
 const rootMount = mountPath === '/';
+const webServerCommand =
+  process.env.TWIN_DEMO_DEV === '1'
+    ? `npx vite --host 127.0.0.1 --port ${port} --strictPort --mode demo --base ${mountPath}`
+    : `npx vite preview --host 127.0.0.1 --port ${port} --strictPort --mode demo --base ${mountPath}`;
 
 export default defineConfig({
   testDir: './tests-demo',
@@ -30,7 +35,7 @@ export default defineConfig({
     screenshot: 'only-on-failure',
   },
   webServer: {
-    command: `npx vite preview --host 127.0.0.1 --port 4174 --strictPort --mode demo --base ${mountPath}`,
+    command: webServerCommand,
     url: baseURL,
     reuseExistingServer: false,
     timeout: 30000,

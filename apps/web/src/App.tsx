@@ -9,6 +9,7 @@ import { PythonVerification } from './PythonVerification';
 import { PowerScene } from './PowerScene';
 // Load the first-visit guide with the shell so a lazy placeholder cannot move the footer.
 import { GuidedStart } from './GuidedStart';
+import { EngineeringHero } from './EngineeringHero';
 import {
   FacilitySelector,
   RunInsight,
@@ -22,6 +23,7 @@ import { courseTotal } from './curriculum';
 import './energy-workspace.css';
 
 const browserDemo = import.meta.env.MODE === 'demo';
+const engineeringHeroEnabled = browserDemo && import.meta.env.VITE_ENGINEERING_HERO === '1';
 const ResearchStudio = lazy(() =>
   import('./research/Studio').then((module) => ({ default: module.ResearchStudio })),
 );
@@ -786,11 +788,14 @@ export function App() {
             </Suspense>
           )}
           {page === 'start' && (
-            <GuidedStart
-              onExplore={() => navigate('overview')}
-              onLearn={() => navigate('learn')}
-              onEvidence={() => navigate('assurance')}
-            />
+            <>
+              {engineeringHeroEnabled && <EngineeringHero />}
+              <GuidedStart
+                onExplore={() => navigate('overview')}
+                onLearn={() => navigate('learn')}
+                onEvidence={() => navigate('assurance')}
+              />
+            </>
           )}
           {page === 'assurance' && (
             <Suspense fallback={<p role="status">Opening the evidence packet…</p>}>
