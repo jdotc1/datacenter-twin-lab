@@ -5,7 +5,10 @@ Run after npm ci in apps/web. No network access or Git object copying.
 from hashlib import sha256
 import io
 import json
+import os
 from pathlib import Path
+from pathlib import PurePosixPath
+import re
 import shutil
 import sys
 from zipfile import ZipFile, ZipInfo, ZIP_DEFLATED
@@ -20,6 +23,97 @@ MODULES = ("__init__", "browser", "catalog", "contracts", "continuity", "demo",
            "engine", "emt", "reporting", "sensitivity", "topology")
 RUNTIME_FILES = ("pyodide.mjs", "pyodide.asm.mjs", "pyodide.asm.wasm",
                  "python_stdlib.zip", "pyodide-lock.json")
+ENGINEERING_HERO_FILES = frozenset((
+    "hero-1080p60.mp4",
+    "poster.png",
+    "integration/vanilla/khan-grid-hero.js",
+    "integration/vanilla/embed.css",
+    "integration/vanilla/host.css",
+    "src/config.js",
+    "index.html",
+    "csp.json",
+))
+
+
+def copy_verified_engineering_hero_media(source_root: Path, public_root: Path) -> dict:
+    """Stage only manifest-listed, hash-verified hero release files for Vite."""
+    if source_root.is_symlink() or not source_root.is_dir():
+        raise SystemExit("Engineering hero release directory is missing or not a regular directory")
+    source_root = source_root.resolve()
+    release_path = source_root / "release-media.json"
+    if release_path.is_symlink() or not release_path.is_file():
+        raise SystemExit("Engineering hero release is missing release-media.json")
+    release = json.loads(release_path.read_text(encoding="utf-8"))
+    expected_metadata = {
+        "status": "verified",
+        "frames": 900,
+        "width": 1920,
+        "height": 1080,
+        "fps": 60,
+        "duration": 15,
+    }
+    if any(type(release.get(key)) is not type(value) or release.get(key) != value
+           for key, value in expected_metadata.items()):
+        raise SystemExit("Engineering hero release-media.json does not match the verified 15 s 1080p60 release")
+    if not isinstance(release.get("site"), str) or not release["site"].strip():
+        raise SystemExit("Engineering hero release-media.json must declare a site")
+    entries = release.get("files")
+    if not isinstance(entries, list):
+        raise SystemExit("Engineering hero release-media.json must include its verified files list")
+
+    names: set[str] = set()
+    copies: list[tuple[Path, PurePosixPath]] = []
+    for entry in entries:
+        if not isinstance(entry, dict):
+            raise SystemExit("Malformed engineering hero manifest entry")
+        name, size, digest = entry.get("path"), entry.get("bytes"), entry.get("sha256")
+        if not isinstance(name, str) or "\\" in name:
+            raise SystemExit("Unsafe engineering hero media path")
+        relative = PurePosixPath(name)
+        if relative.is_absolute() or not relative.parts or any(part in {"", ".", ".."} for part in relative.parts):
+            raise SystemExit(f"Unsafe engineering hero media path: {name}")
+        if name in names:
+            raise SystemExit(f"Duplicate engineering hero media path: {name}")
+        names.add(name)
+        if type(size) is not int or size < 0 or not isinstance(digest, str) or not re.fullmatch(r"[0-9a-f]{64}", digest):
+            raise SystemExit(f"Malformed engineering hero media integrity record: {name}")
+
+        source = source_root.joinpath(*relative.parts)
+        current = source_root
+        for part in relative.parts:
+            current = current / part
+            if current.is_symlink():
+                raise SystemExit(f"Engineering hero media must not use symbolic links: {name}")
+        if not source.is_file() or not source.resolve().is_relative_to(source_root):
+            raise SystemExit(f"Engineering hero media file is missing or escapes its release: {name}")
+        if source.stat().st_size != size or sha256(source.read_bytes()).hexdigest() != digest:
+            raise SystemExit(f"Engineering hero media integrity mismatch: {name}")
+        copies.append((source, relative))
+
+    missing = ENGINEERING_HERO_FILES - names
+    if missing:
+        raise SystemExit(f"Engineering hero release is missing required files: {', '.join(sorted(missing))}")
+    target_root = public_root / "assets/engineering-hero/v1"
+    for source, relative in copies:
+        target = target_root.joinpath(*relative.parts)
+        target.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copyfile(source, target)
+    shutil.copyfile(release_path, target_root / "release-media.json")
+    return release
+
+
+def engineering_hero_enabled() -> bool:
+    """Read the explicit process override or Vite's persisted demo-mode setting."""
+    if "VITE_ENGINEERING_HERO" in os.environ:
+        return os.environ["VITE_ENGINEERING_HERO"] == "1"
+    mode_file = ROOT / "apps/web/.env.demo"
+    if not mode_file.is_file():
+        return False
+    for line in mode_file.read_text(encoding="utf-8").splitlines():
+        key, separator, value = line.partition("=")
+        if separator and key.strip() == "VITE_ENGINEERING_HERO":
+            return value.strip().strip("\"'") == "1"
+    return False
 
 
 def copy_evidence_packets(source_root: Path, output: Path) -> None:
@@ -134,6 +228,11 @@ def prepare() -> dict:
     (output / "catalog.json").write_text(
         json.dumps(load_catalog(), separators=(",", ":")) + "\n", encoding="utf-8")
     (output / ".nojekyll").write_text("", encoding="utf-8")
+    if engineering_hero_enabled():
+        copy_verified_engineering_hero_media(
+            ROOT / "assets/engineering-hero/v1",
+            ROOT / ".local/engineering-hero-public",
+        )
     # Retain historical public proof URLs as well as the current packet.
     evidence = ROOT / "data/evidence" / f"v{__version__}"
     evidence_manifest = json.loads((evidence / "manifest.json").read_text(encoding="utf-8"))

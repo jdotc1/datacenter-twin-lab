@@ -5,6 +5,7 @@ _private/
 .env
 .env.*
 !.env.example
+!.env.demo
 *.pem
 *.key
 __pycache__/
