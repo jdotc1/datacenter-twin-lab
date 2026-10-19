@@ -1,0 +1,94 @@
+{
+  "repository": "datacenter-twin-lab",
+  "domain": "DOMAIN_D",
+  "title": "Datacenter Continuity Twin Lab",
+  "version": "2.0.0",
+  "author": "Mohammad Rezwan Khan",
+  "lessons": [
+    {
+      "id": "L01",
+      "title": "Dual-Feed Utility Substation & Static Transfer Switch (STS) Topology",
+      "level": "Beginner",
+      "duration": "30 mins",
+      "config_file": "scenarios/sts_transfer_matrix.json",
+      "summary": "Map N+1 redundant power distribution units (PDUs) and evaluate sub-cycle automatic transfer switch transitions under utility voltage sags.",
+      "inputs": [
+        "Synthetic utility feeder A phase angle drop",
+        "Downstream AI server rack load 2.4 MW"
+      ],
+      "parameters": {
+        "STS_TransferTime_ms": 4.2,
+        "UnderVoltage_Threshold_pct": 88.0,
+        "InrushCurrent_Limit_kA": 8.5
+      },
+      "checkpoints": [
+        "Zero voltage drop at server PSU capacitors",
+        "Verify zero server reboot triggers"
+      ]
+    },
+    {
+      "id": "L02",
+      "title": "Backup Diesel/Gas Turbine Ramp & UPS Ride-Through Window",
+      "level": "Intermediate",
+      "duration": "45 mins",
+      "config_file": "scenarios/genset_ups_handover.json",
+      "summary": "Simulate battery energy storage ride-through curves during 12-second generator startup and synchronization intervals.",
+      "inputs": [
+        "Total utility grid blackout event",
+        "Generator cold-start delay parameter"
+      ],
+      "parameters": {
+        "UPS_Capacity_kWh": 1200.0,
+        "Genset_CrankToSync_sec": 11.4,
+        "UPS_DischargeRate_C": 4.2
+      },
+      "checkpoints": [
+        "Verify UPS SOC stays > 35%",
+        "Frequency lock within +-0.1 Hz before breaker closure"
+      ]
+    },
+    {
+      "id": "L03",
+      "title": "Thermal Runaway & CRAC Chiller Outage Cascading Dynamics",
+      "level": "Advanced",
+      "duration": "60 mins",
+      "config_file": "scenarios/crac_thermal_cascade.json",
+      "summary": "Model heat accumulation in dense GPU clusters (100 kW/rack) during primary chiller loop electrical interlock failure.",
+      "inputs": [
+        "Chiller compressor trip signal",
+        "Liquid-to-air cooling manifold boundary conditions"
+      ],
+      "parameters": {
+        "AmbientRackTemp_C": 22.0,
+        "ThermalBufferTime_sec": 48.0,
+        "GPU_Throttle_Threshold_C": 82.0
+      },
+      "checkpoints": [
+        "Identify hot-aisle containment breach time",
+        "Quantify dynamic load-shedding mitigation response"
+      ]
+    },
+    {
+      "id": "L04",
+      "title": "Autonomous AI Cluster Load-Shedding & Black-Start Restoration",
+      "level": "Production",
+      "duration": "75 mins",
+      "config_file": "scenarios/autonomous_recovery.json",
+      "summary": "Execute priority job preemption, staged power restoration, and cold black-start sequencing across clustered microgrid assets.",
+      "inputs": [
+        "Tier 1 critical networking load",
+        "Tier 2 training clusters",
+        "Tier 3 batch inference nodes"
+      ],
+      "parameters": {
+        "RestorationSteps": 4,
+        "InterStageDelay_sec": 15.0,
+        "InrushPeakMitigation_pct": 42.0
+      },
+      "checkpoints": [
+        "Ensure generator breaker does not trip on reverse power",
+        "Zero loss of network control plane integrity"
+      ]
+    }
+  ]
+}
