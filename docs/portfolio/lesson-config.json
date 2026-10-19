@@ -1,0 +1,365 @@
+{
+  "schema_version": 1,
+  "repository": "mohammadrezwankhan/datacenter-twin-lab",
+  "display_name": "Datacenter Twin Lab",
+  "description": "A synthetic datacenter power-continuity lab with interactive lessons, source-linked evidence and reproducible scenarios.",
+  "domain": "DOMAIN_D",
+  "theme": {
+    "accent": "#FF6D00",
+    "secondary": "#00B0FF",
+    "surface": "#1A1412",
+    "glow": "rgba(255, 109, 0, 0.35)",
+    "label": "Simulation & digital twins",
+    "short": "Simulation"
+  },
+  "repo_type": "research application",
+  "source_revision": "887ca4e2cc283692c86a885fac9ad760ca08d3e2",
+  "source_snapshot_date": "2026-10-19",
+  "repo_url": "https://github.com/mohammadrezwankhan/datacenter-twin-lab",
+  "homepage": "https://khanlab.co.technology/",
+  "upstream": null,
+  "lessons": [
+    {
+      "id": "path-01",
+      "title": "Power becomes energy",
+      "summary": "How much energy does a constant load request in half an hour?",
+      "objective": "How much energy does a constant load request in half an hour?",
+      "checkpoint": "Run baseline and one changed input through existing course UI. Compare native Python and browser result; preserve units, run inputs, hash and model limitations. Use existing course regression and browser journey definitions; do not mark pass before running.",
+      "level": "Foundation",
+      "tags": [
+        "foundations",
+        "engineering",
+        "evidence"
+      ],
+      "source_paths": [
+        "apps/web/src/course-lessons.ts",
+        "tests/test_course_lessons.py",
+        "apps/web/tests-demo/course.spec.ts"
+      ],
+      "source_urls": [
+        "https://github.com/mohammadrezwankhan/datacenter-twin-lab/blob/887ca4e2cc283692c86a885fac9ad760ca08d3e2/apps/web/src/course-lessons.ts",
+        "https://github.com/mohammadrezwankhan/datacenter-twin-lab/blob/887ca4e2cc283692c86a885fac9ad760ca08d3e2/tests/test_course_lessons.py",
+        "https://github.com/mohammadrezwankhan/datacenter-twin-lab/blob/887ca4e2cc283692c86a885fac9ad760ca08d3e2/apps/web/tests-demo/course.spec.ts"
+      ],
+      "parameters": [
+        {
+          "source_inputs": {
+            "field": "it_demand_kw",
+            "unit": "kW",
+            "baseline": "1000",
+            "challenge": "500",
+            "preset": "normal"
+          },
+          "expected_outputs": [
+            "requested_it_kwh",
+            "kWh"
+          ],
+          "note": "Source reference; execution and scientific verification are separate."
+        }
+      ],
+      "command": null,
+      "native_id": "power-energy",
+      "native_route": "https://khanlab.co.technology/?lesson=power-energy",
+      "execution_status": "source-linked guide; no execution by this dashboard"
+    },
+    {
+      "id": "path-02",
+      "title": "Calculate battery ride-through",
+      "summary": "Does half the stored energy give half the ride-through duration?",
+      "objective": "Does half the stored energy give half the ride-through duration?",
+      "checkpoint": "Run baseline and one changed input through existing course UI. Compare native Python and browser result; preserve units, run inputs, hash and model limitations. Use existing course regression and browser journey definitions; do not mark pass before running.",
+      "level": "Foundation",
+      "tags": [
+        "foundations",
+        "engineering",
+        "battery",
+        "evidence"
+      ],
+      "source_paths": [
+        "apps/web/src/course-lessons.ts",
+        "tests/test_course_lessons.py",
+        "apps/web/tests-demo/course.spec.ts"
+      ],
+      "source_urls": [
+        "https://github.com/mohammadrezwankhan/datacenter-twin-lab/blob/887ca4e2cc283692c86a885fac9ad760ca08d3e2/apps/web/src/course-lessons.ts",
+        "https://github.com/mohammadrezwankhan/datacenter-twin-lab/blob/887ca4e2cc283692c86a885fac9ad760ca08d3e2/tests/test_course_lessons.py",
+        "https://github.com/mohammadrezwankhan/datacenter-twin-lab/blob/887ca4e2cc283692c86a885fac9ad760ca08d3e2/apps/web/tests-demo/course.spec.ts"
+      ],
+      "parameters": [
+        {
+          "source_inputs": {
+            "field": "battery_initial_kwh",
+            "unit": "kWh",
+            "baseline": "100",
+            "challenge": "50",
+            "preset": "generator_failure"
+          },
+          "expected_outputs": [
+            "depletion",
+            "s elapsed"
+          ],
+          "note": "Source reference; execution and scientific verification are separate."
+        }
+      ],
+      "command": null,
+      "native_id": "ride-through",
+      "native_route": "https://khanlab.co.technology/?lesson=ride-through",
+      "execution_status": "source-linked guide; no execution by this dashboard"
+    },
+    {
+      "id": "path-03",
+      "title": "Bridge generator startup",
+      "summary": "What changes when startup takes 60 seconds instead of 30?",
+      "objective": "What changes when startup takes 60 seconds instead of 30?",
+      "checkpoint": "Run baseline and one changed input through existing course UI. Compare native Python and browser result; preserve units, run inputs, hash and model limitations. Use existing course regression and browser journey definitions; do not mark pass before running.",
+      "level": "Applied",
+      "tags": [
+        "application",
+        "engineering",
+        "evidence"
+      ],
+      "source_paths": [
+        "apps/web/src/course-lessons.ts",
+        "tests/test_course_lessons.py",
+        "apps/web/tests-demo/course.spec.ts"
+      ],
+      "source_urls": [
+        "https://github.com/mohammadrezwankhan/datacenter-twin-lab/blob/887ca4e2cc283692c86a885fac9ad760ca08d3e2/apps/web/src/course-lessons.ts",
+        "https://github.com/mohammadrezwankhan/datacenter-twin-lab/blob/887ca4e2cc283692c86a885fac9ad760ca08d3e2/tests/test_course_lessons.py",
+        "https://github.com/mohammadrezwankhan/datacenter-twin-lab/blob/887ca4e2cc283692c86a885fac9ad760ca08d3e2/apps/web/tests-demo/course.spec.ts"
+      ],
+      "parameters": [
+        {
+          "source_inputs": {
+            "field": "generator_start_delay_s",
+            "unit": "s",
+            "baseline": "30",
+            "challenge": "60",
+            "preset": "utility_loss"
+          },
+          "expected_outputs": [
+            "generator_ready",
+            "s elapsed"
+          ],
+          "note": "Source reference; execution and scientific verification are separate."
+        }
+      ],
+      "command": null,
+      "native_id": "generator-delay",
+      "native_route": "https://khanlab.co.technology/?lesson=generator-delay",
+      "execution_status": "source-linked guide; no execution by this dashboard"
+    },
+    {
+      "id": "path-04",
+      "title": "Check a surviving path",
+      "summary": "Are two paths enough when either one must carry the whole load?",
+      "objective": "Are two paths enough when either one must carry the whole load?",
+      "checkpoint": "Run baseline and one changed input through existing course UI. Compare native Python and browser result; preserve units, run inputs, hash and model limitations. Use existing course regression and browser journey definitions; do not mark pass before running.",
+      "level": "Applied",
+      "tags": [
+        "application",
+        "engineering",
+        "evidence"
+      ],
+      "source_paths": [
+        "apps/web/src/course-lessons.ts",
+        "tests/test_course_lessons.py",
+        "apps/web/tests-demo/course.spec.ts"
+      ],
+      "source_urls": [
+        "https://github.com/mohammadrezwankhan/datacenter-twin-lab/blob/887ca4e2cc283692c86a885fac9ad760ca08d3e2/apps/web/src/course-lessons.ts",
+        "https://github.com/mohammadrezwankhan/datacenter-twin-lab/blob/887ca4e2cc283692c86a885fac9ad760ca08d3e2/tests/test_course_lessons.py",
+        "https://github.com/mohammadrezwankhan/datacenter-twin-lab/blob/887ca4e2cc283692c86a885fac9ad760ca08d3e2/apps/web/tests-demo/course.spec.ts"
+      ],
+      "parameters": [
+        {
+          "source_inputs": {
+            "field": "path_capacity",
+            "unit": "kW",
+            "baseline": "700",
+            "challenge": "1100",
+            "preset": "path_maintenance"
+          },
+          "expected_outputs": [
+            "peak_unserved_kw",
+            "kW unserved"
+          ],
+          "note": "Source reference; execution and scientific verification are separate."
+        }
+      ],
+      "command": null,
+      "native_id": "n-plus-one",
+      "native_route": "https://khanlab.co.technology/?lesson=n-plus-one",
+      "execution_status": "source-linked guide; no execution by this dashboard"
+    },
+    {
+      "id": "path-05",
+      "title": "Expose shared control failures",
+      "summary": "Can a shared control fault defeat both power paths?",
+      "objective": "Can a shared control fault defeat both power paths?",
+      "checkpoint": "Run baseline and one changed input through existing course UI. Compare native Python and browser result; preserve units, run inputs, hash and model limitations. Use existing course regression and browser journey definitions; do not mark pass before running.",
+      "level": "Applied",
+      "tags": [
+        "application",
+        "engineering",
+        "evidence"
+      ],
+      "source_paths": [
+        "apps/web/src/course-lessons.ts",
+        "tests/test_course_lessons.py",
+        "apps/web/tests-demo/course.spec.ts"
+      ],
+      "source_urls": [
+        "https://github.com/mohammadrezwankhan/datacenter-twin-lab/blob/887ca4e2cc283692c86a885fac9ad760ca08d3e2/apps/web/src/course-lessons.ts",
+        "https://github.com/mohammadrezwankhan/datacenter-twin-lab/blob/887ca4e2cc283692c86a885fac9ad760ca08d3e2/tests/test_course_lessons.py",
+        "https://github.com/mohammadrezwankhan/datacenter-twin-lab/blob/887ca4e2cc283692c86a885fac9ad760ca08d3e2/apps/web/tests-demo/course.spec.ts"
+      ],
+      "parameters": [
+        {
+          "source_inputs": {
+            "field": "shared_controls",
+            "unit": "",
+            "baseline": "1",
+            "challenge": "0",
+            "preset": "shared_domain"
+          },
+          "expected_outputs": [
+            "peak_unserved_kw",
+            "kW unserved"
+          ],
+          "note": "Source reference; execution and scientific verification are separate."
+        }
+      ],
+      "command": null,
+      "native_id": "shared-controls",
+      "native_route": "https://khanlab.co.technology/?lesson=shared-controls",
+      "execution_status": "source-linked guide; no execution by this dashboard"
+    },
+    {
+      "id": "path-06",
+      "title": "DC-link RLC voltage sag",
+      "summary": "Relate ideal RLC inputs to signed current, voltage sag and a transient energy ledger.",
+      "objective": "Relate ideal RLC inputs to signed current, voltage sag and a transient energy ledger.",
+      "checkpoint": "Use the study step-refinement and comparison checks. Confirm changing an input invalidates old outputs before rerun.",
+      "level": "Applied",
+      "tags": [
+        "application",
+        "engineering",
+        "power-conversion",
+        "evidence"
+      ],
+      "source_paths": [
+        "docs/studies/emt.md",
+        "datacenter_twin/emt.py",
+        "apps/web/src/emt/engine.ts",
+        "apps/web/tests-demo/emt.spec.ts"
+      ],
+      "source_urls": [
+        "https://github.com/mohammadrezwankhan/datacenter-twin-lab/blob/887ca4e2cc283692c86a885fac9ad760ca08d3e2/docs/studies/emt.md",
+        "https://github.com/mohammadrezwankhan/datacenter-twin-lab/blob/887ca4e2cc283692c86a885fac9ad760ca08d3e2/datacenter_twin/emt.py",
+        "https://github.com/mohammadrezwankhan/datacenter-twin-lab/blob/887ca4e2cc283692c86a885fac9ad760ca08d3e2/apps/web/src/emt/engine.ts",
+        "https://github.com/mohammadrezwankhan/datacenter-twin-lab/blob/887ca4e2cc283692c86a885fac9ad760ca08d3e2/apps/web/tests-demo/emt.spec.ts"
+      ],
+      "parameters": [
+        {
+          "source_inputs": [
+            "R, L, C and applied transient controls from the existing study form"
+          ],
+          "expected_outputs": [
+            "voltage/current waveform",
+            "energy ledger",
+            "JavaScript/Python comparison"
+          ],
+          "note": "Source reference; execution and scientific verification are separate."
+        }
+      ],
+      "command": null,
+      "native_id": null,
+      "native_route": "https://khanlab.co.technology/?mode=emt",
+      "execution_status": "source-linked guide; no execution by this dashboard"
+    },
+    {
+      "id": "path-07",
+      "title": "Five power-dynamics studies",
+      "summary": "Choose a converter/load-step, mode, spectrum, QSS comparison or network question and inspect model-specific numerical residuals.",
+      "objective": "Choose a converter/load-step, mode, spectrum, QSS comparison or network question and inspect model-specific numerical residuals.",
+      "checkpoint": "Check each study against its existing numerical regression; keep runtime loaded only when requested. Separate conceptual visualization from solved fields.",
+      "level": "Advanced",
+      "tags": [
+        "verification",
+        "engineering",
+        "power-conversion",
+        "uncertainty",
+        "evidence"
+      ],
+      "source_paths": [
+        "docs/studies/power-dynamics.md",
+        "apps/web/src/research/Studio.tsx",
+        "tests/test_research.py"
+      ],
+      "source_urls": [
+        "https://github.com/mohammadrezwankhan/datacenter-twin-lab/blob/887ca4e2cc283692c86a885fac9ad760ca08d3e2/docs/studies/power-dynamics.md",
+        "https://github.com/mohammadrezwankhan/datacenter-twin-lab/blob/887ca4e2cc283692c86a885fac9ad760ca08d3e2/apps/web/src/research/Studio.tsx",
+        "https://github.com/mohammadrezwankhan/datacenter-twin-lab/blob/887ca4e2cc283692c86a885fac9ad760ca08d3e2/tests/test_research.py"
+      ],
+      "parameters": [
+        {
+          "source_inputs": [
+            "existing study selector and bounded model inputs"
+          ],
+          "expected_outputs": [
+            "plots",
+            "JSON/CSV result and applied inputs",
+            "solver/residual information"
+          ],
+          "note": "Source reference; execution and scientific verification are separate."
+        }
+      ],
+      "command": null,
+      "native_id": null,
+      "native_route": "https://khanlab.co.technology/?study=load-step",
+      "execution_status": "source-linked guide; no execution by this dashboard"
+    },
+    {
+      "id": "path-08",
+      "title": "Infrastructure evidence and load ledger",
+      "summary": "Build an auditable infrastructure load ledger and distinguish assumptions from reviewed evidence.",
+      "objective": "Build an auditable infrastructure load ledger and distinguish assumptions from reviewed evidence.",
+      "checkpoint": "Verify native default and challenge cases using independent equation script. Keep infrastructure estimates separate from continuity-engine outputs.",
+      "level": "Advanced",
+      "tags": [
+        "verification",
+        "engineering",
+        "evidence"
+      ],
+      "source_paths": [
+        "apps/web/src/infrastructure/content/13-evidence-load-ledger.json",
+        "apps/web/src/infrastructure/screens.ts",
+        "scripts/verify_infrastructure.py",
+        "apps/web/tests-demo/infrastructure-lessons.audit.spec.ts"
+      ],
+      "source_urls": [
+        "https://github.com/mohammadrezwankhan/datacenter-twin-lab/blob/887ca4e2cc283692c86a885fac9ad760ca08d3e2/apps/web/src/infrastructure/content/13-evidence-load-ledger.json",
+        "https://github.com/mohammadrezwankhan/datacenter-twin-lab/blob/887ca4e2cc283692c86a885fac9ad760ca08d3e2/apps/web/src/infrastructure/screens.ts",
+        "https://github.com/mohammadrezwankhan/datacenter-twin-lab/blob/887ca4e2cc283692c86a885fac9ad760ca08d3e2/scripts/verify_infrastructure.py",
+        "https://github.com/mohammadrezwankhan/datacenter-twin-lab/blob/887ca4e2cc283692c86a885fac9ad760ca08d3e2/apps/web/tests-demo/infrastructure-lessons.audit.spec.ts"
+      ],
+      "parameters": [
+        {
+          "source_inputs": [
+            "native lesson-13 defaults/challenges and source-evidence fields"
+          ],
+          "expected_outputs": [
+            "separate infrastructure result serialization",
+            "lesson assessments"
+          ],
+          "note": "Source reference; execution and scientific verification are separate."
+        }
+      ],
+      "command": null,
+      "native_id": "evidence-load-ledger",
+      "native_route": null,
+      "execution_status": "source-linked guide; no execution by this dashboard"
+    }
+  ]
+}

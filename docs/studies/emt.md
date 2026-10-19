@@ -11,6 +11,8 @@ separate course about reserve energy, outage duration and supply paths.
 
 ## The experiment
 
+![Section 03 · Reproduce / parameters](../visuals/sections/section-03-reproduce.svg)
+
 The independently authored circuit is an ideal DC-equivalent source, series
 resistance and inductance, then a capacitor in parallel with a resistive load.
 The starting state is the DC steady state. All four presets are teaching choices.
@@ -40,6 +42,8 @@ within a tested parameter box; they are not equipment specifications.
 | Recovery ringing | 0.02 Ω, 4 mF | What does lower damping change? |
 
 ## Equations and numerical method
+
+![Section 02 · Equations / provenance](../visuals/sections/section-02-equations.svg)
 
 Let `i` be the series-inductor current and `v` the bus voltage. Convert mH to H,
 mF to F and time to seconds before integration:

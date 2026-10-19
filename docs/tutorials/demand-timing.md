@@ -22,6 +22,8 @@ The blue solid line is requested power; the dark dashed line is served power. Th
 
 ## Reproduce it in the browser
 
+![Section 03 · Reproduce / parameters](../visuals/sections/section-03-reproduce.svg)
+
 Download a scenario through its **Raw** file view:
 
 - [A: early-peak.json](../examples/demand-timing/early-peak.json)
@@ -61,6 +63,8 @@ Compare the complete input hashes, rather than filenames or rounded chart labels
 Input hashes include names, identifiers and provenance as well as numerical inputs. A manually rebuilt example can have identical arithmetic and a different hash. The output manifest separately records the bytes of each supplied input file. Run identifiers also depend on the engine version.
 
 ## Check the result by hand
+
+![Section 04 · Verification / output](../visuals/sections/section-04-verification.svg)
 
 For every schedule:
 
@@ -102,6 +106,8 @@ In B, move the 1,000 kW step earlier and add a return to 500 kW exactly 900 seco
 Alternatively, increase a battery's **energy** capacity while reducing its **power** rating. Predict whether the reserve calculation alone will still describe service. The [surviving-path walkthrough](continuity-walkthrough.md) explains a separate power-capacity constraint.
 
 ## Assumptions, scope and sources
+
+![Section 05 · Scope / limitations](../visuals/sections/section-05-scope.svg)
 
 The three supplied files differ only in their identities and demand schedules. Shared assumptions include:
 

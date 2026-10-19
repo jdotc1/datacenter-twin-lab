@@ -1,0 +1,10 @@
+{
+  "repository": "datacenter-twin-lab",
+  "diagrams": [
+    "diagrams/datacenter-ups-topology.svg"
+  ],
+  "fidelity": {
+    "diagrams/datacenter-ups-topology.svg": "Conceptual supply topology; no source-specific reliability calculation."
+  },
+  "reason": "Conceptual supply-path aid for synthetic continuity lessons; not a reliability model."
+}

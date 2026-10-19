@@ -79,6 +79,8 @@ or physical calibration is established by these software checks.
 
 ## Reproduce locally
 
+![Section 03 · Reproduce / parameters](../visuals/sections/section-03-reproduce.svg)
+
 Use a current source checkout containing these studies and Python 3.12 or later:
 
 ```sh

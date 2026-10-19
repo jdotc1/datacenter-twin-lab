@@ -127,6 +127,24 @@ jobs:
         working-directory: apps/web
       - name: Prepare legacy GitHub Pages forwarding
         run: python scripts/build_pages_redirect.py --site .local/browser-demo-site --output .local/github-pages-redirect
+      - name: Overlay the reviewed learning lab onto the legacy Pages artifact
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          from shutil import copytree
+          source = Path('docs')
+          output = Path('.local/github-pages-redirect')
+          expected = 'mohammadrezwankhan/datacenter-twin-lab'
+          config = json.loads((source / 'lesson-config.json').read_text(encoding='utf-8'))
+          page = (source / 'index.html').read_text(encoding='utf-8')
+          assert 'data-flagship-repo="' + expected + '"' in page
+          assert config['repository']['owner'] + '/' + config['repository']['slug'] == expected
+          copytree(source, output, dirs_exist_ok=True)
+          published = (output / 'index.html').read_text(encoding='utf-8')
+          assert 'data-flagship-repo="' + expected + '"' in published
+          print('Reviewed lesson dashboard composed into legacy Pages tree; original redirect/media files remain.')
+          PY
       - run: npm --prefix apps/web run test:demo
       - name: Verify the same artifact at a custom-domain root
         run: npm --prefix apps/web run test:demo -- --grep "all presets match native Python|evidence hub exposes|five-minute guide requires|search pages|EMT study|power dynamics|infrastructure"

@@ -33,6 +33,8 @@ Input SHA-256: 202d1950bc8762c95216904dd9bbc890c1e1cdb51fe3f824e6e3d98f76410195
 
 ## Scenario assumptions
 
+![Section 02 · Equations / provenance](../../visuals/sections/section-02-equations.svg)
+
 | Field | Value | Unit |
 | --- | --- | --- |
 | id | demo\-generator\_failure |  |
@@ -64,6 +66,8 @@ Input SHA-256: 202d1950bc8762c95216904dd9bbc890c1e1cdb51fe3f824e6e3d98f76410195
 
 
 ## Limitations
+
+![Section 05 · Scope / limitations](../../visuals/sections/section-05-scope.svg)
 
 - No switching transient, protection study, cooling, workload queue or certification model.
 - Generator starts on utility\-asset unavailability only; downstream path faults do not request a start.

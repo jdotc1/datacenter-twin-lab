@@ -1,94 +1,315 @@
 {
-  "repository": "datacenter-twin-lab",
-  "domain": "DOMAIN_D",
-  "title": "Datacenter Continuity Twin Lab",
-  "version": "2.0.0",
-  "author": "Mohammad Rezwan Khan",
-  "lessons": [
+  "$schema": "./lesson-config.schema.json",
+  "schema_version": "1.0",
+  "repository": {
+    "owner": "mohammadrezwankhan",
+    "slug": "datacenter-twin-lab",
+    "name": "datacenter-twin-lab",
+    "title": "Datacenter Infrastructure Lab",
+    "url": "https://github.com/mohammadrezwankhan/datacenter-twin-lab",
+    "default_branch": "main",
+    "description": "Explore data center power continuity, energy ledgers & infrastructure assumptions through reproducible synthetic models.",
+    "summary": "The native lab models outages, source paths, finite reserve, and exact energy accounting alongside infrastructure lessons. This companion isolates an illustrative IT-load and cooling-power relationship.",
+    "audience": "Datacenter engineers, infrastructure students, and researchers examining electrical continuity assumptions.",
+    "topics": [
+      "data-center",
+      "digital-twin",
+      "power-systems",
+      "electrical-engineering",
+      "battery-energy-storage",
+      "ai-infrastructure",
+      "simulation",
+      "energy-efficiency",
+      "engineering-education",
+      "interactive-learning",
+      "python",
+      "typescript",
+      "reproducible-research",
+      "synthetic-data",
+      "infrastructure"
+    ],
+    "source_paths": [
+      "README.md",
+      "pyproject.toml",
+      "datacenter_twin/continuity.py",
+      "docs/canonical-case.md",
+      "docs/quickstart.md",
+      "apps/web/package.json",
+      "apps/web/src/curriculum.ts",
+      "apps/web/src/infrastructure/screens.ts",
+      "tests/test_continuity.py",
+      "apps/web/tests-engine/infrastructure.test.ts"
+    ],
+    "is_fork": false,
+    "upstream": null
+  },
+  "domain": {
+    "id": "D",
+    "name": "Simulation and digital twins",
+    "primary": "#FF6D00",
+    "secondary": "#00B0FF",
+    "surface": "#1A1412",
+    "glow": "rgba(255,109,0,0.35)"
+  },
+  "model": {
+    "title": "Infrastructure envelope · IT and cooling power",
+    "timeUnit": "min",
+    "horizon": 60,
+    "parameters": [
+      {
+        "key": "serverCount",
+        "label": "Server count",
+        "unit": "servers",
+        "min": 10,
+        "max": 500,
+        "step": 10,
+        "default": 100,
+        "calibration": "Illustrative input; verified against the declared analytical model, not field measurements."
+      },
+      {
+        "key": "utilizationPct",
+        "label": "Compute utilization",
+        "unit": "%",
+        "min": 10,
+        "max": 90,
+        "step": 5,
+        "default": 65,
+        "calibration": "Illustrative input; verified against the declared analytical model, not field measurements."
+      },
+      {
+        "key": "ambientC",
+        "label": "Outside temperature",
+        "unit": "°C",
+        "min": 5,
+        "max": 45,
+        "step": 1,
+        "default": 20,
+        "calibration": "Illustrative input; verified against the declared analytical model, not field measurements."
+      },
+      {
+        "key": "coolingEfficiency",
+        "label": "Cooling COP",
+        "unit": "ratio",
+        "min": 1.5,
+        "max": 6,
+        "step": 0.1,
+        "default": 4,
+        "calibration": "Illustrative input; verified against the declared analytical model, not field measurements."
+      }
+    ],
+    "metrics": [
+      {
+        "key": "itKW",
+        "label": "IT power",
+        "unit": "kW",
+        "decimals": 1
+      },
+      {
+        "key": "coolingKW",
+        "label": "Cooling power",
+        "unit": "kW",
+        "decimals": 1
+      },
+      {
+        "key": "pue",
+        "label": "Illustrative facility/IT ratio",
+        "unit": "×",
+        "decimals": 2
+      },
+      {
+        "key": "inletC",
+        "label": "Modeled inlet temperature",
+        "unit": "°C",
+        "decimals": 1
+      }
+    ],
+    "equation": "u = clamp(U + 8 sin(t/8) + 3 cos(t/3), 0, 100); IT = N(0.12 + 0.38u/100); cooling = IT/COP · (1 + 0.025 max(Tₐ−20, 0)); PUE = 1 + cooling/IT.",
+    "assumptions": [
+      "Synthetic repeatable workload waves replace production utilization telemetry.",
+      "Each server draws 0.12–0.50 kW; cooling COP is a constant simplified efficiency.",
+      "Inlet temperature relaxes toward a heuristic operating point; airflow, humidity, and equipment limits are omitted.",
+      "Server counts and workload oscillations are invented; no GPU throughput, real facility telemetry, or equipment availability is inferred.",
+      "The displayed facility/IT ratio includes only the modeled cooling overhead, not all facility loads or annual measured PUE.",
+      "This companion does not simulate UPS depletion, chiller outage cascades, protection coordination, server reboots, or certified uptime."
+    ],
+    "kind": "cooling",
+    "introduction": "A synthetic server workload drives a simplified cooling-power screen. The native outage experiment, its 100 kWh reference case, and its source-path/energy ledger remain separate reproducible entry points.",
+    "calibration_status": "Uncalibrated synthetic teaching proxy"
+  },
+  "modules": [
     {
-      "id": "L01",
-      "title": "Dual-Feed Utility Substation & Static Transfer Switch (STS) Topology",
-      "level": "Beginner",
-      "duration": "30 mins",
-      "config_file": "scenarios/sts_transfer_matrix.json",
-      "summary": "Map N+1 redundant power distribution units (PDUs) and evaluate sub-cycle automatic transfer switch transitions under utility voltage sags.",
-      "inputs": [
-        "Synthetic utility feeder A phase angle drop",
-        "Downstream AI server rack load 2.4 MW"
+      "id": "module-1",
+      "title": "Build an electrical load ledger",
+      "objective": "Distinguish IT power from facility overhead and from stored energy.",
+      "minutes": 12,
+      "steps": [
+        "Read the canonical outage case and identify which quantities are kW and which are kWh.",
+        "Apply 100 synthetic servers, 65% utilization, 20°C outside temperature, and COP 4.",
+        "Run to thirty minutes and compare IT power, cooling power, and their ratio."
       ],
-      "parameters": {
-        "STS_TransferTime_ms": 4.2,
-        "UnderVoltage_Threshold_pct": 88.0,
-        "InrushCurrent_Limit_kA": 8.5
+      "preset": {
+        "serverCount": 100,
+        "utilizationPct": 65,
+        "ambientC": 20,
+        "coolingEfficiency": 4
       },
       "checkpoints": [
-        "Zero voltage drop at server PSU capacitors",
-        "Verify zero server reboot triggers"
-      ]
+        {
+          "label": "Thirty-minute synthetic IT power",
+          "metric": "itKW",
+          "operator": "==",
+          "expected": 34.005912,
+          "tolerance": 0.02,
+          "atTime": 30
+        },
+        {
+          "label": "Cooling-only facility/IT ratio is 1.25",
+          "metric": "pue",
+          "operator": "==",
+          "expected": 1.25,
+          "tolerance": 0.02,
+          "atTime": 30
+        }
+      ],
+      "reflection": "Why cannot this instantaneous cooling ratio be described as the facility’s measured annual PUE?",
+      "source_paths": [
+        "docs/canonical-case.md",
+        "apps/web/src/infrastructure/screens.ts"
+      ],
+      "level": "Foundation"
     },
     {
-      "id": "L02",
-      "title": "Backup Diesel/Gas Turbine Ramp & UPS Ride-Through Window",
-      "level": "Intermediate",
-      "duration": "45 mins",
-      "config_file": "scenarios/genset_ups_handover.json",
-      "summary": "Simulate battery energy storage ride-through curves during 12-second generator startup and synchronization intervals.",
-      "inputs": [
-        "Total utility grid blackout event",
-        "Generator cold-start delay parameter"
+      "id": "module-2",
+      "title": "Scale the population while holding efficiency",
+      "objective": "Identify which outputs scale with server count and which are ratios.",
+      "minutes": 15,
+      "steps": [
+        "Double server count to 200 and retain the baseline utilization, ambient, and COP.",
+        "Predict the changes in IT and cooling power before running.",
+        "Relate the larger demand to the finite-reserve question in the native continuity model."
       ],
-      "parameters": {
-        "UPS_Capacity_kWh": 1200.0,
-        "Genset_CrankToSync_sec": 11.4,
-        "UPS_DischargeRate_C": 4.2
+      "preset": {
+        "serverCount": 200,
+        "utilizationPct": 65,
+        "ambientC": 20,
+        "coolingEfficiency": 4
       },
       "checkpoints": [
-        "Verify UPS SOC stays > 35%",
-        "Frequency lock within +-0.1 Hz before breaker closure"
-      ]
+        {
+          "label": "Scaled IT power at thirty minutes",
+          "metric": "itKW",
+          "operator": "==",
+          "expected": 68.011824,
+          "tolerance": 0.02,
+          "atTime": 30
+        },
+        {
+          "label": "The ratio remains 1.25",
+          "metric": "pue",
+          "operator": "==",
+          "expected": 1.25,
+          "tolerance": 0.02,
+          "atTime": 30
+        }
+      ],
+      "reflection": "If usable stored energy stays fixed, what would a higher electrical demand imply for ride-through duration, and which native model can calculate it?",
+      "source_paths": [
+        "datacenter_twin/continuity.py",
+        "docs/canonical-case.md"
+      ],
+      "level": "Parameter study"
     },
     {
-      "id": "L03",
-      "title": "Thermal Runaway & CRAC Chiller Outage Cascading Dynamics",
-      "level": "Advanced",
-      "duration": "60 mins",
-      "config_file": "scenarios/crac_thermal_cascade.json",
-      "summary": "Model heat accumulation in dense GPU clusters (100 kW/rack) during primary chiller loop electrical interlock failure.",
-      "inputs": [
-        "Chiller compressor trip signal",
-        "Liquid-to-air cooling manifold boundary conditions"
+      "id": "module-3",
+      "title": "Stress an ambient and efficiency assumption",
+      "objective": "Quantify a cooling-power sensitivity without inventing a reliability result.",
+      "minutes": 15,
+      "steps": [
+        "Use 200 servers at 65% utilization, raise outside temperature to 40°C, and set COP to 3.",
+        "Predict the change in cooling overhead and run to thirty minutes.",
+        "Identify the chiller, airflow, humidity, redundancy, and equipment-limit evidence absent from this screen."
       ],
-      "parameters": {
-        "AmbientRackTemp_C": 22.0,
-        "ThermalBufferTime_sec": 48.0,
-        "GPU_Throttle_Threshold_C": 82.0
+      "preset": {
+        "serverCount": 200,
+        "utilizationPct": 65,
+        "ambientC": 40,
+        "coolingEfficiency": 3
       },
       "checkpoints": [
-        "Identify hot-aisle containment breach time",
-        "Quantify dynamic load-shedding mitigation response"
-      ]
+        {
+          "label": "Stress-case cooling power",
+          "metric": "coolingKW",
+          "operator": "==",
+          "expected": 34.005912,
+          "tolerance": 0.02,
+          "atTime": 30
+        },
+        {
+          "label": "Cooling-only facility/IT ratio is 1.50",
+          "metric": "pue",
+          "operator": "==",
+          "expected": 1.5,
+          "tolerance": 0.02,
+          "atTime": 30
+        }
+      ],
+      "reflection": "Why does a warmer modeled inlet temperature not establish a server failure or a containment-breach time?",
+      "source_paths": [
+        "apps/web/src/infrastructure/screens.ts",
+        "apps/web/tests-engine/infrastructure.test.ts",
+        "README.md"
+      ],
+      "level": "Stress test"
     },
     {
-      "id": "L04",
-      "title": "Autonomous AI Cluster Load-Shedding & Black-Start Restoration",
-      "level": "Production",
-      "duration": "75 mins",
-      "config_file": "scenarios/autonomous_recovery.json",
-      "summary": "Execute priority job preemption, staged power restoration, and cold black-start sequencing across clustered microgrid assets.",
-      "inputs": [
-        "Tier 1 critical networking load",
-        "Tier 2 training clusters",
-        "Tier 3 batch inference nodes"
+      "id": "module-4",
+      "title": "Connect the screen to continuity evidence",
+      "objective": "Prepare a bounded infrastructure comparison and choose the native follow-up study.",
+      "minutes": 18,
+      "steps": [
+        "Retain the hot 200-server case and improve assumed COP from 3 to 5.",
+        "Run and export the comparison with its inputs and synthetic-data label.",
+        "Open the canonical outage source and explain its distinction between ride-through duration and elapsed depletion timestamp."
       ],
-      "parameters": {
-        "RestorationSteps": 4,
-        "InterStageDelay_sec": 15.0,
-        "InrushPeakMitigation_pct": 42.0
+      "preset": {
+        "serverCount": 200,
+        "utilizationPct": 65,
+        "ambientC": 40,
+        "coolingEfficiency": 5
       },
       "checkpoints": [
-        "Ensure generator breaker does not trip on reverse power",
-        "Zero loss of network control plane integrity"
-      ]
+        {
+          "label": "Improved cooling-power scenario",
+          "metric": "coolingKW",
+          "operator": "==",
+          "expected": 20.403547,
+          "tolerance": 0.02,
+          "atTime": 30
+        },
+        {
+          "label": "Cooling-only ratio falls to 1.30",
+          "metric": "pue",
+          "operator": "==",
+          "expected": 1.3,
+          "tolerance": 0.02,
+          "atTime": 30
+        }
+      ],
+      "reflection": "What additional scenario inputs and independent evidence would be needed to turn a cooling-power sensitivity into a facility continuity study?",
+      "source_paths": [
+        "docs/canonical-case.md",
+        "datacenter_twin/continuity.py",
+        "tests/test_continuity.py"
+      ],
+      "level": "Transfer to source"
     }
-  ]
+  ],
+  "source": {
+    "commit": "887ca4e2cc283692c86a885fac9ad760ca08d3e2",
+    "audited_at": "2026-10-19T08:39:24Z",
+    "url": "https://github.com/mohammadrezwankhan/datacenter-twin-lab/tree/887ca4e2cc283692c86a885fac9ad760ca08d3e2",
+    "calibration_status": "synthetic-analytical-fixtures",
+    "scope": "This browser lab is a standalone teaching approximation. Use the linked source for the project implementation."
+  },
+  "dashboard_url": "https://mohammadrezwankhan.github.io/datacenter-twin-lab/"
 }

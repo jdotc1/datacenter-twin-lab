@@ -8,6 +8,8 @@ The exact lesson uses charging disabled, a failed generator, a utility outage at
 
 ## Choose a reproducible question
 
+![Section 01 · Question / topology](../visuals/sections/section-01-question.svg)
+
 | Case                        | Question                                                           | Expected result                                                           | Route or explanation                                                                                                                                            |
 | --------------------------- | ------------------------------------------------------------------ | ------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Guided 1 MW experiment      | How long does 100 kWh support 1 MW during this outage?             | 307.8 s ride-through; depletion at 607.8 s elapsed                        | [Browser guide](https://khanlab.co.technology/) · [Canonical case](../canonical-case.md)                                             |
@@ -37,6 +39,8 @@ The browser's default result uses exact JavaScript arithmetic locally. **Verify 
 Use the [unit-aware glossary](../scenarios/glossary.md) to distinguish power in kW from accumulated energy in kWh. Browse the [scenario catalog](../scenarios/index.md) for other failure and recovery cases, and see [contribution ideas](../scenarios/contribution-ideas.md) for a bounded first contribution.
 
 ## Assumptions and limits
+
+![Section 02 · Equations / provenance](../visuals/sections/section-02-equations.svg)
 
 The 50 MW case is a synthetic 50× scale-up of the verified 1 MW / 100 kWh fixture. The current model covers one aggregate IT load, explicit topology, finite stored energy, conversion losses, path limits, shared-domain events, event boundaries, deterministic replay, and exact energy accounting. It does not establish GPU throughput, grid adequacy, equipment selection, facility calibration, cooling, workload queues, battery aging, generator ramp/cooldown/fuel dynamics, transfer and switching transients, AC load flow, impedance-based sharing, protection coordination, harmonics, short-circuit or arc-flash studies, reliability probabilities, Tier claims, service-level claims, certification, physical controls, or physical safety.
 

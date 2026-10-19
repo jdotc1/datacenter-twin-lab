@@ -1,0 +1,2300 @@
+{
+  "schema_version": 1,
+  "repository": {
+    "name": "datacenter-twin-lab",
+    "name_with_owner": "mohammadrezwankhan/datacenter-twin-lab",
+    "url": "https://github.com/mohammadrezwankhan/datacenter-twin-lab"
+  },
+  "native_source": {
+    "commit": "7304827ec70db520b5b910fa47175f80235f82ce",
+    "url": "https://github.com/mohammadrezwankhan/datacenter-twin-lab/tree/7304827ec70db520b5b910fa47175f80235f82ce",
+    "source_path_override": null
+  },
+  "browser_lab_package_provenance": {
+    "commit": "887ca4e2cc283692c86a885fac9ad760ca08d3e2",
+    "url": "https://github.com/mohammadrezwankhan/datacenter-twin-lab/tree/887ca4e2cc283692c86a885fac9ad760ca08d3e2",
+    "scope": "This browser lab is a standalone teaching approximation. Use the linked source for the project implementation.",
+    "calibration_status": "synthetic-analytical-fixtures",
+    "config_path": "docs/lesson-config.json"
+  },
+  "native_catalog_source": "apps/web/src/course-catalog.json and apps/web/src/infrastructure/content/*.json",
+  "native_material_count": 76,
+  "reproduction_command_count": 6,
+  "materials": [
+    {
+      "id": "doc-40fe50be2eb2",
+      "title": "`normal`",
+      "path": "docs/scenarios/normal.md",
+      "line": 1,
+      "source_paths": [
+        "docs/scenarios/normal.md"
+      ],
+      "source_url": "https://github.com/mohammadrezwankhan/datacenter-twin-lab/blob/7304827ec70db520b5b910fa47175f80235f82ce/docs/scenarios/normal.md#L1",
+      "source_revision": "7304827ec70db520b5b910fa47175f80235f82ce",
+      "source_kind": "audited-native-source",
+      "source_label": "Source at 7304827ec70d",
+      "catalog_url": null,
+      "native_url": null,
+      "excerpt": "Normal supply is the control case. No events occur; the utility supplies the requested 1,000 kW IT load through two 700 kW gross paths at 0.95 distribution efficiency.",
+      "type": "Native reading",
+      "section": "question",
+      "tags": [
+        "native-reading"
+      ],
+      "track": null,
+      "lesson_id": null
+    },
+    {
+      "id": "doc-e880e29b7cdb",
+      "title": "`path_maintenance`",
+      "path": "docs/scenarios/path_maintenance.md",
+      "line": 1,
+      "source_paths": [
+        "docs/scenarios/path_maintenance.md"
+      ],
+      "source_url": "https://github.com/mohammadrezwankhan/datacenter-twin-lab/blob/7304827ec70db520b5b910fa47175f80235f82ce/docs/scenarios/path_maintenance.md#L1",
+      "source_revision": "7304827ec70db520b5b910fa47175f80235f82ce",
+      "source_kind": "audited-native-source",
+      "source_label": "Source at 7304827ec70d",
+      "catalog_url": null,
+      "native_url": null,
+      "excerpt": "Path maintenance removes Path A from 300 s through 900 s. Utility supply remains available, but the surviving 700 kW gross Path B cannot deliver the full 1,000 kW IT request after distribution losses.",
+      "type": "Native reading",
+      "section": "question",
+      "tags": [
+        "native-reading"
+      ],
+      "track": null,
+      "lesson_id": null
+    },
+    {
+      "id": "doc-0f78ed8a2cd0",
+      "title": "`shared_domain`",
+      "path": "docs/scenarios/shared_domain.md",
+      "line": 1,
+      "source_paths": [
+        "docs/scenarios/shared_domain.md"
+      ],
+      "source_url": "https://github.com/mohammadrezwankhan/datacenter-twin-lab/blob/7304827ec70db520b5b910fa47175f80235f82ce/docs/scenarios/shared_domain.md#L1",
+      "source_revision": "7304827ec70db520b5b910fa47175f80235f82ce",
+      "source_kind": "audited-native-source",
+      "source_label": "Source at 7304827ec70d",
+      "catalog_url": null,
+      "native_url": null,
+      "excerpt": "Shared-domain failure removes the shared-controls dependency from both distribution paths between 300 s and 900 s. The utility remains available upstream, but neither path can reach the IT load.",
+      "type": "Native reading",
+      "section": "question",
+      "tags": [
+        "native-reading"
+      ],
+      "track": null,
+      "lesson_id": null
+    },
+    {
+      "id": "course-generator-failure",
+      "title": "Add a failed generator",
+      "path": "apps/web/src/course-lessons.ts",
+      "line": null,
+      "source_paths": [
+        "apps/web/src/course-catalog.json",
+        "apps/web/src/course-lessons.ts"
+      ],
+      "source_url": "https://github.com/mohammadrezwankhan/datacenter-twin-lab/blob/7304827ec70db520b5b910fa47175f80235f82ce/apps/web/src/course-lessons.ts#L124",
+      "catalog_url": "https://github.com/mohammadrezwankhan/datacenter-twin-lab/blob/7304827ec70db520b5b910fa47175f80235f82ce/apps/web/src/course-catalog.json",
+      "native_url": "https://khanlab.co.technology/learn/generator-failure/",
+      "excerpt": "What changes if the generator cannot start?",
+      "type": "Native interactive lesson",
+      "section": "question",
+      "tags": [
+        "foundations",
+        "native-lesson"
+      ],
+      "track": "foundations",
+      "lesson_id": "generator-failure"
+    },
+    {
+      "id": "doc-9fa90c9da88f",
+      "title": "Add one teachable scenario",
+      "path": "docs/engineering/adding-a-scenario.md",
+      "line": 1,
+      "source_paths": [
+        "docs/engineering/adding-a-scenario.md"
+      ],
+      "source_url": "https://github.com/mohammadrezwankhan/datacenter-twin-lab/blob/7304827ec70db520b5b910fa47175f80235f82ce/docs/engineering/adding-a-scenario.md#L1",
+      "source_revision": "7304827ec70db520b5b910fa47175f80235f82ce",
+      "source_kind": "audited-native-source",
+      "source_label": "Source at 7304827ec70d",
+      "catalog_url": null,
+      "native_url": null,
+      "excerpt": "Start with a small JSON case and a question someone can answer by hand. A new scenario normally needs no new engine or plugin framework.",
+      "type": "Native reading",
+      "section": "question",
+      "tags": [
+        "native-reading"
+      ],
+      "track": null,
+      "lesson_id": null
+    },
+    {
+      "id": "doc-f596c34cb403",
+      "title": "Beginner contribution ideas",
+      "path": "docs/scenarios/contribution-ideas.md",
+      "line": 1,
+      "source_paths": [
+        "docs/scenarios/contribution-ideas.md"
+      ],
+      "source_url": "https://github.com/mohammadrezwankhan/datacenter-twin-lab/blob/7304827ec70db520b5b910fa47175f80235f82ce/docs/scenarios/contribution-ideas.md#L1",
+      "source_revision": "7304827ec70db520b5b910fa47175f80235f82ce",
+      "source_kind": "audited-native-source",
+      "source_label": "Source at 7304827ec70d",
+      "catalog_url": null,
+      "native_url": null,
+      "excerpt": "These are small, documentation-focused ideas that do not duplicate the current sensitivity/reporting work.",
+      "type": "Native reading",
+      "section": "question",
+      "tags": [
+        "native-reading"
+      ],
+      "track": null,
+      "lesson_id": null
+    },
+    {
+      "id": "course-generator-delay",
+      "title": "Bridge generator startup",
+      "path": "apps/web/src/course-lessons.ts",
+      "line": null,
+      "source_paths": [
+        "apps/web/src/course-catalog.json",
+        "apps/web/src/course-lessons.ts"
+      ],
+      "source_url": "https://github.com/mohammadrezwankhan/datacenter-twin-lab/blob/7304827ec70db520b5b910fa47175f80235f82ce/apps/web/src/course-lessons.ts#L105",
+      "catalog_url": "https://github.com/mohammadrezwankhan/datacenter-twin-lab/blob/7304827ec70db520b5b910fa47175f80235f82ce/apps/web/src/course-catalog.json",
+      "native_url": "https://khanlab.co.technology/learn/generator-delay/",
+      "excerpt": "What changes when startup takes 60 seconds instead of 30?",
+      "type": "Native interactive lesson",
+      "section": "question",
+      "tags": [
+        "foundations",
+        "native-lesson"
+      ],
+      "track": "foundations",
+      "lesson_id": "generator-delay"
+    },
+    {
+      "id": "course-recovery-deadline",
+      "title": "Catch a sub-second service gap",
+      "path": "apps/web/src/course-lessons.ts",
+      "line": null,
+      "source_paths": [
+        "apps/web/src/course-catalog.json",
+        "apps/web/src/course-lessons.ts"
+      ],
+      "source_url": "https://github.com/mohammadrezwankhan/datacenter-twin-lab/blob/7304827ec70db520b5b910fa47175f80235f82ce/apps/web/src/course-lessons.ts#L238",
+      "catalog_url": "https://github.com/mohammadrezwankhan/datacenter-twin-lab/blob/7304827ec70db520b5b910fa47175f80235f82ce/apps/web/src/course-catalog.json",
+      "native_url": "https://khanlab.co.technology/learn/recovery-deadline/",
+      "excerpt": "Does 57 kWh bridge recovery at 500 seconds? Does 58 kWh?",
+      "type": "Native interactive lesson",
+      "section": "question",
+      "tags": [
+        "facility",
+        "native-lesson"
+      ],
+      "track": "facility",
+      "lesson_id": "recovery-deadline"
+    },
+    {
+      "id": "course-n-plus-one",
+      "title": "Check a surviving path",
+      "path": "apps/web/src/course-lessons.ts",
+      "line": null,
+      "source_paths": [
+        "apps/web/src/course-catalog.json",
+        "apps/web/src/course-lessons.ts"
+      ],
+      "source_url": "https://github.com/mohammadrezwankhan/datacenter-twin-lab/blob/7304827ec70db520b5b910fa47175f80235f82ce/apps/web/src/course-lessons.ts#L143",
+      "catalog_url": "https://github.com/mohammadrezwankhan/datacenter-twin-lab/blob/7304827ec70db520b5b910fa47175f80235f82ce/apps/web/src/course-catalog.json",
+      "native_url": "https://khanlab.co.technology/learn/n-plus-one/",
+      "excerpt": "Are two paths enough when either one must carry the whole load?",
+      "type": "Native interactive lesson",
+      "section": "question",
+      "tags": [
+        "facility",
+        "native-lesson"
+      ],
+      "track": "facility",
+      "lesson_id": "n-plus-one"
+    },
+    {
+      "id": "doc-a453d540b94a",
+      "title": "Choosing a simulator for the question",
+      "path": "docs/choosing-a-simulator.md",
+      "line": 1,
+      "source_paths": [
+        "docs/choosing-a-simulator.md"
+      ],
+      "source_url": "https://github.com/mohammadrezwankhan/datacenter-twin-lab/blob/7304827ec70db520b5b910fa47175f80235f82ce/docs/choosing-a-simulator.md#L1",
+      "source_revision": "7304827ec70db520b5b910fa47175f80235f82ce",
+      "source_kind": "audited-native-source",
+      "source_label": "Source at 7304827ec70d",
+      "catalog_url": null,
+      "native_url": null,
+      "excerpt": "The right tool depends on the question you need to answer and the inputs you can defend.",
+      "type": "Native reading",
+      "section": "question",
+      "tags": [
+        "native-reading"
+      ],
+      "track": null,
+      "lesson_id": null
+    },
+    {
+      "id": "doc-4097059acb66",
+      "title": "Cloudflare Pages deployment and indexing",
+      "path": "docs/cloudflare-pages-deployment.md",
+      "line": 1,
+      "source_paths": [
+        "docs/cloudflare-pages-deployment.md"
+      ],
+      "source_url": "https://github.com/mohammadrezwankhan/datacenter-twin-lab/blob/7304827ec70db520b5b910fa47175f80235f82ce/docs/cloudflare-pages-deployment.md#L1",
+      "source_revision": "7304827ec70db520b5b910fa47175f80235f82ce",
+      "source_kind": "audited-native-source",
+      "source_label": "Source at 7304827ec70d",
+      "catalog_url": null,
+      "native_url": null,
+      "excerpt": "Project: datacenter-twin-lab. Account: 6aeaea77d967e029f75b0f66107c507b.",
+      "type": "Native reading",
+      "section": "question",
+      "tags": [
+        "native-reading"
+      ],
+      "track": null,
+      "lesson_id": null
+    },
+    {
+      "id": "doc-c930af489501",
+      "title": "Core package publication",
+      "path": "docs/engineering/pypi-publication.md",
+      "line": 1,
+      "source_paths": [
+        "docs/engineering/pypi-publication.md"
+      ],
+      "source_url": "https://github.com/mohammadrezwankhan/datacenter-twin-lab/blob/7304827ec70db520b5b910fa47175f80235f82ce/docs/engineering/pypi-publication.md#L1",
+      "source_revision": "7304827ec70db520b5b910fa47175f80235f82ce",
+      "source_kind": "audited-native-source",
+      "source_label": "Source at 7304827ec70d",
+      "catalog_url": null,
+      "native_url": null,
+      "excerpt": "The requested PyPI distribution name is datacenter-twin; the Python import and",
+      "type": "Native reading",
+      "section": "question",
+      "tags": [
+        "native-reading"
+      ],
+      "track": null,
+      "lesson_id": null
+    },
+    {
+      "id": "doc-2e9944b0c7e4",
+      "title": "Electrical terms in the scenario catalog",
+      "path": "docs/scenarios/glossary.md",
+      "line": 1,
+      "source_paths": [
+        "docs/scenarios/glossary.md"
+      ],
+      "source_url": "https://github.com/mohammadrezwankhan/datacenter-twin-lab/blob/7304827ec70db520b5b910fa47175f80235f82ce/docs/scenarios/glossary.md#L1",
+      "source_revision": "7304827ec70db520b5b910fa47175f80235f82ce",
+      "source_kind": "audited-native-source",
+      "source_label": "Source at 7304827ec70d",
+      "catalog_url": null,
+      "native_url": null,
+      "excerpt": "Start with the terms used in the 50 MW AI-cluster question, then work through the reference calculation.",
+      "type": "Native reading",
+      "section": "question",
+      "tags": [
+        "native-reading"
+      ],
+      "track": null,
+      "lesson_id": null
+    },
+    {
+      "id": "course-single-point",
+      "title": "Find a single point of failure",
+      "path": "apps/web/src/course-lessons.ts",
+      "line": null,
+      "source_paths": [
+        "apps/web/src/course-catalog.json",
+        "apps/web/src/course-lessons.ts"
+      ],
+      "source_url": "https://github.com/mohammadrezwankhan/datacenter-twin-lab/blob/7304827ec70db520b5b910fa47175f80235f82ce/apps/web/src/course-lessons.ts#L181",
+      "catalog_url": "https://github.com/mohammadrezwankhan/datacenter-twin-lab/blob/7304827ec70db520b5b910fa47175f80235f82ce/apps/web/src/course-catalog.json",
+      "native_url": "https://khanlab.co.technology/learn/single-point/",
+      "excerpt": "What happens to two paths when their common main bus fails?",
+      "type": "Native interactive lesson",
+      "section": "question",
+      "tags": [
+        "facility",
+        "native-lesson"
+      ],
+      "track": "facility",
+      "lesson_id": "single-point"
+    },
+    {
+      "id": "doc-fde2df1e905f",
+      "title": "Inside a voltage sag: a DC-link transient study",
+      "path": "docs/studies/emt.md",
+      "line": 1,
+      "source_paths": [
+        "docs/studies/emt.md"
+      ],
+      "source_url": "https://github.com/mohammadrezwankhan/datacenter-twin-lab/blob/7304827ec70db520b5b910fa47175f80235f82ce/docs/studies/emt.md#L1",
+      "source_revision": "7304827ec70db520b5b910fa47175f80235f82ce",
+      "source_kind": "audited-native-source",
+      "source_label": "Source at 7304827ec70d",
+      "catalog_url": null,
+      "native_url": null,
+      "excerpt": "Open the interactive study ·",
+      "type": "Native reading",
+      "section": "question",
+      "tags": [
+        "native-reading"
+      ],
+      "track": null,
+      "lesson_id": null
+    },
+    {
+      "id": "doc-e0b665a77b95",
+      "title": "One minute from prediction to proof",
+      "path": "docs/examples/proof-demo.md",
+      "line": 1,
+      "source_paths": [
+        "docs/examples/proof-demo.md"
+      ],
+      "source_url": "https://github.com/mohammadrezwankhan/datacenter-twin-lab/blob/7304827ec70db520b5b910fa47175f80235f82ce/docs/examples/proof-demo.md#L1",
+      "source_revision": "7304827ec70db520b5b910fa47175f80235f82ce",
+      "source_kind": "audited-native-source",
+      "source_label": "Source at 7304827ec70d",
+      "catalog_url": null,
+      "native_url": null,
+      "excerpt": "Watch the captioned browser recording, download the WebM, or read the English captions.",
+      "type": "Native lesson / example",
+      "section": "question",
+      "tags": [
+        "native-lesson"
+      ],
+      "track": null,
+      "lesson_id": null
+    },
+    {
+      "id": "course-facilities-phased-development",
+      "title": "Review spatial capacity and phased development",
+      "path": "apps/web/src/infrastructure/content/22-facilities-phased-development.json",
+      "line": null,
+      "source_paths": [
+        "apps/web/src/course-catalog.json",
+        "apps/web/src/infrastructure/content/22-facilities-phased-development.json"
+      ],
+      "source_url": "https://github.com/mohammadrezwankhan/datacenter-twin-lab/blob/7304827ec70db520b5b910fa47175f80235f82ce/apps/web/src/infrastructure/content/22-facilities-phased-development.json",
+      "catalog_url": "https://github.com/mohammadrezwankhan/datacenter-twin-lab/blob/7304827ec70db520b5b910fa47175f80235f82ce/apps/web/src/course-catalog.json",
+      "native_url": "https://khanlab.co.technology/learn/infrastructure/facilities-phased-development/",
+      "excerpt": "A rack count is not a facility plan. Equipment requires service space, replacement routes, structural capacity and coordinated boundaries through every construction phase. Use the manuscript’s historical operating account to practise reporting what was actually stated without turning different area descriptions into one misleading density metric.",
+      "type": "Native interactive lesson",
+      "section": "question",
+      "tags": [
+        "infrastructure",
+        "native-lesson",
+        "native-reading"
+      ],
+      "track": "infrastructure",
+      "lesson_id": "facilities-phased-development"
+    },
+    {
+      "id": "doc-b1033b028b9b",
+      "title": "Reviewer-facing measurements",
+      "path": "docs/engineering/benchmark-method.md",
+      "line": 1,
+      "source_paths": [
+        "docs/engineering/benchmark-method.md"
+      ],
+      "source_url": "https://github.com/mohammadrezwankhan/datacenter-twin-lab/blob/7304827ec70db520b5b910fa47175f80235f82ce/docs/engineering/benchmark-method.md#L1",
+      "source_revision": "7304827ec70db520b5b910fa47175f80235f82ce",
+      "source_kind": "audited-native-source",
+      "source_label": "Source at 7304827ec70d",
+      "catalog_url": null,
+      "native_url": null,
+      "excerpt": "These measurements describe execution of the 0.4.0rc1 working build on one Windows machine on 23 September 2026. They are observations, not latency targets, physical controller speeds or a scalability claim. The raw files retain every sample and the environment. Ordinary background processes were not isolated.",
+      "type": "Native reading",
+      "section": "question",
+      "tags": [
+        "native-reading"
+      ],
+      "track": null,
+      "lesson_id": null
+    },
+    {
+      "id": "doc-631416ea70b7",
+      "title": "Search Console indexing repair, 2026-10-15",
+      "path": "docs/indexing-repair-2026-10-15.md",
+      "line": 1,
+      "source_paths": [
+        "docs/indexing-repair-2026-10-15.md"
+      ],
+      "source_url": "https://github.com/mohammadrezwankhan/datacenter-twin-lab/blob/7304827ec70db520b5b910fa47175f80235f82ce/docs/indexing-repair-2026-10-15.md#L1",
+      "source_revision": "7304827ec70db520b5b910fa47175f80235f82ce",
+      "source_kind": "audited-native-source",
+      "source_label": "Source at 7304827ec70d",
+      "catalog_url": null,
+      "native_url": null,
+      "excerpt": "Search Console listed 31 alternate simulator query URLs, one missing v1.0.0",
+      "type": "Native reading",
+      "section": "question",
+      "tags": [
+        "native-reading"
+      ],
+      "track": null,
+      "lesson_id": null
+    },
+    {
+      "id": "doc-52abb2a5af44",
+      "title": "Static site response policy",
+      "path": "docs/engineering/static-security.md",
+      "line": 1,
+      "source_paths": [
+        "docs/engineering/static-security.md"
+      ],
+      "source_url": "https://github.com/mohammadrezwankhan/datacenter-twin-lab/blob/7304827ec70db520b5b910fa47175f80235f82ce/docs/engineering/static-security.md#L1",
+      "source_revision": "7304827ec70db520b5b910fa47175f80235f82ce",
+      "source_kind": "audited-native-source",
+      "source_label": "Source at 7304827ec70d",
+      "catalog_url": null,
+      "native_url": null,
+      "excerpt": "The Cloudflare Pages bundle includes _headers. It applies HSTS for one year",
+      "type": "Native reading",
+      "section": "question",
+      "tags": [
+        "native-reading"
+      ],
+      "track": null,
+      "lesson_id": null
+    },
+    {
+      "id": "course-protection-trip-chain",
+      "title": "Trace protection zones and the full trip chain",
+      "path": "apps/web/src/infrastructure/content/18-protection-trip-chain.json",
+      "line": null,
+      "source_paths": [
+        "apps/web/src/course-catalog.json",
+        "apps/web/src/infrastructure/content/18-protection-trip-chain.json"
+      ],
+      "source_url": "https://github.com/mohammadrezwankhan/datacenter-twin-lab/blob/7304827ec70db520b5b910fa47175f80235f82ce/apps/web/src/infrastructure/content/18-protection-trip-chain.json",
+      "catalog_url": "https://github.com/mohammadrezwankhan/datacenter-twin-lab/blob/7304827ec70db520b5b910fa47175f80235f82ce/apps/web/src/course-catalog.json",
+      "native_url": "https://khanlab.co.technology/learn/infrastructure/protection-trip-chain/",
+      "excerpt": "Protection is not a green status field at one current. It is a chain from the actual fault through measurement, logic, DC supply and interruption. Use a declared inverse-time curve to learn how a calculation behaves, then inspect what that curve cannot establish about CT saturation, electrical zones or selectivity.",
+      "type": "Native interactive lesson",
+      "section": "question",
+      "tags": [
+        "infrastructure",
+        "native-lesson",
+        "native-reading"
+      ],
+      "track": "infrastructure",
+      "lesson_id": "protection-trip-chain"
+    },
+    {
+      "id": "doc-353421d508c5",
+      "title": "Worksheet: calculate battery ride-through",
+      "path": "docs/tutorials/battery-ride-through-worksheet.md",
+      "line": 1,
+      "source_paths": [
+        "docs/tutorials/battery-ride-through-worksheet.md"
+      ],
+      "source_url": "https://github.com/mohammadrezwankhan/datacenter-twin-lab/blob/7304827ec70db520b5b910fa47175f80235f82ce/docs/tutorials/battery-ride-through-worksheet.md#L1",
+      "source_revision": "7304827ec70db520b5b910fa47175f80235f82ce",
+      "source_kind": "audited-native-source",
+      "source_label": "Source at 7304827ec70d",
+      "catalog_url": null,
+      "native_url": null,
+      "excerpt": "Lesson 3 | Prediction and exercise",
+      "type": "Native lesson / example",
+      "section": "question",
+      "tags": [
+        "native-lesson"
+      ],
+      "track": null,
+      "lesson_id": null
+    },
+    {
+      "id": "course-distribution-loss",
+      "title": "Account for distribution losses",
+      "path": "apps/web/src/course-lessons.ts",
+      "line": null,
+      "source_paths": [
+        "apps/web/src/course-catalog.json",
+        "apps/web/src/course-lessons.ts"
+      ],
+      "source_url": "https://github.com/mohammadrezwankhan/datacenter-twin-lab/blob/7304827ec70db520b5b910fa47175f80235f82ce/apps/web/src/course-lessons.ts#L67",
+      "catalog_url": "https://github.com/mohammadrezwankhan/datacenter-twin-lab/blob/7304827ec70db520b5b910fa47175f80235f82ce/apps/web/src/course-catalog.json",
+      "native_url": "https://khanlab.co.technology/learn/distribution-loss/",
+      "excerpt": "How much source power is needed to deliver 1,000 kW?",
+      "type": "Native interactive lesson",
+      "section": "equations",
+      "tags": [
+        "foundations",
+        "model",
+        "native-lesson"
+      ],
+      "track": "foundations",
+      "lesson_id": "distribution-loss"
+    },
+    {
+      "id": "course-ride-through",
+      "title": "Calculate battery ride-through",
+      "path": "apps/web/src/course-lessons.ts",
+      "line": null,
+      "source_paths": [
+        "apps/web/src/course-catalog.json",
+        "apps/web/src/course-lessons.ts"
+      ],
+      "source_url": "https://github.com/mohammadrezwankhan/datacenter-twin-lab/blob/7304827ec70db520b5b910fa47175f80235f82ce/apps/web/src/course-lessons.ts#L86",
+      "catalog_url": "https://github.com/mohammadrezwankhan/datacenter-twin-lab/blob/7304827ec70db520b5b910fa47175f80235f82ce/apps/web/src/course-catalog.json",
+      "native_url": "https://khanlab.co.technology/learn/ride-through/",
+      "excerpt": "Does half the stored energy give half the ride-through duration?",
+      "type": "Native interactive lesson",
+      "section": "equations",
+      "tags": [
+        "foundations",
+        "model",
+        "native-lesson"
+      ],
+      "track": "foundations",
+      "lesson_id": "ride-through"
+    },
+    {
+      "id": "doc-c94ce443e673",
+      "title": "Calculation boundaries",
+      "path": "docs/engineering/calculation-boundaries.md",
+      "line": 1,
+      "source_paths": [
+        "docs/engineering/calculation-boundaries.md"
+      ],
+      "source_url": "https://github.com/mohammadrezwankhan/datacenter-twin-lab/blob/7304827ec70db520b5b910fa47175f80235f82ce/docs/engineering/calculation-boundaries.md#L1",
+      "source_revision": "7304827ec70db520b5b910fa47175f80235f82ce",
+      "source_kind": "audited-native-source",
+      "source_label": "Source at 7304827ec70d",
+      "catalog_url": null,
+      "native_url": null,
+      "excerpt": "This version estimates requested energy with an assumed-PUE multiplier. It does not model electrical supply, service delivery, or thermal transients.",
+      "type": "Native reading",
+      "section": "equations",
+      "tags": [
+        "model"
+      ],
+      "track": null,
+      "lesson_id": null
+    },
+    {
+      "id": "doc-4d5ba0d8ae2c",
+      "title": "Datacenter Twin Lab continuity report",
+      "path": "docs/validation/examples/generator-failure-report.md",
+      "line": 1,
+      "source_paths": [
+        "docs/validation/examples/generator-failure-report.md"
+      ],
+      "source_url": "https://github.com/mohammadrezwankhan/datacenter-twin-lab/blob/7304827ec70db520b5b910fa47175f80235f82ce/docs/validation/examples/generator-failure-report.md#L1",
+      "source_revision": "7304827ec70db520b5b910fa47175f80235f82ce",
+      "source_kind": "audited-native-source",
+      "source_label": "Source at 7304827ec70d",
+      "catalog_url": null,
+      "native_url": null,
+      "excerpt": "Model: single\\_load\\_electrical\\_continuity\\_v1",
+      "type": "Native lesson / example",
+      "section": "equations",
+      "tags": [
+        "model",
+        "native-lesson",
+        "verification"
+      ],
+      "track": null,
+      "lesson_id": null
+    },
+    {
+      "id": "doc-b7dbe1277038",
+      "title": "Deterministic continuity sensitivity sweeps",
+      "path": "docs/engineering/sensitivity.md",
+      "line": 1,
+      "source_paths": [
+        "docs/engineering/sensitivity.md"
+      ],
+      "source_url": "https://github.com/mohammadrezwankhan/datacenter-twin-lab/blob/7304827ec70db520b5b910fa47175f80235f82ce/docs/engineering/sensitivity.md#L1",
+      "source_revision": "7304827ec70db520b5b910fa47175f80235f82ce",
+      "source_kind": "audited-native-source",
+      "source_label": "Source at 7304827ec70d",
+      "catalog_url": null,
+      "native_url": null,
+      "excerpt": "The schema-2 continuity model can evaluate one scenario field at a time with",
+      "type": "Native reading",
+      "section": "equations",
+      "tags": [
+        "model"
+      ],
+      "track": null,
+      "lesson_id": null
+    },
+    {
+      "id": "doc-505af95efe67",
+      "title": "Electrical continuity model",
+      "path": "docs/engineering/electrical-continuity.md",
+      "line": 1,
+      "source_paths": [
+        "docs/engineering/electrical-continuity.md"
+      ],
+      "source_url": "https://github.com/mohammadrezwankhan/datacenter-twin-lab/blob/7304827ec70db520b5b910fa47175f80235f82ce/docs/engineering/electrical-continuity.md#L1",
+      "source_revision": "7304827ec70db520b5b910fa47175f80235f82ce",
+      "source_kind": "audited-native-source",
+      "source_label": "Source at 7304827ec70d",
+      "catalog_url": null,
+      "native_url": null,
+      "excerpt": "single_load_electrical_continuity_v1 is a reduced steady-state electrical flow model with discrete failures and a finite battery. It does not solve AC load flow, switching transients, protection coordination, harmonics, thermal behavior or workload queues. Its bounded topology is a synthetic experiment, not a certified redundant design.",
+      "type": "Native reading",
+      "section": "equations",
+      "tags": [
+        "model"
+      ],
+      "track": null,
+      "lesson_id": null
+    },
+    {
+      "id": "course-shared-controls",
+      "title": "Expose shared control failures",
+      "path": "apps/web/src/course-lessons.ts",
+      "line": null,
+      "source_paths": [
+        "apps/web/src/course-catalog.json",
+        "apps/web/src/course-lessons.ts"
+      ],
+      "source_url": "https://github.com/mohammadrezwankhan/datacenter-twin-lab/blob/7304827ec70db520b5b910fa47175f80235f82ce/apps/web/src/course-lessons.ts#L162",
+      "catalog_url": "https://github.com/mohammadrezwankhan/datacenter-twin-lab/blob/7304827ec70db520b5b910fa47175f80235f82ce/apps/web/src/course-catalog.json",
+      "native_url": "https://khanlab.co.technology/learn/shared-controls/",
+      "excerpt": "Can a shared control fault defeat both power paths?",
+      "type": "Native interactive lesson",
+      "section": "equations",
+      "tags": [
+        "facility",
+        "model",
+        "native-lesson"
+      ],
+      "track": "facility",
+      "lesson_id": "shared-controls"
+    },
+    {
+      "id": "course-grounding-power-quality",
+      "title": "Inspect grounding, distortion and control-power loops",
+      "path": "apps/web/src/infrastructure/content/19-grounding-power-quality.json",
+      "line": null,
+      "source_paths": [
+        "apps/web/src/course-catalog.json",
+        "apps/web/src/infrastructure/content/19-grounding-power-quality.json"
+      ],
+      "source_url": "https://github.com/mohammadrezwankhan/datacenter-twin-lab/blob/7304827ec70db520b5b910fa47175f80235f82ce/apps/web/src/infrastructure/content/19-grounding-power-quality.json",
+      "catalog_url": "https://github.com/mohammadrezwankhan/datacenter-twin-lab/blob/7304827ec70db520b5b910fa47175f80235f82ce/apps/web/src/course-catalog.json",
+      "native_url": "https://khanlab.co.technology/learn/infrastructure/grounding-power-quality/",
+      "excerpt": "Low resistance, low distortion and a nominal battery voltage each answer only a narrowly defined question. This lesson turns those single numbers into explicit boundaries. Follow the ground current, compare harmonic denominators, and include the return conductor in the trip circuit before drawing any conclusion about service.",
+      "type": "Native interactive lesson",
+      "section": "equations",
+      "tags": [
+        "infrastructure",
+        "model",
+        "native-lesson"
+      ],
+      "track": "infrastructure",
+      "lesson_id": "grounding-power-quality"
+    },
+    {
+      "id": "course-ai-outage",
+      "title": "Interrupt a 50 MW AI cluster",
+      "path": "apps/web/src/course-lessons.ts",
+      "line": null,
+      "source_paths": [
+        "apps/web/src/course-catalog.json",
+        "apps/web/src/course-lessons.ts"
+      ],
+      "source_url": "https://github.com/mohammadrezwankhan/datacenter-twin-lab/blob/7304827ec70db520b5b910fa47175f80235f82ce/apps/web/src/course-lessons.ts#L219",
+      "catalog_url": "https://github.com/mohammadrezwankhan/datacenter-twin-lab/blob/7304827ec70db520b5b910fa47175f80235f82ce/apps/web/src/course-catalog.json",
+      "native_url": "https://khanlab.co.technology/learn/ai-outage/",
+      "excerpt": "How long can 5 MWh of stored energy bridge a 50 MW load?",
+      "type": "Native interactive lesson",
+      "section": "equations",
+      "tags": [
+        "facility",
+        "model",
+        "native-lesson"
+      ],
+      "track": "facility",
+      "lesson_id": "ai-outage"
+    },
+    {
+      "id": "doc-52584f6ad98a",
+      "title": "Learn discovery and model explanations",
+      "path": "docs/engineering/learn-discovery.md",
+      "line": 1,
+      "source_paths": [
+        "docs/engineering/learn-discovery.md"
+      ],
+      "source_url": "https://github.com/mohammadrezwankhan/datacenter-twin-lab/blob/7304827ec70db520b5b910fa47175f80235f82ce/docs/engineering/learn-discovery.md#L1",
+      "source_revision": "7304827ec70db520b5b910fa47175f80235f82ce",
+      "source_kind": "audited-native-source",
+      "source_label": "Source at 7304827ec70d",
+      "catalog_url": null,
+      "native_url": null,
+      "excerpt": "The learning index is a static reading page with optional, small JavaScript enhancements. It does not load React, Python, NumPy, SciPy or a simulation worker. Following Run experiment opens the existing numerical application; its own explicit runtime controls govern scientific downloads.",
+      "type": "Native reading",
+      "section": "equations",
+      "tags": [
+        "model"
+      ],
+      "track": null,
+      "lesson_id": null
+    },
+    {
+      "id": "course-power-energy",
+      "title": "Power becomes energy",
+      "path": "apps/web/src/course-lessons.ts",
+      "line": null,
+      "source_paths": [
+        "apps/web/src/course-catalog.json",
+        "apps/web/src/course-lessons.ts"
+      ],
+      "source_url": "https://github.com/mohammadrezwankhan/datacenter-twin-lab/blob/7304827ec70db520b5b910fa47175f80235f82ce/apps/web/src/course-lessons.ts#L48",
+      "catalog_url": "https://github.com/mohammadrezwankhan/datacenter-twin-lab/blob/7304827ec70db520b5b910fa47175f80235f82ce/apps/web/src/course-catalog.json",
+      "native_url": "https://khanlab.co.technology/learn/power-energy/",
+      "excerpt": "How much energy does a constant load request in half an hour?",
+      "type": "Native interactive lesson",
+      "section": "equations",
+      "tags": [
+        "foundations",
+        "model",
+        "native-lesson"
+      ],
+      "track": "foundations",
+      "lesson_id": "power-energy"
+    },
+    {
+      "id": "doc-694a0c6c3b42",
+      "title": "Power dynamics study studio",
+      "path": "docs/studies/power-dynamics.md",
+      "line": 1,
+      "source_paths": [
+        "docs/studies/power-dynamics.md"
+      ],
+      "source_url": "https://github.com/mohammadrezwankhan/datacenter-twin-lab/blob/7304827ec70db520b5b910fa47175f80235f82ce/docs/studies/power-dynamics.md#L1",
+      "source_revision": "7304827ec70db520b5b910fa47175f80235f82ce",
+      "source_kind": "audited-native-source",
+      "source_label": "Source at 7304827ec70d",
+      "catalog_url": null,
+      "native_url": null,
+      "excerpt": "Open the study studio",
+      "type": "Native reading",
+      "section": "equations",
+      "tags": [
+        "model"
+      ],
+      "track": null,
+      "lesson_id": null
+    },
+    {
+      "id": "doc-aa57e4b31100",
+      "title": "Power systems continuity course",
+      "path": "docs/tutorials/power-systems-course.md",
+      "line": 1,
+      "source_paths": [
+        "docs/tutorials/power-systems-course.md"
+      ],
+      "source_url": "https://github.com/mohammadrezwankhan/datacenter-twin-lab/blob/7304827ec70db520b5b910fa47175f80235f82ce/docs/tutorials/power-systems-course.md#L1",
+      "source_revision": "7304827ec70db520b5b910fa47175f80235f82ce",
+      "source_kind": "audited-native-source",
+      "source_label": "Source at 7304827ec70d",
+      "catalog_url": null,
+      "native_url": null,
+      "excerpt": "Read all 24 searchable lesson notes with worked answers, configuration tables and source links, even with JavaScript disabled.",
+      "type": "Native lesson / example",
+      "section": "equations",
+      "tags": [
+        "model",
+        "native-lesson"
+      ],
+      "track": null,
+      "lesson_id": null
+    },
+    {
+      "id": "doc-1aa8818d31a2",
+      "title": "Same 375 kWh, different outage outcomes",
+      "path": "docs/tutorials/demand-timing.md",
+      "line": 1,
+      "source_paths": [
+        "docs/tutorials/demand-timing.md"
+      ],
+      "source_url": "https://github.com/mohammadrezwankhan/datacenter-twin-lab/blob/7304827ec70db520b5b910fa47175f80235f82ce/docs/tutorials/demand-timing.md#L1",
+      "source_revision": "7304827ec70db520b5b910fa47175f80235f82ce",
+      "source_kind": "audited-native-source",
+      "source_label": "Source at 7304827ec70d",
+      "catalog_url": null,
+      "native_url": null,
+      "excerpt": "The time of a demand peak changes what a battery must supply. Three 30-minute schedules below each request 375 kWh, average 750 kW, and reach the same 1,000 kW peak. They share a 100 kWh battery and the same ten-minute loss of utility and generator supply. One is served throughout; the other two have different amounts of unserved energy.",
+      "type": "Native lesson / example",
+      "section": "equations",
+      "tags": [
+        "model",
+        "native-lesson"
+      ],
+      "track": null,
+      "lesson_id": null
+    },
+    {
+      "id": "doc-d026223bb7c0",
+      "title": "Scenario catalog",
+      "path": "docs/scenarios/index.md",
+      "line": 1,
+      "source_paths": [
+        "docs/scenarios/index.md"
+      ],
+      "source_url": "https://github.com/mohammadrezwankhan/datacenter-twin-lab/blob/7304827ec70db520b5b910fa47175f80235f82ce/docs/scenarios/index.md#L1",
+      "source_revision": "7304827ec70db520b5b910fa47175f80235f82ce",
+      "source_kind": "audited-native-source",
+      "source_label": "Source at 7304827ec70d",
+      "catalog_url": null,
+      "native_url": null,
+      "excerpt": "Question: how do stored energy, generator startup and surviving paths change delivered IT power during an outage?",
+      "type": "Native reading",
+      "section": "equations",
+      "tags": [
+        "model"
+      ],
+      "track": null,
+      "lesson_id": null
+    },
+    {
+      "id": "course-network-optical-budget",
+      "title": "Separate physical routes, optical budgets and fabric capacity",
+      "path": "apps/web/src/infrastructure/content/21-network-optical-budget.json",
+      "line": null,
+      "source_paths": [
+        "apps/web/src/course-catalog.json",
+        "apps/web/src/infrastructure/content/21-network-optical-budget.json"
+      ],
+      "source_url": "https://github.com/mohammadrezwankhan/datacenter-twin-lab/blob/7304827ec70db520b5b910fa47175f80235f82ce/apps/web/src/infrastructure/content/21-network-optical-budget.json",
+      "catalog_url": "https://github.com/mohammadrezwankhan/datacenter-twin-lab/blob/7304827ec70db520b5b910fa47175f80235f82ce/apps/web/src/course-catalog.json",
+      "native_url": "https://khanlab.co.technology/learn/infrastructure/network-optical-budget/",
+      "excerpt": "Two fibres are not automatically two independent services, and a low optical loss is not automatically an application pass. Separate the physical administration route from the logical fabric, then calculate a narrow loss budget and post-uplink-loss capacity. The lesson adds communications reasoning without pretending that the existing electrical simulator already models packets.",
+      "type": "Native interactive lesson",
+      "section": "equations",
+      "tags": [
+        "infrastructure",
+        "model",
+        "native-lesson"
+      ],
+      "track": "infrastructure",
+      "lesson_id": "network-optical-budget"
+    },
+    {
+      "id": "course-pue",
+      "title": "Separate PUE from continuity",
+      "path": "apps/web/src/course-lessons.ts",
+      "line": null,
+      "source_paths": [
+        "apps/web/src/course-catalog.json",
+        "apps/web/src/course-lessons.ts"
+      ],
+      "source_url": "https://github.com/mohammadrezwankhan/datacenter-twin-lab/blob/7304827ec70db520b5b910fa47175f80235f82ce/apps/web/src/course-lessons.ts#L257",
+      "catalog_url": "https://github.com/mohammadrezwankhan/datacenter-twin-lab/blob/7304827ec70db520b5b910fa47175f80235f82ce/apps/web/src/course-catalog.json",
+      "native_url": "https://khanlab.co.technology/learn/pue/",
+      "excerpt": "How does assumed PUE change annual energy for the same 50 MW IT load?",
+      "type": "Native interactive lesson",
+      "section": "equations",
+      "tags": [
+        "facility",
+        "model",
+        "native-lesson"
+      ],
+      "track": "facility",
+      "lesson_id": "pue"
+    },
+    {
+      "id": "course-ups-battery-station-dc",
+      "title": "Separate UPS power, battery energy and trip DC",
+      "path": "apps/web/src/infrastructure/content/17-ups-battery-station-dc.json",
+      "line": null,
+      "source_paths": [
+        "apps/web/src/course-catalog.json",
+        "apps/web/src/infrastructure/content/17-ups-battery-station-dc.json"
+      ],
+      "source_url": "https://github.com/mohammadrezwankhan/datacenter-twin-lab/blob/7304827ec70db520b5b910fa47175f80235f82ce/apps/web/src/infrastructure/content/17-ups-battery-station-dc.json",
+      "catalog_url": "https://github.com/mohammadrezwankhan/datacenter-twin-lab/blob/7304827ec70db520b5b910fa47175f80235f82ce/apps/web/src/course-catalog.json",
+      "native_url": "https://khanlab.co.technology/learn/infrastructure/ups-battery-station-dc/",
+      "excerpt": "The battery lesson already distinguishes reserve from ride-through. Now separate three further boundaries: AC output energy, delivered DC energy and nominal end-of-life storage. Then examine the protection DC circuit, where enough ampere-hours can coexist with insufficient voltage at the device that must operate.",
+      "type": "Native interactive lesson",
+      "section": "equations",
+      "tags": [
+        "infrastructure",
+        "model",
+        "native-lesson"
+      ],
+      "track": "infrastructure",
+      "lesson_id": "ups-battery-station-dc"
+    },
+    {
+      "id": "course-precharge",
+      "title": "Track energy before the outage",
+      "path": "apps/web/src/course-lessons.ts",
+      "line": null,
+      "source_paths": [
+        "apps/web/src/course-catalog.json",
+        "apps/web/src/course-lessons.ts"
+      ],
+      "source_url": "https://github.com/mohammadrezwankhan/datacenter-twin-lab/blob/7304827ec70db520b5b910fa47175f80235f82ce/apps/web/src/course-lessons.ts#L200",
+      "catalog_url": "https://github.com/mohammadrezwankhan/datacenter-twin-lab/blob/7304827ec70db520b5b910fa47175f80235f82ce/apps/web/src/course-catalog.json",
+      "native_url": "https://khanlab.co.technology/learn/precharge/",
+      "excerpt": "Why does the 50 kWh case last longer when it can charge first?",
+      "type": "Native interactive lesson",
+      "section": "equations",
+      "tags": [
+        "facility",
+        "model",
+        "native-lesson"
+      ],
+      "track": "facility",
+      "lesson_id": "precharge"
+    },
+    {
+      "id": "doc-0ef2d82f051c",
+      "title": "Battery ride-through notebook",
+      "path": "docs/examples/battery-ride-through.md",
+      "line": 1,
+      "source_paths": [
+        "docs/examples/battery-ride-through.md"
+      ],
+      "source_url": "https://github.com/mohammadrezwankhan/datacenter-twin-lab/blob/7304827ec70db520b5b910fa47175f80235f82ce/docs/examples/battery-ride-through.md#L1",
+      "source_revision": "7304827ec70db520b5b910fa47175f80235f82ce",
+      "source_kind": "audited-native-source",
+      "source_label": "Source at 7304827ec70d",
+      "catalog_url": null,
+      "native_url": null,
+      "excerpt": "battery-ride-through.ipynb is a deterministic first-run teaching example for the bundled generator_failure scenario. It derives the 100 kWh ride-through (307.8 s) and absolute depletion (607.8 s), then compares the charging-enabled and charging-disabled 50 kWh cases.",
+      "type": "Native lesson / example",
+      "section": "reproduce",
+      "tags": [
+        "native-lesson"
+      ],
+      "track": null,
+      "lesson_id": null
+    },
+    {
+      "id": "doc-4368a298fad5",
+      "title": "Canonical battery ride-through case",
+      "path": "docs/canonical-case.md",
+      "line": 1,
+      "source_paths": [
+        "docs/canonical-case.md"
+      ],
+      "source_url": "https://github.com/mohammadrezwankhan/datacenter-twin-lab/blob/7304827ec70db520b5b910fa47175f80235f82ce/docs/canonical-case.md#L1",
+      "source_revision": "7304827ec70db520b5b910fa47175f80235f82ce",
+      "source_kind": "audited-native-source",
+      "source_label": "Source at 7304827ec70d",
+      "catalog_url": null,
+      "native_url": null,
+      "excerpt": "This reproduces lesson 3, “Calculate battery ride-through,” from the browser course. It starts with demo_scenario(\"generator_failure\") and applies the lesson's exact recipe: id=\"course-ride-through\", name=\"3. Calculate battery ride-through\", append and deduplicate EDU-POWER-001, set charging to 0 kW, and set initial stored energy to either 100 kWh or 50 kWh. Construction goes through Sit…",
+      "type": "Native reading",
+      "section": "reproduce",
+      "tags": [
+        "model",
+        "native-lesson",
+        "reproduction"
+      ],
+      "track": null,
+      "lesson_id": null
+    },
+    {
+      "id": "doc-8ec9a00bfd09",
+      "title": "Datacenter Twin Lab",
+      "path": "README.md",
+      "line": 1,
+      "source_paths": [
+        "README.md"
+      ],
+      "source_url": "https://github.com/mohammadrezwankhan/datacenter-twin-lab/blob/887ca4e2cc283692c86a885fac9ad760ca08d3e2/README.md#L1",
+      "source_revision": "887ca4e2cc283692c86a885fac9ad760ca08d3e2",
+      "source_kind": "historical-reconciled-readme",
+      "source_label": "Historical README/source guide at 887ca4e2cc28",
+      "catalog_url": null,
+      "native_url": null,
+      "excerpt": "_A reproducible synthetic continuity laboratory for datacenter power systems._",
+      "type": "Native overview",
+      "section": "reproduce",
+      "tags": [
+        "model",
+        "reproduction"
+      ],
+      "track": null,
+      "lesson_id": null,
+      "source_blob_path": "README.md",
+      "source_blob_sha256": "718a1d245f4c63453053ce28d35572c778961dab14c54beb6cd2c5c78daaac9e",
+      "source_blob_retrieval": "git-show",
+      "source_blob_cache": null
+    },
+    {
+      "id": "doc-f7a4dad55234",
+      "title": "Local API and dashboard",
+      "path": "docs/contracts/local-api.md",
+      "line": 1,
+      "source_paths": [
+        "docs/contracts/local-api.md"
+      ],
+      "source_url": "https://github.com/mohammadrezwankhan/datacenter-twin-lab/blob/7304827ec70db520b5b910fa47175f80235f82ce/docs/contracts/local-api.md#L1",
+      "source_revision": "7304827ec70db520b5b910fa47175f80235f82ce",
+      "source_kind": "audited-native-source",
+      "source_label": "Source at 7304827ec70d",
+      "catalog_url": null,
+      "native_url": null,
+      "excerpt": "Start with python -m datacenter_twin serve after installing the optional API dependencies. The released wheel includes the compiled dashboard; a source checkout requires building apps/web first. The CLI binds only to 127.0.0.1:8000; --port accepts 1–65535. The compiled React dashboard is served from the same process and origin. OpenAPI operation metadata is available at /openapi.json. Th…",
+      "type": "Native reading",
+      "section": "reproduce",
+      "tags": [
+        "reproduction"
+      ],
+      "track": null,
+      "lesson_id": null
+    },
+    {
+      "id": "doc-f3ea78a9703c",
+      "title": "Quickstart",
+      "path": "docs/quickstart.md",
+      "line": 1,
+      "source_paths": [
+        "docs/quickstart.md"
+      ],
+      "source_url": "https://github.com/mohammadrezwankhan/datacenter-twin-lab/blob/7304827ec70db520b5b910fa47175f80235f82ce/docs/quickstart.md#L1",
+      "source_revision": "7304827ec70db520b5b910fa47175f80235f82ce",
+      "source_kind": "audited-native-source",
+      "source_label": "Source at 7304827ec70d",
+      "catalog_url": null,
+      "native_url": null,
+      "excerpt": "Start here: predict the ride-through of a synthetic 1,000 kW (1 MW) IT load with 100 kWh of stored battery energy, run the case, and explain its energy ledger.",
+      "type": "Native reading",
+      "section": "reproduce",
+      "tags": [
+        "model",
+        "reproduction"
+      ],
+      "track": null,
+      "lesson_id": null
+    },
+    {
+      "id": "doc-a51fab57e55f",
+      "title": "Tutorials",
+      "path": "docs/tutorials/index.md",
+      "line": 1,
+      "source_paths": [
+        "docs/tutorials/index.md"
+      ],
+      "source_url": "https://github.com/mohammadrezwankhan/datacenter-twin-lab/blob/7304827ec70db520b5b910fa47175f80235f82ce/docs/tutorials/index.md#L1",
+      "source_revision": "7304827ec70db520b5b910fa47175f80235f82ce",
+      "source_kind": "audited-native-source",
+      "source_label": "Source at 7304827ec70d",
+      "catalog_url": null,
+      "native_url": null,
+      "excerpt": "Datacenter engineers can start with a short, reproducible continuity experiment: predict battery ride-through for a synthetic 1 MW IT load, run it, and explain the energy ledger. The browser defaults to 100 kWh stored energy; the 50 kWh challenge changes only the opening reserve.",
+      "type": "Native lesson / example",
+      "section": "reproduce",
+      "tags": [
+        "model",
+        "native-lesson",
+        "reproduction"
+      ],
+      "track": null,
+      "lesson_id": null
+    },
+    {
+      "id": "doc-0a1a9925f595",
+      "title": "Watch and reproduce the 1 MW experiment",
+      "path": "docs/examples/demo-walkthrough.md",
+      "line": 1,
+      "source_paths": [
+        "docs/examples/demo-walkthrough.md"
+      ],
+      "source_url": "https://github.com/mohammadrezwankhan/datacenter-twin-lab/blob/7304827ec70db520b5b910fa47175f80235f82ce/docs/examples/demo-walkthrough.md#L1",
+      "source_revision": "7304827ec70db520b5b910fa47175f80235f82ce",
+      "source_kind": "audited-native-source",
+      "source_label": "Source at 7304827ec70d",
+      "catalog_url": null,
+      "native_url": null,
+      "excerpt": "Open the current 1 MW experiment or view a still frame.",
+      "type": "Native lesson / example",
+      "section": "reproduce",
+      "tags": [
+        "native-lesson",
+        "reproduction"
+      ],
+      "track": null,
+      "lesson_id": null
+    },
+    {
+      "id": "doc-3f38dd3903cb",
+      "title": "`generator_failure`",
+      "path": "docs/scenarios/generator_failure.md",
+      "line": 1,
+      "source_paths": [
+        "docs/scenarios/generator_failure.md"
+      ],
+      "source_url": "https://github.com/mohammadrezwankhan/datacenter-twin-lab/blob/7304827ec70db520b5b910fa47175f80235f82ce/docs/scenarios/generator_failure.md#L1",
+      "source_revision": "7304827ec70db520b5b910fa47175f80235f82ce",
+      "source_kind": "audited-native-source",
+      "source_label": "Source at 7304827ec70d",
+      "catalog_url": null,
+      "native_url": null,
+      "excerpt": "Generator failure tests finite stored energy. Utility and generator are both unavailable from 300 s to 900 s, so the battery is the only available source until it depletes.",
+      "type": "Native reading",
+      "section": "verification",
+      "tags": [
+        "model",
+        "verification"
+      ],
+      "track": null,
+      "lesson_id": null
+    },
+    {
+      "id": "doc-a2dfdfbdb090",
+      "title": "`utility_loss`",
+      "path": "docs/scenarios/utility_loss.md",
+      "line": 1,
+      "source_paths": [
+        "docs/scenarios/utility_loss.md"
+      ],
+      "source_url": "https://github.com/mohammadrezwankhan/datacenter-twin-lab/blob/7304827ec70db520b5b910fa47175f80235f82ce/docs/scenarios/utility_loss.md#L1",
+      "source_revision": "7304827ec70db520b5b910fa47175f80235f82ce",
+      "source_kind": "audited-native-source",
+      "source_label": "Source at 7304827ec70d",
+      "catalog_url": null,
+      "native_url": null,
+      "excerpt": "Utility loss tests generator pickup. The utility is unavailable from 300 s through restoration at 900 s. The generator remains available and becomes ready after the declared 30 s start delay.",
+      "type": "Native reading",
+      "section": "verification",
+      "tags": [
+        "verification"
+      ],
+      "track": null,
+      "lesson_id": null
+    },
+    {
+      "id": "course-generator-bank-fuel",
+      "title": "Audit generator banks and usable fuel",
+      "path": "apps/web/src/infrastructure/content/16-generator-bank-fuel.json",
+      "line": null,
+      "source_paths": [
+        "apps/web/src/course-catalog.json",
+        "apps/web/src/infrastructure/content/16-generator-bank-fuel.json"
+      ],
+      "source_url": "https://github.com/mohammadrezwankhan/datacenter-twin-lab/blob/7304827ec70db520b5b910fa47175f80235f82ce/apps/web/src/infrastructure/content/16-generator-bank-fuel.json",
+      "catalog_url": "https://github.com/mohammadrezwankhan/datacenter-twin-lab/blob/7304827ec70db520b5b910fa47175f80235f82ce/apps/web/src/course-catalog.json",
+      "native_url": "https://khanlab.co.technology/learn/infrastructure/generator-bank-fuel/",
+      "excerpt": "The original startup lessons ask whether a generator becomes available in time. This lesson asks a different question: can the available bank carry the backed load at all? Follow a source claim through its real-power conversion, post-loss capacity and fuel ledger. A failed arithmetic claim should stay failed even when the combined installed nameplates look impressive.",
+      "type": "Native interactive lesson",
+      "section": "verification",
+      "tags": [
+        "infrastructure",
+        "model",
+        "native-lesson",
+        "reproduction",
+        "verification"
+      ],
+      "track": "infrastructure",
+      "lesson_id": "generator-bank-fuel"
+    },
+    {
+      "id": "course-integrated-design-release",
+      "title": "Audit the correction before releasing the design",
+      "path": "apps/web/src/infrastructure/content/24-integrated-design-release.json",
+      "line": null,
+      "source_paths": [
+        "apps/web/src/course-catalog.json",
+        "apps/web/src/infrastructure/content/24-integrated-design-release.json"
+      ],
+      "source_url": "https://github.com/mohammadrezwankhan/datacenter-twin-lab/blob/7304827ec70db520b5b910fa47175f80235f82ce/apps/web/src/infrastructure/content/24-integrated-design-release.json",
+      "catalog_url": "https://github.com/mohammadrezwankhan/datacenter-twin-lab/blob/7304827ec70db520b5b910fa47175f80235f82ce/apps/web/src/course-catalog.json",
+      "native_url": "https://khanlab.co.technology/learn/infrastructure/integrated-design-release/",
+      "excerpt": "The final lesson asks for a justified release decision, not the largest possible green score. Bring capacity, connectivity, protection, thermal behaviour, controls and evidence together. Then audit a proposed correction from the manuscript’s separate campus example: a remedy is another engineering assertion and must be recalculated.",
+      "type": "Native interactive lesson",
+      "section": "verification",
+      "tags": [
+        "infrastructure",
+        "model",
+        "native-lesson",
+        "verification"
+      ],
+      "track": "infrastructure",
+      "lesson_id": "integrated-design-release"
+    },
+    {
+      "id": "doc-8a9cb9815724",
+      "title": "Browser demo",
+      "path": "docs/engineering/browser-demo.md",
+      "line": 1,
+      "source_paths": [
+        "docs/engineering/browser-demo.md"
+      ],
+      "source_url": "https://github.com/mohammadrezwankhan/datacenter-twin-lab/blob/7304827ec70db520b5b910fa47175f80235f82ce/docs/engineering/browser-demo.md#L1",
+      "source_revision": "7304827ec70db520b5b910fa47175f80235f82ce",
+      "source_kind": "audited-native-source",
+      "source_label": "Source at 7304827ec70d",
+      "catalog_url": null,
+      "native_url": null,
+      "excerpt": "Start with the 1 MW guided experiment, open the 50 MW generator-failure preset in the advanced workspace, or follow the twelve continuity lessons. The first result uses the local JavaScript continuity engine. Verify against Python explicitly loads the reference Python engine when you want a second calculation.",
+      "type": "Native reading",
+      "section": "verification",
+      "tags": [
+        "native-lesson",
+        "verification"
+      ],
+      "track": null,
+      "lesson_id": null
+    },
+    {
+      "id": "doc-a4f2b9edd13f",
+      "title": "Continuity report contracts",
+      "path": "docs/contracts/reports.md",
+      "line": 1,
+      "source_paths": [
+        "docs/contracts/reports.md"
+      ],
+      "source_url": "https://github.com/mohammadrezwankhan/datacenter-twin-lab/blob/7304827ec70db520b5b910fa47175f80235f82ce/docs/contracts/reports.md#L1",
+      "source_revision": "7304827ec70db520b5b910fa47175f80235f82ce",
+      "source_kind": "audited-native-source",
+      "source_label": "Source at 7304827ec70d",
+      "catalog_url": null,
+      "native_url": null,
+      "excerpt": "datacenter_twin.reporting.render_markdown(result) and",
+      "type": "Native reading",
+      "section": "verification",
+      "tags": [
+        "verification"
+      ],
+      "track": null,
+      "lesson_id": null
+    },
+    {
+      "id": "doc-20f6b7cfda9a",
+      "title": "Deploy the static course on a custom domain",
+      "path": "docs/engineering/custom-domain.md",
+      "line": 1,
+      "source_paths": [
+        "docs/engineering/custom-domain.md"
+      ],
+      "source_url": "https://github.com/mohammadrezwankhan/datacenter-twin-lab/blob/7304827ec70db520b5b910fa47175f80235f82ce/docs/engineering/custom-domain.md#L1",
+      "source_revision": "7304827ec70db520b5b910fa47175f80235f82ce",
+      "source_kind": "audited-native-source",
+      "source_label": "Source at 7304827ec70d",
+      "catalog_url": null,
+      "native_url": null,
+      "excerpt": "The browser course needs static HTTPS hosting only. Calculation, scenario editing and optional Python verification run on the visitor's device. A domain change does not require a simulation server, database or additional runtime service.",
+      "type": "Native reading",
+      "section": "verification",
+      "tags": [
+        "native-lesson",
+        "verification"
+      ],
+      "track": null,
+      "lesson_id": null
+    },
+    {
+      "id": "doc-7991b88c8a8a",
+      "title": "Electrical continuity contracts, schema 2",
+      "path": "docs/contracts/electrical-v2.md",
+      "line": 1,
+      "source_paths": [
+        "docs/contracts/electrical-v2.md"
+      ],
+      "source_url": "https://github.com/mohammadrezwankhan/datacenter-twin-lab/blob/7304827ec70db520b5b910fa47175f80235f82ce/docs/contracts/electrical-v2.md#L1",
+      "source_revision": "7304827ec70db520b5b910fa47175f80235f82ce",
+      "source_kind": "audited-native-source",
+      "source_label": "Source at 7304827ec70d",
+      "catalog_url": null,
+      "native_url": null,
+      "excerpt": "Authoritative validation: datacenter_twin/topology.py. Authoritative output: SimulationRun in datacenter_twin/continuity.py. The complete runnable input is reference-site-v2.json; obtain a preset through GET /api/v1/demo?preset=generator_failure. Every field is required, unknown fields are rejected, and JSON object keys must be unique.",
+      "type": "Native reading",
+      "section": "verification",
+      "tags": [
+        "verification"
+      ],
+      "track": null,
+      "lesson_id": null
+    },
+    {
+      "id": "doc-19639fa51ef0",
+      "title": "Engineering hero integration",
+      "path": "docs/ENGINEERING-HERO.md",
+      "line": 1,
+      "source_paths": [
+        "docs/ENGINEERING-HERO.md"
+      ],
+      "source_url": "https://github.com/mohammadrezwankhan/datacenter-twin-lab/blob/7304827ec70db520b5b910fa47175f80235f82ce/docs/ENGINEERING-HERO.md#L1",
+      "source_revision": "7304827ec70db520b5b910fa47175f80235f82ce",
+      "source_kind": "audited-native-source",
+      "source_label": "Source at 7304827ec70d",
+      "catalog_url": null,
+      "native_url": null,
+      "excerpt": "The start view can show the verified 15-second engineering film above the existing guided experiment. apps/web/src/EngineeringHero.tsx registers the small vanilla <khan-grid-hero> adapter only after the enabled start view mounts. It requests the host stylesheet and the adapter module at that point; the video itself is created only after the visitor presses Play animation. The wrapper kee…",
+      "type": "Native reading",
+      "section": "verification",
+      "tags": [
+        "native-reading"
+      ],
+      "track": null,
+      "lesson_id": null
+    },
+    {
+      "id": "doc-ae73994aca25",
+      "title": "Evidence packet calculation method",
+      "path": "docs/validation/evidence-method.md",
+      "line": 1,
+      "source_paths": [
+        "docs/validation/evidence-method.md"
+      ],
+      "source_url": "https://github.com/mohammadrezwankhan/datacenter-twin-lab/blob/7304827ec70db520b5b910fa47175f80235f82ce/docs/validation/evidence-method.md#L1",
+      "source_revision": "7304827ec70db520b5b910fa47175f80235f82ce",
+      "source_kind": "audited-native-source",
+      "source_label": "Source at 7304827ec70d",
+      "catalog_url": null,
+      "native_url": null,
+      "excerpt": "The builder creates two exact course variants and the existing path-maintenance preset. Course cases are reconstructed from the public course recipe rather than by changing a finished run. Their scenario JSON is passed through SiteScenario.from_dict, then to simulate_continuity. Each scenario has a stable input_sha256; filenames for its scenario, run, and reports include that digest.",
+      "type": "Native reading",
+      "section": "verification",
+      "tags": [
+        "native-lesson",
+        "verification"
+      ],
+      "track": null,
+      "lesson_id": null
+    },
+    {
+      "id": "doc-2dc9b76a743d",
+      "title": "External review protocol",
+      "path": "docs/validation/review-protocol.md",
+      "line": 1,
+      "source_paths": [
+        "docs/validation/review-protocol.md"
+      ],
+      "source_url": "https://github.com/mohammadrezwankhan/datacenter-twin-lab/blob/7304827ec70db520b5b910fa47175f80235f82ce/docs/validation/review-protocol.md#L1",
+      "source_revision": "7304827ec70db520b5b910fa47175f80235f82ce",
+      "source_kind": "audited-native-source",
+      "source_label": "Source at 7304827ec70d",
+      "catalog_url": null,
+      "native_url": null,
+      "excerpt": "This protocol is for a bounded review of software behavior and reproducibility. It is not a facility acceptance test, protection study, equipment validation, certification exercise, uptime claim, cooling/workload study, or physical-control procedure.",
+      "type": "Native reading",
+      "section": "verification",
+      "tags": [
+        "reproduction",
+        "verification"
+      ],
+      "track": null,
+      "lesson_id": null
+    },
+    {
+      "id": "doc-ffe3ca1ce830",
+      "title": "Independent reviewer receipt template",
+      "path": "docs/validation/reviewer-receipt-template.md",
+      "line": 1,
+      "source_paths": [
+        "docs/validation/reviewer-receipt-template.md"
+      ],
+      "source_url": "https://github.com/mohammadrezwankhan/datacenter-twin-lab/blob/7304827ec70db520b5b910fa47175f80235f82ce/docs/validation/reviewer-receipt-template.md#L1",
+      "source_revision": "7304827ec70db520b5b910fa47175f80235f82ce",
+      "source_kind": "audited-native-source",
+      "source_label": "Source at 7304827ec70d",
+      "catalog_url": null,
+      "native_url": null,
+      "excerpt": "This is a blank worksheet. It records no completed review, reviewer, affiliation, endorsement, or result. Complete it only after the reviewer has performed the work and has chosen what identity information to disclose.",
+      "type": "Native reading",
+      "section": "verification",
+      "tags": [
+        "verification"
+      ],
+      "track": null,
+      "lesson_id": null
+    },
+    {
+      "id": "doc-c7fa59700fbb",
+      "title": "Infrastructure screen serialization and model proof",
+      "path": "docs/validation/infrastructure-serialization.md",
+      "line": 1,
+      "source_paths": [
+        "docs/validation/infrastructure-serialization.md"
+      ],
+      "source_url": "https://github.com/mohammadrezwankhan/datacenter-twin-lab/blob/7304827ec70db520b5b910fa47175f80235f82ce/docs/validation/infrastructure-serialization.md#L1",
+      "source_revision": "7304827ec70db520b5b910fa47175f80235f82ce",
+      "source_kind": "audited-native-source",
+      "source_label": "Source at 7304827ec70d",
+      "catalog_url": null,
+      "native_url": null,
+      "excerpt": "Infrastructure Engineering results use the separate infrastructure-screen-1 schema. They do not use, translate to, or inherit verification badges from planning schema 1 or electrical schema 2. The typed model version is 1.0.0; lesson content supplies its own content version and source metadata.",
+      "type": "Native reading",
+      "section": "verification",
+      "tags": [
+        "model",
+        "native-lesson",
+        "verification"
+      ],
+      "track": null,
+      "lesson_id": null
+    },
+    {
+      "id": "doc-07eae0d5c7b5",
+      "title": "Reproducibility capsule: schema-2 continuity reports",
+      "path": "docs/validation/reproducibility-capsule.md",
+      "line": 1,
+      "source_paths": [
+        "docs/validation/reproducibility-capsule.md"
+      ],
+      "source_url": "https://github.com/mohammadrezwankhan/datacenter-twin-lab/blob/7304827ec70db520b5b910fa47175f80235f82ce/docs/validation/reproducibility-capsule.md#L1",
+      "source_revision": "7304827ec70db520b5b910fa47175f80235f82ce",
+      "source_kind": "audited-native-source",
+      "source_label": "Source at 7304827ec70d",
+      "catalog_url": null,
+      "native_url": null,
+      "excerpt": "This capsule records executable maintainer evidence for the public synthetic",
+      "type": "Native reading",
+      "section": "verification",
+      "tags": [
+        "reproduction",
+        "verification"
+      ],
+      "track": null,
+      "lesson_id": null
+    },
+    {
+      "id": "doc-9ab0778bade3",
+      "title": "Scenario comparison",
+      "path": "docs/engineering/scenario-comparison.md",
+      "line": 1,
+      "source_paths": [
+        "docs/engineering/scenario-comparison.md"
+      ],
+      "source_url": "https://github.com/mohammadrezwankhan/datacenter-twin-lab/blob/7304827ec70db520b5b910fa47175f80235f82ce/docs/engineering/scenario-comparison.md#L1",
+      "source_revision": "7304827ec70db520b5b910fa47175f80235f82ce",
+      "source_kind": "audited-native-source",
+      "source_label": "Source at 7304827ec70d",
+      "catalog_url": null,
+      "native_url": null,
+      "excerpt": "The dashboard's advanced comparison varies one field from the completed schema-v2 run and runs each candidate against the existing deterministic electrical engine. The result table reports requested, served and unserved IT energy (kWh), interruption time (s), and the first battery-depletion event. It also shows the source run ID and source input SHA-256; downloadable JSON retains each ca…",
+      "type": "Native reading",
+      "section": "verification",
+      "tags": [
+        "model",
+        "verification"
+      ],
+      "track": null,
+      "lesson_id": null
+    },
+    {
+      "id": "doc-e5fe410861c4",
+      "title": "Scenario contract v1",
+      "path": "docs/contracts/scenario-v1.md",
+      "line": 1,
+      "source_paths": [
+        "docs/contracts/scenario-v1.md"
+      ],
+      "source_url": "https://github.com/mohammadrezwankhan/datacenter-twin-lab/blob/7304827ec70db520b5b910fa47175f80235f82ce/docs/contracts/scenario-v1.md#L1",
+      "source_revision": "7304827ec70db520b5b910fa47175f80235f82ce",
+      "source_kind": "audited-native-source",
+      "source_label": "Source at 7304827ec70d",
+      "catalog_url": null,
+      "native_url": null,
+      "excerpt": "The executable validator is datacenter_twin/contracts.py. Unknown and duplicate fields are rejected. A scenario has exactly these fields:",
+      "type": "Native reading",
+      "section": "verification",
+      "tags": [
+        "native-reading"
+      ],
+      "track": null,
+      "lesson_id": null
+    },
+    {
+      "id": "doc-c933198a1f3f",
+      "title": "Search and answer-engine discovery",
+      "path": "docs/engineering/search-discovery.md",
+      "line": 1,
+      "source_paths": [
+        "docs/engineering/search-discovery.md"
+      ],
+      "source_url": "https://github.com/mohammadrezwankhan/datacenter-twin-lab/blob/7304827ec70db520b5b910fa47175f80235f82ce/docs/engineering/search-discovery.md#L1",
+      "source_revision": "7304827ec70db520b5b910fa47175f80235f82ce",
+      "source_kind": "audited-native-source",
+      "source_label": "Source at 7304827ec70d",
+      "catalog_url": null,
+      "native_url": null,
+      "excerpt": "The static course has thirty indexable pages: the working simulator, a course index, twelve original continuity notes, twelve Infrastructure Engineering notes, an author page, a reference-results page, and standalone EMT and power-dynamics study notes. Every lesson is readable without JavaScript and links to its live experiment, starting/challenge configuration, worked answer and exact s…",
+      "type": "Native reading",
+      "section": "verification",
+      "tags": [
+        "model",
+        "native-lesson",
+        "verification"
+      ],
+      "track": null,
+      "lesson_id": null
+    },
+    {
+      "id": "doc-1d754cb19c31",
+      "title": "Surviving-path capacity and finite-battery ride-through",
+      "path": "docs/tutorials/continuity-walkthrough.md",
+      "line": 1,
+      "source_paths": [
+        "docs/tutorials/continuity-walkthrough.md"
+      ],
+      "source_url": "https://github.com/mohammadrezwankhan/datacenter-twin-lab/blob/7304827ec70db520b5b910fa47175f80235f82ce/docs/tutorials/continuity-walkthrough.md#L1",
+      "source_revision": "7304827ec70db520b5b910fa47175f80235f82ce",
+      "source_kind": "audited-native-source",
+      "source_label": "Source at 7304827ec70d",
+      "catalog_url": null,
+      "native_url": null,
+      "excerpt": "Two continuity results answer the first engineering questions:",
+      "type": "Native lesson / example",
+      "section": "verification",
+      "tags": [
+        "native-lesson",
+        "verification"
+      ],
+      "track": null,
+      "lesson_id": null
+    },
+    {
+      "id": "course-resilience-state-matrix",
+      "title": "Test capacity, paths and common dependencies",
+      "path": "apps/web/src/infrastructure/content/14-resilience-state-matrix.json",
+      "line": null,
+      "source_paths": [
+        "apps/web/src/course-catalog.json",
+        "apps/web/src/infrastructure/content/14-resilience-state-matrix.json"
+      ],
+      "source_url": "https://github.com/mohammadrezwankhan/datacenter-twin-lab/blob/7304827ec70db520b5b910fa47175f80235f82ce/apps/web/src/infrastructure/content/14-resilience-state-matrix.json",
+      "catalog_url": "https://github.com/mohammadrezwankhan/datacenter-twin-lab/blob/7304827ec70db520b5b910fa47175f80235f82ce/apps/web/src/course-catalog.json",
+      "native_url": "https://khanlab.co.technology/learn/infrastructure/resilience-state-matrix/",
+      "excerpt": "The existing lessons show how a surviving path or shared controller can govern electrical service. Now extend that intuition into a state matrix. Installed equipment, connected equipment and independently substitutable equipment are different sets. A spare counts only when it can reach the required load in the state being assessed.",
+      "type": "Native interactive lesson",
+      "section": "verification",
+      "tags": [
+        "infrastructure",
+        "native-lesson",
+        "reproduction",
+        "verification"
+      ],
+      "track": "infrastructure",
+      "lesson_id": "resilience-state-matrix"
+    },
+    {
+      "id": "doc-e285b66f95f0",
+      "title": "50 MW aggregate AI-cluster continuity case",
+      "path": "docs/scenarios/ai-cluster-50mw.md",
+      "line": 1,
+      "source_paths": [
+        "docs/scenarios/ai-cluster-50mw.md"
+      ],
+      "source_url": "https://github.com/mohammadrezwankhan/datacenter-twin-lab/blob/7304827ec70db520b5b910fa47175f80235f82ce/docs/scenarios/ai-cluster-50mw.md#L1",
+      "source_revision": "7304827ec70db520b5b910fa47175f80235f82ce",
+      "source_kind": "audited-native-source",
+      "source_label": "Source at 7304827ec70d",
+      "catalog_url": null,
+      "native_url": null,
+      "excerpt": "Question: when a synthetic 50 MW aggregate IT load loses utility and generator supply, how long does a 5 MWh battery reserve support the IT boundary?",
+      "type": "Native reading",
+      "section": "scope",
+      "tags": [
+        "native-reading"
+      ],
+      "track": null,
+      "lesson_id": null
+    },
+    {
+      "id": "course-evidence-load-ledger",
+      "title": "Build an evidence-controlled load ledger",
+      "path": "apps/web/src/infrastructure/content/13-evidence-load-ledger.json",
+      "line": null,
+      "source_paths": [
+        "apps/web/src/course-catalog.json",
+        "apps/web/src/infrastructure/content/13-evidence-load-ledger.json"
+      ],
+      "source_url": "https://github.com/mohammadrezwankhan/datacenter-twin-lab/blob/7304827ec70db520b5b910fa47175f80235f82ce/apps/web/src/infrastructure/content/13-evidence-load-ledger.json",
+      "catalog_url": "https://github.com/mohammadrezwankhan/datacenter-twin-lab/blob/7304827ec70db520b5b910fa47175f80235f82ce/apps/web/src/course-catalog.json",
+      "native_url": "https://khanlab.co.technology/learn/infrastructure/evidence-load-ledger/",
+      "excerpt": "Begin where the original course leaves off: not with a bigger battery, but with a more disciplined definition of demand. A facility total is meaningful only when every term belongs to the same boundary and operating condition. In this lesson, a 20 MW IT allocation becomes a traceable facility ledger, while a second example demonstrates why conflicting source values must remain visible.",
+      "type": "Native interactive lesson",
+      "section": "scope",
+      "tags": [
+        "infrastructure",
+        "native-lesson",
+        "verification"
+      ],
+      "track": "infrastructure",
+      "lesson_id": "evidence-load-ledger"
+    },
+    {
+      "id": "course-commissioning-evidence-loop",
+      "title": "Build an integrated commissioning evidence loop",
+      "path": "apps/web/src/infrastructure/content/23-commissioning-evidence-loop.json",
+      "line": null,
+      "source_paths": [
+        "apps/web/src/course-catalog.json",
+        "apps/web/src/infrastructure/content/23-commissioning-evidence-loop.json"
+      ],
+      "source_url": "https://github.com/mohammadrezwankhan/datacenter-twin-lab/blob/7304827ec70db520b5b910fa47175f80235f82ce/apps/web/src/infrastructure/content/23-commissioning-evidence-loop.json",
+      "catalog_url": "https://github.com/mohammadrezwankhan/datacenter-twin-lab/blob/7304827ec70db520b5b910fa47175f80235f82ce/apps/web/src/course-catalog.json",
+      "native_url": "https://khanlab.co.technology/learn/infrastructure/commissioning-evidence-loop/",
+      "excerpt": "A completed component test answers a component question. Integrated continuity requires an initial state, expected sequence, instruments, acceptance criteria, stop conditions and recovery boundary that span the service chain. Compare two clocks, then examine the measurement boundary behind an apparently precise efficiency number.",
+      "type": "Native interactive lesson",
+      "section": "scope",
+      "tags": [
+        "infrastructure",
+        "native-lesson",
+        "verification"
+      ],
+      "track": "infrastructure",
+      "lesson_id": "commissioning-evidence-loop"
+    },
+    {
+      "id": "course-thermal-liquid-continuity",
+      "title": "Coordinate liquid cooling and thermal ride-through",
+      "path": "apps/web/src/infrastructure/content/20-thermal-liquid-continuity.json",
+      "line": null,
+      "source_paths": [
+        "apps/web/src/course-catalog.json",
+        "apps/web/src/infrastructure/content/20-thermal-liquid-continuity.json"
+      ],
+      "source_url": "https://github.com/mohammadrezwankhan/datacenter-twin-lab/blob/7304827ec70db520b5b910fa47175f80235f82ce/apps/web/src/infrastructure/content/20-thermal-liquid-continuity.json",
+      "catalog_url": "https://github.com/mohammadrezwankhan/datacenter-twin-lab/blob/7304827ec70db520b5b910fa47175f80235f82ce/apps/web/src/course-catalog.json",
+      "native_url": "https://khanlab.co.technology/learn/infrastructure/thermal-liquid-continuity/",
+      "excerpt": "Battery minutes do not create cooling minutes. Start with the manuscript’s mixed-cooling rack, then move to a separately labelled facility thermal model. The visual goal is to make both heat paths and their shared rejection boundary visible, so that the learner never mistakes a liquid-cooled label for complete removal of room heat.",
+      "type": "Native interactive lesson",
+      "section": "scope",
+      "tags": [
+        "infrastructure",
+        "model",
+        "native-lesson"
+      ],
+      "track": "infrastructure",
+      "lesson_id": "thermal-liquid-continuity"
+    },
+    {
+      "id": "course-transformer-fault-boundaries",
+      "title": "Declare transformer and fault-current boundaries",
+      "path": "apps/web/src/infrastructure/content/15-transformer-fault-boundaries.json",
+      "line": null,
+      "source_paths": [
+        "apps/web/src/course-catalog.json",
+        "apps/web/src/infrastructure/content/15-transformer-fault-boundaries.json"
+      ],
+      "source_url": "https://github.com/mohammadrezwankhan/datacenter-twin-lab/blob/7304827ec70db520b5b910fa47175f80235f82ce/apps/web/src/infrastructure/content/15-transformer-fault-boundaries.json",
+      "catalog_url": "https://github.com/mohammadrezwankhan/datacenter-twin-lab/blob/7304827ec70db520b5b910fa47175f80235f82ce/apps/web/src/course-catalog.json",
+      "native_url": "https://khanlab.co.technology/learn/infrastructure/transformer-fault-boundaries/",
+      "excerpt": "A current value without its voltage, power base and network boundary is easy to misuse. This lesson builds a small equivalent circuit in layers, then shows how changing an assumption changes a fault-current screen. The purpose is to expose model limits before equipment selection, not to turn an attractive fault animation into a completed short-circuit study.",
+      "type": "Native interactive lesson",
+      "section": "scope",
+      "tags": [
+        "infrastructure",
+        "model",
+        "native-lesson",
+        "scope"
+      ],
+      "track": "infrastructure",
+      "lesson_id": "transformer-fault-boundaries"
+    },
+    {
+      "id": "doc-b79d60876591",
+      "title": "Explore a power system, one assumption at a time",
+      "path": "docs/engineering/course-studio.md",
+      "line": 1,
+      "source_paths": [
+        "docs/engineering/course-studio.md"
+      ],
+      "source_url": "https://github.com/mohammadrezwankhan/datacenter-twin-lab/blob/7304827ec70db520b5b910fa47175f80235f82ce/docs/engineering/course-studio.md#L1",
+      "source_revision": "7304827ec70db520b5b910fa47175f80235f82ce",
+      "source_kind": "audited-native-source",
+      "source_label": "Source at 7304827ec70d",
+      "catalog_url": null,
+      "native_url": null,
+      "excerpt": "The browser course contains twelve interactive lessons for datacenter engineers learning power continuity. No installation or account is needed. Open the atlas for all four chapters, or follow Next lesson.",
+      "type": "Native reading",
+      "section": "scope",
+      "tags": [
+        "model",
+        "native-lesson",
+        "reproduction",
+        "scope"
+      ],
+      "track": null,
+      "lesson_id": null
+    },
+    {
+      "id": "doc-f1e39a52900e",
+      "title": "Explore power continuity across facility profiles",
+      "path": "docs/engineering/energy-scenario-workspace.md",
+      "line": 1,
+      "source_paths": [
+        "docs/engineering/energy-scenario-workspace.md"
+      ],
+      "source_url": "https://github.com/mohammadrezwankhan/datacenter-twin-lab/blob/7304827ec70db520b5b910fa47175f80235f82ce/docs/engineering/energy-scenario-workspace.md#L1",
+      "source_revision": "7304827ec70db520b5b910fa47175f80235f82ce",
+      "source_kind": "audited-native-source",
+      "source_label": "Source at 7304827ec70d",
+      "catalog_url": null,
+      "native_url": null,
+      "excerpt": "Choose a facility, stress its supply, and trace what reaches the IT load. The energy workspace combines an interactive isometric campus, interval power flows, editable equipment limits, a complete event replay and reproducible reports.",
+      "type": "Native reading",
+      "section": "scope",
+      "tags": [
+        "model",
+        "reproduction",
+        "scope"
+      ],
+      "track": null,
+      "lesson_id": null
+    },
+    {
+      "id": "doc-c38856186b7c",
+      "title": "Release scope and reproducibility",
+      "path": "docs/engineering/release-readiness.md",
+      "line": 1,
+      "source_paths": [
+        "docs/engineering/release-readiness.md"
+      ],
+      "source_url": "https://github.com/mohammadrezwankhan/datacenter-twin-lab/blob/7304827ec70db520b5b910fa47175f80235f82ce/docs/engineering/release-readiness.md#L1",
+      "source_revision": "7304827ec70db520b5b910fa47175f80235f82ce",
+      "source_kind": "audited-native-source",
+      "source_label": "Source at 7304827ec70d",
+      "catalog_url": null,
+      "native_url": null,
+      "excerpt": "Version 2.0.0 — Infrastructure Engineering extends the local teaching and research application to 24 lessons. It retains the canonical 1 MW guide, eighteen presets, four facility profiles, scenario import, demand-timeline editing, sensitivity tools, reports, printable legacy worksheets, EMT and five power-dynamics studies. Twelve infrastructure lessons add bounded educational screens, se…",
+      "type": "Native reading",
+      "section": "scope",
+      "tags": [
+        "model",
+        "native-lesson",
+        "reproduction",
+        "scope"
+      ],
+      "track": null,
+      "lesson_id": null
+    },
+    {
+      "id": "doc-a4724a39b8b7",
+      "title": "Reproduction evidence",
+      "path": "docs/evidence.md",
+      "line": 1,
+      "source_paths": [
+        "docs/evidence.md"
+      ],
+      "source_url": "https://github.com/mohammadrezwankhan/datacenter-twin-lab/blob/7304827ec70db520b5b910fa47175f80235f82ce/docs/evidence.md#L1",
+      "source_revision": "7304827ec70db520b5b910fa47175f80235f82ce",
+      "source_kind": "audited-native-source",
+      "source_label": "Source at 7304827ec70d",
+      "catalog_url": null,
+      "native_url": null,
+      "excerpt": "The 2.0.0 continuity engine remains a synthetic teaching model for one aggregate IT load. It covers utility/generator availability, finite battery energy, conversion losses, distribution-path limits, deterministic restoration, and interval energy accounting. It is not calibrated to a facility and does not model cooling transients, workload service, protection coordination, safety certifi…",
+      "type": "Native reading",
+      "section": "scope",
+      "tags": [
+        "model",
+        "reproduction",
+        "scope",
+        "verification"
+      ],
+      "track": null,
+      "lesson_id": null
+    }
+  ],
+  "commands": [
+    {
+      "command": "npm --prefix apps/web ci --ignore-scripts",
+      "label": "Expected environment setup",
+      "path": ".github/workflows/qa-audit.yml",
+      "line": 36,
+      "source_url": "https://github.com/mohammadrezwankhan/datacenter-twin-lab/blob/7304827ec70db520b5b910fa47175f80235f82ce/.github/workflows/qa-audit.yml#L36"
+    },
+    {
+      "command": "python -m unittest discover -s tests -v",
+      "label": "Source-defined validation command",
+      "path": ".github/workflows/qa-audit.yml",
+      "line": 38,
+      "source_url": "https://github.com/mohammadrezwankhan/datacenter-twin-lab/blob/7304827ec70db520b5b910fa47175f80235f82ce/.github/workflows/qa-audit.yml#L38"
+    },
+    {
+      "command": "python -m datacenter_twin simulate --preset generator_failure --format markdown > /dev/null",
+      "label": "Source-defined example command",
+      "path": ".github/workflows/qa-audit.yml",
+      "line": 40,
+      "source_url": "https://github.com/mohammadrezwankhan/datacenter-twin-lab/blob/7304827ec70db520b5b910fa47175f80235f82ce/.github/workflows/qa-audit.yml#L40"
+    },
+    {
+      "command": "npm --prefix apps/web exec -- playwright install --with-deps chromium",
+      "label": "Expected environment setup",
+      "path": ".github/workflows/qa-audit.yml",
+      "line": 54,
+      "source_url": "https://github.com/mohammadrezwankhan/datacenter-twin-lab/blob/7304827ec70db520b5b910fa47175f80235f82ce/.github/workflows/qa-audit.yml#L54"
+    },
+    {
+      "command": "npm --prefix apps/web run test:demo",
+      "label": "Source-defined validation command",
+      "path": ".github/workflows/qa-audit.yml",
+      "line": 58,
+      "source_url": "https://github.com/mohammadrezwankhan/datacenter-twin-lab/blob/7304827ec70db520b5b910fa47175f80235f82ce/.github/workflows/qa-audit.yml#L58"
+    },
+    {
+      "command": "python scripts/audit_public_site.py --strict-seo --max-pages 250 --out outputs/audit/public-site.json",
+      "label": "Source-defined validation command",
+      "path": ".github/workflows/qa-audit.yml",
+      "line": 83,
+      "source_url": "https://github.com/mohammadrezwankhan/datacenter-twin-lab/blob/7304827ec70db520b5b910fa47175f80235f82ce/.github/workflows/qa-audit.yml#L83"
+    }
+  ],
+  "engineering_curriculum_exclusions": [],
+  "visuals": {
+    "mapped_diagrams": [
+      {
+        "path": "diagrams/datacenter-ups-topology.svg",
+        "fidelity": "Conceptual supply topology; no source-specific reliability calculation."
+      }
+    ],
+    "section_banners": [
+      "section-01-question.svg",
+      "section-02-equations.svg",
+      "section-03-reproduce.svg",
+      "section-04-verification.svg",
+      "section-05-scope.svg"
+    ]
+  },
+  "native_document_banner_insertions": [
+    {
+      "path": "docs/studies/emt.md",
+      "section": "equations",
+      "section_title": "Equations / provenance",
+      "banner": "docs/visuals/sections/section-02-equations.svg",
+      "markdown_relative_banner": "../visuals/sections/section-02-equations.svg",
+      "insert_after_heading": "Equations and numerical method",
+      "heading_line": 42,
+      "source_link": "https://github.com/mohammadrezwankhan/datacenter-twin-lab/blob/7304827ec70db520b5b910fa47175f80235f82ce/docs/studies/emt.md#L42",
+      "reason": "The existing heading 'Equations and numerical method' matches the equations / provenance section."
+    },
+    {
+      "path": "docs/studies/emt.md",
+      "section": "reproduce",
+      "section_title": "Reproduce / parameters",
+      "banner": "docs/visuals/sections/section-03-reproduce.svg",
+      "markdown_relative_banner": "../visuals/sections/section-03-reproduce.svg",
+      "insert_after_heading": "The experiment",
+      "heading_line": 12,
+      "source_link": "https://github.com/mohammadrezwankhan/datacenter-twin-lab/blob/7304827ec70db520b5b910fa47175f80235f82ce/docs/studies/emt.md#L12",
+      "reason": "The existing heading 'The experiment' matches the reproduce / parameters section."
+    },
+    {
+      "path": "docs/validation/examples/generator-failure-report.md",
+      "section": "equations",
+      "section_title": "Equations / provenance",
+      "banner": "docs/visuals/sections/section-02-equations.svg",
+      "markdown_relative_banner": "../../visuals/sections/section-02-equations.svg",
+      "insert_after_heading": "Scenario assumptions",
+      "heading_line": 34,
+      "source_link": "https://github.com/mohammadrezwankhan/datacenter-twin-lab/blob/7304827ec70db520b5b910fa47175f80235f82ce/docs/validation/examples/generator-failure-report.md#L34",
+      "reason": "The existing heading 'Scenario assumptions' matches the equations / provenance section."
+    },
+    {
+      "path": "docs/validation/examples/generator-failure-report.md",
+      "section": "scope",
+      "section_title": "Scope / limitations",
+      "banner": "docs/visuals/sections/section-05-scope.svg",
+      "markdown_relative_banner": "../../visuals/sections/section-05-scope.svg",
+      "insert_after_heading": "Limitations",
+      "heading_line": 66,
+      "source_link": "https://github.com/mohammadrezwankhan/datacenter-twin-lab/blob/7304827ec70db520b5b910fa47175f80235f82ce/docs/validation/examples/generator-failure-report.md#L66",
+      "reason": "The existing heading 'Limitations' matches the scope / limitations section."
+    },
+    {
+      "path": "docs/studies/power-dynamics.md",
+      "section": "reproduce",
+      "section_title": "Reproduce / parameters",
+      "banner": "docs/visuals/sections/section-03-reproduce.svg",
+      "markdown_relative_banner": "../visuals/sections/section-03-reproduce.svg",
+      "insert_after_heading": "Reproduce locally",
+      "heading_line": 80,
+      "source_link": "https://github.com/mohammadrezwankhan/datacenter-twin-lab/blob/7304827ec70db520b5b910fa47175f80235f82ce/docs/studies/power-dynamics.md#L80",
+      "reason": "The existing heading 'Reproduce locally' matches the reproduce / parameters section."
+    },
+    {
+      "path": "docs/tutorials/power-systems-course.md",
+      "section": "equations",
+      "section_title": "Equations / provenance",
+      "banner": "docs/visuals/sections/section-02-equations.svg",
+      "markdown_relative_banner": "../visuals/sections/section-02-equations.svg",
+      "insert_after_heading": "Assumptions and limits",
+      "heading_line": 111,
+      "source_link": "https://github.com/mohammadrezwankhan/datacenter-twin-lab/blob/7304827ec70db520b5b910fa47175f80235f82ce/docs/tutorials/power-systems-course.md#L111",
+      "reason": "The existing heading 'Assumptions and limits' matches the equations / provenance section."
+    },
+    {
+      "path": "docs/tutorials/power-systems-course.md",
+      "section": "reproduce",
+      "section_title": "Reproduce / parameters",
+      "banner": "docs/visuals/sections/section-03-reproduce.svg",
+      "markdown_relative_banner": "../visuals/sections/section-03-reproduce.svg",
+      "insert_after_heading": "Run the lessons",
+      "heading_line": 64,
+      "source_link": "https://github.com/mohammadrezwankhan/datacenter-twin-lab/blob/7304827ec70db520b5b910fa47175f80235f82ce/docs/tutorials/power-systems-course.md#L64",
+      "reason": "The existing heading 'Run the lessons' matches the reproduce / parameters section."
+    },
+    {
+      "path": "docs/tutorials/power-systems-course.md",
+      "section": "verification",
+      "section_title": "Verification / output",
+      "banner": "docs/visuals/sections/section-04-verification.svg",
+      "markdown_relative_banner": "../visuals/sections/section-04-verification.svg",
+      "insert_after_heading": "The headline result",
+      "heading_line": 43,
+      "source_link": "https://github.com/mohammadrezwankhan/datacenter-twin-lab/blob/7304827ec70db520b5b910fa47175f80235f82ce/docs/tutorials/power-systems-course.md#L43",
+      "reason": "The existing heading 'The headline result' matches the verification / output section."
+    },
+    {
+      "path": "docs/tutorials/demand-timing.md",
+      "section": "reproduce",
+      "section_title": "Reproduce / parameters",
+      "banner": "docs/visuals/sections/section-03-reproduce.svg",
+      "markdown_relative_banner": "../visuals/sections/section-03-reproduce.svg",
+      "insert_after_heading": "Reproduce it in the browser",
+      "heading_line": 23,
+      "source_link": "https://github.com/mohammadrezwankhan/datacenter-twin-lab/blob/7304827ec70db520b5b910fa47175f80235f82ce/docs/tutorials/demand-timing.md#L23",
+      "reason": "The existing heading 'Reproduce it in the browser' matches the reproduce / parameters section."
+    },
+    {
+      "path": "docs/tutorials/demand-timing.md",
+      "section": "verification",
+      "section_title": "Verification / output",
+      "banner": "docs/visuals/sections/section-04-verification.svg",
+      "markdown_relative_banner": "../visuals/sections/section-04-verification.svg",
+      "insert_after_heading": "Check the result by hand",
+      "heading_line": 63,
+      "source_link": "https://github.com/mohammadrezwankhan/datacenter-twin-lab/blob/7304827ec70db520b5b910fa47175f80235f82ce/docs/tutorials/demand-timing.md#L63",
+      "reason": "The existing heading 'Check the result by hand' matches the verification / output section."
+    },
+    {
+      "path": "docs/tutorials/demand-timing.md",
+      "section": "scope",
+      "section_title": "Scope / limitations",
+      "banner": "docs/visuals/sections/section-05-scope.svg",
+      "markdown_relative_banner": "../visuals/sections/section-05-scope.svg",
+      "insert_after_heading": "Assumptions, scope and sources",
+      "heading_line": 104,
+      "source_link": "https://github.com/mohammadrezwankhan/datacenter-twin-lab/blob/7304827ec70db520b5b910fa47175f80235f82ce/docs/tutorials/demand-timing.md#L104",
+      "reason": "The existing heading 'Assumptions, scope and sources' matches the scope / limitations section."
+    },
+    {
+      "path": "docs/tutorials/index.md",
+      "section": "question",
+      "section_title": "Question / topology",
+      "banner": "docs/visuals/sections/section-01-question.svg",
+      "markdown_relative_banner": "../visuals/sections/section-01-question.svg",
+      "insert_after_heading": "Choose a reproducible question",
+      "heading_line": 9,
+      "source_link": "https://github.com/mohammadrezwankhan/datacenter-twin-lab/blob/7304827ec70db520b5b910fa47175f80235f82ce/docs/tutorials/index.md#L9",
+      "reason": "The existing heading 'Choose a reproducible question' matches the question / topology section."
+    },
+    {
+      "path": "docs/tutorials/index.md",
+      "section": "equations",
+      "section_title": "Equations / provenance",
+      "banner": "docs/visuals/sections/section-02-equations.svg",
+      "markdown_relative_banner": "../visuals/sections/section-02-equations.svg",
+      "insert_after_heading": "Assumptions and limits",
+      "heading_line": 39,
+      "source_link": "https://github.com/mohammadrezwankhan/datacenter-twin-lab/blob/7304827ec70db520b5b910fa47175f80235f82ce/docs/tutorials/index.md#L39",
+      "reason": "The existing heading 'Assumptions and limits' matches the equations / provenance section."
+    },
+    {
+      "path": "docs/examples/demo-walkthrough.md",
+      "section": "reproduce",
+      "section_title": "Reproduce / parameters",
+      "banner": "docs/visuals/sections/section-03-reproduce.svg",
+      "markdown_relative_banner": "../visuals/sections/section-03-reproduce.svg",
+      "insert_after_heading": "Watch and reproduce the 1 MW experiment",
+      "heading_line": 1,
+      "source_link": "https://github.com/mohammadrezwankhan/datacenter-twin-lab/blob/7304827ec70db520b5b910fa47175f80235f82ce/docs/examples/demo-walkthrough.md#L1",
+      "reason": "The existing heading 'Watch and reproduce the 1 MW experiment' matches the reproduce / parameters section."
+    },
+    {
+      "path": "docs/tutorials/continuity-walkthrough.md",
+      "section": "question",
+      "section_title": "Question / topology",
+      "banner": "docs/visuals/sections/section-01-question.svg",
+      "markdown_relative_banner": "../visuals/sections/section-01-question.svg",
+      "insert_after_heading": "The synthetic topology",
+      "heading_line": 35,
+      "source_link": "https://github.com/mohammadrezwankhan/datacenter-twin-lab/blob/7304827ec70db520b5b910fa47175f80235f82ce/docs/tutorials/continuity-walkthrough.md#L35",
+      "reason": "The existing heading 'The synthetic topology' matches the question / topology section."
+    },
+    {
+      "path": "docs/tutorials/continuity-walkthrough.md",
+      "section": "equations",
+      "section_title": "Equations / provenance",
+      "banner": "docs/visuals/sections/section-02-equations.svg",
+      "markdown_relative_banner": "../visuals/sections/section-02-equations.svg",
+      "insert_after_heading": "Assumptions and limits",
+      "heading_line": 121,
+      "source_link": "https://github.com/mohammadrezwankhan/datacenter-twin-lab/blob/7304827ec70db520b5b910fa47175f80235f82ce/docs/tutorials/continuity-walkthrough.md#L121",
+      "reason": "The existing heading 'Assumptions and limits' matches the equations / provenance section."
+    },
+    {
+      "path": "docs/tutorials/continuity-walkthrough.md",
+      "section": "reproduce",
+      "section_title": "Reproduce / parameters",
+      "banner": "docs/visuals/sections/section-03-reproduce.svg",
+      "markdown_relative_banner": "../visuals/sections/section-03-reproduce.svg",
+      "insert_after_heading": "Reproduce and contribute",
+      "heading_line": 129,
+      "source_link": "https://github.com/mohammadrezwankhan/datacenter-twin-lab/blob/7304827ec70db520b5b910fa47175f80235f82ce/docs/tutorials/continuity-walkthrough.md#L129",
+      "reason": "The existing heading 'Reproduce and contribute' matches the reproduce / parameters section."
+    },
+    {
+      "path": "docs/tutorials/continuity-walkthrough.md",
+      "section": "verification",
+      "section_title": "Verification / output",
+      "banner": "docs/visuals/sections/section-04-verification.svg",
+      "markdown_relative_banner": "../visuals/sections/section-04-verification.svg",
+      "insert_after_heading": "Reproduce the evidence",
+      "heading_line": 21,
+      "source_link": "https://github.com/mohammadrezwankhan/datacenter-twin-lab/blob/7304827ec70db520b5b910fa47175f80235f82ce/docs/tutorials/continuity-walkthrough.md#L21",
+      "reason": "The existing heading 'Reproduce the evidence' matches the verification / output section."
+    }
+  ],
+  "native_document_banner_audit": {
+    "schema_version": 1,
+    "eligibility_rule": "Tracked indexed Markdown in an examples, tutorials, lessons, studies, study-cases, concepts or notes directory, or whose path/title explicitly names a lesson, tutorial, example, walkthrough, study case or study. Banners are based only on existing semantic heading text, never directory names.",
+    "eligible_document_count": 11,
+    "lesson_document_candidates": 11,
+    "modified_document_count": 8,
+    "banner_insertion_count": 18,
+    "audit_gap_count": 3,
+    "banners": [
+      {
+        "path": "docs/studies/emt.md",
+        "section": "equations",
+        "section_title": "Equations / provenance",
+        "banner": "docs/visuals/sections/section-02-equations.svg",
+        "markdown_relative_banner": "../visuals/sections/section-02-equations.svg",
+        "insert_after_heading": "Equations and numerical method",
+        "heading_line": 42,
+        "source_link": "https://github.com/mohammadrezwankhan/datacenter-twin-lab/blob/7304827ec70db520b5b910fa47175f80235f82ce/docs/studies/emt.md#L42",
+        "reason": "The existing heading 'Equations and numerical method' matches the equations / provenance section."
+      },
+      {
+        "path": "docs/studies/emt.md",
+        "section": "reproduce",
+        "section_title": "Reproduce / parameters",
+        "banner": "docs/visuals/sections/section-03-reproduce.svg",
+        "markdown_relative_banner": "../visuals/sections/section-03-reproduce.svg",
+        "insert_after_heading": "The experiment",
+        "heading_line": 12,
+        "source_link": "https://github.com/mohammadrezwankhan/datacenter-twin-lab/blob/7304827ec70db520b5b910fa47175f80235f82ce/docs/studies/emt.md#L12",
+        "reason": "The existing heading 'The experiment' matches the reproduce / parameters section."
+      },
+      {
+        "path": "docs/validation/examples/generator-failure-report.md",
+        "section": "equations",
+        "section_title": "Equations / provenance",
+        "banner": "docs/visuals/sections/section-02-equations.svg",
+        "markdown_relative_banner": "../../visuals/sections/section-02-equations.svg",
+        "insert_after_heading": "Scenario assumptions",
+        "heading_line": 34,
+        "source_link": "https://github.com/mohammadrezwankhan/datacenter-twin-lab/blob/7304827ec70db520b5b910fa47175f80235f82ce/docs/validation/examples/generator-failure-report.md#L34",
+        "reason": "The existing heading 'Scenario assumptions' matches the equations / provenance section."
+      },
+      {
+        "path": "docs/validation/examples/generator-failure-report.md",
+        "section": "scope",
+        "section_title": "Scope / limitations",
+        "banner": "docs/visuals/sections/section-05-scope.svg",
+        "markdown_relative_banner": "../../visuals/sections/section-05-scope.svg",
+        "insert_after_heading": "Limitations",
+        "heading_line": 66,
+        "source_link": "https://github.com/mohammadrezwankhan/datacenter-twin-lab/blob/7304827ec70db520b5b910fa47175f80235f82ce/docs/validation/examples/generator-failure-report.md#L66",
+        "reason": "The existing heading 'Limitations' matches the scope / limitations section."
+      },
+      {
+        "path": "docs/studies/power-dynamics.md",
+        "section": "reproduce",
+        "section_title": "Reproduce / parameters",
+        "banner": "docs/visuals/sections/section-03-reproduce.svg",
+        "markdown_relative_banner": "../visuals/sections/section-03-reproduce.svg",
+        "insert_after_heading": "Reproduce locally",
+        "heading_line": 80,
+        "source_link": "https://github.com/mohammadrezwankhan/datacenter-twin-lab/blob/7304827ec70db520b5b910fa47175f80235f82ce/docs/studies/power-dynamics.md#L80",
+        "reason": "The existing heading 'Reproduce locally' matches the reproduce / parameters section."
+      },
+      {
+        "path": "docs/tutorials/power-systems-course.md",
+        "section": "equations",
+        "section_title": "Equations / provenance",
+        "banner": "docs/visuals/sections/section-02-equations.svg",
+        "markdown_relative_banner": "../visuals/sections/section-02-equations.svg",
+        "insert_after_heading": "Assumptions and limits",
+        "heading_line": 111,
+        "source_link": "https://github.com/mohammadrezwankhan/datacenter-twin-lab/blob/7304827ec70db520b5b910fa47175f80235f82ce/docs/tutorials/power-systems-course.md#L111",
+        "reason": "The existing heading 'Assumptions and limits' matches the equations / provenance section."
+      },
+      {
+        "path": "docs/tutorials/power-systems-course.md",
+        "section": "reproduce",
+        "section_title": "Reproduce / parameters",
+        "banner": "docs/visuals/sections/section-03-reproduce.svg",
+        "markdown_relative_banner": "../visuals/sections/section-03-reproduce.svg",
+        "insert_after_heading": "Run the lessons",
+        "heading_line": 64,
+        "source_link": "https://github.com/mohammadrezwankhan/datacenter-twin-lab/blob/7304827ec70db520b5b910fa47175f80235f82ce/docs/tutorials/power-systems-course.md#L64",
+        "reason": "The existing heading 'Run the lessons' matches the reproduce / parameters section."
+      },
+      {
+        "path": "docs/tutorials/power-systems-course.md",
+        "section": "verification",
+        "section_title": "Verification / output",
+        "banner": "docs/visuals/sections/section-04-verification.svg",
+        "markdown_relative_banner": "../visuals/sections/section-04-verification.svg",
+        "insert_after_heading": "The headline result",
+        "heading_line": 43,
+        "source_link": "https://github.com/mohammadrezwankhan/datacenter-twin-lab/blob/7304827ec70db520b5b910fa47175f80235f82ce/docs/tutorials/power-systems-course.md#L43",
+        "reason": "The existing heading 'The headline result' matches the verification / output section."
+      },
+      {
+        "path": "docs/tutorials/demand-timing.md",
+        "section": "reproduce",
+        "section_title": "Reproduce / parameters",
+        "banner": "docs/visuals/sections/section-03-reproduce.svg",
+        "markdown_relative_banner": "../visuals/sections/section-03-reproduce.svg",
+        "insert_after_heading": "Reproduce it in the browser",
+        "heading_line": 23,
+        "source_link": "https://github.com/mohammadrezwankhan/datacenter-twin-lab/blob/7304827ec70db520b5b910fa47175f80235f82ce/docs/tutorials/demand-timing.md#L23",
+        "reason": "The existing heading 'Reproduce it in the browser' matches the reproduce / parameters section."
+      },
+      {
+        "path": "docs/tutorials/demand-timing.md",
+        "section": "verification",
+        "section_title": "Verification / output",
+        "banner": "docs/visuals/sections/section-04-verification.svg",
+        "markdown_relative_banner": "../visuals/sections/section-04-verification.svg",
+        "insert_after_heading": "Check the result by hand",
+        "heading_line": 63,
+        "source_link": "https://github.com/mohammadrezwankhan/datacenter-twin-lab/blob/7304827ec70db520b5b910fa47175f80235f82ce/docs/tutorials/demand-timing.md#L63",
+        "reason": "The existing heading 'Check the result by hand' matches the verification / output section."
+      },
+      {
+        "path": "docs/tutorials/demand-timing.md",
+        "section": "scope",
+        "section_title": "Scope / limitations",
+        "banner": "docs/visuals/sections/section-05-scope.svg",
+        "markdown_relative_banner": "../visuals/sections/section-05-scope.svg",
+        "insert_after_heading": "Assumptions, scope and sources",
+        "heading_line": 104,
+        "source_link": "https://github.com/mohammadrezwankhan/datacenter-twin-lab/blob/7304827ec70db520b5b910fa47175f80235f82ce/docs/tutorials/demand-timing.md#L104",
+        "reason": "The existing heading 'Assumptions, scope and sources' matches the scope / limitations section."
+      },
+      {
+        "path": "docs/tutorials/index.md",
+        "section": "question",
+        "section_title": "Question / topology",
+        "banner": "docs/visuals/sections/section-01-question.svg",
+        "markdown_relative_banner": "../visuals/sections/section-01-question.svg",
+        "insert_after_heading": "Choose a reproducible question",
+        "heading_line": 9,
+        "source_link": "https://github.com/mohammadrezwankhan/datacenter-twin-lab/blob/7304827ec70db520b5b910fa47175f80235f82ce/docs/tutorials/index.md#L9",
+        "reason": "The existing heading 'Choose a reproducible question' matches the question / topology section."
+      },
+      {
+        "path": "docs/tutorials/index.md",
+        "section": "equations",
+        "section_title": "Equations / provenance",
+        "banner": "docs/visuals/sections/section-02-equations.svg",
+        "markdown_relative_banner": "../visuals/sections/section-02-equations.svg",
+        "insert_after_heading": "Assumptions and limits",
+        "heading_line": 39,
+        "source_link": "https://github.com/mohammadrezwankhan/datacenter-twin-lab/blob/7304827ec70db520b5b910fa47175f80235f82ce/docs/tutorials/index.md#L39",
+        "reason": "The existing heading 'Assumptions and limits' matches the equations / provenance section."
+      },
+      {
+        "path": "docs/examples/demo-walkthrough.md",
+        "section": "reproduce",
+        "section_title": "Reproduce / parameters",
+        "banner": "docs/visuals/sections/section-03-reproduce.svg",
+        "markdown_relative_banner": "../visuals/sections/section-03-reproduce.svg",
+        "insert_after_heading": "Watch and reproduce the 1 MW experiment",
+        "heading_line": 1,
+        "source_link": "https://github.com/mohammadrezwankhan/datacenter-twin-lab/blob/7304827ec70db520b5b910fa47175f80235f82ce/docs/examples/demo-walkthrough.md#L1",
+        "reason": "The existing heading 'Watch and reproduce the 1 MW experiment' matches the reproduce / parameters section."
+      },
+      {
+        "path": "docs/tutorials/continuity-walkthrough.md",
+        "section": "question",
+        "section_title": "Question / topology",
+        "banner": "docs/visuals/sections/section-01-question.svg",
+        "markdown_relative_banner": "../visuals/sections/section-01-question.svg",
+        "insert_after_heading": "The synthetic topology",
+        "heading_line": 35,
+        "source_link": "https://github.com/mohammadrezwankhan/datacenter-twin-lab/blob/7304827ec70db520b5b910fa47175f80235f82ce/docs/tutorials/continuity-walkthrough.md#L35",
+        "reason": "The existing heading 'The synthetic topology' matches the question / topology section."
+      },
+      {
+        "path": "docs/tutorials/continuity-walkthrough.md",
+        "section": "equations",
+        "section_title": "Equations / provenance",
+        "banner": "docs/visuals/sections/section-02-equations.svg",
+        "markdown_relative_banner": "../visuals/sections/section-02-equations.svg",
+        "insert_after_heading": "Assumptions and limits",
+        "heading_line": 121,
+        "source_link": "https://github.com/mohammadrezwankhan/datacenter-twin-lab/blob/7304827ec70db520b5b910fa47175f80235f82ce/docs/tutorials/continuity-walkthrough.md#L121",
+        "reason": "The existing heading 'Assumptions and limits' matches the equations / provenance section."
+      },
+      {
+        "path": "docs/tutorials/continuity-walkthrough.md",
+        "section": "reproduce",
+        "section_title": "Reproduce / parameters",
+        "banner": "docs/visuals/sections/section-03-reproduce.svg",
+        "markdown_relative_banner": "../visuals/sections/section-03-reproduce.svg",
+        "insert_after_heading": "Reproduce and contribute",
+        "heading_line": 129,
+        "source_link": "https://github.com/mohammadrezwankhan/datacenter-twin-lab/blob/7304827ec70db520b5b910fa47175f80235f82ce/docs/tutorials/continuity-walkthrough.md#L129",
+        "reason": "The existing heading 'Reproduce and contribute' matches the reproduce / parameters section."
+      },
+      {
+        "path": "docs/tutorials/continuity-walkthrough.md",
+        "section": "verification",
+        "section_title": "Verification / output",
+        "banner": "docs/visuals/sections/section-04-verification.svg",
+        "markdown_relative_banner": "../visuals/sections/section-04-verification.svg",
+        "insert_after_heading": "Reproduce the evidence",
+        "heading_line": 21,
+        "source_link": "https://github.com/mohammadrezwankhan/datacenter-twin-lab/blob/7304827ec70db520b5b910fa47175f80235f82ce/docs/tutorials/continuity-walkthrough.md#L21",
+        "reason": "The existing heading 'Reproduce the evidence' matches the verification / output section."
+      }
+    ],
+    "audit_gaps": [
+      {
+        "path": "docs/examples/proof-demo.md",
+        "reason": "no existing heading matches a five-color section; retained as a source-linked catalog entry"
+      },
+      {
+        "path": "docs/tutorials/battery-ride-through-worksheet.md",
+        "reason": "no existing heading matches a five-color section; retained as a source-linked catalog entry"
+      },
+      {
+        "path": "docs/examples/battery-ride-through.md",
+        "reason": "no existing heading matches a five-color section; retained as a source-linked catalog entry"
+      }
+    ],
+    "explicit_exclusions": []
+  },
+  "dashboard": {
+    "browser_lab_is_surrogate": true,
+    "native_execution_in_browser": false,
+    "localStorage_or_existing_dashboard_scripts_preserved": true
+  }
+}

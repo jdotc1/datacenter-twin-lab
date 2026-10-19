@@ -42,6 +42,8 @@ The existing [lesson 3 battery worksheet](battery-ride-through-worksheet.md) rem
 
 ## The headline result
 
+![Section 04 · Verification / output](../visuals/sections/section-04-verification.svg)
+
 The AI-outage lesson uses a synthetic aggregate **50,000 kW (50 MW)** IT request and **5,000 kWh (5 MWh)** initial stored battery energy. Utility and generator supply fail at 300 s. With 0.90 battery discharge efficiency and 0.95 distribution efficiency:
 
 ```text
@@ -62,6 +64,8 @@ unserved IT energy = 50,000 kW × 292.2 s / 3,600 s/h
 The calculation is a scaled teaching fixture. It answers how the declared reserve and efficiencies behave in this event sequence; it does not infer GPU throughput, job completion, grid adequacy, or site performance.
 
 ## Run the lessons
+
+![Section 03 · Reproduce / parameters](../visuals/sections/section-03-reproduce.svg)
 
 1. Open the [course at lesson 1](https://khanlab.co.technology/?lesson=power-energy).
 2. Predict the challenge value shown by the lesson, then select **Try the challenge value** and **Run lesson**.
@@ -109,6 +113,8 @@ The first report reproduces the 1 MW / 100 kWh calculation: 307.8 s of battery r
 For the 50 MW case, use the browser's [AI-outage lesson](https://khanlab.co.technology/?lesson=ai-outage) or either AI-cluster CLI command above. The lesson selects the implemented `ai_cluster_generator_failure` scenario and exposes the inputs and result without requiring a source checkout.
 
 ## Assumptions and limits
+
+![Section 02 · Equations / provenance](../visuals/sections/section-02-equations.svg)
 
 The lessons use synthetic electrical and planning exercises. The 50 MW examples represent one aggregate requested IT load. They do not model GPU jobs, workload queues, cooling, grid adequacy, AC transients, protection coordination, facility safety, reliability probabilities, selected equipment, or certified uptime. The N+1 lesson tests a path-capacity condition only. The PUE lesson is a separate annual energy calculation; do not add its overhead to the continuity losses a second time.
 

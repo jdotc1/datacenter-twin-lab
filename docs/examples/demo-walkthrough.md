@@ -1,5 +1,7 @@
 # Watch and reproduce the 1 MW experiment
 
+![Section 03 · Reproduce / parameters](../visuals/sections/section-03-reproduce.svg)
+
 [Open the current 1 MW experiment](https://khanlab.co.technology/?preset=generator_failure) or [view a still frame](../images/demo-preview.png).
 
 ![Actual browser walkthrough](../images/demo-walkthrough.gif)

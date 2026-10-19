@@ -20,6 +20,8 @@ The current model answers both with explicit topology, losses, event times, and 
 
 ## Reproduce the evidence
 
+![Section 04 · Verification / output](../visuals/sections/section-04-verification.svg)
+
 Run from the repository root with Python 3.12 or later. The core CLI uses the standard library; no account or cloud resource is needed.
 
 ```text
@@ -33,6 +35,8 @@ If an output path already exists, choose a new path or add `--force`. The two ou
 The preset definitions are in [`datacenter_twin/demo.py`](../../datacenter_twin/demo.py). The complete eight-asset input graph is [`datacenter_twin/resources/reference-site-v2.json`](../../datacenter_twin/resources/reference-site-v2.json). The CLI entry point is [`datacenter_twin/cli.py`](../../datacenter_twin/cli.py).
 
 ## The synthetic topology
+
+![Section 01 · Question / topology](../visuals/sections/section-01-question.svg)
 
 ```mermaid
 flowchart LR
@@ -120,6 +124,8 @@ The implementation uses exact rational arithmetic, deterministic residual max-fl
 
 ## Assumptions and limits
 
+![Section 02 · Equations / provenance](../visuals/sections/section-02-equations.svg)
+
 This is an electrical-only, single aggregate-load, synthetic experiment. It excludes cooling, workload queues, battery aging, temperature, generator ramp/cooldown/fuel dynamics, transfer and switching transients, AC load flow, impedance-based load sharing, protection coordination, harmonics, short-circuit and arc-flash studies, physical controls, reliability probabilities, Tier claims, service-level claims, certification, legal-compliance evidence, and real-site calibration. The 700 kW paths, 100 kWh battery, efficiencies, event times, and fictional tariff are fixture inputs. They are not selected-equipment ratings or live prices.
 
 The browser has no shared simulation backend or client analytics; the API binds to loopback. The default browser calculation uses exact JavaScript arithmetic, while **Verify against Python** is an optional on-demand Pyodide cross-check when supplied by the deployed build. Neither path establishes physical accuracy. Independent external technical review, formal security audit, facility measurements, validation data, FAT/SAT, and calibrated alarms are absent.
@@ -127,6 +133,8 @@ The browser has no shared simulation backend or client analytics; the API binds 
 The examples teach inspectable software behavior. They do not establish a facility's reliability or physical validation. Unknown costs and unavailable quantities remain explicit.
 
 ## Reproduce and contribute
+
+![Section 03 · Reproduce / parameters](../visuals/sections/section-03-reproduce.svg)
 
 Run both reference presets, inspect the interval beginning at 300 s, and compare the battery-depleted event with the hand calculation. If a result differs, open a [focused issue](https://github.com/mohammadrezwankhan/datacenter-twin-lab/issues) with the revision, command, input, expected value, and observed value. Contributions should preserve the synthetic assumptions and add an independently derived expectation.
 
