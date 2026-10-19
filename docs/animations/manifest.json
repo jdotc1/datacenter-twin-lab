@@ -1,0 +1,143 @@
+{
+  "schema_version": 1,
+  "repository": "datacenter-twin-lab",
+  "preserved_current_commit": "31c031402974eb4ff205a9fed527f48079beadde",
+  "animations": [
+    {
+      "kind": "image",
+      "title": "Original floating-layer SVG",
+      "badge": "Earlier animated media",
+      "description": "Floating isometric tiers, pulsing circuits, and flowing dashed traces from the earlier repository hero.",
+      "format": "Animated SVG",
+      "preview": "media/hero-25d-54447d2d4385.svg",
+      "preview_sha256": "10aafc6beddf11df1522b73be770311a7e21ada54c105128e648a00455988da4",
+      "motion_identity": "54447d2d4385823d30868a73b991bfa00e531a474378dc67a3cce411474f820b",
+      "sources": [
+        {
+          "path": "assets/hero-25d.svg",
+          "commit": "7304827ec70db520b5b910fa47175f80235f82ce",
+          "sha256": "c49189532de126fddfabcafb365f21e625cc34b2a49638561abdd7a512af60da",
+          "blob": "f622f27d565ea4c51312d6f0fbea9709517ef07e",
+          "url": "https://github.com/mohammadrezwankhan/datacenter-twin-lab/blob/7304827ec70db520b5b910fa47175f80235f82ce/assets/hero-25d.svg"
+        },
+        {
+          "path": "assets/hero-25d.svg",
+          "commit": "59ffe3a50d555a2171bef9d3d7e5bfafc56c939c",
+          "sha256": "3ef527f8c0843a26a66020693043ccda2187a85302efa93a4d696d47ed0acad1",
+          "blob": "a077cd6a95e9b4bfb578277d4a00031acc8e2575",
+          "url": "https://github.com/mohammadrezwankhan/datacenter-twin-lab/blob/59ffe3a50d555a2171bef9d3d7e5bfafc56c939c/assets/hero-25d.svg"
+        }
+      ]
+    },
+    {
+      "kind": "video",
+      "title": "Original engineering film",
+      "badge": "Earlier animated media",
+      "description": "The original 15-second engineering film at 1080p/60 fps. Conceptual animation; no live telemetry or certified engineering evidence.",
+      "format": "video/mp4",
+      "preview": "media/hero-1080p60-f0aee6779c76.mp4",
+      "preview_sha256": "f0aee6779c762133aff0961248af8cef575b7ae9f1e158fab27af72976e3667a",
+      "motion_identity": "f0aee6779c762133aff0961248af8cef575b7ae9f1e158fab27af72976e3667a",
+      "sources": [
+        {
+          "path": "assets/engineering-hero/v1/hero-1080p60.mp4",
+          "commit": "e7dca9b901ed6ff08e3c2c192a1e4c6b3ddff53e",
+          "sha256": "f0aee6779c762133aff0961248af8cef575b7ae9f1e158fab27af72976e3667a",
+          "blob": "13f05e744bb650b48aebfb97d638a8b09dad300a",
+          "url": "https://github.com/mohammadrezwankhan/datacenter-twin-lab/blob/e7dca9b901ed6ff08e3c2c192a1e4c6b3ddff53e/assets/engineering-hero/v1/hero-1080p60.mp4"
+        }
+      ]
+    },
+    {
+      "kind": "image",
+      "title": "Datacenter interface walkthrough",
+      "badge": "Earlier animated media",
+      "description": "Seven recorded interface frames from the earlier synthetic continuity demo, held for about three seconds each.",
+      "format": "Animated GIF",
+      "preview": "media/demo-walkthrough-5f200d1b88b5.gif",
+      "preview_sha256": "5f200d1b88b558b38c08df442dbff4784eb62cdd136d5a995a1e5d8ec2f36b17",
+      "motion_identity": "5f200d1b88b558b38c08df442dbff4784eb62cdd136d5a995a1e5d8ec2f36b17",
+      "sources": [
+        {
+          "path": "docs/images/demo-walkthrough.gif",
+          "commit": "5860a9217f4dd7fb47228f51db8f0164a4c1f6eb",
+          "sha256": "5f200d1b88b558b38c08df442dbff4784eb62cdd136d5a995a1e5d8ec2f36b17",
+          "blob": "c68ab50b06c5a0d68ed98467bbc144d52427dbb2",
+          "url": "https://github.com/mohammadrezwankhan/datacenter-twin-lab/blob/5860a9217f4dd7fb47228f51db8f0164a4c1f6eb/docs/images/demo-walkthrough.gif"
+        }
+      ]
+    },
+    {
+      "kind": "video",
+      "title": "Datacenter 60-second browser tour",
+      "badge": "Earlier animated media",
+      "description": "The original captioned recording of the synthetic browser lab. Use the linked transcript for the narrated steps and limitations.",
+      "format": "video/webm",
+      "preview": "media/proof-demo-a121e495be71.webm",
+      "preview_sha256": "a121e495be71c873c2a1fd8465b876891a8f272bad54b820242830d023b94f14",
+      "motion_identity": "a121e495be71c873c2a1fd8465b876891a8f272bad54b820242830d023b94f14",
+      "sources": [
+        {
+          "path": "docs/images/proof-demo.webm",
+          "commit": "cd32af9dc36ead9c0ef045f738fe3e5ab667117c",
+          "sha256": "a121e495be71c873c2a1fd8465b876891a8f272bad54b820242830d023b94f14",
+          "blob": "1e27e2cab813db85a87d89ae70815c5747a113b5",
+          "url": "https://github.com/mohammadrezwankhan/datacenter-twin-lab/blob/cd32af9dc36ead9c0ef045f738fe3e5ab667117c/docs/images/proof-demo.webm"
+        }
+      ],
+      "captions": "../images/proof-demo.vtt"
+    },
+    {
+      "kind": "waveform",
+      "title": "Original interactive waveform",
+      "badge": "Previous dashboard animation",
+      "description": "The earlier 2.5D perspective card and its moving waveform, with the original visual formulas and sliders.",
+      "preview": "waveform.html",
+      "preview_sha256": "89c859fdf3ba7890099d6ba4409eab5064e0cb7b5a978bc0f1adfa992ab160dd",
+      "sources": [
+        {
+          "path": "docs/index.html",
+          "commit": "7304827ec70db520b5b910fa47175f80235f82ce",
+          "blob": "954e0c4de65dccee21028e3705cb7e330dd9f283",
+          "sha256": "183f56ef24d6ac92a9cc5638cd1e9bb09f0dfcb7764450e0e3d71405312c165d",
+          "url": "https://github.com/mohammadrezwankhan/datacenter-twin-lab/blob/7304827ec70db520b5b910fa47175f80235f82ce/docs/index.html"
+        },
+        {
+          "path": "docs/index.html",
+          "commit": "59ffe3a50d555a2171bef9d3d7e5bfafc56c939c",
+          "blob": "3f76899379b02f16c6e075c980e6d35a3da6d259",
+          "sha256": "4334aef34de35838a9c0ffe6455253312656c4ef3a6c47990c4875485cb83261",
+          "url": "https://github.com/mohammadrezwankhan/datacenter-twin-lab/blob/59ffe3a50d555a2171bef9d3d7e5bfafc56c939c/docs/index.html"
+        }
+      ]
+    }
+  ],
+  "native_links": [
+    {
+      "title": "Original interactive engineering scene",
+      "url": "https://khanlab.co.technology/assets/engineering-hero/v1/index.html",
+      "description": "The preserved opt-in 3D scene: battery physics, models, evidence, and grid systems. Requires WebGL; the film remains available when WebGL is unavailable."
+    },
+    {
+      "title": "Datacenter original continuity simulator",
+      "url": "https://khanlab.co.technology/",
+      "description": "The native animated power topology, scenarios, and interactive lessons."
+    },
+    {
+      "title": "Captioned tour and evidence hub",
+      "url": "https://khanlab.co.technology/?mode=evidence#demo",
+      "description": "Watch the original 60-second recording in its source context."
+    },
+    {
+      "title": "Tour transcript and reproduction notes",
+      "url": "https://github.com/mohammadrezwankhan/datacenter-twin-lab/blob/31c031402974eb4ff205a9fed527f48079beadde/docs/examples/proof-demo.md",
+      "description": "Text alternative, captions, source recording, and synthetic-demo boundaries."
+    },
+    {
+      "title": "Earlier GIF walkthrough notes",
+      "url": "https://github.com/mohammadrezwankhan/datacenter-twin-lab/blob/31c031402974eb4ff205a9fed527f48079beadde/docs/examples/demo-walkthrough.md",
+      "description": "Step-by-step description and scope for the seven-frame GIF."
+    }
+  ],
+  "historical_source_links": []
+}
