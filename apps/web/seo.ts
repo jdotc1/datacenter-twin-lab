@@ -297,7 +297,7 @@ Read the <a href="${source}NOTICE">source notices</a> and <a href="${root}about/
           description,
           'learn/',
           `
-<p class="eyebrow">The power playbook / ${learning.counts.continuity} practical lessons</p><h1>${courseName}</h1>
+<p class="eyebrow">The power playbook / ${courseTotal} practical lessons</p><h1>${courseName}</h1>
 <p class="lead">A generator fails. The battery takes over. Can you predict when the lights go out?</p>
 <p>Start with a 1 MW load and a 100 kWh battery, then change one assumption at a time. Read the calculations here, run each experiment in your browser, and compare the result with the reference Python engine.</p>
 <p class="byline">Original course by <a href="../about/#author">${site.author}</a> · Engine ${ENGINE_VERSION} · <a href="../evidence/">Reference results and citation records</a></p>
@@ -307,7 +307,7 @@ ${learningDirectory(learning.items)}
 ${learningExplorer()}
 <h2>Build your power-systems intuition</h2><p>For datacenter engineers learning power continuity. Begin with power and energy, work through outages and shared failures, then compare aggregate AI demand and annual PUE planning. Basic arithmetic is enough to start.</p>${graphic}
 <section class="panel"><h2>Go inside a voltage sag</h2><p>Ready for a different timescale? The separate <a href="../studies/emt/">EMT fundamentals study</a> explores a 200 ms ideal DC-link RLC transient with waveforms, an energy ledger and step-refinement checks. Continue with five <a href="../studies/power-dynamics/">advanced power-dynamics studies</a> of converter response and grid modes.</p></section>
-<section class="panel"><h2>What these twelve experiments establish</h2><p>These are deterministic synthetic electrical examples with explicit units, input scenarios and downloadable results. They teach reserve accounting and failure-path reasoning. They do not predict GPU jobs, grid adequacy, electrical transients or certified facility uptime.</p><p><a href="../about/">Read about the author, model scope and reproducibility evidence →</a></p></section>
+<section class="panel"><h2>What the continuity lessons establish</h2><p>These are deterministic synthetic electrical examples with explicit units, input scenarios and downloadable results. They teach reserve accounting and failure-path reasoning. They do not predict GPU jobs, grid adequacy, electrical transients or certified facility uptime.</p><p><a href="../about/">Read about the author, model scope and reproducibility evidence →</a></p></section>
 <p class="small">${revision ? `Website source revision: <a href="${repository}/tree/${revision}">${revision.slice(0, 12)}</a>.` : 'Website source revision is not declared in this local build.'} The engine version does not identify every study model; see each guide and applied result.</p>
 <script type="module" src="../${this.getFileName(discoveryScript)}"></script>`,
           course,

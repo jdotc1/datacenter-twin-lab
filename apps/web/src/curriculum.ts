@@ -25,6 +25,14 @@ export const relatedInfrastructure = (id: string) =>
 export function navigateLesson(id: string) {
   if (!lessonNavigation(id)) return;
   const url = new URL(window.location.href);
+  if (
+    url.searchParams.get('lesson') === id &&
+    !url.searchParams.has('study') &&
+    !url.searchParams.has('mode')
+  )
+    return;
+  url.hash = '';
+  url.searchParams.delete('view');
   url.searchParams.delete('study');
   url.searchParams.delete('mode');
   url.searchParams.set('lesson', id);

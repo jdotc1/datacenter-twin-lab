@@ -74,8 +74,8 @@
       "Join the slabs into one facility total; a second cooling slab is flagged as duplication.",
       "Switch to a matched-interval energy view without relabelling power as energy."
     ],
-    "interaction": "Keyboard-select each ledger term; change the design ratio and expose a negative residual.",
-    "staticAlternative": "An accessible table of load terms, units, evidence labels and inclusion rules.",
+    "interaction": "Use the narrative step controls to inspect the ledger; change the design ratio and run again to expose a negative residual.",
+    "staticAlternative": "An accessible table of IT demand, facility total, residual, apparent power and ledger-screen status.",
     "projection": "orthographic axonometric SVG with upright HTML labels",
     "loopPolicy": "user-started; pauseable; stop on hidden/offscreen",
     "timelineSemantics": "Narrative steps unless an explicitly labelled physical-time model is active.",

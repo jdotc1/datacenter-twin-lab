@@ -271,7 +271,7 @@ export function ResearchChart({
                 max={Math.max(0, count - 1)}
                 step="1"
                 value={index}
-                aria-label={'Select sample on ' + chart.title}
+                aria-label={'Focus a data point on ' + chart.title}
                 aria-valuetext={chart.x_label + ' ' + fmt(xValue, 6)}
                 onFocus={onFocus}
                 onChange={(event) => onPointChange(Number(event.target.value))}
