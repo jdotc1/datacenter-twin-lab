@@ -390,8 +390,10 @@ def run_sdcib_study(study_id: str, config: dict[str, float]) -> dict[str, object
             window = np.hanning(len(centered))
             coeff = np.fft.rfft(centered * window)
             amp = np.abs(coeff) / (len(centered) * float(np.mean(window)))
-            if len(amp) > 2:
+            if len(centered) % 2 == 0:
                 amp[1:-1] *= 2.0
+            else:
+                amp[1:] *= 2.0
             return np.fft.rfftfreq(len(centered), d=duration / (len(centered) - 1)), amp
 
         fs, input_amp = spectrum(p_load)

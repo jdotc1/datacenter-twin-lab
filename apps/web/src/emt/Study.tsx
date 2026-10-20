@@ -12,6 +12,7 @@ import type { EmtConfig, EmtResult } from './engine';
 import { EmtCharts } from './Charts';
 import { EmtScene, type DeviceId } from './Scene';
 import { EmtVerification } from './Verification';
+import { csvFor } from '../result-csv';
 import './study.css';
 
 type Field = keyof EmtConfig;
@@ -112,30 +113,6 @@ function download(name: string, content: string, mime: string) {
   anchor.download = name;
   anchor.click();
   window.setTimeout(() => URL.revokeObjectURL(url), 1000);
-}
-
-function csvFor(result: EmtResult) {
-  const header = [
-    'time_ms',
-    'source_v',
-    'bus_v',
-    'source_a',
-    'load_a',
-    'stored_j',
-    'balance_error_j',
-  ];
-  const rows = result.rows.map((row) =>
-    [
-      row.time_ms,
-      row.source_v,
-      row.bus_v,
-      row.source_a,
-      row.load_a,
-      row.stored_j,
-      row.balance_error_j,
-    ].join(','),
-  );
-  return [header.join(','), ...rows].join('\r\n') + '\r\n';
 }
 
 function nearestRowIndex(result: EmtResult, timeMs: number) {
@@ -683,7 +660,8 @@ export function EmtStudy() {
         </div>
         <p className="emt-table-caption">
           Readable excerpt at 1 ms intervals plus the current and event-boundary samples. CSV
-          contains every 100 µs output row; JSON contains the full applied result and assumptions.
+          contains every 100 µs output row with the applied model, configuration, assumptions and
+          educational scope. JSON contains the full applied result.
         </p>
         <details className="emt-samples">
           <summary>
@@ -763,7 +741,7 @@ export function EmtStudy() {
       </details>
 
       <footer className="emt-footer">
-        <a href="?lesson=battery">← Back to the continuity course</a>
+        <a href="?lesson=ride-through">← Back to the continuity course</a>
         <span>Educational transient model · not facility validation</span>
         <span>
           Rows: {result.rows.length} · internal step: {result.config.step_us} µs

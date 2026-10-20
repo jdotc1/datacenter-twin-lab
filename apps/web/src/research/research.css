@@ -524,6 +524,12 @@
   background: #142934;
   color: #b2d3d8;
 }
+/* Keep the completion live region mounted without an empty visual banner. */
+.research-cancelled-status:empty {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
 .research-run-error {
   margin: 11px 0 0;
   padding: 11px 12px;

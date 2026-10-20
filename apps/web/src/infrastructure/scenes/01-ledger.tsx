@@ -23,7 +23,11 @@ export default function LedgerScene({ result, step }: SceneProps) {
     <SceneDiagram
       id="ledger"
       title="Facility load ledger"
-      description={`${stepText} Ledger values are blank until a model run is complete.`}
+      description={`${stepText} ${
+        result
+          ? 'The diagram and table show the last completed model run.'
+          : 'This is a preview. Run the model to populate the ledger values.'
+      }`}
       rows={rows}
       flat={false}
     >

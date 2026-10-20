@@ -322,7 +322,7 @@ export function Course() {
               <button
                 type="button"
                 onClick={() => setValue(lesson.initial)}
-                aria-label="Reset input"
+                aria-label="Starting input: reset to the reference value"
               >
                 <span>Starting input</span>
                 <strong>
