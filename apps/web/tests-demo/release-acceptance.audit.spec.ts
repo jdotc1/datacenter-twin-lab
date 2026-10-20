@@ -200,6 +200,37 @@ test('actual dynamics CSV, completion status and chart labels describe the compl
   await page.screenshot({ path: info.outputPath('forced-response-applied.png'), fullPage: true });
 });
 
+test('the engineering poster stays contained while its shadow stylesheet is loading', async ({
+  page,
+}) => {
+  let releaseStylesheet!: () => void;
+  const stylesheetGate = new Promise<void>((resolve) => {
+    releaseStylesheet = resolve;
+  });
+  await page.route('**/engineering-hero/v1/integration/vanilla/embed.css', async (route) => {
+    await stylesheetGate;
+    await route.continue();
+  });
+  try {
+    await page.goto('./', { waitUntil: 'domcontentloaded' });
+    await page.waitForFunction(() => {
+      const poster = document
+        .querySelector('khan-grid-hero')
+        ?.shadowRoot?.querySelector<HTMLImageElement>('.poster');
+      return poster?.complete && poster.naturalWidth === 1920;
+    });
+    for (const width of [1440, 820, 320]) {
+      await page.setViewportSize({ width, height: 900 });
+      expect(
+        await page.evaluate(() => document.documentElement.scrollWidth - innerWidth),
+      ).toBeLessThanOrEqual(1);
+    }
+  } finally {
+    releaseStylesheet();
+  }
+  await expect(page.getByRole('button', { name: 'Play animation' })).toBeVisible();
+});
+
 test('Back during initial workspace loading restores the URL preset', async ({ page }) => {
   await page.addInitScript(() => {
     const original = location.href;
