@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState, type FormEvent } from 'react';
 import { lessons, lessonScenario } from './course-lessons';
+import { courseTotal } from './curriculum';
 import { n, request } from './client';
 import { PythonVerification } from './PythonVerification';
 import { RunTools } from './RunTools';
@@ -605,7 +606,7 @@ export function GuidedStart({ onExplore, onLearn, onEvidence }: GuidedStartProps
               <span className="guided-eyebrow">BUILD THE IDEA</span>
               <h3>Work through the course</h3>
               <button type="button" onClick={onLearn}>
-                Continue to the 12-lesson course →
+                Continue to the {courseTotal}-lesson course →
               </button>
             </article>
             <article>

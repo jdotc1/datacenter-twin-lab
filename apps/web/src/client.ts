@@ -3,6 +3,10 @@ export const n = (value: unknown, digits = 1) =>
     ? 'Unknown'
     : Number(value).toLocaleString('en-US', { maximumFractionDigits: digits });
 
+// Keep small-range tick positions distinguishable while retaining compact large scales.
+export const powerTickLabel = (value: number, maximum: number) =>
+  n(value, maximum < 10 ? 2 : maximum < 100 ? 1 : 0);
+
 export async function request<T>(
   path: string,
   signal?: AbortSignal,

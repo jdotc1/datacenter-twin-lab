@@ -109,6 +109,18 @@
   color: #a0b1c1;
   font-size: 13px;
 }
+.energy-app .start-prediction-link {
+  display: inline-block;
+  margin-top: 14px;
+  border-radius: 8px;
+  text-decoration: none;
+}
+/* Keep the poster bounded before the custom element's shadow stylesheet arrives. */
+.engineering-hero khan-grid-hero::part(frame) {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+}
 .energy-app .heading-actions button {
   border-radius: 8px;
   padding: 10px 14px;

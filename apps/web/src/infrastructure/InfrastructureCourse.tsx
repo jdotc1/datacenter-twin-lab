@@ -321,6 +321,7 @@ export function InfrastructureCourse({ lessonId }: { lessonId: string }) {
                     type={key === 'stageSeconds' ? 'text' : 'number'}
                     inputMode="decimal"
                     step="any"
+                    min={key === 'pue' ? 1 : undefined}
                     required
                     disabled={value === 'infinite'}
                     value={value === 'infinite' ? '' : value}

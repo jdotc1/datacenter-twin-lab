@@ -8,6 +8,7 @@ import { ResearchDiagram } from './NetworkDiagram';
 import { ResearchChart } from './ResearchChart';
 import { initialConfig, isResearchStudyId, RESEARCH_STUDIES } from './types';
 import type { ResearchResult, ResearchStudy, ResearchStudyId } from './types';
+import { csvResult } from '../result-csv';
 import './research.css';
 
 type NumericDraft = Record<string, string>;
@@ -70,28 +71,6 @@ function save(name: string, content: string, type: string) {
   link.download = name;
   link.click();
   window.setTimeout(() => URL.revokeObjectURL(url), 1200);
-}
-
-function csvResult(result: ResearchResult) {
-  const cells = (value: string) => `"${value.replaceAll('"', '""')}"`;
-  const rows = [['chart_id', 'chart_title', 'x_label', 'x', 'line_label', 'y_label', 'y']];
-  for (const chart of result.charts) {
-    const length = Math.min(chart.x.length, ...chart.lines.map((line) => line.values.length));
-    for (let index = 0; index < length; index++) {
-      for (const line of chart.lines) {
-        rows.push([
-          chart.id,
-          chart.title,
-          chart.x_label,
-          String(chart.x[index]),
-          line.label,
-          chart.y_label,
-          String(line.values[index]),
-        ]);
-      }
-    }
-  }
-  return rows.map((row) => row.map(cells).join(',')).join('\r\n') + '\r\n';
 }
 
 function configLabel(study: ResearchStudy, config: Record<string, number>) {
@@ -184,6 +163,7 @@ export function ResearchStudio() {
     return isResearchStudyId(routeStudy) ? routeStudy : 'load-step';
   }, []);
   const [studyId, setStudyId] = useState(initialStudyId);
+  const currentStudyId = useRef(initialStudyId);
   const study = RESEARCH_STUDIES.find((item) => item.id === studyId)!;
   const [draft, setDraft] = useState<NumericDraft>(() => configDraft(study));
   const [prediction, setPrediction] = useState('');
@@ -205,16 +185,29 @@ export function ResearchStudio() {
     (!sameConfig(draftConfig, result.config) ||
       modeChoiceForPrediction(study, prediction) !== appliedPrediction);
 
-  useEffect(() => () => controller.current?.abort(), []);
+  useEffect(() => {
+    const restore = () => {
+      const id = new URLSearchParams(window.location.search).get('study');
+      if (id !== null) changeStudy(isResearchStudyId(id) ? id : 'load-step', false);
+    };
+    window.addEventListener('popstate', restore);
+    return () => {
+      window.removeEventListener('popstate', restore);
+      requestSequence.current++;
+      controller.current?.abort();
+    };
+  }, []);
 
   function updateUrl(id: ResearchStudyId) {
     const url = new URL(window.location.href);
     url.searchParams.set('study', id);
-    window.history.replaceState(null, '', url);
+    url.hash = '';
+    window.history.pushState(null, '', url);
   }
 
-  function changeStudy(nextId: ResearchStudyId) {
-    if (nextId === studyId) return;
+  function changeStudy(nextId: ResearchStudyId, addHistory = true) {
+    if (nextId === currentStudyId.current) return;
+    currentStudyId.current = nextId;
     requestSequence.current++;
     controller.current?.abort();
     controller.current = null;
@@ -230,7 +223,7 @@ export function ResearchStudio() {
     setRunError(null);
     setChartFocus('');
     setPointIndex(0);
-    updateUrl(nextId);
+    if (addHistory) updateUrl(nextId);
   }
 
   function changeField(name: string, value: string) {
@@ -267,7 +260,7 @@ export function ResearchStudio() {
       if (
         activeController.signal.aborted ||
         sequence !== requestSequence.current ||
-        selectedId !== studyId
+        selectedId !== currentStudyId.current
       )
         return;
       if (
@@ -279,7 +272,7 @@ export function ResearchStudio() {
         throw new Error('The local worker returned an unexpected study result shape.');
       setResult(response);
       setAppliedPrediction(selectedPrediction);
-      setStatus('');
+      setStatus(`${study.shortName} complete. Results are ready.`);
       setProgress(null);
       setChartFocus(response.charts[0]?.id ?? '');
       setPointIndex(0);
@@ -480,11 +473,15 @@ export function ResearchStudio() {
               inputs until a successful new run.
             </p>
           )}
-          {status && !busy && (
-            <p className="research-cancelled-status" role="status">
-              {status}
-            </p>
-          )}
+          <p
+            className="research-cancelled-status"
+            role="status"
+            aria-live="polite"
+            aria-atomic="true"
+            data-testid="research-completion-status"
+          >
+            {!busy ? status : ''}
+          </p>
           <button
             className="research-run-button"
             type="submit"
@@ -674,7 +671,8 @@ export function ResearchStudio() {
               <p>
                 JSON includes the applied configuration, solver fields, assumptions, all metrics,
                 and complete chart arrays. CSV contains every returned x/y sample for every plotted
-                series.
+                series, with the applied study, model, configuration, solver, assumptions and
+                educational scope.
               </p>
               <SolverDetails result={result} />
             </section>

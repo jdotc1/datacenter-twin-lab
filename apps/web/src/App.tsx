@@ -3,7 +3,7 @@ import type { PointerEvent } from 'react';
 import type { Asset, Catalog, Interval, Run, SiteScenario } from './types';
 import { svgViewBoxPoint } from './chartPointer';
 import { Evidence } from './Evidence';
-import { n, request } from './client';
+import { n, powerTickLabel, request } from './client';
 import { RunTools } from './RunTools';
 import { PythonVerification } from './PythonVerification';
 import { PowerScene } from './PowerScene';
@@ -20,6 +20,8 @@ import {
 import { facilityProfiles } from './facility-profiles';
 import { ENGINE_VERSION } from './js-engine/version';
 import { courseTotal } from './curriculum';
+import { pageForSearch, urlForPage } from './workspace-navigation';
+import type { Page } from './workspace-navigation';
 import './energy-workspace.css';
 
 const browserDemo = import.meta.env.MODE === 'demo';
@@ -43,24 +45,8 @@ const ScenarioFiles = lazy(() =>
 const DemandTimeline = lazy(() =>
   import('./DemandTimeline').then((module) => ({ default: module.DemandTimeline })),
 );
-type Page =
-  | 'start'
-  | 'overview'
-  | 'topology'
-  | 'evidence'
-  | 'learn'
-  | 'energy'
-  | 'assurance'
-  | 'emt'
-  | 'studies';
 function initialPage(): Page {
-  const query = new URLSearchParams(window.location.search);
-  if (browserDemo && query.has('study')) return 'studies';
-  if (query.get('mode') === 'emt') return 'emt';
-  if (query.has('lesson')) return 'learn';
-  if (!browserDemo) return 'overview';
-  if (query.get('mode') === 'evidence') return 'assurance';
-  return query.has('preset') || query.get('mode') === 'advanced' ? 'overview' : 'start';
+  return pageForSearch(window.location.search, browserDemo);
 }
 const initialPreset = browserDemo
   ? new URLSearchParams(window.location.search).get('preset') || 'ai_cluster_generator_failure'
@@ -140,7 +126,7 @@ function PowerChart({
               className="gridline"
             />
             <text x={left - 9} y={y(f * ymax) + 4} textAnchor="end">
-              {n(f * ymax, 0)}
+              {powerTickLabel(f * ymax, ymax)}
             </text>
           </g>
         ))}
@@ -422,7 +408,7 @@ function Compare({ baseline, run }: { baseline: Run; run: Run }) {
 
 export function App() {
   const [page, setPage] = useState<Page>(initialPage);
-  const routeSearch = useRef(window.location.search);
+  const [routeSearch, setRouteSearch] = useState(window.location.search);
   const needsWorkspace = !['start', 'learn', 'assurance', 'emt', 'studies'].includes(page);
   const [draft, setDraft] = useState<SiteScenario | null>(null),
     [run, setRun] = useState<Run | null>(null);
@@ -442,43 +428,28 @@ export function App() {
     () => !window.matchMedia('(prefers-reduced-motion: reduce)').matches,
   );
   const active = useRef<AbortController | null>(null);
+  const restorePreset = useRef<() => void>(() => {});
   const dirty = !!draft && !!run && JSON.stringify(draft) !== JSON.stringify(run.scenario);
   useEffect(() => {
     const update = () => {
-      if (window.location.search === routeSearch.current) return;
-      routeSearch.current = window.location.search;
       setPage(initialPage());
+      setRouteSearch(window.location.search);
+      restorePreset.current();
     };
     window.addEventListener('popstate', update);
     return () => window.removeEventListener('popstate', update);
   }, []);
   function navigate(next: typeof page) {
+    if (next === page) return;
+    const url = urlForPage(window.location.href, next);
+    window.history.pushState(null, '', url);
+    setRouteSearch(url.search);
     setPage(next);
-    if (browserDemo || next === 'emt' || page === 'emt' || next === 'learn' || page === 'learn') {
-      const url = new URL(window.location.href);
-      if (next !== 'studies') url.searchParams.delete('study');
-      else {
-        url.searchParams.set('study', 'load-step');
-        url.searchParams.delete('preset');
-      }
-      if (next !== 'learn') url.searchParams.delete('lesson');
-      if (next === 'start' || next === 'learn' || next === 'studies')
-        url.searchParams.delete('mode');
-      else
-        url.searchParams.set(
-          'mode',
-          next === 'assurance' ? 'evidence' : next === 'emt' ? 'emt' : 'advanced',
-        );
-      if (next === 'start') url.searchParams.delete('preset');
-      if (next === 'learn' && !url.searchParams.has('lesson'))
-        url.searchParams.set('lesson', 'power-energy');
-      window.history.replaceState(null, '', url);
-      routeSearch.current = window.location.search;
-    }
     window.requestAnimationFrame(() => document.getElementById('workspace-main')?.focus());
   }
   useEffect(() => {
     if (!needsWorkspace || run) return;
+    const requestedPreset = new URLSearchParams(routeSearch).get('preset') || initialPreset;
     const controller = new AbortController();
     active.current = controller;
     setBusy(true);
@@ -486,10 +457,15 @@ export function App() {
       try {
         const [p, d] = await Promise.all([
           request<typeof presets>('presets', controller.signal),
-          request<SiteScenario>(`demo?preset=${initialPreset}`, controller.signal),
+          request<SiteScenario>(
+            `demo?preset=${encodeURIComponent(requestedPreset)}`,
+            controller.signal,
+          ),
         ]);
         const r = await request<Run>('simulations', controller.signal, d);
+        if (controller.signal.aborted) return;
         setPresets(p);
+        setPreset(requestedPreset);
         setDraft(d);
         setRun(r);
         setBusy(false);
@@ -501,7 +477,7 @@ export function App() {
       }
     })();
     return () => controller.abort();
-  }, [needsWorkspace]);
+  }, [needsWorkspace, routeSearch]);
   useEffect(() => {
     if (page !== 'evidence' || catalog) return;
     const controller = new AbortController();
@@ -531,8 +507,13 @@ export function App() {
     nextPreset?: string,
     suppliedScenario?: SiteScenario,
     source: 'import' | 'timeline' = 'import',
+    updateUrl = true,
   ) {
     active.current?.abort();
+    const canApply = () =>
+      updateUrl ||
+      (new URLSearchParams(window.location.search).get('preset') === nextPreset &&
+        !['start', 'learn', 'assurance', 'emt', 'studies'].includes(initialPage()));
     const controller = new AbortController();
     active.current = controller;
     setBusy(true);
@@ -549,16 +530,18 @@ export function App() {
             )
           : draft!);
       const result = await request<Run>('simulations', controller.signal, scenario);
-      if (controller.signal.aborted) return;
+      if (controller.signal.aborted || !canApply()) return;
       setRun(result);
       setDraft(result.scenario);
       setCursor(0);
       setSelected(result.scenario.assets.find((item) => item.kind === 'load')!.id);
       if (nextPreset) {
         setPreset(nextPreset);
-        const url = new URL(window.location.href);
-        url.searchParams.set('preset', nextPreset);
-        window.history.replaceState(null, '', url);
+        if (updateUrl) {
+          const url = new URL(window.location.href);
+          url.searchParams.set('preset', nextPreset);
+          window.history.replaceState(null, '', url);
+        }
       } else if (suppliedScenario) {
         setPreset('');
         setNotice(
@@ -572,11 +555,17 @@ export function App() {
         window.history.replaceState(null, '', url);
       }
     } catch (e) {
-      if (!controller.signal.aborted) setError((e as Error).message);
+      if (!controller.signal.aborted && canApply()) setError((e as Error).message);
     } finally {
       if (!controller.signal.aborted) setBusy(false);
     }
   }
+  restorePreset.current = () => {
+    if (['start', 'learn', 'assurance', 'emt', 'studies'].includes(initialPage())) return;
+    const restored = new URLSearchParams(window.location.search).get('preset');
+    if (restored && restored !== preset && presets.some((item) => item.id === restored))
+      void calculate(restored, undefined, 'import', false);
+  };
   function exportRun() {
     if (!run) return;
     const url = URL.createObjectURL(
@@ -730,6 +719,15 @@ export function App() {
                             ? 'Turn infrastructure questions into transparent engineering experiments.'
                             : 'Configure your facility. Stress the supply. See what keeps running.'}
                 </p>
+                {page === 'start' && (
+                  <a
+                    className="primary start-prediction-link"
+                    href="#guided-prediction"
+                    onClick={() => document.getElementById('guided-prediction')?.focus()}
+                  >
+                    Make a prediction →
+                  </a>
+                )}
               </div>
               {needsWorkspace && page !== 'energy' && (
                 <div className="heading-actions">

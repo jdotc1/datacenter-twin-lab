@@ -95,6 +95,25 @@ const count = (x: unknown, name: string, lo = 0): number => {
 };
 const outcome = (margin: number): string => (margin >= 0 ? 'screen-satisfied' : 'screen-failed');
 
+// Bound roundoff relative to the compared scale; never round physical units.
+const scaledRoundoff = (...values: number[]): number =>
+  8 * Number.EPSILON * Math.max(...values.map(Math.abs));
+const capacityMargin = (available: number, required: number): number => {
+  const margin = available - required;
+  return Math.abs(margin) <= scaledRoundoff(available, required) ? 0 : margin;
+};
+const minimumWithSpare = (required: number, usableUnit: number): number => {
+  const ratio = required / usableUnit;
+  if (!Number.isFinite(ratio))
+    throw new RangeError('Capacity ratio overflow: reduce the input range');
+  const nearest = Math.round(ratio);
+  const adjusted = Math.abs(ratio - nearest) <= scaledRoundoff(ratio, nearest) ? nearest : ratio;
+  const result = Math.ceil(adjusted) + 1;
+  if (!Number.isSafeInteger(result))
+    throw new RangeError('Required unit count exceeds the safe integer range');
+  return result;
+};
+
 const runners: Record<ModelName, Runner> = {
   loadLedger(p) {
     const racks = count(p.racks, 'racks');
@@ -127,19 +146,20 @@ const runners: Record<ModelName, Runner> = {
     if (unavailable > installed) throw new RangeError('unavailable exceeds installed');
     const usableUnitMW = unitMW * derating * loading;
     const availableMW = (installed - unavailable) * usableUnitMW;
+    const marginMW = capacityMargin(availableMW, requiredMW);
     return {
       usableUnitMW,
       availableMW,
-      marginMW: availableMW - requiredMW,
-      minimumNPlusOne: Math.ceil(requiredMW / usableUnitMW) + 1,
-      status: outcome(availableMW - requiredMW),
+      marginMW,
+      minimumNPlusOne: minimumWithSpare(requiredMW, usableUnitMW),
+      status: outcome(marginMW),
     };
   },
   availability(p) {
     const mtbfH = pos(p.mtbfH, 'mtbfH');
     const mttrH = num(p.mttrH, 'mttrH');
     const sharedUnavailability = num(p.sharedUnavailability, 'sharedUnavailability', 0, 1);
-    const q = mttrH / (mtbfH + mttrH);
+    const q = mttrH <= mtbfH ? mttrH / mtbfH / (1 + mttrH / mtbfH) : 1 / (1 + mtbfH / mttrH);
     const independentQ = q * q;
     const combinedQ = sharedUnavailability + (1 - sharedUnavailability) * independentQ;
     return {
@@ -230,14 +250,35 @@ const runners: Record<ModelName, Runner> = {
     const airDensity = pos(p.airDensity, 'airDensity');
     const airCp = pos(p.airCp, 'airCp');
     const airDeltaK = pos(p.airDeltaK, 'airDeltaK');
+    const checkedPositiveProduct = (name: string, ...factors: number[]): number => {
+      let product = 1;
+      for (const factor of factors) {
+        product *= factor;
+        if (!Number.isFinite(product))
+          throw new RangeError(name + ' overflow: reduce the input magnitudes');
+        if (product === 0) throw new RangeError(name + ' underflow: increase the input magnitudes');
+      }
+      return product;
+    };
+    const waterDenominator = checkedPositiveProduct(
+      'Water heat-capacity product',
+      waterCp,
+      waterDeltaK,
+    );
+    const airDenominator = checkedPositiveProduct(
+      'Air heat-capacity product',
+      airDensity,
+      airCp,
+      airDeltaK,
+    );
     const netMW = heatMW - removedMW;
     const liquidKW = rackKW * captureFraction;
     const residualAirKW = rackKW - liquidKW;
     return {
       liquidKW,
       residualAirKW,
-      waterKgS: (liquidKW * 1000) / (waterCp * waterDeltaK),
-      residualAirM3S: (residualAirKW * 1000) / (airDensity * airCp * airDeltaK),
+      waterKgS: (liquidKW * 1000) / waterDenominator,
+      residualAirM3S: (residualAirKW * 1000) / airDenominator,
       temperatureRiseKS: netMW / capacitanceMJK,
       thermalLimitS: netMW > 0 ? (capacitanceMJK * deltaK) / netMW : null,
       status: netMW > 0 ? 'finite-lumped-limit' : 'no-rise-in-lumped-model',
@@ -294,7 +335,7 @@ const runners: Record<ModelName, Runner> = {
     const thermalSeconds = num(p.thermalSeconds, 'thermalSeconds');
     const itMW = num(p.itMW, 'itMW');
     const hours = num(p.hours, 'hours');
-    const pue = pos(p.pue, 'pue');
+    const pue = num(p.pue, 'pue', 1);
     const facilityRelativeUncertainty = num(
       p.facilityRelativeUncertainty,
       'facilityRelativeUncertainty',
@@ -321,13 +362,14 @@ const runners: Record<ModelName, Runner> = {
     if (unavailable > unitsPerSide) throw new RangeError('unavailable exceeds unitsPerSide');
     const availableMVA = (unitsPerSide - unavailable) * unitMVA;
     const fullLoadA = (unitMVA * 1000) / (Math.sqrt(3) * voltageKV);
+    const marginMVA = capacityMargin(availableMVA, demandMVA);
     return {
       availableMVA,
-      marginMVA: availableMVA - demandMVA,
-      minimumNPlusOne: Math.ceil(demandMVA / unitMVA) + 1,
+      marginMVA,
+      minimumNPlusOne: minimumWithSpare(demandMVA, unitMVA),
       fullLoadA,
       incomerMarginA: incomerA - fullLoadA,
-      capacityStatus: outcome(availableMVA - demandMVA),
+      capacityStatus: outcome(marginMVA),
       currentStatus: outcome(incomerA - fullLoadA),
     };
   },
