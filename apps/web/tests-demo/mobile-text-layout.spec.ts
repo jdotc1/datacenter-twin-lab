@@ -1,6 +1,36 @@
 import { expect, test } from '@playwright/test';
 import { courseCatalog } from '../src/curriculum';
 
+test('infrastructure lesson labels wrap at 320px with enlarged text', async ({
+  browser,
+}, testInfo) => {
+  const context = await browser.newContext({
+    viewport: { width: 320, height: 844 },
+    hasTouch: true,
+    isMobile: true,
+    reducedMotion: 'reduce',
+  });
+  const page = await context.newPage();
+  try {
+    await page.goto(`${testInfo.project.use.baseURL}?lesson=evidence-load-ledger`);
+    await expect(page.locator('.infra-lesson-nav')).toBeVisible();
+    // User text sizing and platform font metrics must not force long words outside a button.
+    await page.addStyleTag({ content: 'html { font-size: 200%; }' });
+    const overflow = await page.locator('.infra-lesson-nav button').evaluateAll((buttons) =>
+      buttons.flatMap((button) => {
+        const box = button.getBoundingClientRect();
+        const range = document.createRange();
+        range.selectNodeContents(button);
+        const text = range.getBoundingClientRect();
+        return text.left < box.left || text.right > box.right ? [button.textContent?.trim()] : [];
+      }),
+    );
+    expect(overflow).toEqual([]);
+  } finally {
+    await context.close();
+  }
+});
+
 for (const width of [320, 360, 390, 560, 768, 900, 1440]) {
   test(`touch navigation keeps labels inside separate buttons at ${width}px`, async ({
     browser,
