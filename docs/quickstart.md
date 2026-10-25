@@ -70,6 +70,8 @@ python -m venv .venv
 .\.venv\Scripts\python.exe -m datacenter_twin serve
 ```
 
+If Windows refuses a bundled file during installation because its path is too long, recreate the virtual environment in a shorter working path and reinstall. Deeply nested working folders can make paths inside `site-packages` exceed the system's supported length. Create a new environment there rather than moving an existing one.
+
 macOS / Linux:
 
 ```sh
