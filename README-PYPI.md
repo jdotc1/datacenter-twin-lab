@@ -11,8 +11,15 @@ battery reserves, surviving power paths, shared failures, and recovery. Python
 
 ## Install and run
 
+PyPI publication is pending. Use the published [v2.0.0 GitHub
+wheel](https://github.com/mohammadrezwankhan/datacenter-twin-lab/releases/tag/v2.0.0)
+with its pinned SHA-256 below. Start in a fresh Python 3.12+ environment; the
+[quickstart](https://github.com/mohammadrezwankhan/datacenter-twin-lab/blob/main/docs/quickstart.md#run-the-released-dashboard-python-only)
+provides isolated PowerShell and POSIX instructions. The package-index command
+`pip install datacenter-twin` is not available yet.
+
 ```sh
-python -m pip install datacenter-twin
+python -m pip install "datacenter-twin @ https://github.com/mohammadrezwankhan/datacenter-twin-lab/releases/download/v2.0.0/datacenter_twin-2.0.0-py3-none-any.whl#sha256=274e5a837ebcb2872c0d9bc0a40eb5db7092e9793bb97b075e17e73fa20e9393"
 python -m datacenter_twin simulate --preset generator_failure
 datacenter-twin simulate --preset generator_failure --format html --output failure.html
 datacenter-twin sweep --preset generator_failure --parameter battery_initial_kwh --values 0 50 100 --format markdown
@@ -37,13 +44,14 @@ output path; replacement requires the explicit `--force` flag.
 
 The [free static website](https://khanlab.co.technology/) provides twelve Infrastructure Engineering lessons in addition to twelve power
 continuity lessons, a DC-link RLC lesson, and a power-dynamics research studio.
-The PyPI wheel contains the Python core and resources; it does not bundle the
-website or a shared simulation service.
+The published GitHub wheel also includes the local dashboard. The prepared
+PyPI wheel contains the Python core and resources without the website. No
+shared simulation service is included in either distribution.
 
 Optional converter and network studies use NumPy and SciPy:
 
 ```sh
-python -m pip install "datacenter-twin[studies]"
+python -m pip install "datacenter-twin[studies] @ https://github.com/mohammadrezwankhan/datacenter-twin-lab/releases/download/v2.0.0/datacenter_twin-2.0.0-py3-none-any.whl#sha256=274e5a837ebcb2872c0d9bc0a40eb5db7092e9793bb97b075e17e73fa20e9393"
 python -m datacenter_twin.research --help
 ```
 
