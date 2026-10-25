@@ -112,7 +112,7 @@ test('scene is visible and keyboard operable at desktop, tablet and phone widths
     await expect(scene.locator('svg')).toBeVisible();
     await page.getByRole('button', { name: 'Pause animation', exact: true }).click();
     await expect(page.getByRole('button', { name: 'Resume animation' })).toBeVisible();
-    const battery = scene.getByRole('button', { name: /^UPS battery ·/ });
+    const battery = scene.getByRole('button', { name: /^UPS battery\b/i });
     await battery.focus();
     await battery.press('Enter');
     await expect(scene.getByRole('heading', { name: 'UPS battery', exact: true })).toBeVisible();
