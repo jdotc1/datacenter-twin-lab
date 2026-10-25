@@ -70,7 +70,6 @@ function Selectable({
       className={`lesson-scene-object${selected === id ? ' is-selected' : ''}`}
       role="button"
       tabIndex={0}
-      aria-label={`${title}. ${detail}. Select for details.`}
       aria-pressed={selected === id}
       onClick={() => onSelect(id)}
       onKeyDown={keyDown}

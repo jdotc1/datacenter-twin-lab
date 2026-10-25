@@ -180,7 +180,6 @@ function DesktopCampus({
         role="button"
         tabIndex={0}
         aria-pressed={selected === 'grid'}
-        aria-label={`Utility feed, ${kw(flows.grid)} in this interval, state ${assetState('utility')}. Select for details.`}
         onClick={() => onSelect('grid')}
         onKeyDown={(event) => {
           if (event.key === 'Enter' || event.key === ' ') {
@@ -333,7 +332,6 @@ function DesktopCampus({
         role="button"
         tabIndex={0}
         aria-pressed={selected === 'site'}
-        aria-label={`Server hall and IT load, ${kw(row.served_it_kw)} served of ${kw(row.requested_it_kw)} requested, ${kw(row.unserved_it_kw)} unserved. Select for details.`}
         onClick={() => onSelect('site')}
         onKeyDown={(event) => {
           if (event.key === 'Enter' || event.key === ' ') {
@@ -361,7 +359,6 @@ function DesktopCampus({
         role="button"
         tabIndex={0}
         aria-pressed={selected === 'battery'}
-        aria-label={`UPS battery, ${kw(flows.battery)} discharging, ${kw(flows.charge)} charging, ${kwh(row.battery_end_kwh)} at interval end. Select for details.`}
         onClick={() => onSelect('battery')}
         onKeyDown={(event) => {
           if (event.key === 'Enter' || event.key === ' ') {
@@ -404,7 +401,6 @@ function DesktopCampus({
         role="button"
         tabIndex={0}
         aria-pressed={selected === 'generator'}
-        aria-label={`Standby generator, ${kw(flows.generator)} output this interval, state ${assetState('generator')}. Select for details.`}
         onClick={() => onSelect('generator')}
         onKeyDown={(event) => {
           if (event.key === 'Enter' || event.key === ' ') {
@@ -589,7 +585,6 @@ function MobileCampus({
       <g
         {...choose('grid')}
         className={`power-scene-object source-grid${picked('grid') ? ' is-selected' : ''}`}
-        aria-label={`Utility feed, ${kw(flows.grid)} this interval, state ${state('utility')}. Select for details.`}
       >
         <title>
           Utility feed · {kw(flows.grid)} · {state('utility')}
@@ -654,7 +649,6 @@ function MobileCampus({
       <g
         className={`power-scene-object source-site${picked('site') ? ' is-selected' : ''}`}
         {...choose('site')}
-        aria-label={`Server hall and IT load, ${kw(row.served_it_kw)} served of ${kw(row.requested_it_kw)} requested, ${kw(row.unserved_it_kw)} unserved. Select for details.`}
       >
         <title>
           Server hall · {kw(row.served_it_kw)} served · {kw(row.unserved_it_kw)} unserved
@@ -675,7 +669,6 @@ function MobileCampus({
       <g
         className={`power-scene-object source-battery${picked('battery') ? ' is-selected' : ''}`}
         {...choose('battery')}
-        aria-label={`UPS battery, ${kw(flows.battery)} discharging, ${kw(flows.charge)} charging, ${kwh(row.battery_end_kwh)} at interval end. Select for details.`}
       >
         <title>UPS battery · {kwh(row.battery_end_kwh)} at interval end</title>
         <rect className="power-hit-area" x="277" y="11" width="120" height="133" rx="8" />
@@ -700,7 +693,6 @@ function MobileCampus({
       <g
         className={`power-scene-object source-generator${picked('generator') ? ' is-selected' : ''}`}
         {...choose('generator')}
-        aria-label={`Standby generator, ${kw(flows.generator)} output this interval, state ${state('generator')}. Select for details.`}
       >
         <title>
           Standby generator · {kw(flows.generator)} · {state('generator')}
