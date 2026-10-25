@@ -159,7 +159,7 @@ python -m datacenter_twin sweep --preset generator_failure --parameter battery_i
 
 Choose a new output path if it already exists, or explicitly add `--force`. The preset allows charging; at 50 kWh it gives **478.2675 s elapsed**, rather than the guided lesson's **453.9 s elapsed** with charging disabled. The [sensitivity guide](docs/engineering/sensitivity.md) explains the distinction.
 
-The [quickstart](docs/quickstart.md#run-with-uv) installs the published v1.0.0 wheel with a pinned SHA-256, using uv or Python/pip. It includes the CLI, local dashboard, eighteen presets and research evidence, so no Git or Node setup is needed for that route. A Python 3.12+ source checkout remains available for development and running the full tests. Earlier alpha assets retain their original contents.
+The [quickstart](docs/quickstart.md#run-with-uv) installs the published v2.0.0 GitHub wheel with a pinned SHA-256, using uv or Python/pip. It includes the CLI, local dashboard, 24 course lessons, eighteen presets and research evidence, so no Git or Node setup is needed for that route. The distribution is now named `datacenter-twin`; use a fresh environment when switching from the historical `datacenter-twin-lab` wheels because both provide the same module and CLI. PyPI publication remains pending. A Python 3.12+ source checkout remains available for development and running the full tests. Earlier release assets retain their original contents.
 
 ## Checks and evidence
 
