@@ -11,6 +11,19 @@ battery reserves, surviving power paths, shared failures, and recovery. Python
 
 ## Install and run
 
+PyPI publication is pending. For the latest published GitHub wheel, use the
+[Python quickstart](https://github.com/mohammadrezwankhan/datacenter-twin-lab/blob/main/docs/quickstart.md#run-the-released-dashboard-python-only),
+which records the actual release URL, checksum and fresh-environment commands.
+The package-index command `pip install datacenter-twin` is not available yet.
+
+### Historical v2.0.0 reproduction
+
+The recipe below preserves the original 12 October artifact. It predates the
+odd-record spectrum correction and subsequent packaging/setup fixes. Version
+2.0.1 is a maintenance candidate until its actual release is published; consult
+the quickstart above for the available published package and its scope.
+Historical assets remain unchanged.
+
 PyPI publication is pending. Use the published [v2.0.0 GitHub
 wheel](https://github.com/mohammadrezwankhan/datacenter-twin-lab/releases/tag/v2.0.0)
 with its pinned SHA-256 below. Start in a fresh Python 3.12+ environment; the
@@ -48,7 +61,9 @@ The published GitHub wheel also includes the local dashboard. The prepared
 PyPI wheel contains the Python core and resources without the website. No
 shared simulation service is included in either distribution.
 
-Optional converter and network studies use NumPy and SciPy:
+Optional converter and network studies use NumPy and SciPy. Use the quickstart's
+current wheel with its `studies` extra. The following pinned example is the
+historical v2.0.0 reproduction, with the spectrum limitation described above:
 
 ```sh
 python -m pip install "datacenter-twin[studies] @ https://github.com/mohammadrezwankhan/datacenter-twin-lab/releases/download/v2.0.0/datacenter_twin-2.0.0-py3-none-any.whl#sha256=274e5a837ebcb2872c0d9bc0a40eb5db7092e9793bb97b075e17e73fa20e9393"

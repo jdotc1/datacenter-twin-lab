@@ -1,5 +1,11 @@
 # Release scope and reproducibility
 
+The **2.0.1 maintenance candidate** packages the later odd-record spectrum
+correction, complete current-dashboard inventory checks and Windows first-run
+guidance. See [the patch notes](../releases/v2.0.1.md) and [current evidence](../evidence.md).
+The gates below apply to its exact source and fresh artifacts; a prepared source,
+tag or draft is not a published package. Published v2.0.0 assets remain unchanged.
+
 Version **2.0.0 — Infrastructure Engineering** extends the local teaching and research application to 24 lessons. It retains the canonical 1 MW guide, eighteen presets, four facility profiles, scenario import, demand-timeline editing, sensitivity tools, reports, printable legacy worksheets, EMT and five power-dynamics studies. Twelve infrastructure lessons add bounded educational screens, separate result serialization, original diagrams, 36 assessments and static reading notes. The [owner's publication decision](../releases/v2.0.0-publication-decision.md) covers attribution and educational publication while retaining engineering HOLD.
 
 Version 1.0.0 remains the first full software release, selected on 27 September 2026. Its published assets and historical evidence predate the later EMT, power-dynamics and infrastructure additions and are unchanged.

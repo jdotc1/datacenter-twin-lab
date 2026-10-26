@@ -1,6 +1,13 @@
 # Roadmap
 
-## Current status: v2.0.0 — Infrastructure Engineering
+## Current source: 2.0.1 maintenance candidate
+
+The [2.0.1 patch scope](docs/releases/v2.0.1.md) prepares the later numerical and
+packaging fixes for a separate checked release. It adds no new model or public
+schema. Publication and hosting require their exact-source gates; v2.0.0 remains
+the published historical milestone until actual release proof exists.
+
+## Published milestone: v2.0.0 — Infrastructure Engineering
 
 Version **2.0.0** extends the teaching application with twelve Infrastructure Engineering lessons alongside twelve continuity lessons, one EMT lesson and five power-dynamics studies. The current [Learn catalog](https://khanlab.co.technology/learn/) contains these **30 learning items**; eighteen advanced facility presets are a separate catalog. It does not claim production reliability analysis, site validation, or independent review. Infrastructure content retains its source labels and **Engineering HOLD**. Review the supported release scope in [release readiness](docs/engineering/release-readiness.md) and the [educational publication decision](docs/releases/v2.0.0-publication-decision.md).
 

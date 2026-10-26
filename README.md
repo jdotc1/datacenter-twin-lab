@@ -135,6 +135,11 @@ The guide follows lesson 3's exact scenario recipe: it starts from the reference
 
 ### Reproduce the release evidence packet
 
+Current maintenance source prepares **2.0.1** with the later odd-record spectrum
+correction and clean dashboard packaging. Its [separate evidence index](data/evidence/index-v2.0.1.json)
+and [patch scope](docs/releases/v2.0.1.md) preserve the original release below.
+Consult actual published releases for package availability; a candidate is not a release.
+
 The tracked [release evidence index](data/evidence/index-v2.0.0.json) links the canonical scenario/run JSON, reports, manifest, and receipt. To regenerate and verify the packet from the tagged release source:
 
 ```sh
