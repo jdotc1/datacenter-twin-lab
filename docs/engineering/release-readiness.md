@@ -21,6 +21,8 @@ The release decision does not assert independent external reproduction. That evi
 
 The release page identifies the exact revision and completed checks. Configuration is not proof of a passing run. Keep source, wheel, browser and evidence checksums together; preserve earlier tags and assets.
 
+For a wheel containing the dashboard, retain the current native build in `datacenter_twin/web` when running the distribution verifier. It compares the complete web file inventory and SHA-256 bytes, including files outside the evidence manifest. Build the wheel in a fresh packaging source/build tree: an old setuptools `build/lib` can retain obsolete evidence or hashed assets even after a new dashboard build. A fresh installation environment alone does not establish wheel freshness. Core-only wheels remain valid without `--require-web`, including when a local dashboard build exists; the flag requires the dashboard.
+
 ## Compatibility and support
 
 Version 2.0.0 preserves the existing numerical algorithms, eighteen preset inputs, CLI commands, schema-1 planning and schema-2 electrical contracts. Infrastructure screens use the separate `infrastructure-screen-1` family and do not inherit the legacy Python-verification badge. Engine version and deterministic run identifiers change; scenario input hashes and numerical results remain identical for unchanged inputs. Reopening an older electrical export validates its inputs and calculates a new result; preserve the original export when comparing versions. The owner's product version does not authorize breaking the existing schemas.
