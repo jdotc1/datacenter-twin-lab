@@ -106,12 +106,13 @@ class EngineeringHeroMediaTests(unittest.TestCase):
             (public / name).write_bytes(name.encode())
         (root / 'docs/third-party').mkdir(parents=True)
 
-        evidence = root / 'data/evidence/v2.0.0'
+        version = prepare_browser_demo.__version__
+        evidence = root / f'data/evidence/v{version}'
         evidence.mkdir(parents=True)
         (evidence / 'manifest.json').write_text(json.dumps({
-            'engine_version': '2.0.0', 'artifacts': {},
+            'engine_version': version, 'artifacts': {},
         }))
-        (root / 'data/evidence/index-v2.0.0.json').write_text('{}')
+        (root / f'data/evidence/index-v{version}.json').write_text('{}')
 
     def _make_hero_release_tree(self, release: Path, omit_from_manifest: str | None = None) -> None:
         content = {
